@@ -1,0 +1,5 @@
+Welcome ${pdict.CurrentCustomer.profile.firstName}
+
+Your profile at ${dw.system.Site.current.name} has been registered.
+
+These emails are kept generic, so you can implement acurate links to your headless storefront and brand it your way

@@ -1,0 +1,58 @@
+{
+  "name": "your-shop-here",
+  "version": "1.0.0",
+  "description": "An experimental reference storefront",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection.git"
+  },
+  "keywords": [
+    "ocapi",
+    "rest",
+    "headless",
+    "ecommerce"
+  ],
+  "author": "Holger Nestmann",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection/issues"
+  },
+  "homepage": "https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-subset": "^1.5.0",
+    "cross-zip-cli": "^1.0.0",
+    "mocha": "^8.2.1",
+    "mocha-junit-reporter": "^2.0.0",
+    "node-fetch": "^2.6.1",
+    "npm-run-all": "^4.1.5",
+    "replace-in-files": "^3.0.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "sfcc-ci": "^2.11.0",
+    "shelljs": "^0.8.4",
+    "shx": "^0.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "12.0.0",
+    "eslint-plugin-import": "^1.12.0"
+  },
+  "scripts": {
+    "auth": "sfcc-ci auth:login -D",
+    "auth:unattended": "sfcc-ci client:auth",
+    "data:main-zip": "cd commerce-cloud-data/ && cross-zip -r -q your-shop-here-data.zip your-shop-here-data && shx mv your-shop-here-data.zip ../your-shop-here-data.zip",
+    "data:main-upload": "sfcc-ci instance:upload your-shop-here-data.zip",
+    "data:main-import": "sfcc-ci instance:import your-shop-here-data.zip -s",
+    "data:testdata-rebuilddata": "sfcc-ci job:run AfterDeploy -s",
+    "code:zip": "shx mkdir -p version1 && shx cp -R commerce-cloud-code/* version1 && cross-zip -r -q version1.zip version1 && shx rm -r version1",
+    "code:upload": "sfcc-ci code:deploy ./version1.zip ",
+    "code:activate": "sfcc-ci code:activate version1",
+    "develop:switchcode": "sfcc-ci code:activate version2 && sfcc-ci code:activate version1",
+    "test:integration": "mocha test/integration/scapi/07*.js",
+    "cleanup": "shx rm -f site_template.zip && shx rm -f test-site.zip && shx rm -f version1.zip",
+    "lint:js": "eslint .",
+    "config:generate:environment": "node build/generateDWJson.js",
+    "all": "npm-run-all auth data:* code:* cleanup"
+  }
+}

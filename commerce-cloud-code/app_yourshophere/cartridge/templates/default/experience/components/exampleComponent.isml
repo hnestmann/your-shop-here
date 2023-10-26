@@ -1,0 +1,2 @@
+<img src="${pdict.image}" width="100"/>
+<div><isprint value="${pdict.text}" encoding="off"></div>

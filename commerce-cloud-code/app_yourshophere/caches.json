@@ -1,0 +1,8 @@
+{
+    "caches": [
+        {
+            "id": "Product",
+            "expireAfterSeconds": 86400
+        }
+    ]
+}

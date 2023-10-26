@@ -1,0 +1,8 @@
+{
+    "client-id": "11111111-1111-1111-1111-11111111111111",
+    "client-secret": "******",
+    "username": "john@d.oe",
+    "password": "*******",
+    "version": "version1",
+    "hostname": "sandbox.dx.commercecloud.salesforce.com"
+} 

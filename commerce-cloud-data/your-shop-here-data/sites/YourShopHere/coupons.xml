@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coupons xmlns="http://www.demandware.com/xml/impex/coupon/2008-06-17">
+    <coupon coupon-id="coupon-test">
+        <enabled-flag>true</enabled-flag>
+        <case-insensitive>true</case-insensitive>
+        <redemption-limits>
+            <allow-multiple-codes-per-order>false</allow-multiple-codes-per-order>
+        </redemption-limits>
+        <single-code>coupon-test</single-code>
+    </coupon>
+
+</coupons>

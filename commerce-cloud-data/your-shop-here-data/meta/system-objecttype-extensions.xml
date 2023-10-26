@@ -1,0 +1,1459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+
+    <type-extension type-id="Product">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="yshAvailableForInStorePickup">
+                <display-name xml:lang="x-default">Available for In Store Pickup</display-name>
+                <description xml:lang="x-default">Signals if there are inventory lists for brick-and-mortar stores associated with this product.</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshBatteryLife">
+                <display-name xml:lang="x-default">Battery Life</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshBatteryType">
+                <display-name xml:lang="x-default">Battery Type</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshBootType">
+                <display-name xml:lang="x-default">Boot Type</display-name>
+                <description xml:lang="x-default">Type of Boot for search refinement.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Winter</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Waterproof</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Classic</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Ankle &amp; Mid</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Tall</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">6"</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Casual</display>
+                        <value>0070</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshBottomType">
+                <display-name xml:lang="x-default">Bottom Type</display-name>
+                <description xml:lang="x-default">Bottom type for search refinement</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Khakis</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Denim</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Dress</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Casual</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Shorts</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Work</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Cargo</display>
+                        <value>0070</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Fleece</display>
+                        <value>0080</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshColor">
+                <display-name xml:lang="x-default">Color</display-name>
+                <description xml:lang="x-default">Product color used for variation attribute</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshConsoleWarranty">
+                <display-name xml:lang="x-default">Extended Warranty</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshCustomCSSFile">
+                <display-name xml:lang="x-default">Custom CSS File</display-name>
+                <description xml:lang="x-default">Use this attribute to apply custom styles for this product.</description>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDigitalCameraFeatures">
+                <display-name xml:lang="x-default">Digital Camera Features</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Built In Flash</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">HD Video</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">GPS Geo Tagging</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Variable Self Timer</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Image Optimizer</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Stop Motion Video</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Self Cleaning</display>
+                        <value>0070</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pro Performance</display>
+                        <value>0080</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">51 Area Autofocus</display>
+                        <value>0090</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Super Fast Startup</display>
+                        <value>0100</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Easy to Learn</display>
+                        <value>0110</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wide Angle Optical Zoom</display>
+                        <value>0120</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Manual Controls</display>
+                        <value>0130</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wired LAN</display>
+                        <value>0140</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">GPS Enabled</display>
+                        <value>0150</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">In Camera Red Eye Reduction</display>
+                        <value>0160</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Large LCD</display>
+                        <value>0170</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Optical Zoom</display>
+                        <value>0180</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Anti-Shake</display>
+                        <value>0190</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Touch Screen</display>
+                        <value>0200</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Image Stabilization</display>
+                        <value>0210</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Fast Shutter</display>
+                        <value>0220</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Slim</display>
+                        <value>0230</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">35mm Full Frame Sensor</display>
+                        <value>0240</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wide Angle|Continuous Shooting</display>
+                        <value>0250</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Continuous Shooting</display>
+                        <value>0260</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">ISO 1600</display>
+                        <value>0270</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Red Eye Reduction</display>
+                        <value>0280</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDigitalCameraPixels">
+                <display-name xml:lang="x-default">Digital Camera Pixels</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDigitalCameraType">
+                <display-name xml:lang="x-default">Digital Camera Type</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDigitalCameraWarranty">
+                <display-name xml:lang="x-default">Extended Warranty</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDimDepth">
+                <display-name xml:lang="x-default">Depth</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDimHeight">
+                <display-name xml:lang="x-default">Height</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDimWeight">
+                <display-name xml:lang="x-default">Weight</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDimWidth">
+                <display-name xml:lang="x-default">Width</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshDisplaySize">
+                <display-name xml:lang="x-default">Display Size</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshGameGenre">
+                <display-name xml:lang="x-default">Genre</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Action</display>
+                        <value>Action</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Educational</display>
+                        <value>Educational</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Kids</display>
+                        <value>Kids</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Racing</display>
+                        <value>Racing</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Role-Playing</display>
+                        <value>Role-Playing</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Sports</display>
+                        <value>Sports</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Strategy</display>
+                        <value>Strategy</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshGameRating">
+                <display-name xml:lang="x-default">Game Rating</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshGameSystemType">
+                <display-name xml:lang="x-default">Gaming System</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshGpsFeatures">
+                <display-name xml:lang="x-default">GPS Features</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Preloaded</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Voice Prompts</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">3D</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Touch Screen</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">FM Traffic</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MSN Direct</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MP3 Player</display>
+                        <value>0070</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Picture Viewer</display>
+                        <value>0080</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Bluetooth®</display>
+                        <value>0090</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Speech Recognition</display>
+                        <value>0100</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">XM Navtraffic</display>
+                        <value>0110</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Waterproof</display>
+                        <value>0120</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Motorcycle Ready</display>
+                        <value>0130</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Lunar Tracking</display>
+                        <value>0140</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrist Wear</display>
+                        <value>0150</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Barometer</display>
+                        <value>0160</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Compass</display>
+                        <value>0170</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Geocaching</display>
+                        <value>0180</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Jeppesen Enabled</display>
+                        <value>0190</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Built-in HIS</display>
+                        <value>0200</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Auto Logbook</display>
+                        <value>0210</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Automotive Friendly</display>
+                        <value>0230</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshGpsType">
+                <display-name xml:lang="x-default">GPS Type</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Automotive</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Personal</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Outdoor</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Aviation</display>
+                        <value>0040</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshGpsWarranty">
+                <display-name xml:lang="x-default">Extended Warranty</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshImageAspectRatio">
+                <display-name xml:lang="x-default">Image Aspect Ratio</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshIsNew">
+                <display-name xml:lang="x-default">New Arrival?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshIsNewtest">
+                <display-name xml:lang="x-default">New Arrival?</display-name>
+                <description xml:lang="x-default">This indiciates if the product is a new arrival.</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshIsSale">
+                <display-name xml:lang="x-default">On sale?</display-name>
+                <description xml:lang="x-default">This is the help text. It is used for sorting rules.</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshKidsAge">
+                <display-name xml:lang="x-default">Age</display-name>
+                <description xml:lang="x-default">Kids Age used for search refinements</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Infant (0-1 yr)</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Toddler (1-5 yrs)</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Youth (5-9 yrs)</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Junior (9-12 yrs)</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Newborn (1-6 mths)</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Infant (9 mnths - 3 yrs)</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Junior (4-12 yrs)</display>
+                        <value>0070</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshLength">
+                <display-name xml:lang="x-default">Length</display-name>
+                <description xml:lang="x-default">This attribute is used for mens and womens pants lengths.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshLensAperture">
+                <display-name xml:lang="x-default">Lens Aperture</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshMaterialTest">
+                <display-name xml:lang="x-default">Material</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Cotton</display>
+                        <value>cotton</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wool</display>
+                        <value>wool</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Polyester</display>
+                        <value>polyester</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshMediaFormat">
+                <display-name xml:lang="x-default">Media Format</display-name>
+                <description xml:lang="x-default">Media Format</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">MP3</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WMA</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">JPEG</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WAV</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">FM Tuner</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">AAC</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WMP</display>
+                        <value>0070</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MPEG4</display>
+                        <value>0080</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">AVC</display>
+                        <value>0090</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">ASP</display>
+                        <value>0100</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshMemorySize">
+                <display-name xml:lang="x-default">Memory Size</display-name>
+                <description xml:lang="x-default">Memory Size</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshMemoryType">
+                <display-name xml:lang="x-default">Memory Type</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">SD</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Memory Stick Pro DUO</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Compact Flash</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MMC</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">SDHC</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CF Card</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">External Media</display>
+                        <value>0070</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Micro SD</display>
+                        <value>0080</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Garmin Data Card</display>
+                        <value>0090</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshMusicStorage">
+                <display-name xml:lang="x-default">Music Storage</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshOpticalZoom">
+                <display-name xml:lang="x-default">Optical Zoom</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshOuterwearType">
+                <display-name xml:lang="x-default">Outerwear Type</display-name>
+                <description xml:lang="x-default">Type of Outerwear for search refinement</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Waterproof</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Jackets</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Vest</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pants</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Casual</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Sweater</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Outdoor</display>
+                        <value>0070</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Fleece</display>
+                        <value>0080</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshPortableAudioType">
+                <display-name xml:lang="x-default">Portable Audio Type</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Audio</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Video</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Internet</display>
+                        <value>0030</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshRefinementColor">
+                <display-name xml:lang="x-default">Refinement Color</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Black</display>
+                        <value>black</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Blue</display>
+                        <value>blue</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Green</display>
+                        <value>green</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Red</display>
+                        <value>red</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Orange</display>
+                        <value>orange</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pink</display>
+                        <value>pink</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Purple</display>
+                        <value>purple</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">White</display>
+                        <value>white</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Yellow</display>
+                        <value>yellow</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Grey</display>
+                        <value>grey</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Beige</display>
+                        <value>beige</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Miscellaneous</display>
+                        <value>miscellaneous</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Brown</display>
+                        <value>brown</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Navy</display>
+                        <value>navy</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshResolution">
+                <display-name xml:lang="x-default">Resolution</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshSandalType">
+                <display-name xml:lang="x-default">Sandal Type</display-name>
+                <description xml:lang="x-default">Type of Sandal for search refinement</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Sport</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Casual</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Thong</display>
+                        <value>0030</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshSheets">
+                <display-name xml:lang="x-default">Sheets</display-name>
+                <description xml:lang="x-default">test attribute</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Value 1</display>
+                        <value>value1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Value 2</display>
+                        <value>value2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Value 3</display>
+                        <value>value3</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshShoeType">
+                <display-name xml:lang="x-default">Shoe Type</display-name>
+                <description xml:lang="x-default">Type of Shoe for search refinements</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Chukka</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Lace Up</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Slip On</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Clog</display>
+                        <value>0040</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Boat</display>
+                        <value>0050</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Oxford</display>
+                        <value>0060</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Loafer</display>
+                        <value>0070</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Waterproof</display>
+                        <value>0080</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Flats</display>
+                        <value>0090</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Ballerina</display>
+                        <value>0100</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Heeled</display>
+                        <value>0110</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshSize">
+                <display-name xml:lang="x-default">Size</display-name>
+                <description xml:lang="x-default">This attribute is used for all footwear, apparel and accessory sizing for men, women and kids products.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshSkinConcern">
+                <display-name xml:lang="x-default">Skin Concern</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Dry, Tight Skin</display>
+                        <value>dryTight</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Comprehensive Protection</display>
+                        <value>comprehensive</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Lifting &amp; Loss of Firmness</display>
+                        <value>liftingLossFirm</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshStyleNumber">
+                <display-name xml:lang="x-default">Style Number</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+                <unit xml:lang="x-default">10</unit>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTabDescription">
+                <display-name xml:lang="x-default">Description</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTabDetails">
+                <display-name xml:lang="x-default">Details</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTest">
+                <display-name xml:lang="x-default">test</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTopType">
+                <display-name xml:lang="x-default">Top Type</display-name>
+                <description xml:lang="x-default">Type of tops in clothing</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTvSignalFormat">
+                <display-name xml:lang="x-default">TV Signal Format</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTvSize">
+                <display-name xml:lang="x-default">Size</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTvType">
+                <display-name xml:lang="x-default">TV Type</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Plasma</display>
+                        <value>0010</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">LCD</display>
+                        <value>0020</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">DLP</display>
+                        <value>0030</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Projection</display>
+                        <value>0040</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshTvWarranty">
+                <display-name xml:lang="x-default">Extended Warranty</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshVideoStorage">
+                <display-name xml:lang="x-default">Video Storage</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshWaist">
+                <display-name xml:lang="x-default">Waist</display-name>
+                <description xml:lang="x-default">Attribute used for apparel waist sizing.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshWidth">
+                <display-name xml:lang="x-default">Width</display-name>
+                <description xml:lang="x-default">This attribute is used for shoe widths for mens, womens and kids.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions> 
+            <attribute-group group-id="YourShopHere">
+                <display-name xml:lang="x-default">Your Shop Here Attributes</display-name>
+                <attribute attribute-id="yshDimWidth"/>
+                <attribute attribute-id="yshSkinConcern"/>
+                <attribute attribute-id="yshTest"/>
+                <attribute attribute-id="yshDigitalCameraPixels"/>
+                <attribute attribute-id="yshSandalType"/>
+                <attribute attribute-id="yshDimHeight"/>
+                <attribute attribute-id="yshSize"/>
+                <attribute attribute-id="yshConsoleWarranty"/>
+                <attribute attribute-id="yshOuterwearType"/>
+                <attribute attribute-id="yshGameRating"/>
+                <attribute attribute-id="yshMaterialTest"/>
+                <attribute attribute-id="yshTopType"/>
+                <attribute attribute-id="yshAvailableForInStorePickup"/>
+                <attribute attribute-id="yshColor"/>
+                <attribute attribute-id="yshSheets"/>
+                <attribute attribute-id="yshBatteryLife"/>
+                <attribute attribute-id="yshDigitalCameraFeatures"/>
+                <attribute attribute-id="yshGpsFeatures"/>
+                <attribute attribute-id="yshIsNew"/>
+                <attribute attribute-id="yshIsSale"/>
+                <attribute attribute-id="yshVideoStorage"/>
+                <attribute attribute-id="yshMemoryType"/>
+                <attribute attribute-id="yshImageAspectRatio"/>
+                <attribute attribute-id="yshTvSignalFormat"/>
+                <attribute attribute-id="yshPortableAudioType"/>
+                <attribute attribute-id="yshTabDetails"/>
+                <attribute attribute-id="yshGpsType"/>
+                <attribute attribute-id="yshShoeType"/>
+                <attribute attribute-id="yshMusicStorage"/>
+                <attribute attribute-id="yshBootType"/>
+                <attribute attribute-id="yshIsNewtest"/>
+                <attribute attribute-id="yshWaist"/>
+                <attribute attribute-id="yshDigitalCameraWarranty"/>
+                <attribute attribute-id="yshLength"/>
+                <attribute attribute-id="yshLensAperture"/>
+                <attribute attribute-id="yshTvSize"/>
+                <attribute attribute-id="yshBottomType"/>
+                <attribute attribute-id="yshCustomCSSFile"/>
+                <attribute attribute-id="yshDisplaySize"/>
+                <attribute attribute-id="yshTvWarranty"/>
+                <attribute attribute-id="yshTabDescription"/>
+                <attribute attribute-id="yshGpsWarranty"/>
+                <attribute attribute-id="yshWidth"/>
+                <attribute attribute-id="yshMediaFormat"/>
+                <attribute attribute-id="yshGameGenre"/>
+                <attribute attribute-id="yshBatteryType"/>
+                <attribute attribute-id="yshKidsAge"/>
+                <attribute attribute-id="yshRefinementColor"/>
+                <attribute attribute-id="yshResolution"/>
+                <attribute attribute-id="yshDimDepth"/>
+                <attribute attribute-id="yshOpticalZoom"/>
+                <attribute attribute-id="yshTvType"/>
+                <attribute attribute-id="yshDigitalCameraType"/>
+                <attribute attribute-id="yshMemorySize"/>
+                <attribute attribute-id="yshGameSystemType"/>
+                <attribute attribute-id="yshDimWeight"/>
+                <attribute attribute-id="yshStyleNumber"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="Category">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="yshAlternativeUrl">
+                <display-name xml:lang="x-default">Alternative URL</display-name>
+                <description xml:lang="x-default">Renders an alternative URL in main navigation. Uses Salesforce Commerce Cloud content url notation. For example: $url('Account-Show')$ or normal URL http://xchange.demandware.com</description>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>0</field-length>
+                <field-height>2</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshEnableCompare">
+                <display-name xml:lang="x-default">Enable Compare</display-name>
+                <description xml:lang="x-default">Used to define if/when the Compare feature is to be visualized in the storefront based on navigation. If enableCompare = FALSE, no Compare checkboxes will be displayed in the grid view. If enableCompare = TRUE, the category (and its children) will support the Compare feature.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshShowInMenu">
+                <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
+                <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshSizeChartID">
+                <display-name xml:lang="x-default">Size Chart</display-name>
+                <description xml:lang="x-default">Used to define the content asset ID of the Size Chart that is appropriate for products whose PRIMARY category is the associated category (and its children). Whenever a product detail page (or quick view) is rendered, the Size Chart link is populated based on the value of this attribute for the products primary categorization. If not defined, NO size chart link is displayed.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom</display-name>
+                <attribute attribute-id="sizeChartID"/>
+                <attribute attribute-id="showInMenu"/>
+                <attribute attribute-id="enableCompare"/>
+                <attribute attribute-id="catBannerID"/>
+                <attribute attribute-id="headerMenuOrientation"/>
+                <attribute attribute-id="headerMenuBanner"/>
+                <attribute attribute-id="alternativeUrl"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+</metadata>

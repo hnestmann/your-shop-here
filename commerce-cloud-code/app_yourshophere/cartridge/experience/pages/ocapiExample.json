@@ -1,0 +1,17 @@
+{
+  "name": "Ocapi Example",
+  "description": "Simple Page to show off JSON version",
+  "attribute_definition_groups": [],
+  "region_definitions": [
+    {
+      "id": "left",
+      "name": "Left region",
+      "component_type_exclusions": []
+    },
+    {
+      "id": "right",
+      "name": "Right region",
+      "component_type_exclusions": []
+    }
+  ]
+}
