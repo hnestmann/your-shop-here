@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<url-rules xmlns="http://www.demandware.com/xml/impex/urlrules/2012-12-01">
+    <general-settings>
+        <lower-case-urls>false</lower-case-urls>
+        <blank-substitute>%20</blank-substitute>
+        <character-replacements-enabled>false</character-replacements-enabled>
+        <character-replacements-for-page-url-enabled>true</character-replacements-for-page-url-enabled>
+    </general-settings>
+    <locale-settings>
+        <type>path</type>
+        <locale-mappings>
+            <locale-mapping xml:lang="de-DE">de</locale-mapping>
+            <locale-mapping xml:lang="en-IE">en</locale-mapping>
+        </locale-mappings>
+    </locale-settings>
+    <category-rule>[ category-path, [ attribute, displayName ], / ]</category-rule>
+    <category-page-url-override>false</category-page-url-override>
+    <category-trailing-slash>false</category-trailing-slash>
+    <category-offline-url-generation>true</category-offline-url-generation>
+    <category-search-refinement-url-enabled>true</category-search-refinement-url-enabled>
+    <category-search-refinements xml:lang="x-default">
+        <url-search-refinements>
+            <search-refinement-name>brand</search-refinement-name>
+        </url-search-refinements>
+    </category-search-refinements>
+    <product-rule>[ category ]</product-rule>
+    <product-page-url-override>false</product-page-url-override>
+    <product-id-separator>/</product-id-separator>
+    <folder-rule>[ attribute, ID ]</folder-rule>
+    <folder-page-url-override>false</folder-page-url-override>
+    <folder-trailing-slash>false</folder-trailing-slash>
+    <folder-offline-url-generation>true</folder-offline-url-generation>
+    <folder-search-refinement-url-enabled>false</folder-search-refinement-url-enabled>
+    <content-rule/>
+    <content-page-url-override>false</content-page-url-override>
+    <content-id-separator>/</content-id-separator>
+    <pipeline-trailing-slash>false</pipeline-trailing-slash>
+    <pipeline-perform-redirect>false</pipeline-perform-redirect>
+    <search-refinement-url-settings>
+        <position>after</position>
+        <segment-delimiter>slash</segment-delimiter>
+        <refinements-delimiter>minus</refinements-delimiter>
+        <value-delimiter>underscore</value-delimiter>
+        <conflicting-value-delimiter>blank</conflicting-value-delimiter>
+        <exclude-pipeline-alias-type>none</exclude-pipeline-alias-type>
+        <product-name-identifier>prefn</product-name-identifier>
+        <product-value-identifier>prefv</product-value-identifier>
+        <content-name-identifier>crefn</content-name-identifier>
+        <content-value-identifier>crefv</content-value-identifier>
+    </search-refinement-url-settings>
+</url-rules>
+

@@ -1,0 +1,16 @@
+{
+    "name": "Category Listing page",
+    "description": "A Category Landing page.",
+    "attribute_definitions": [
+        {
+            "id": "category",
+            "name": "Category",
+            "description": "The category to show the category Listing page for.",
+            "type": "category",
+            "required": true
+        }
+    ],
+    "supported_object_types": [
+        "category"
+    ]
+}

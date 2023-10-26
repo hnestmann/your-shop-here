@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences xmlns="http://www.demandware.com/xml/impex/preferences/2007-03-31">
+    <standard-preferences>
+        <all-instances>
+            <preference preference-id="SiteCatalog">your-shop-here-navigation-catalog</preference>
+            <preference preference-id="SiteCurrencies">EUR:USD</preference>
+            <preference preference-id="SiteCustomerList">your-shop-here-customers</preference>
+            <preference preference-id="SiteDefaultLocale">en_IE</preference>
+            <preference preference-id="SiteInventoryList">"your-shop-here-inventory</preference>
+            <preference preference-id="SiteLocales">default:en_IE:de_DE</preference>
+            <preference preference-id="SitePriceBooks">ocapi-pricebook:ocapi-sales-pricebook</preference>
+            <preference preference-id="StorefrontURLsEnabled">true</preference>
+            <preference preference-id="SearchFriendlyURLsEnabled">true</preference>
+        </all-instances>
+    </standard-preferences>
+</preferences>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- this is the key to get the geo ip up and running --> 
+<customer-cdn-settings xmlns="http://www.demandware.com/xml/impex/customercdnsettings/2015-06-30">
+    <client-ip-header-name>ocapi-x-forwarded-for</client-ip-header-name>
+    <http-static-cdn-root/>
+    <https-static-cdn-root/>
+    <http-dis-cdn-root/>
+    <https-dis-cdn-root/>
+</customer-cdn-settings>

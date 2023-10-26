@@ -1,0 +1,3 @@
+Thank you for ordering with us. Your order number is ${pdict.Order.orderNo}
+
+These emails are kept generic, so you can implement acurate links to your headless storefront and brand it your way

@@ -1,0 +1,18 @@
+<html>
+<head><title>OCAPI Example</title></head>
+<body style="padding: 0 20%; font-family: sans-serif">
+    <h1>OCAPI Example Page</h1>
+    <p>This is not a preview your headless storefront will render it differently</p>
+    <table style="width:100%">
+        <tr>
+            <td>
+                <isprint value="${pdict.regions.left.setClassName("left").render()}" encoding="off" />
+            </td>
+            <td>
+                <isprint value="${pdict.regions.right.setClassName("right").render()}" encoding="off" />
+            </td>
+        </tr>
+    </table>
+    <!-- iframe headless preview here? -->
+    </body>
+</html>

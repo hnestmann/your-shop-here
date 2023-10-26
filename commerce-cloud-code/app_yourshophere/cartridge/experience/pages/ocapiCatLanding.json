@@ -1,0 +1,37 @@
+{
+  "name": "Ocapi Category Landing",
+  "description": "Simple Page to show off OCAPI cat landing",
+  "attribute_definition_groups": [
+    {
+      "id": "categoryLanding",
+      "name": "Settings",
+      "description": "Category Landing Settings",
+      "attribute_definitions": [
+        {
+          "id": "category",
+          "name": "Category",
+          "type": "category",
+          "required": true,
+          "dynamic_lookup": {
+            "aspect_attribute_alias": "category"
+          }
+        }
+      ]
+    }
+  ],
+  "region_definitions": [
+    {
+      "id": "left",
+      "name": "Left region",
+      "component_type_exclusions": []
+    },
+    {
+      "id": "right",
+      "name": "Right region",
+      "component_type_exclusions": []
+    }
+  ],
+  "supported_aspect_types": [
+    "landing"
+  ]
+}
