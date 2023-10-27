@@ -1,0 +1,20 @@
+{
+    "name":"Main Theme",
+    "description":"The main theme - including the skin of the page and decorating items",
+    "region_definitions":[
+      {
+        "id":"skin",
+        "name":"General Skin Settings",
+        "max_components": 1
+      },
+      {
+        "id":"header",
+        "name":"The Header including the main menu",
+        "max_components": 1
+      },
+      {
+        "id":"footer",
+        "name":"The Footer"
+      }
+    ]
+}

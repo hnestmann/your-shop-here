@@ -1,0 +1,26 @@
+
+<isset name="product" value="${pdict.product}" scope="page" />
+
+<isif condition="${pdict.display.shortOrLongDescription == 'Short_Description'}">
+    <isset name="productDescription" value="${product.shortDescription}" scope="page" />
+<iselse>
+    <isset name="productDescription" value="${product.longDescription}" scope="page" />
+</isif>
+
+<isif condition="${productDescription}">
+<div class="description-and-detail">
+        <isif condition="${pdict.display.descriptionTitle != null && pdict.display.descriptionTitle != ''}">
+            <div class="col-sm-12 col-md-4 col-lg-3">
+                <button class="title btn text-left btn-block d-sm-none"
+                        aria-expanded="false" aria-controls="collapsible-description-${loopState && loopState.count ? loopState.count : '1' }" >
+                    ${pdict.display.descriptionTitle}
+                </button>
+                <h2 class="title d-none d-sm-block">${pdict.display.descriptionTitle}</h2>
+            </div>
+        </isif>
+       <div class="row description collapsible-xs ${!pdict.display.divExpandedOrCompress?'hidden-xl-down':''}">
+             <isprint value="${productDescription}" encoding="off" />  
+      </div>
+</div>        
+</isif>
+

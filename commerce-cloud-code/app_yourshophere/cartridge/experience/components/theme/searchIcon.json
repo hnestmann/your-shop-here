@@ -1,0 +1,56 @@
+{
+    "name": "Search Icon (Single Line Header)",
+    "description": "Opens a search box in a modal",
+    "group": "theming",
+    "attribute_definition_groups": [
+        {
+            "id": "Icon",
+            "name": "Icon",
+            "description": "Icon",
+            "attribute_definitions": [
+                {
+                    "id": "icon",
+                    "name": "Icon",
+                    "description": "SVG is recommended as it follows the style guides",
+                    "type": "image",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "Colors",
+            "attribute_definitions": [
+                {
+                    "id": "color",
+                    "name": "Background color",
+                    "description": "Background color",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "brightness",
+                    "name": "Brightness",
+                    "type": "enum",
+                    "default_value": 70,
+                    "values": [
+                        10,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80,
+                        90,
+                        100
+                    ],
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

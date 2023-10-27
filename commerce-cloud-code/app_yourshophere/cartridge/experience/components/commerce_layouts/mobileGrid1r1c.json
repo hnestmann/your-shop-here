@@ -1,0 +1,35 @@
+{
+    "name": "1 Row x 1 Col (Mobile, Desktop)",
+    "description": "This is a layout component of 1 row by 1 column for mobile and desktop/tablet.",
+    "group": "commerce_layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "additionalStyling",
+            "name": "Additional Styling",
+            "attribute_definitions": [
+                {
+                    "id": "noGutters",
+                    "name": "No Gutters",
+                    "description": "Adds  no gutters class",
+                    "type": "enum",
+                    "values": ["False", "True"],
+                    "required": false
+                },
+                {
+                    "id": "addStyleClassName",
+                    "name": "add style Class Name",
+                    "description": "add style Class Name",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id":"column1",
+            "name":"Column 1",
+            "component_type_exclusions": []
+        }
+    ]
+}

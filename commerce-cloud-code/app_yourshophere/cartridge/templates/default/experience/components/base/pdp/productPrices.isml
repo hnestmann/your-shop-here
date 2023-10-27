@@ -1,0 +1,12 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+<div class="prices-add-to-cart-actions">
+        <div class="row">
+            <div class="col-12">
+                <!-- Prices -->
+                <div class="prices">
+                    <isset name="price" value="${product.price}" scope="page" />
+                    <isinclude template="product/components/pricing/main" />
+                </div>
+            </div>
+        </div>
+</div>

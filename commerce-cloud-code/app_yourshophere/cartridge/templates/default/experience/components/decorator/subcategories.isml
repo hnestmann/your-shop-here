@@ -1,0 +1,15 @@
+<ul class="${pdict.levelClass}">
+    <isloop items="${pdict.categories}" var="category">
+        <isif condition="${category.subCategories}">
+            <li class="nav-item" role="presentation">
+                <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link level1 dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">${category.name}</a>
+                <isset name="menuItem" value="${category}" scope="page" />
+                <isinclude template="components/header/megaMenuItem" />
+            </li>
+        <iselse/>
+            <li class="nav-item" role="presentation">
+                <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link level1" role="link" tabindex="0">${category.name}</a>
+            </li>
+        </isif>
+    </isloop>
+</ul>

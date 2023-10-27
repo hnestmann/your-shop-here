@@ -1,0 +1,26 @@
+<div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown d-none d-md-block" id="sg-navbar-collapse">
+    <div class="container menuscrollarea">
+        <div class="row">
+            <nav class="navbar navbar-expand-md bg-inverse col-12">
+                <div class="close-menu clearfix d-lg-none">
+                    <div class="back pull-left">
+                        <button role="button" aria-label="${Resource.msg('label.header.menu.back', 'common', null)}">
+                            <span class="caret-left"></span>
+                            ${Resource.msg('link.header.menu.back', 'common', null)}
+                        </button>
+                    </div>
+                    <div class="close-button pull-right">
+                        <button role="button" aria-label="${Resource.msg('label.header.menu.close', 'common', null)}">
+                            ${Resource.msg('link.header.menu.close', 'common', null)}
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-group">
+                    <isprint value="${dw.experience.PageMgr.renderPage(pdict.content.menuPageID, JSON.stringify(pdict.params))}" encoding="off" /> 
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

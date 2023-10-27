@@ -1,0 +1,3 @@
+<div class="mobile-1r-1c">
+    <div class="row mx-n2" style="background-color: ${(pdict.color ? pdict.color.value : 'none') + ';'} height: ${pdict.height || 'auto'}"></div>
+</div>

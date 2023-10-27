@@ -1,0 +1,4 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+<div class="prices-add-to-cart-actions">
+        <isinclude template="product/components/addToCartProduct" />
+</div>

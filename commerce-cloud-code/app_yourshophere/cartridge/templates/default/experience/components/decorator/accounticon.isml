@@ -1,0 +1,12 @@
+<span class="popover-source" data-popover-target="${'#'}accountmenu">
+    <a href="${URLUtils.url('Account-Show')}" class="account-icon header-svg-icon">
+        <isif condition="${pdict.type === 'SVG'}">
+            <isprint value="${pdict.content}" encoding="off">
+        <iselse>
+            <img src="${pdict.content}"/>
+        </isif>
+    </a>
+    <span id="accountmenu" class="popover-target">
+        <isinclude url="${URLUtils.url('SingleLineHeader-Account')}" />
+    </span>
+</span>

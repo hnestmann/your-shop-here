@@ -1,0 +1,15 @@
+{
+    "name": "Product Add To Cart",
+    "description": "This is the product add to cart component.",
+    "group": "more_pd_pdp",
+    "attribute_definition_groups": [
+        {
+            "id": "productAddToCartSettings",
+            "name": "Settings",
+            "description": "Display settings",
+            "attribute_definitions": []
+         
+        }
+    ],
+    "region_definitions": []
+}

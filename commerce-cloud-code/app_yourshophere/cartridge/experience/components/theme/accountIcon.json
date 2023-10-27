@@ -1,0 +1,22 @@
+{
+    "name": "Account Icon (Single Line Header)",
+    "description": "Opens my account or login",
+    "group": "theming",
+    "attribute_definition_groups": [
+        {
+            "id": "Icon",
+            "name": "Icon",
+            "description": "Icon",
+            "attribute_definitions": [
+                {
+                    "id": "icon",
+                    "name": "Icon",
+                    "description": "SVG is recommended as it follows the style guides",
+                    "type": "image",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

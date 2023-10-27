@@ -1,0 +1,36 @@
+{
+  "name": "Divider",
+  "group": "more_pd",
+  "attribute_definition_groups": [
+    {
+      "id": "Look",
+      "attribute_definitions": [
+        {
+            "id": "color",
+            "name": "Divider color",
+            "description": "The Divider color",
+            "type": "custom",
+            "required": false,
+            "editor_definition": {
+                "type": "themer.colorpicker"
+            }
+        },
+        {
+          "id": "height",
+          "name": "Height",
+          "type": "enum",
+          "values": [
+              "1em",
+              "2em",
+              "3em",
+              "4em",
+              "5em"
+          ],
+          "default_value": "1em",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

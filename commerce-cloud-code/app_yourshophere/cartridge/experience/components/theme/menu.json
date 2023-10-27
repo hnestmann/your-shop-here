@@ -1,0 +1,33 @@
+{
+    "name": "Mega Menu (Any Header)",
+    "description": "Mega Menu (working title)",
+    "group": "theming",
+    "attribute_definition_groups": [
+        {
+            "id": "menuControl",
+            "name": "Menu Control",
+            "attribute_definitions": [
+                {
+                    "id": "alignment",
+                    "name": "Alignment",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "center",
+                        "spaced",
+                        "right"
+                    ],
+                    "default_value": "left",
+                    "required": true
+                },
+                {
+                    "id": "menuPageID",
+                    "name": "Menu Page ID",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

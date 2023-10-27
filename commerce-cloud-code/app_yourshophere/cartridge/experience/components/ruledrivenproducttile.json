@@ -1,0 +1,59 @@
+{
+  "name": "Rule Driven Product Tile",
+  "description": "Image, text overlay, 'Shop Now' control that links user to a product detail page; Image is defined by the selected product",
+  "group": "more_pd",
+  "attribute_definition_groups": [
+    {
+      "id": "product_spec",
+      "name": "Product Specifications",
+      "description": "Specify the product to be displayed from this product tile.",
+      "attribute_definitions": [
+        {
+          "id": "sorting_rule",
+          "name": "Sorting Rule",
+          "description": "The sorting rule used to search the whole catalog and pick the first product from",
+          "type": "enum",
+          "values": [
+            "most-popular",
+            "price-high-to-low",
+            "price-low-to-high",
+            "product-name-ascending",
+            "product-name-descending",
+            "top-sellers"
+          ],
+          "default_value": "top-sellers",
+          "required": true
+        },
+        {
+          "id": "category",
+          "name": "Category",
+          "type": "category",
+          "description": "The category the product is picked from",
+          "required": false
+        },         
+        {
+          "id": "text_headline",
+          "name": "Product Name",
+	  "description": "The text overlay to be displayed. If nothing is entered the product name will be displayed.",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "button_spec",
+      "name": "Button Specification",
+      "description": "Specify the link for the 'Show Now' button.",
+      "attribute_definitions": [
+        {
+          "id": "shop_now_target",
+          "name": "Link",
+          "description": "Optional specification for the link to where the user will be directed. If nothing is specified, the link to product SKU selected will be used.",
+          "type": "url",
+          "required": false
+	}
+      ]
+    }
+  ],
+  "region_definitions": []
+}

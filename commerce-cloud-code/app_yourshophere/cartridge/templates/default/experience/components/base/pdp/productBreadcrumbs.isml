@@ -1,0 +1,8 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+<isset name="isQuickView" value="${false}" scope="page" />
+<isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+
+ <!--Breadcrumbs-->
+<div class="product-breadcrumb">
+    <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+</div>

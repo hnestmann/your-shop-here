@@ -1,0 +1,3 @@
+<div class="search hidden-xs-down">
+    <isinclude template="components/header/search" />
+</div>

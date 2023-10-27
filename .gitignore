@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+.DS_Store
+commerce-cloud-code/.DS_Store
+
+.vscode
+dw.json

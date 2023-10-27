@@ -1,0 +1,15 @@
+{
+    "name": "Product Quantity and Options",
+    "description": "This is the product quantity and option component.",
+    "group": "more_pd_pdp",
+    "attribute_definition_groups": [
+        {
+            "id": "productQuantityAndOptionsSettings",
+            "name": "Settings",
+            "description": "Display settings",
+            "attribute_definitions": []
+         
+        }
+    ],
+    "region_definitions": []
+}
