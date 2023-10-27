@@ -1,0 +1,23 @@
+{
+    "name": "Announcement (SFRA Header)",
+    "description": "Site wide announcement (for announcement reagion in SFRA header)",
+    "group": "theming",
+    "attribute_definition_groups": [
+        {
+            "id": "callout",
+            "name": "Callout",
+            "description": "The Main Callout",
+            "attribute_definitions": [
+                {
+                    "id": "callout",
+                    "name": "Callout",
+                    "description": "The Main Callout",
+                    "type": "markup",
+                    "required": true
+                }
+            ]
+        } 
+    
+    ],
+    "region_definitions": []
+}

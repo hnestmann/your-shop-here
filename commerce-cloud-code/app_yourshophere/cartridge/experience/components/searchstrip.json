@@ -1,0 +1,31 @@
+{
+
+  "name": "Search Strip",
+  "description": "Image representing a product search, text and link that search category",
+  "group": "more_pd",
+  "attribute_definition_groups": [
+    {
+      "id": "searchcontent",
+      "name": "Search Content",
+      "description": "The content to show in this component",
+      "attribute_definitions": [
+        {
+          "id": "category",
+          "name": "Category",
+          "type": "category",
+          "required": true
+        },
+        {
+          "id": "searchdetails",
+          "name": "Search Details",
+          "type": "custom",
+          "required": true,
+          "editor_definition": {
+            "type": "search.searchdetails"
+          }
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

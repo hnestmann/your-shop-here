@@ -1,0 +1,63 @@
+{
+  "name": "Search Link Tile",
+  "description": "Image representing a product search, text and link that search category",
+  "group": "more_pd",
+  "attribute_definition_groups": [
+    {
+      "id": "background",
+      "name": "Background",
+      "description": "The visual display of the category in the background.",
+      "attribute_definitions": [
+        {
+          "id": "category",
+          "name": "Category",
+          "type": "category",
+          "required": true
+        },
+        {
+          "id": "searchdetails",
+          "name": "Search Filters",
+          "type": "custom",
+          "required": true,
+          "editor_definition": {
+            "type": "search.searchdetails"
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "image",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "textoverlay",
+      "name": "Text Overlay",
+      "description": "The overlay text on top of the category.",
+      "attribute_definitions": [
+        {
+          "id": "text_headline",
+          "name": "Heading",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "text_subline",
+          "name": "Subheading",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "text_alignment",
+          "name": "Text Alignment",
+          "type": "enum",
+          "values": ["Left","Center"],
+          "default_value": "Left",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

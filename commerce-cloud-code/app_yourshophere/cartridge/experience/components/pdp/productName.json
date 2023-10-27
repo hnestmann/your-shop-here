@@ -1,0 +1,15 @@
+{
+    "name": "Product Name",
+    "description": "This is the product name component.",
+    "group": "more_pd_pdp",
+    "attribute_definition_groups": [
+        {
+            "id": "productNameSettings",
+            "name": "Settings",
+            "description": "Display settings",
+            "attribute_definitions": []
+         
+        }
+    ],
+    "region_definitions": []
+}

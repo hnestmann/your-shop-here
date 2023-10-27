@@ -1,0 +1,55 @@
+{
+    "name": "Subcategories (Mega Menu)",
+    "description": "subcategories",
+    "group": "menu_builder",
+    "attribute_definition_groups": [
+        {
+            "id": "menuItem",
+            "name": "Menu Item",
+            "attribute_definitions": [
+                {
+                    "id": "category",
+                    "name": "Category",
+                    "type": "category",
+                    "required": true
+                },
+                {
+                    "id": "applyFilter",
+                    "name": "Apply Show in Menu Filter",
+                    "description": "Show only categories which have the custom attribute 'showInMenu' set to true, otherwise all online categories are used",
+                    "type": "boolean",
+                    "default_value": true,
+                    "required": true
+                },
+                {
+                    "id": "productFilter",
+                    "name": "Auto Hide Categories",
+                    "description": "Show only categories which have products either in stock or just online",
+                    "type": "enum",
+                    "values": [
+                        "NEVER",
+                        "NO_PRODUCTS",
+                        "PRODUCTS_OUT_OF_STOCK"
+                    ],
+                    "default_value": "NO_PRODUCTS",
+                    "required": true
+                },
+                {
+                    "id": "levels",
+                    "name": "Levels",
+                    "description": "The amount of levels to be displayed in the sub category listing",
+                    "type": "enum",
+                    "values": [
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "default_value": "2",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

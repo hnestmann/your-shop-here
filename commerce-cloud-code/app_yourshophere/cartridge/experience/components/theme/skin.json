@@ -1,0 +1,240 @@
+{
+    "name": "Skin (Main theme)",
+    "description": "Editable style overload of the theme",
+    "group": "theming",
+    "attribute_definition_groups": [
+        {
+            "id": "colors",
+            "name": "Colors to be used",
+            "description": "Colors to be used on the page",
+            "attribute_definitions": [
+                {
+                    "id": "primaryAccentColor",
+                    "name": "Primary Accent Color",
+                    "description": "The accent color (--skin-primary-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "primaryAccentColorInvert",
+                    "name": "Primary Inverted Color",
+                    "description": "The text color shown on accent color (--skin-primary-color-invert-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "mainBackground",
+                    "name": "Main Background",
+                    "description": "Main Background Color (--skin-background-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "borderColorOne",
+                    "name": "Border Color One (Product Tiles)",
+                    "description": "Border Color to be used in e.g. Product Tiles (--skin-border-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "linkColor",
+                    "name": "Link Color",
+                    "description": "The color used for links and similar buttons (--skin-link-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "bannerBackground",
+                    "name": "Banner/Menu Background",
+                    "description": "Color used for main banner background (--skin-banner-background-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "bannerTextColor",
+                    "name": "Banner Text Color",
+                    "description": "The Banner Text color (--skin-banner-text-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "menuTextColor",
+                    "name": "Menu Text Color",
+                    "description": "The Menu Text color (--skin-menu-color-1-invert)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "mainTextColor",
+                    "name": "Main Text Color",
+                    "description": "The Main Text color (--skin-main-text-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "selectBoxBackground",
+                    "name": "Select Box Background",
+                    "description": "Select Box color (--skin-selectbox-background-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "selectBoxTextColor",
+                    "name": "Select Box Text Color",
+                    "description": "Select Box color (--skin-selectbox-text-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "headingColor",
+                    "name": "Heading Background Color",
+                    "description": "Heading level 1 text color (--skin-heading-color-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "headingColorInvert",
+                    "name": "Heading Text Color",
+                    "description": "Heading level 1 text color (--skin-heading-color-1-invert)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                },
+                {
+                    "id": "priceTextColor",
+                    "name": "Pric Text Color",
+                    "description": " Price text color (--skin-price-1)",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "themer.colorpicker"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "fonts",
+            "name": "Fonts to be used",
+            "description": "Fonts to be used on the page",
+            "attribute_definitions": [
+                {
+                    "id": "headerfont",
+                    "name": "Header Font",
+                    "description": "The Header Font",
+                    "type": "enum",
+                    "values": [
+                        "Dosis",
+                        "Roboto",
+                        "Nunito Sans",
+                        "Salesforce Sans",
+                        "Arial",
+                        "Courier New",
+                        "Times New Roman",
+                        "Georgia",
+                        "Impact",
+                        "Comic Sans MS",
+                        "Trebuchet MS",
+                        "Helvetica",
+                        "Garamond",
+                        "Verdana",
+                        "Bookman Old Style",
+                        "Palatino"
+                    ],
+                    "default_value": "Dosis",
+                    "required": true
+                },
+                {
+                    "id": "menufont",
+                    "name": "Menu Font",
+                    "description": "The Menu Font",
+                    "type": "enum",
+                    "values": [
+                        "Dosis",
+                        "Roboto",
+                        "Nunito Sans",
+                        "Salesforce Sans",
+                        "Arial",
+                        "Courier New",
+                        "Times New Roman",
+                        "Georgia",
+                        "Impact",
+                        "Comic Sans MS",
+                        "Trebuchet MS",
+                        "Helvetica",
+                        "Garamond",
+                        "Verdana",
+                        "Bookman Old Style",
+                        "Palatino"
+                    ],
+                    "default_value": "Dosis",
+                    "required": true
+                },
+                {
+                    "id": "bodyfont",
+                    "name": "Body Font",
+                    "description": "The Main Font",
+                    "type": "enum",
+                    "values": [
+                        "Dosis",
+                        "Roboto",
+                        "Nunito Sans",
+                        "Salesforce Sans",
+                        "Arial",
+                        "Courier New",
+                        "Times New Roman",
+                        "Georgia",
+                        "Impact",
+                        "Comic Sans MS",
+                        "Trebuchet MS",
+                        "Helvetica",
+                        "Garamond",
+                        "Verdana",
+                        "Bookman Old Style",
+                        "Palatino"
+                    ],
+                    "default_value": "Dosis",
+                    "required": true
+                }
+            ]
+        } 
+    ],
+    "region_definitions": []
+}

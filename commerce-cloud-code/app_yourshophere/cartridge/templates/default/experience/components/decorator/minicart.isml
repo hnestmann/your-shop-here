@@ -1,0 +1,20 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/minicart.css');
+
+</isscript>
+<span class="popover-source" data-popover-target="${'#'}minicartcontent">
+    <div class="pd-mini-cart-logo header-svg-icon">
+        <isif condition="${pdict.type === 'SVG'}">
+            <isprint value="${pdict.content}" encoding="off">
+        <iselse>
+            <img src="${pdict.content}"/>
+        </isif>
+    </div>
+    <div class="minicart experience" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+        <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+    </div>
+    <span id="minicartcontent" class="popover-target">
+        <isinclude url="${URLUtils.url('Cart-MiniCartShow')}"/>
+    </span>
+</span>

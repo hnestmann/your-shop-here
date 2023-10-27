@@ -1,0 +1,8 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+
+<!-- Product Name -->
+<div class="row">
+    <div>
+        <h1 class="product-name">${product.productName}</h1>
+    </div>
+</div>

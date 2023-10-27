@@ -1,0 +1,31 @@
+{
+    "name":"Product Detail Page",
+    "description":"Creates a PDP with 1 region with page designer",
+    "attribute_definition_groups": [
+      {
+          "id": "productDetail",
+          "name": "Product Detail Settings",
+          "description": "Product Detail Settings",
+          "attribute_definitions": [
+            {
+              "id": "product",
+              "name": "Product",
+              "type": "product",
+              "required": true,
+              "dynamic_lookup":{
+                  "aspect_attribute_alias": "product"
+              }
+            }
+          ]
+        }
+    ],
+    "region_definitions":[
+      {
+        "id":"main",
+        "name":"Main PDP region",
+        "component_type_exclusions": [
+        ]
+      }
+    ],
+    "supported_aspect_types": ["pdp"]
+}

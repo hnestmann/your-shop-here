@@ -1,0 +1,15 @@
+{
+    "name": "Product Main Attributes",
+    "description": "This is the product main attributes component.",
+    "group": "more_pd_pdp",
+    "attribute_definition_groups": [
+        {
+            "id": "productMainAttributesSettings",
+            "name": "Settings",
+            "description": "Display settings",
+            "attribute_definitions": []
+         
+        }
+    ],
+    "region_definitions": []
+}

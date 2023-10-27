@@ -3,6 +3,10 @@
         {
             "id": "Product",
             "expireAfterSeconds": 86400
+        },
+        {
+            "id": "QueryStrings",
+            "expireAfterSeconds": 86400
         }
     ]
 }

@@ -1,0 +1,3 @@
+<div class="gridcomponentlayout-component col-6 col-md-4 px-2">
+    <isinclude template="experience/components/assets/producttile"/>
+</div>

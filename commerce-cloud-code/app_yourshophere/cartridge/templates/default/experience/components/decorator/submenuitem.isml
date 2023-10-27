@@ -1,0 +1,2 @@
+<a class="dopdown-link ${!!pdict.content.highlight ? 'level1 nav-link' : ''}" href="${pdict.content.link}" data-toggle="dropdown">${pdict.content.title}</a>
+<isprint value="${pdict.regions.nextlevel.setTagName('ul').setClassName('inline-menu').setComponentTagName('li').setComponentClassName('inline-menu-item').render()}" encoding="off"/>

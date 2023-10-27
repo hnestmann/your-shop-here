@@ -1,0 +1,7 @@
+<ul>
+    <li class="mr-6">
+        <isif condition="${!menuItem.hidden}">
+            <a class="text-blue-500 hover:text-blue-800" href="${menuItem.url}" hx-push-url="${menuItem.url}" hx-get="${menuItem.url.append('hx',',main')}" hx-target="main">${menuItem.displayName}</a>
+        </isif>
+    <li>
+</ul>

@@ -1,0 +1,22 @@
+{
+    "name": "Mini Cart (Any Header)",
+    "description": "Mini Cart",
+    "group": "theming",
+    "attribute_definition_groups": [
+        {
+            "id": "Icon",
+            "name": "Icon",
+            "description": "Icon - replaceable on supported themes",
+            "attribute_definitions": [
+                {
+                    "id": "icon",
+                    "name": "Icon",
+                    "description": "SVG is recommended as it follows the style guides",
+                    "type": "image",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

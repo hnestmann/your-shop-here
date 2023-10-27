@@ -1,0 +1,16 @@
+<figure class="component-figure product_centered-text carousel-item ${pdict.additionalClass || ''}">
+    <picture>
+        <isif condition="${pdict.image}">
+            <img class="component-image" src="${pdict.image.src}" <isif condition="${pdict.image.alt}">alt="${pdict.image.alt}" title="${pdict.image.alt}"</isif> />
+        </isif>
+    </picture>
+    <figcaption class="product-text_container">
+        <div>
+            <span class="product-text"><isprint value="${pdict.text_headline}"/></span>
+        </div>
+        <div>
+            <a class="producttile-button" href="${pdict.url}">${Resource.msg('button.shop_now', 'producttile', 'Shop Now')}</a>
+        </div>
+    </figcaption>
+</figure>
+

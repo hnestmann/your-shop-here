@@ -1,0 +1,38 @@
+{
+    "name": "Category Menu (Any Header)",
+    "description": "Category Menu",
+    "group": "theming",
+    "attribute_definition_groups": [
+        {
+            "id": "menuControl",
+            "name": "Menu Control",
+            "attribute_definitions": [
+                {
+                    "id": "align",
+                    "name": "Alignent",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "center",
+                        "spaced",
+                        "right"
+                    ],
+                    "default_value": "left",
+                    "required": true
+                },
+                {
+                    "id": "applyFilter",
+                    "name": "Apply Show in Menu Filter",
+                    "type": "enum",
+                    "values": [
+                        "true",
+                        "false"
+                    ],
+                    "default_value": "true",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

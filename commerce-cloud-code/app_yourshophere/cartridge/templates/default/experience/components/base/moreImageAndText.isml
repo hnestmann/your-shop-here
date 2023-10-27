@@ -1,0 +1,48 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/imageAndTextCommon.css');
+    assets.addCss('/css/experience/moreImageAndText.css');
+</isscript>
+
+<div class="ITC-container">
+    <div class="row ITC-row">
+        <div class="col-12">
+            <figure class="ITC-figure image-component ${pdict.mainClass}">
+                <picture>
+                    <source srcset="${pdict.image.src.tablet}" media="(min-width: 768px)"/>
+                    <source srcset="${pdict.image.src.desktop}" media="(min-width: 1024px)"/>
+                    <isset name="imageName" value="${Resource.msg('pd.ITC.image.alt','pageDesigner',null)}" scope="page"/>
+                    <a href="${pdict.link}" aria-label="${Resource.msgf('pd.ITC.image.link','pageDesigner', null, pdict.alt ? pdict.alt : imageName)}">
+                        <img
+                            class="ITC-image image-fluid common-image-component ${'common-image-filter-' + pdict.brightness}"
+                            src="${pdict.image.src.mobile}"
+                            style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
+                            alt="${pdict.alt ? pdict.alt : imageName}" title="${pdict.alt ? pdict.alt : imageName}"
+                        />
+                    </a>
+                </picture>
+                <figcaption>
+                    <isif condition="${!empty(pdict.heading)}">
+                        <div class="image-heading-container common-image-height ${pdict.verticalAlign} ${pdict.containerHAlign}">
+                            <div class="row ITC-image-heading-text">
+                                <div class="col-12 text-sm-left">
+                                    <span class="${pdict.overlayTextClass}">
+                                        <a href="${pdict.link}" aria-label="${Resource.msgf('pd.ITC.image.link','pageDesigner', null, pdict.alt ? pdict.alt : imageName)}">
+                                            <isprint value="${pdict.heading ? pdict.heading : ''}" />
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </isif>
+                    <div class="col-12 ITC-text-underneath">
+                        <span>
+                            <isprint value="${pdict.ITCText ? pdict.ITCText : ''}" encoding="off"/>
+                        </span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+

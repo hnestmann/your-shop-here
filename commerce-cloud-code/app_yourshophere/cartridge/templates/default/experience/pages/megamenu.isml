@@ -1,0 +1,14 @@
+<isdecorate template="${(pdict.isInEditMode || pdict.preview) ? 'common/layout/pdmenupreview' : 'common/layout/empty'}">
+<isset name="rendertargetclass" value="${(pdict.isInEditMode || pdict.preview) ? 'backoffice' : 'live'}" scope="page"/>
+
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/megamenu.css');
+</isscript>
+
+<isprint value="${pdict.regions.root.setTagName('ul', true).setClassName('nav navbar-nav nav-spaced ' +  rendertargetclass).setComponentTagName('li').setComponentClassName('nav-item dropdown').render()}" encoding="off"/>
+
+<isloop items="${ require('*/cartridge/scripts/assets.js').styles }" var="style">
+    <link rel="stylesheet" href="${style.src}" <isif condition="${style.integrity != null}">integrity="${style.integrity}" crossorigin="anonymous"</isif> />
+</isloop>
+</isdecorate>

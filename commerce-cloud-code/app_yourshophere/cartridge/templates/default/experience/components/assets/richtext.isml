@@ -1,0 +1,9 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/component.css');
+    assets.addCss('/css/richtext.css');
+</isscript>
+<div class="richtext">
+    <isprint value="${pdict.richtext}" encoding="off"/>
+</div>
+

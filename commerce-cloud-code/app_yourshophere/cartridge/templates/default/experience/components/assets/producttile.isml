@@ -1,0 +1,64 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/producttile.css');
+    assets.addCss('/css/component.css');
+    assets.addCss('/css/experience/components/commerceAssets/productTile.css');
+</isscript>
+<isif condition="${!pdict.isSet}">
+
+    <div class="product-tile-pd">
+        <figure class="product-tile-component-figure product_centered-text product-tile-figure">
+            <isif condition="${pdict.image}">
+                <picture>
+                    <div class="product-tile-image">
+                        <a class="product-tile-image-link" href="${pdict.url}">
+                            <img class="product-tile-component-image"
+                                 src="${pdict.image.src}"
+                                 <isif condition="${pdict.image.alt}">alt="${pdict.image.alt}" title="${pdict.image.alt}"</isif>
+                            />
+                        </a>
+                    </div>
+                </picture>
+            </isif>
+
+            <figcaption>
+                <div class="product-tile-body">
+                    <div class="product-name-link">
+                        <a href="${pdict.url}">${pdict.text_headline}</a>
+                    </div>
+
+                    <isset name="price" value="${pdict.price}" scope="page" />
+                    <isinclude template="experience/components/commerce_assets/product/pricing/main" />
+
+                    <isif condition="${pdict.rating}">
+                        <div class="product-ratings">
+                            <div class="ratings">
+                                <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, pdict.rating)}</span>
+
+                                <isloop items="${[1, 2, 3, 4, 5]}" var="star">
+                                    <i class="fa
+                                        <isif condition="${pdict.rating >= star}">
+                                            fa-star
+                                        <iselseif condition="${(pdict.rating % 1 > 0) && (Math.ceil(pdict.rating) >= star)}">
+                                            fa-star-half-o
+                                        <iselse>
+                                            fa-star-o
+                                        </isif>
+                                        " aria-hidden="true">
+                                    </i>
+                                </isloop>
+                            </div>
+                        </div>
+
+                    </isif>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+<iselse/>
+    <div class="shop-look-placeholder">
+        <p class="h3 text-center">SHOP THE LOOK FOR:</p>
+        <p class="h3 text-center"><isprint value="${pdict.text_headline}"/></p>
+        <p class="h3 text-center">ID: <isprint value="${pdict.productId}"/></p>
+    </div>
+</isif>

@@ -1,0 +1,22 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/headlinebanner.css');
+    assets.addCss('/css/component.css');
+</isscript>
+<figure class="component-figure">
+    <picture>
+        <source srcset="${pdict.image.src.desktop}" media="(min-width: 768px)"/>
+        <img class="component" src="${pdict.image.src.mobile}" style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}" <isif condition="${pdict.image.alt}">alt="${pdict.image.alt}" title="${pdict.image.alt}"</isif> />
+    </picture>
+    <figcaption class="headlinebanner-text_container" style="text-align: left">
+        <div class="headlinebanner-text headlinebanner-text_heading">
+            <span class="headlinebanner-wrap"><isprint value="${pdict.text_headline}"/></span>
+        </div>
+
+        <isif condition="${pdict.text_subline}">
+            <div class="headlinebanner-text headlinebanner-text_subheading">
+                <span class="headlinebanner-wrap"><isprint value="${pdict.text_subline}"/></span>
+            </div>
+        </isif>
+    </figcaption>
+</figure>

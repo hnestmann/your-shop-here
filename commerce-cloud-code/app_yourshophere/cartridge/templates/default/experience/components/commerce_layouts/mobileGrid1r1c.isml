@@ -1,0 +1,10 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/layout.css');
+</isscript>
+
+<div class="mobile-1r-1c ${(pdict.addStyleClassName != '' && pdict.addStyleClassName != null)? pdict.addStyleClassName: ''}" >
+    <div class="row mx-n2 ${pdict.noGutters === true ? 'no-gutters' : '' }">
+        <isprint value="${pdict.regions.column1.setClassName("region col-12").render()}" encoding="off"/>
+    </div>
+</div>

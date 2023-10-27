@@ -1,0 +1,15 @@
+{
+    "name": "Product Size Chart Link",
+    "description": "This is the product size chart link component.",
+    "group": "more_pd_pdp",
+    "attribute_definition_groups": [
+        {
+            "id": "productSizeChartSettings",
+            "name": "Settings",
+            "description": "Display settings",
+            "attribute_definitions": []
+         
+        }
+    ],
+    "region_definitions": []
+}
