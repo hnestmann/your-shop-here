@@ -1,0 +1,8 @@
+<isif condition="${pdict.showPagination}">
+    <div>${pdict.search.paging.currentPage}</div>
+    <div>${pdict.search.paging.pageCount}</div>
+</isif>
+
+<isloop items="${pdict.search.foundProducts}" var="hit">
+    ${hit.url}
+</isloop>

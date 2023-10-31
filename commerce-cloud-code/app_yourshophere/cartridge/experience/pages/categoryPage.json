@@ -1,0 +1,31 @@
+{
+    "name":"Category Page",
+    "description":"Creates a Category Page with 1 region with page designer",
+    "attribute_definition_groups": [
+      {
+          "id": "categoryPage",
+          "name": "Category Settings",
+          "description": "Category Settings",
+          "attribute_definitions": [
+            {
+              "id": "category",
+              "name": "Category",
+              "type": "category",
+              "required": true,
+              "dynamic_lookup":{
+                  "aspect_attribute_alias": "category"
+              }
+            }
+          ]
+        }
+    ],
+    "region_definitions":[
+      {
+        "id":"main",
+        "name":"Main Category region",
+        "component_type_exclusions": [
+        ]
+      }
+    ],
+    "supported_aspect_types": ["category"]
+}

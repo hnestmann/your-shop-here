@@ -1,0 +1,44 @@
+{
+  "name": "More Textbox",
+  "description": "This is the Textbox Component, can be used as Help or FAQ pages",
+  "group": "base",
+  "attribute_definition_groups": [
+    {
+      "id": "textContent",
+      "name": "Text Content",
+      "description": "The content to show in this component",
+      "attribute_definitions": [
+        {
+          "id": "richText",
+          "name": "content",
+          "description": "This is the rich text content area",
+          "type": "markup",
+          "required": true
+        },
+        {
+          "id": "align",
+          "name": "Alignent",
+          "type": "enum",
+          "values": [
+              "left",
+              "center",
+              "right"
+          ],
+          "default_value": "left",
+          "required": true
+        },
+        {
+          "id": "inParagraph",
+          "name": "in Paragraph",
+          "type": "enum",
+          "values": [
+              "Yes",
+              "No"          ],
+          "default_value": "Yes",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

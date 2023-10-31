@@ -2,6 +2,40 @@
     "name": "Mini Account (SFRA Header)",
     "description": "Mini Account",
     "group": "theming",
-    "attribute_definition_groups": [],
+    "attribute_definition_groups": [
+        {
+            "id": "Image",
+            "name": "Image",
+            "description": "Unstyled Image component",
+            "attribute_definitions": [
+                {
+                    "id": "image",
+                    "name": "Image Tile Component Image",
+                    "description": "Select a photo to be displayed",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "width",
+                    "name": "Width",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "label",
+            "name": "Label",
+            "description": "-",
+            "attribute_definitions": [
+                {
+                    "id": "label",
+                    "name": "Label",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
     "region_definitions": []
 }

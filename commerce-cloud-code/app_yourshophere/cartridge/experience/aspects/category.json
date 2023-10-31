@@ -1,0 +1,16 @@
+{
+    "name": "Category page",
+    "description": "A Category page.",
+    "attribute_definitions": [
+        {
+            "id": "category",
+            "name": "Category",
+            "description": "The category to show the category page for.",
+            "type": "category",
+            "required": true
+        }
+    ],
+    "supported_object_types": [
+        "category"
+    ]
+}

@@ -33,7 +33,14 @@ module.exports.render = function (context) {
         HookManager.callHook('app.experience.editmode', 'editmode');
         model.resetEditPDMode = true;
     }
+    
+    model.httpParameter = {};
+
+    if (context.renderParameters) {
+        var queryString = JSON.parse(context.renderParameters).queryString; 
+        model.httpParameter = JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+    }
 
     // render the page
-    return new Template('experience/pages/contentpage').render(model).text;
+    return new Template('experience/pages/pdpage').render(model).text;
 };

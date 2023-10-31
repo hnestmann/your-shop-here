@@ -12,4 +12,9 @@ server.get('HeaderMenu', cache.applyDefaultCache, server.middleware.include, (re
     next();
 });
 
+server.get('MiniCart', server.middleware.include, (req, res, next) => {
+    res.render('/components/header/minicartinclude', {cartInfo: {itemCount: session.privacy.cartItemCount || 0, itemValue:session.privacy.cartItemValue || 0 }});
+    next();
+});
+
 module.exports = server.exports();

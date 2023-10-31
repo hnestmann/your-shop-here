@@ -22,6 +22,7 @@
     --skin-header-font: '${pdict.headerfont}';
     --skin-body-font: '${pdict.bodyfont}';
     --skin-menu-font: '${pdict.menufont}';
+    --primary: #00FF00
 }
 </style>
 <isif condition="${pdict.editMode}">

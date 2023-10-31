@@ -10,7 +10,7 @@
       {
         "id":"header",
         "name":"The Header including the main menu",
-        "max_components": 1
+        "max_components": 3
       },
       {
         "id":"footer",

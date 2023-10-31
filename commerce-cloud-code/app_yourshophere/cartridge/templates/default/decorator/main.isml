@@ -1,23 +1,11 @@
-<iscontent type="text/html" charset="UTF-8" compact="true"/>
-<html lang="${pdict.lang}" class="text-gray-900 antialiased leading-tight">
-    <head>
-        <title>${pdict.CurrentPageMetaData.title}</title>        
-        <isactivedatahead/>
-        <isprint value="${require('*/cartridge/experience/skin.js').renderSkin()}" encoding="off">
-        <script src="https://unpkg.com/htmx.org@1.9.6"></script>
-        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css">
-    </head>
-    <body class="min-h-screen">
-        <div class="m-16 grid justify-center items-center grid-cols-1">
-            <header>
-                <isprint value="${require('*/cartridge/experience/skin.js').renderHeader()}" encoding="off">
-            </header>
-            <main>
-                <isreplace/>
-            </main>
-            <footer>
-                <isprint value="${require('*/cartridge/experience/skin.js').renderFooter()}" encoding="off">
-            </footer>
-        </div>
-    </body>
-</html>
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<isif condition="${pdict.httpParameter.hx === 'main'}">
+    <isset name="decorator" value="${'decorator/empty'}" scope="page" />
+<iselse>
+    <isset name="decorator" value="${'decorator/ssr'}" scope="page" />
+</isif>
+
+<isdecorate template="${decorator}">
+    <isreplace/>
+</isdecorate>
+

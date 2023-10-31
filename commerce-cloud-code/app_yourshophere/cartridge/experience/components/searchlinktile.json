@@ -1,7 +1,7 @@
 {
   "name": "Search Link Tile",
   "description": "Image representing a product search, text and link that search category",
-  "group": "more_pd",
+  "group": "catalog",
   "attribute_definition_groups": [
     {
       "id": "background",
