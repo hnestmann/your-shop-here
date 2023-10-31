@@ -1,7 +1,7 @@
 {
   "name": "Rule Driven Product Tile",
   "description": "Image, text overlay, 'Shop Now' control that links user to a product detail page; Image is defined by the selected product",
-  "group": "more_pd",
+  "group": "catalog",
   "attribute_definition_groups": [
     {
       "id": "product_spec",

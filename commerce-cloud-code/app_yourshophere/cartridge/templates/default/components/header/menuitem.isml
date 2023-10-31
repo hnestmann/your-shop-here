@@ -1,7 +1,18 @@
-<ul>
-    <li class="mr-6">
-        <isif condition="${!menuItem.hidden}">
-            <a class="text-blue-500 hover:text-blue-800" href="${menuItem.url}" hx-push-url="${menuItem.url}" hx-get="${menuItem.url.append('hx',',main')}" hx-target="main">${menuItem.displayName}</a>
+<isset name="currentItem" value="${menuItem}" scope="page" />
+
+<li>
+    <isif condition="${!currentItem.hidden}">
+        <a href="${currentItem.url}" hx-push-url="${currentItem.url}" hx-get="${currentItem.url.append('hx', 'main')}"
+            hx-target="main" hx-indicator=".progress">${currentItem.displayName}</a>
+        <isif condition="${level < 2 && currentItem.children && currentItem.children.length > 0}">
+            <label title="Toggle Drop-down" class="drop-icon" role="button" for="navbar-toggler-${currentItem.ID}"></label>
+            <input type="checkbox" id="navbar-toggler-${currentItem.ID}">
+            <ul class="sub-menu">
+                <isloop items="${currentItem.children}" var="menuItem">
+                    <isset name="level" value="${level++}" scope="page" />
+                    <isinclude template="components/header/menuitem" />
+                </isloop>
+            </ul>
         </isif>
-    <li>
-</ul>
+    </isif>
+</li>

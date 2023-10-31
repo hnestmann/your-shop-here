@@ -1,0 +1,24 @@
+{
+    "name": "Product Grid",
+    "description": "This product grid component.",
+    "group": "PLP",
+    "attribute_definition_groups": [
+        {
+            "id": "productList",
+            "name": "Settings",
+            "description": "Product List Settings",
+            "attribute_definitions": [
+                {
+                    "id": "category",
+                    "name": "Category",
+                    "type": "category",
+                    "required": false,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "category"
+                    }
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

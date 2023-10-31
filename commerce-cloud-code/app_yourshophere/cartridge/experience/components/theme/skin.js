@@ -6,9 +6,9 @@ var HashMap = require('dw/util/HashMap');
 var HashSet = require('dw/util/HashSet');
 
 var fontMap = {
-    'Salesforce Sans': 'component/fonts/salesforcesans',
-    'Roboto': 'component/fonts/roboto',
-    'Nunito Sans': 'component/fonts/nunito',
+    'Salesforce Sans': 'components/fonts/salesforcesans',
+    'Roboto': 'components/fonts/roboto',
+    'Nunito Sans': 'components/fonts/nunito',
 }
 
 function getFontAttributes() {

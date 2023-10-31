@@ -1,0 +1,125 @@
+{
+  "name": "More Image With Text",
+  "description": "This is a component combined image with text",
+  "group": "base",
+  "attribute_definition_groups": [
+    {
+      "id": "ITCImage",
+      "attribute_definitions": [
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "image",
+          "required": true
+        },
+        {
+          "id": "alt",
+          "name": "Alt Text",
+          "description": "The image alt text shown by the component.",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "heading",
+          "name": "Text Overlay",
+          "type": "markup",
+          "required": false
+        },
+        {
+          "id": "ITCLink",
+          "name": "Image Link",
+          "type": "url",
+          "required": false
+        },
+        {
+          "id": "ITCText",
+          "name": "Text Below Image",
+          "type": "markup",
+          "required": false
+        },
+        {
+          "id": "textContrast",
+          "name": "Text Highlight",
+          "type": "enum",
+          "values": [
+              "Drop Shadow",
+              "Background Color",
+              "Gradient"
+          ],
+          "required": false
+        },
+        {
+          "id": "textVAlign",
+          "name": "Vertical alignment",
+          "type": "enum",
+          "values": [
+              "top",
+              "middle",
+              "bottom"
+          ],
+          "required": false
+        },
+        {
+          "id": "textHAlign",
+          "name": "Horizontal alignment",
+          "type": "enum",
+          "values": [
+              "left",
+              "center",
+              "right"
+          ],
+          "required": false
+        },
+        {
+          "id": "textColor",
+          "name": "Text Color",
+          "type": "enum",
+          "default_value": "Default",
+          "values": [
+              "Default",
+              "Primary",
+              "Page Background",
+              "Link Color",
+              "Menu Background"
+          ],
+          "required": false
+        },
+        {
+          "id": "textBackground",
+          "name": "Text Background (if selected)",
+          "type": "enum",
+          "default_value": "None",
+          "values": [
+              "None",
+              "Primary",
+              "Page Background",
+              "Link Color",
+              "Menu Background"
+          ],
+          
+          "required": false
+        },
+        {
+          "id": "Brightness",
+          "name": "Brightness",
+          "type": "enum",
+          "default_value": 100,
+          "values": [
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90,
+            100
+          ],
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

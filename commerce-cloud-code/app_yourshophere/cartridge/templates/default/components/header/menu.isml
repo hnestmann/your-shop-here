@@ -1,6 +1,8 @@
-<menu class="flex">
+<label for="hamburger" id="toggle-menu">&#9776; Navigation</label>
+<input type="checkbox" id="hamburger" />
+<ul id="menu-root">
     <isloop items="${pdict.root.children}" var="menuItem">
         <isset name="level" value="${1}" scope="page" />
         <isinclude template="components/header/menuitem" />
     </isloop>
-</menu>
+</ul>

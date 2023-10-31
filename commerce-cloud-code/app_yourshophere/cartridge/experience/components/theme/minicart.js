@@ -2,7 +2,7 @@
 
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
-var SVG = require('*/cartridge/scripts/theming/svg.js');
+var SVG = require('*/cartridge/experience/utilities/svg.js');
 
 /**
  * Component which renders minicart
@@ -12,14 +12,16 @@ var SVG = require('*/cartridge/scripts/theming/svg.js');
  */
 module.exports.render = function (context) {
     var model = new HashMap();
-    model.content = context.content;
     var content = context.content;
-
-    if (content.icon) {
-        if (content.icon) {
-            var iconInfo = SVG.getInlinableContent(content.icon.file);
-            model.type = iconInfo.type;
-            model.content = iconInfo.content;
+    model.width = content.width || '100%';
+    if (content.image) {
+        var iconInfo = SVG.getInlinableContent(content.image.file);
+        if (iconInfo.type === 'IMG') {
+            model.imageHtml = `<img src="${iconInfo.content}" style="width:${model.width}; margin-left:auto;"/>`;
+        }
+        if (iconInfo.type === 'SVG') {
+            model.imageHtml = `${iconInfo.content}`;
+            model.imageHtml = model.imageHtml.replace('<svg ', `<svg style="width:${model.width};" `);
         }
     }
 

@@ -1,3 +1,4 @@
-<div class="navbar-header">
-    <isinclude url="${URLUtils.url('Account-Header')}" />
-</div>
+<a href="${URLUtils.url('Login-Handle')}" class="pill" role="button">
+    <isprint value="${pdict.imageHtml}" encoding="off">
+    ${pdict.label}
+</a>

@@ -1,0 +1,34 @@
+{
+    "name": "Your Shop Here Header (Main Theme)",
+    "description": "-",
+    "group": "theming",
+    "attribute_definition_groups": [],
+    "region_definitions": [
+        {
+            "id":"announcement",
+            "name":"Announcement",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"left",
+            "name":"Left",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"branding",
+            "name":"Branding",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"right",
+            "name":"Right",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"menu",
+            "name":"Menu",
+            "max_components":1,
+            "component_type_exclusions": []
+        }
+    ]
+}
