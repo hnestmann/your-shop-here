@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.demandware.com/xml/impex/library/2006-10-31">
+    <folder folder-id="root">
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </folder>
+
+    <content content-id="1a9bf4dc23c654ae4de50bc071">
+        <type>component.plp.productGrid</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "imageDimensions" : null,
+  "category" : null,
+  "imageViewType" : "kjguafshilcsahkj",
+  "swatchableAttribute" : null
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="20de19be882502737f9cc2e96c">
+        <type>component.base.moreImageAndText</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "ITCLink" : "$url('Search-Show', 'cgid', 'womens-outfits')$",
+  "ITCText" : null,
+  "textHAlign" : "left",
+  "image" : {
+    "path" : "AdobeStock_561832595.jpg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    },
+    "meta_data" : {
+      "height" : 1000,
+      "width" : 1500
+    }
+  },
+  "textVAlign" : "middle",
+  "heading" : "&lt;p&gt;Spring Collection&lt;/p&gt;",
+  "Brightness" : null,
+  "textContrast" : "Drop Shadow",
+  "alt" : null,
+  "textBackground" : null,
+  "textColor" : "Page Background"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="3f11e590490d2da0efb4764779">
+        <type>component.commerce_layouts.3column</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "addStyleClassName" : null
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="e3dd2cf80196a79104636d8b9a" type="component.commerce_layouts.3column.column1">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="ff17812b4051fc249cb7965304" type="component.commerce_layouts.3column.column2">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="c7cb3f037da85f19ba8c55d8cf" type="component.commerce_layouts.3column.column3">
+                <position>0.0</position>
+            </content-link>
+        </content-links>
+    </content>
+
+    <content content-id="65c0b76c4f9c8573646462a936">
+        <type>component.pdp.productName</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="69abdbcea5dfb120fdef9c3ccc">
+        <type>component.base.richText</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "inParagraph" : "Yes",
+  "richText" : "&lt;p&gt;Refinements go here&lt;/p&gt;",
+  "align" : "left"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="6c3f034f7343642c0419ac8000">
+        <type>component.pdp.productImages</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "imageCount" : 4,
+  "viewType" : "large"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="83ace80416deaa3dc3b90872c8">
+        <type>component.theme.miniaccount</type>
+        <config>{
+  "visibility" : [ {
+    "schedule" : { },
+    "customer_group_ids" : [ "Registered" ],
+    "campaign_qualifier" : { },
+    "aspect_attribute_qualifiers" : [ ],
+    "locale_ids" : [ ]
+  } ]
+}</config>
+        <data xml:lang="x-default">{
+  "image" : {
+    "path" : "user-icon.svg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    }
+  },
+  "width" : "50px",
+  "label" : "My Account"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="8b56cc5495cabf1dfe3c6f58b6">
+        <type>component.theme.minicart</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "image" : {
+    "path" : "cart-slds.svg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    }
+  },
+  "width" : "35px"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="9a8037c36b690794b0e70d9428">
+        <type>component.theme.skin</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "headingColor" : {
+    "value" : "#FFFFFF"
+  },
+  "headingColorInvert" : null,
+  "menufont" : "Salesforce Sans",
+  "mainBackground" : {
+    "value" : "#FFFFFF"
+  },
+  "selectBoxBackground" : {
+    "value" : "#ECF5FD"
+  },
+  "primaryAccentColorInvert" : {
+    "value" : "#FFFFFF"
+  },
+  "linkColor" : {
+    "value" : "#3274CC"
+  },
+  "primaryAccentColor" : {
+    "value" : "#fb610e"
+  },
+  "bannerTextColor" : {
+    "value" : "#16325c"
+  },
+  "bannerBackground" : {
+    "value" : "#FFFFFF"
+  },
+  "borderColorOne" : {
+    "value" : "#16325c"
+  },
+  "menuTextColor" : {
+    "value" : "#16325c"
+  },
+  "bodyfont" : "Salesforce Sans",
+  "priceTextColor" : {
+    "value" : "#ea001e"
+  },
+  "headerfont" : "Salesforce Sans",
+  "selectBoxTextColor" : {
+    "value" : "#16325c"
+  },
+  "mainTextColor" : {
+    "value" : "#16325c"
+  }
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="_main-theme">
+        <display-name xml:lang="x-default">_main-theme</display-name>
+        <type>page.theme</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <visibility-mode xml:lang="x-default">visible</visibility-mode>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="e6e71f3687038fcc2e95029acc" type="page.theme.header">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="9a8037c36b690794b0e70d9428" type="page.theme.skin">
+                <position>0.0</position>
+            </content-link>
+        </content-links>
+        <sitemap-included-flag>false</sitemap-included-flag>
+    </content>
+
+    <content content-id="bed0ddc5e0fc1ed0b45afdee71">
+        <type>component.theme.categorymenu</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "align" : "left",
+  "applyFilter" : "true"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="c4f31aa5644567cd3dc6f9fb5d">
+        <type>component.commerce_layouts.onefourth</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "addStyleClassName" : null
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="1a9bf4dc23c654ae4de50bc071" type="component.commerce_layouts.onefourth.column2">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="69abdbcea5dfb120fdef9c3ccc" type="component.commerce_layouts.onefourth.column1">
+                <position>0.0</position>
+            </content-link>
+        </content-links>
+    </content>
+
+    <content content-id="c7cb3f037da85f19ba8c55d8cf">
+        <type>component.base.moreImageAndText</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "ITCLink" : "$url('Search-Show', 'cgid', 'electronics')$",
+  "ITCText" : null,
+  "textHAlign" : "center",
+  "image" : {
+    "path" : "AdobeStock_330607296.jpg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    },
+    "meta_data" : {
+      "height" : 1532,
+      "width" : 1060
+    }
+  },
+  "textVAlign" : "bottom",
+  "heading" : "&lt;p&gt;Electronics&lt;/p&gt;",
+  "Brightness" : null,
+  "textContrast" : "Drop Shadow",
+  "alt" : null,
+  "textBackground" : null,
+  "textColor" : "Page Background"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="cat-root-pdp">
+        <display-name xml:lang="x-default">cat-root-pdp</display-name>
+        <type>page.productPage</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <visibility-mode xml:lang="x-default">visible</visibility-mode>
+        <data xml:lang="x-default">{
+  "product" : null
+}</data>
+        <aspect-type>product</aspect-type>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="65c0b76c4f9c8573646462a936" type="page.productPage.main">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="6c3f034f7343642c0419ac8000" type="page.productPage.main">
+                <position>1.0</position>
+            </content-link>
+        </content-links>
+        <content-object-assignments>
+            <content-object-assignment object-id="root" lookup-mode="category-implicit" object-type="category"/>
+        </content-object-assignments>
+        <sitemap-included-flag>false</sitemap-included-flag>
+    </content>
+
+    <content content-id="cat-root-plp">
+        <display-name xml:lang="x-default">cat-root-plp</display-name>
+        <type>page.categoryPage</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <visibility-mode xml:lang="x-default">visible</visibility-mode>
+        <data xml:lang="x-default">{
+  "category" : null
+}</data>
+        <aspect-type>category</aspect-type>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="c4f31aa5644567cd3dc6f9fb5d" type="page.categoryPage.main">
+                <position>0.0</position>
+            </content-link>
+        </content-links>
+        <content-object-assignments>
+            <content-object-assignment object-id="root" lookup-mode="category-implicit" object-type="category"/>
+        </content-object-assignments>
+        <sitemap-included-flag>false</sitemap-included-flag>
+    </content>
+
+    <content content-id="d9d3c232223993c10093ad34c7">
+        <type>component.base.moreImageAndText</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "ITCLink" : null,
+  "ITCText" : "&lt;p&gt;Chat or Call us anytime if you need help with your purchase&lt;/p&gt;",
+  "textHAlign" : "left",
+  "image" : {
+    "path" : "AdobeStock_356398732.jpg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    },
+    "meta_data" : {
+      "height" : 4775,
+      "width" : 7155
+    }
+  },
+  "textVAlign" : "middle",
+  "heading" : "&lt;p&gt;Customer Service&lt;/p&gt;",
+  "Brightness" : null,
+  "textContrast" : "Drop Shadow",
+  "alt" : null,
+  "textBackground" : null,
+  "textColor" : "Page Background"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="e3dd2cf80196a79104636d8b9a">
+        <type>component.base.moreImageAndText</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "ITCLink" : "$url('Search-Show', 'cgid', 'mens')$",
+  "ITCText" : null,
+  "textHAlign" : "center",
+  "image" : {
+    "path" : "Bigstock_Happy-smiling-young-man-standi-20517029.jpg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    },
+    "meta_data" : {
+      "height" : 1600,
+      "width" : 1063
+    }
+  },
+  "textVAlign" : "bottom",
+  "heading" : "&lt;p&gt;Mens&lt;/p&gt;",
+  "Brightness" : null,
+  "textContrast" : "Drop Shadow",
+  "alt" : null,
+  "textBackground" : null,
+  "textColor" : "Page Background"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="e6e71f3687038fcc2e95029acc">
+        <type>component.theme.yshHeader</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="f52f16dcfe37bb6f921ab74631" type="component.theme.yshHeader.branding">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="f6ff9d26a14d5a7d12c00895fd" type="component.theme.yshHeader.left">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="83ace80416deaa3dc3b90872c8" type="component.theme.yshHeader.left">
+                <position>1.0</position>
+            </content-link>
+            <content-link content-id="8b56cc5495cabf1dfe3c6f58b6" type="component.theme.yshHeader.right">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="bed0ddc5e0fc1ed0b45afdee71" type="component.theme.yshHeader.menu">
+                <position>0.0</position>
+            </content-link>
+        </content-links>
+    </content>
+
+    <content content-id="f52f16dcfe37bb6f921ab74631">
+        <type>component.base.richText</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "inParagraph" : "No",
+  "richText" : "&lt;p&gt;&lt;a href=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\" target=\"_self\" data-link-type=\"external\" data-link-label=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\"&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\" alt=\"YourShopHere\"&gt;YourShopHere&lt;/a&gt;&lt;/p&gt;",
+  "align" : "left"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="f6ff9d26a14d5a7d12c00895fd">
+        <type>component.theme.miniaccount</type>
+        <config>{
+  "visibility" : [ {
+    "schedule" : { },
+    "customer_group_ids" : [ "Unregistered" ],
+    "campaign_qualifier" : { },
+    "aspect_attribute_qualifiers" : [ ],
+    "locale_ids" : [ ]
+  } ]
+}</config>
+        <data xml:lang="x-default">{
+  "image" : {
+    "path" : "user-icon.svg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    }
+  },
+  "width" : "35px",
+  "label" : "Login"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="ff17812b4051fc249cb7965304">
+        <type>component.base.moreImageAndText</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "ITCLink" : "$url('Search-Show', 'cgid', 'newarrivals')$",
+  "ITCText" : null,
+  "textHAlign" : "center",
+  "image" : {
+    "path" : "AdobeStock_309834744.jpg",
+    "focal_point" : {
+      "x" : 0.5,
+      "y" : 0.5
+    },
+    "meta_data" : {
+      "height" : 5536,
+      "width" : 3840
+    }
+  },
+  "textVAlign" : "bottom",
+  "heading" : "&lt;p&gt;Kids &amp;amp; Family&lt;/p&gt;",
+  "Brightness" : null,
+  "textContrast" : "Drop Shadow",
+  "alt" : null,
+  "textBackground" : null,
+  "textColor" : "Page Background"
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="homepage">
+        <display-name xml:lang="x-default">homepage</display-name>
+        <type>page.contentPage</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <visibility-mode xml:lang="x-default">visible</visibility-mode>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="d9d3c232223993c10093ad34c7" type="page.contentPage.main">
+                <position>2.0</position>
+            </content-link>
+            <content-link content-id="20de19be882502737f9cc2e96c" type="page.contentPage.main">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="3f11e590490d2da0efb4764779" type="page.contentPage.main">
+                <position>1.0</position>
+            </content-link>
+        </content-links>
+        <sitemap-included-flag>false</sitemap-included-flag>
+    </content>
+
+</library>

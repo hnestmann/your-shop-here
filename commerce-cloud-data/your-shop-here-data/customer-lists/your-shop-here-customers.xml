@@ -37,7 +37,7 @@
             <phone-business/>
             <phone-mobile/>
             <fax/>
-            <creation-date>2021-08-05T05:45:40.334Z</creation-date>
+            <creation-date>2021-08-05T05:45:40.000Z</creation-date>
             <preferred-locale/>
         </profile>
         <note/>
@@ -65,11 +65,10 @@
             <phone-business/>
             <phone-mobile/>
             <fax/>
-            <creation-date>2021-08-05T05:45:40.334Z</creation-date>
+            <creation-date>2021-08-05T05:45:40.000Z</creation-date>
             <preferred-locale/>
         </profile>
         <note/>
     </customer>
-
 
 </customer-list>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<search xmlns="http://www.demandware.com/xml/impex/search2/2010-02-19">
+    <searchable-attributes>
+        <searchable-attribute>
+            <attribute-path>category.displayName</attribute-path>
+            <boost>2.0</boost>
+            <auto-correction>true</auto-correction>
+        </searchable-attribute>
+        <searchable-attribute>
+            <attribute-path>product.ID</attribute-path>
+            <boost>1.0</boost>
+            <auto-correction>true</auto-correction>
+        </searchable-attribute>
+        <searchable-attribute>
+            <attribute-path>product.brand</attribute-path>
+            <boost>2.0</boost>
+            <auto-correction>true</auto-correction>
+        </searchable-attribute>
+        <searchable-attribute>
+            <attribute-path>product.name</attribute-path>
+            <boost>2.0</boost>
+            <auto-correction>true</auto-correction>
+        </searchable-attribute>
+    </searchable-attributes>
+
+    <index-settings>
+        <full-reindexing-schedule>
+            <date-from>2023-10-26Z</date-from>
+            <start-time>06:16:00.000Z</start-time>
+            <factor>1</factor>
+            <unit>days</unit>
+        </full-reindexing-schedule>
+        <indexed-locales>
+            <locale>fr-CA</locale>
+            <locale>de-DE</locale>
+            <locale>x-default</locale>
+            <locale>en-IE</locale>
+            <locale>en-CA</locale>
+        </indexed-locales>
+        <stemming xml:lang="fr-CA">French</stemming>
+        <stemming xml:lang="de-DE">German2</stemming>
+        <stemming xml:lang="x-default">English</stemming>
+        <stemming xml:lang="en-IE">English</stemming>
+        <stemming xml:lang="en-CA">English</stemming>
+    </index-settings>
+
+</search>

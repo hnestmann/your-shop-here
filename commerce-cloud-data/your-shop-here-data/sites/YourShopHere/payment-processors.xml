@@ -20,4 +20,64 @@
         </preferences>
     </payment-processor>
 
+    <payment-processor processor-id="CYBERSOURCE_BML">
+        <description>'Bill Me Later' online authorization through Cybersource (test and production systems).</description>
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+
+    <payment-processor processor-id="CYBERSOURCE_CREDIT">
+        <description>Cybersource online credit card authorization (test and production systems).</description>
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+
+    <payment-processor processor-id="PAYPAL_CREDIT">
+        <description>Paypal online credit card authorization (test and production systems).</description>
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+
+    <payment-processor processor-id="PAYPAL_EXPRESS">
+        <description>Paypal Express Checkout (test and production systems).</description>
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+
+    <payment-processor processor-id="SALESFORCE_PAYMENTS">
+        <description>Salesforce Payments online authorization (test and production systems).</description>
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+
+    <payment-processor processor-id="VERISIGN_CREDIT">
+        <description>Verisign online credit card authorization (test and production systems).</description>
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+
 </payment-processors>
