@@ -1,11 +1,11 @@
 {
-    "name":"Product Detail Page",
-    "description":"Creates a PDP with 1 region with page designer",
+    "name":"Product Page",
+    "description":"Creates a Product Page with 1 region with page designer",
     "attribute_definition_groups": [
       {
-          "id": "productDetail",
-          "name": "Product Detail Settings",
-          "description": "Product Detail Settings",
+          "id": "productPage",
+          "name": "Product Settings",
+          "description": "Product Settings",
           "attribute_definitions": [
             {
               "id": "product",
@@ -22,10 +22,10 @@
     "region_definitions":[
       {
         "id":"main",
-        "name":"Main PDP region",
+        "name":"Main Category region",
         "component_type_exclusions": [
         ]
       }
     ],
-    "supported_aspect_types": ["pdp"]
+    "supported_aspect_types": ["product"]
 }

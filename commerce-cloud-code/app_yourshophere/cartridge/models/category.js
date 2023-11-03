@@ -1,7 +1,7 @@
 const CatalogMgr = require('dw/catalog/CatalogMgr');
 function CategoryModel(apiCategory) {
     const wrapper = require('*/cartridge/models/wrapper.js');
-    wrapper(this, apiCategory);
+    wrapper('Category', this, apiCategory);
 
     Object.defineProperty(this, 'hidden', {
         get: function () {

@@ -16,6 +16,30 @@
                     "dynamic_lookup": {
                         "aspect_attribute_alias": "category"
                     }
+                },
+                {
+                
+                    "id": "imageViewType",
+                    "name": "Image View Type",
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                
+                    "id": "imageDimensions",
+                    "name": "Image Dimensions",
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                
+                    "id": "swatchableAttribute",
+                    "name": "Swatch Atttribute",
+                    "description": "",
+                    "type": "string",
+                    "required": false
                 }
             ]
         }

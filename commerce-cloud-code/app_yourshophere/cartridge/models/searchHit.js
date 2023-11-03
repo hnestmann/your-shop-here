@@ -1,7 +1,7 @@
 
 function SearchHit(hit) {
     const wrapper = require('*/cartridge/models/wrapper.js');
-    wrapper(this, hit);
+    wrapper('ProductSearchHit', this, hit);
 
     Object.defineProperty(this, 'url', {
         get: function () {

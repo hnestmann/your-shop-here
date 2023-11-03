@@ -17,7 +17,7 @@
     --skin-selectbox-background-color-1: ${pdict.selectBoxBackground.value};
     --skin-selectbox-text-color-1: ${pdict.selectBoxTextColor.value};
     --skin-heading-color-1: ${pdict.headingColor.value};
-    --skin-heading-color-1-invert: ${pdict.headingColorInvert.value};
+    --skin-heading-color-1-invert: ${pdict.headingColorInvert ? pdict.headingColorInvert.value : 'null'};
     --skin-price-1: ${pdict.priceTextColor.value};
     --skin-header-font: '${pdict.headerfont}';
     --skin-body-font: '${pdict.bodyfont}';

@@ -1,14 +1,28 @@
 {
     "name": "Product Images",
     "description": "This is the product images component.",
-    "group": "more_pd_pdp",
+    "group": "pdp",
     "attribute_definition_groups": [
         {
             "id": "productImagesSettings",
             "name": "Settings",
             "description": "Display settings",
-            "attribute_definitions": []
-         
+            "attribute_definitions": [
+                {
+                    "id": "viewType",
+                    "name": "View Type",
+                    "description": "the product view type",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "imageCount",
+                    "name": "Max Image Count",
+                    "description": "",
+                    "type": "integer",
+                    "required": false
+                }  
+            ]
         }
     ],
     "region_definitions": []
