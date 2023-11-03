@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <payment-settings xmlns="http://www.demandware.com/xml/impex/paymentsettings/2009-09-15">
+    <payment-method method-id="BANK_TRANSFER">
+        <name xml:lang="x-default">Bank Transfer</name>
+        <enabled-flag>false</enabled-flag>
+    </payment-method>
+
+    <payment-method method-id="BML">
+        <name xml:lang="x-default">Bill Me Later</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>CYBERSOURCE_BML</processor-id>
+    </payment-method>
+
+    <payment-method method-id="DW_APPLE_PAY">
+        <name xml:lang="x-default">Apple Pay</name>
+        <enabled-flag>false</enabled-flag>
+    </payment-method>
+
+    <payment-method method-id="DW_ANDROID_PAY">
+        <name xml:lang="x-default">Android Pay</name>
+        <enabled-flag>false</enabled-flag>
+    </payment-method>
 
     <payment-method method-id="GIFT_CERTIFICATE">
         <name xml:lang="x-default">Gift Certificate</name>
@@ -20,6 +40,43 @@
         <enabled-flag>true</enabled-flag>
         <processor-id>BASIC_CREDIT</processor-id>
     </payment-method>
+
+    <payment-card card-type="Master">
+        <name xml:lang="x-default">Master Card</name>
+        <enabled-flag>false</enabled-flag>
+        <card-number-settings>
+            <enable-checksum-verification>true</enable-checksum-verification>
+            <number-length>
+                <length>16</length>
+            </number-length>
+            <number-prefix>
+                <prefix>2221-2720</prefix>
+                <prefix>51-55</prefix>
+            </number-prefix>
+        </card-number-settings>
+        <security-code-length>3</security-code-length>
+    </payment-card>
+
+    <payment-card card-type="Discover">
+        <name xml:lang="x-default">Discover</name>
+        <enabled-flag>false</enabled-flag>
+        <card-number-settings>
+            <enable-checksum-verification>true</enable-checksum-verification>
+            <number-length>
+                <length>16</length>
+            </number-length>
+            <number-prefix>
+                <prefix>6011</prefix>
+                <prefix>622126-622925</prefix>
+                <prefix>644-649</prefix>
+                <prefix>65</prefix>
+            </number-prefix>
+        </card-number-settings>
+        <security-code-length>3</security-code-length>
+        <countries>
+            <country country-code="US"/>
+        </countries>
+    </payment-card>
 
     <payment-card card-type="Visa">
         <name xml:lang="x-default">Visa</name>
@@ -79,6 +136,5 @@
         </card-number-settings>
         <security-code-length>3</security-code-length>
     </payment-card>
-
 
 </payment-settings>

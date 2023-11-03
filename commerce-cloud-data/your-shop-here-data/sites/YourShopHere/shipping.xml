@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shipping xmlns="http://www.demandware.com/xml/impex/shipping/2007-03-31">
-    <shipping-method method-id="standard-shipping" default="true">
+    <shipping-method method-id="standard-shipping" default="false">
         <display-name xml:lang="x-default">Standard</display-name>
         <online-flag>true</online-flag>
         <tax-class-id>standard</tax-class-id>
         <price-table>
-            <amount order-value="0.01">3.0</amount>
+            <amount order-value="0.01">3</amount>
         </price-table>
         <currency>EUR</currency>
     </shipping-method>
@@ -15,7 +15,7 @@
         <online-flag>true</online-flag>
         <tax-class-id>standard</tax-class-id>
         <price-table>
-            <amount order-value="0.01">6.0</amount>
+            <amount order-value="0.01">6</amount>
         </price-table>
         <currency>EUR</currency>
     </shipping-method>

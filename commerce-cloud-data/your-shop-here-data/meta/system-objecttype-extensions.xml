@@ -1,7 +1,2075 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="Appeasement">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="appeasementNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="createdBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="invoiceNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="modifiedBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="reasonCode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Dissatisfied Customer</display>
+                        <value>DISSATISFIED_CUSTOMER</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Manufacturing Defect</display>
+                        <value>MANUFACTURING_DEFECT</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Delayed Delivery</display>
+                        <value>DELAYED_DELIVERY</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Product Not Received</display>
+                        <value>PRODUCT_NOT_RECEIVED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="reasonNote">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">OPEN</display>
+                        <value>OPEN</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">COMPLETED</display>
+                        <value>COMPLETED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="AppeasementItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="appeasementNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="grossPrice"/>
+            <attribute-definition attribute-id="itemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="netPrice"/>
+            <attribute-definition attribute-id="orderItemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="tax"/>
+            <attribute-definition attribute-id="taxBasis"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Basket">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="businessType">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">B2C</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">B2B</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="channelType">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">Storefront</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Call Center</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Marketplace</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">DSS</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Store</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pinterest</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Twitter</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Facebook Ads</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Subscriptions</display>
+                        <value>9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Online Reservation</display>
+                        <value>10</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Customer Service Center</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Instagram Commerce</display>
+                        <value>12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Google</display>
+                        <value>13</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">TikTok</display>
+                        <value>14</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Snapchat</display>
+                        <value>15</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WhatsApp</display>
+                        <value>16</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">YouTube</display>
+                        <value>17</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="currencyCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerEmail">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Status">
+                <display-name xml:lang="x-default">Status</display-name>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="BonusDiscountLineItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Campaign">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+                <field-length>50</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <field-height>1</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="endDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="startDate"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Catalog">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Category">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayMode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">merged</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">individual</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="online"/>
+            <attribute-definition attribute-id="onlineFrom"/>
+            <attribute-definition attribute-id="onlineTo"/>
+            <attribute-definition attribute-id="pageDescription">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageKeywords">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageTitle">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageURL">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchPlacement">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Top Featured Product</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Featured Product</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Product</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Secondary Product</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Featured Accessory</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Accessory</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Spare Part</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NLA Product</display>
+                        <value>1</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchRank">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">High</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Medium</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Low</display>
+                        <value>1</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapChangeFrequency">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">always</display>
+                        <value>always</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">hourly</display>
+                        <value>hourly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">daily</display>
+                        <value>daily</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">weekly</display>
+                        <value>weekly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">monthly</display>
+                        <value>monthly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">yearly</display>
+                        <value>yearly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">never</display>
+                        <value>never</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapIncluded">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">YES</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NO</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapPriority">
+                <min-value>0.0</min-value>
+                <max-value>1.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="template">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="thumbnail"/>
+        </system-attribute-definitions>
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="yshAlternativeUrl">
+                <display-name xml:lang="x-default">Alternative URL</display-name>
+                <description xml:lang="x-default">Renders an alternative URL in main navigation. Uses Salesforce Commerce Cloud content url notation. For example: $url('Account-Show')$ or normal URL http://xchange.demandware.com</description>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>0</field-length>
+                <field-height>2</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshEnableCompare">
+                <display-name xml:lang="x-default">Enable Compare</display-name>
+                <description xml:lang="x-default">Used to define if/when the Compare feature is to be visualized in the storefront based on navigation. If enableCompare = FALSE, no Compare checkboxes will be displayed in the grid view. If enableCompare = TRUE, the category (and its children) will support the Compare feature.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshShowInMenu">
+                <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
+                <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="yshSizeChartID">
+                <display-name xml:lang="x-default">Size Chart</display-name>
+                <description xml:lang="x-default">Used to define the content asset ID of the Size Chart that is appropriate for products whose PRIMARY category is the associated category (and its children). Whenever a product detail page (or quick view) is rendered, the Size Chart link is populated based on the value of this attribute for the products primary categorization. If not defined, NO size chart link is displayed.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="ExternalSearch">
+                <display-name xml:lang="x-default">Search Engine Optimization Support</display-name>
+                <attribute attribute-id="pageTitle" system="true"/>
+                <attribute attribute-id="pageDescription" system="true"/>
+                <attribute attribute-id="pageKeywords" system="true"/>
+                <attribute attribute-id="pageURL" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="SiteMap">
+                <display-name xml:lang="x-default">Sitemap Attributes</display-name>
+                <attribute attribute-id="siteMapIncluded" system="true"/>
+                <attribute attribute-id="siteMapChangeFrequency" system="true"/>
+                <attribute attribute-id="siteMapPriority" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Presentation">
+                <display-name xml:lang="x-default">Presentation Attributes</display-name>
+                <attribute attribute-id="thumbnail" system="true"/>
+                <attribute attribute-id="image" system="true"/>
+                <attribute attribute-id="template" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="SearchRanking">
+                <display-name xml:lang="x-default">Search Ranking</display-name>
+                <attribute attribute-id="searchPlacement" system="true"/>
+                <attribute attribute-id="searchRank" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="VariationGroups">
+                <display-name xml:lang="x-default">Variation Groups</display-name>
+                <attribute attribute-id="displayMode" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom</display-name>
+            </attribute-group>
+            <attribute-group group-id="YourShopHere">
+                <display-name xml:lang="x-default">Your Shop Here Attributes</display-name>
+                <attribute attribute-id="yshShowInMenu"/>
+                <attribute attribute-id="yshSizeChartID"/>
+                <attribute attribute-id="yshEnableCompare"/>
+                <attribute attribute-id="yshAlternativeUrl"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CategoryAssignment">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="calloutMsg"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="longDescription"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shortDescription"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Content">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="aspectType">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="config"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="data"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+                <field-height>10</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="onlineFlag"/>
+            <attribute-definition attribute-id="pageDescription">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageKeywords">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageTitle">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageURL">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchWords">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchableFlag"/>
+            <attribute-definition attribute-id="siteMapChangeFrequency">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">always</display>
+                        <value>always</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">hourly</display>
+                        <value>hourly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">daily</display>
+                        <value>daily</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">weekly</display>
+                        <value>weekly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">monthly</display>
+                        <value>monthly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">yearly</display>
+                        <value>yearly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">never</display>
+                        <value>never</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapIncluded">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">YES</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NO</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapPriority">
+                <min-value>0.0</min-value>
+                <max-value>1.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="template">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="type">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="visibilityMode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Visible</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Invisible</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard</display-name>
+                <attribute attribute-id="ID" system="true"/>
+                <attribute attribute-id="name" system="true"/>
+                <attribute attribute-id="description" system="true"/>
+                <attribute attribute-id="onlineFlag" system="true"/>
+                <attribute attribute-id="searchableFlag" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="ExternalSearch">
+                <display-name xml:lang="x-default">Search Engine Optimization Support</display-name>
+                <attribute attribute-id="pageTitle" system="true"/>
+                <attribute attribute-id="pageDescription" system="true"/>
+                <attribute attribute-id="pageKeywords" system="true"/>
+                <attribute attribute-id="pageURL" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="SiteMap">
+                <display-name xml:lang="x-default">Sitemap Attributes</display-name>
+                <attribute attribute-id="siteMapIncluded" system="true"/>
+                <attribute attribute-id="siteMapChangeFrequency" system="true"/>
+                <attribute attribute-id="siteMapPriority" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Presentation">
+                <display-name xml:lang="x-default">Presentation</display-name>
+                <attribute attribute-id="template" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="Coupon">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+                <field-length>50</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="codePrefix">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="enabled"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="redemptionLimitPerCode"/>
+            <attribute-definition attribute-id="redemptionLimitPerCustomer"/>
+            <attribute-definition attribute-id="redemptionLimitPerTimeFrame"/>
+            <attribute-definition attribute-id="redemptionLimitTimeFrame"/>
+            <attribute-definition attribute-id="type">
+                <value-definitions immutable="true">
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Coupon with single fixed code</display>
+                        <value>SINGLE_CODE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Coupon with multiple fixed codes</display>
+                        <value>MULTIPLE_CODES</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Coupon with system generated codes</display>
+                        <value>SYSTEM_CODES</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="CouponLineItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerActiveData">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="avgOrderValue"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="discountValueWithCoupon"/>
+            <attribute-definition attribute-id="discountValueWithoutCoupon"/>
+            <attribute-definition attribute-id="giftOrders"/>
+            <attribute-definition attribute-id="giftUnits"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="lastOrderDate"/>
+            <attribute-definition attribute-id="orderValue"/>
+            <attribute-definition attribute-id="orderValueMonth"/>
+            <attribute-definition attribute-id="orders"/>
+            <attribute-definition attribute-id="productMastersOrdered"/>
+            <attribute-definition attribute-id="productsAbandonedMonth"/>
+            <attribute-definition attribute-id="productsOrdered"/>
+            <attribute-definition attribute-id="productsViewedMonth"/>
+            <attribute-definition attribute-id="returnValue"/>
+            <attribute-definition attribute-id="returns"/>
+            <attribute-definition attribute-id="sourceCodeOrders"/>
+            <attribute-definition attribute-id="topCategoriesOrdered"/>
+            <attribute-definition attribute-id="visitsMonth"/>
+            <attribute-definition attribute-id="visitsWeek"/>
+            <attribute-definition attribute-id="visitsYear"/>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Traffic">
+                <display-name xml:lang="x-default">Traffic</display-name>
+                <attribute attribute-id="visitsWeek" system="true"/>
+                <attribute attribute-id="visitsMonth" system="true"/>
+                <attribute attribute-id="visitsYear" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Conversion">
+                <display-name xml:lang="x-default">Conversion</display-name>
+                <attribute attribute-id="orders" system="true"/>
+                <attribute attribute-id="orderValueMonth" system="true"/>
+                <attribute attribute-id="orderValue" system="true"/>
+                <attribute attribute-id="avgOrderValue" system="true"/>
+                <attribute attribute-id="discountValueWithoutCoupon" system="true"/>
+                <attribute attribute-id="discountValueWithCoupon" system="true"/>
+                <attribute attribute-id="sourceCodeOrders" system="true"/>
+                <attribute attribute-id="lastOrderDate" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Returns">
+                <display-name xml:lang="x-default">Returns</display-name>
+                <attribute attribute-id="returns" system="true"/>
+                <attribute attribute-id="returnValue" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Gifts">
+                <display-name xml:lang="x-default">Gifts</display-name>
+                <attribute attribute-id="giftOrders" system="true"/>
+                <attribute attribute-id="giftUnits" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Products">
+                <display-name xml:lang="x-default">Products</display-name>
+                <attribute attribute-id="topCategoriesOrdered" system="true"/>
+                <attribute attribute-id="productsOrdered" system="true"/>
+                <attribute attribute-id="productMastersOrdered" system="true"/>
+                <attribute attribute-id="productsViewedMonth" system="true"/>
+                <attribute attribute-id="productsAbandonedMonth" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerAddress">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address1">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address2">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="city">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="companyName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="countryCode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">United States</display>
+                        <value>US</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Canada</display>
+                        <value>CA</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Germany</display>
+                        <value>DE</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="firstName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="jobTitle">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="lastName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phone">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="postBox">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="postalCode">
+                <min-length>0</min-length>
+                <field-length>10</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="salutation">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="secondName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="stateCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="suffix">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="suite">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="title">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard Address</display-name>
+                <attribute attribute-id="ID" system="true"/>
+                <attribute attribute-id="title" system="true"/>
+                <attribute attribute-id="companyName" system="true"/>
+                <attribute attribute-id="salutation" system="true"/>
+                <attribute attribute-id="firstName" system="true"/>
+                <attribute attribute-id="secondName" system="true"/>
+                <attribute attribute-id="lastName" system="true"/>
+                <attribute attribute-id="suffix" system="true"/>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="suite" system="true"/>
+                <attribute attribute-id="postBox" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="phone" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerCDPData">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="segments"/>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Segments">
+                <display-name xml:lang="x-default">Segments</display-name>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerGroup">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+                <field-length>37</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+                <field-length>100</field-length>
+                <field-height>5</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerPaymentInstrument">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankAccountDriversLicense">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankAccountDriversLicenseStateCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankAccountHolder">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankRoutingNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="creditCardExpirationMonth"/>
+            <attribute-definition attribute-id="creditCardExpirationYear"/>
+            <attribute-definition attribute-id="creditCardHolder">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creditCardIssueNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creditCardType">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creditCardValidFromMonth"/>
+            <attribute-definition attribute-id="creditCardValidFromYear"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="paymentMethod">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Folder">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+                <field-height>10</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="online"/>
+            <attribute-definition attribute-id="pageDescription">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageKeywords">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageTitle">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageURL">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapChangeFrequency">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">always</display>
+                        <value>always</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">hourly</display>
+                        <value>hourly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">daily</display>
+                        <value>daily</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">weekly</display>
+                        <value>weekly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">monthly</display>
+                        <value>monthly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">yearly</display>
+                        <value>yearly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">never</display>
+                        <value>never</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapIncluded">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">YES</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NO</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapPriority">
+                <min-value>0.0</min-value>
+                <max-value>1.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="template">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard</display-name>
+                <attribute attribute-id="ID" system="true"/>
+                <attribute attribute-id="displayName" system="true"/>
+                <attribute attribute-id="description" system="true"/>
+                <attribute attribute-id="online" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="ExternalSearch">
+                <display-name xml:lang="x-default">Search Engine Optimization Support</display-name>
+                <attribute attribute-id="pageTitle" system="true"/>
+                <attribute attribute-id="pageDescription" system="true"/>
+                <attribute attribute-id="pageKeywords" system="true"/>
+                <attribute attribute-id="pageURL" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="SiteMap">
+                <display-name xml:lang="x-default">Sitemap Attributes</display-name>
+                <attribute attribute-id="siteMapIncluded" system="true"/>
+                <attribute attribute-id="siteMapChangeFrequency" system="true"/>
+                <attribute attribute-id="siteMapPriority" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Presentation">
+                <display-name xml:lang="x-default">Presentation</display-name>
+                <attribute attribute-id="template" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="GiftCertificate">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="enabled"/>
+            <attribute-definition attribute-id="giftCertificateCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="merchantID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="message">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="orderNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="recipientEmail">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="recipientName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="senderName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="GiftCertificateLineItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="giftCertificateID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="message">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="recipientEmail">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="recipientName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="senderName">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Invoice">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="createdBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="invoiceNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="modifiedBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NOT PAID</display>
+                        <value>NOT_PAID</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">MANUAL</display>
+                        <value>MANUAL</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">PAID</display>
+                        <value>PAID</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">FAILED</display>
+                        <value>FAILED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="type">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">SHIPPING</display>
+                        <value>SHIPPING</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">RETURN</display>
+                        <value>RETURN</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">RETURN CASE</display>
+                        <value>RETURN_CASE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">APPEASEMENT</display>
+                        <value>APPEASEMENT</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="InvoiceItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="basePrice"/>
+            <attribute-definition attribute-id="grossPrice"/>
+            <attribute-definition attribute-id="invoiceNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="itemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="netPrice"/>
+            <attribute-definition attribute-id="orderItemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="tax"/>
+            <attribute-definition attribute-id="taxBasis"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Library">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="CMSChannelID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="displayName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="SalesforceCMS">
+                <display-name xml:lang="x-default">Salesforce CMS</display-name>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="Order">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="affiliatePartnerID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="affiliatePartnerName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="businessType">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">B2C</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">B2B</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="cancelCode">
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">None Specified</display>
+                        <value>NONE_SPECIFIED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Size</display>
+                        <value>WRONG_SIZE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Color</display>
+                        <value>WRONG_COLOR</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="cancelDescription">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="channelType">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">Storefront</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Call Center</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Marketplace</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">DSS</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Store</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pinterest</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Twitter</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Facebook Ads</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Subscriptions</display>
+                        <value>9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Online Reservation</display>
+                        <value>10</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Customer Service Center</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Instagram Commerce</display>
+                        <value>12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Google</display>
+                        <value>13</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">TikTok</display>
+                        <value>14</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Snapchat</display>
+                        <value>15</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WhatsApp</display>
+                        <value>16</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">YouTube</display>
+                        <value>17</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="confirmationStatus">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NOTCONFIRMED</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CONFIRMED</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="createdBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="currencyCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerEmail">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerLocaleID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerOrderReference">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="exportAfter"/>
+            <attribute-definition attribute-id="exportStatus">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NOTEXPORTED</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">EXPORTED</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">EXPORTREADY</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">EXPORTFAILED</display>
+                        <value>3</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="externalOrderNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="externalOrderStatus">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="externalOrderText">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="orderNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="originalOrderNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="paymentStatus">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NOTPAID</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">PARTPAID</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">PAID</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="replaceCode">
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">None Specified</display>
+                        <value>NONE_SPECIFIED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Size</display>
+                        <value>WRONG_SIZE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Color</display>
+                        <value>WRONG_COLOR</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="replaceDescription">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="replacedOrderNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="replacementOrderNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shippingStatus">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NOTSHIPPED</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">PARTSHIPPED</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">SHIPPED</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">CREATED</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NEW</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">OPEN</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">COMPLETED</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CANCELLED</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">REPLACED</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">FAILED</display>
+                        <value>8</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="OrderAddress">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address1">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address2">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="city">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="companyName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="countryCode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">United States</display>
+                        <value>US</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Canada</display>
+                        <value>CA</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Germany</display>
+                        <value>DE</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="firstName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="jobTitle">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="lastName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phone">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="postBox">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="postalCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="salutation">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="secondName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="stateCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="suffix">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="suite">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="title">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard Address</display-name>
+                <attribute attribute-id="title" system="true"/>
+                <attribute attribute-id="companyName" system="true"/>
+                <attribute attribute-id="salutation" system="true"/>
+                <attribute attribute-id="firstName" system="true"/>
+                <attribute attribute-id="secondName" system="true"/>
+                <attribute attribute-id="lastName" system="true"/>
+                <attribute attribute-id="suffix" system="true"/>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="suite" system="true"/>
+                <attribute attribute-id="postBox" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="phone" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="OrderItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="itemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NEW</display>
+                        <value>NEW</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">OPEN</display>
+                        <value>OPEN</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">BACKORDER</display>
+                        <value>BACKORDER</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CONFIRMED</display>
+                        <value>CONFIRMED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WAREHOUSE</display>
+                        <value>WAREHOUSE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">SHIPPED</display>
+                        <value>SHIPPED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CANCELLED</display>
+                        <value>CANCELLED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="type">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">PRODUCT</display>
+                        <value>PRODUCT</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">SERVICE</display>
+                        <value>SERVICE</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="OrderPaymentInstrument">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankAccountDriversLicense">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankAccountDriversLicenseStateCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankAccountHolder">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bankRoutingNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="creditCardExpirationMonth"/>
+            <attribute-definition attribute-id="creditCardExpirationYear"/>
+            <attribute-definition attribute-id="creditCardHolder">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creditCardIssueNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creditCardNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creditCardType">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creditCardValidFromMonth"/>
+            <attribute-definition attribute-id="creditCardValidFromYear"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="paymentMethod">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="OrganizationPreferences"/>
+
+    <type-extension type-id="PaymentCard">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="cardType">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description"/>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="PaymentMethod">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description"/>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="PaymentTransaction">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="accountID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="accountType">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="transactionID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="type">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">Authorization</display>
+                        <value>TYPE_AUTH</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorization Reversal</display>
+                        <value>TYPE_AUTH_REVERSAL</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Capture</display>
+                        <value>TYPE_CAPTURE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Credit</display>
+                        <value>TYPE_CREDIT</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="PriceAdjustment">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="reasonCode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Price Match</display>
+                        <value>PRICE_MATCH</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Backorder</display>
+                        <value>BACKORDER</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Even Exchange</display>
+                        <value>EVEN_EXCHANGE</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="PriceBook">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="currencyCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="deltaFiles"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="onlineFlag"/>
+        </system-attribute-definitions>
+    </type-extension>
 
     <type-extension type-id="Product">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="EAN">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="ID">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UPC">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="brand">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="facebookEnabled">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="localizedTaxClassID">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="longDescription">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="manufacturerName">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="manufacturerSKU">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="minOrderQuantity">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="name">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="onlineFlag">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="onlineFrom">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="onlineTo">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageDescription">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageKeywords">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageTitle">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageURL">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pinterestEnabled">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchPlacement">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Top Featured Product</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Featured Product</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Product</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Secondary Product</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Featured Accessory</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Accessory</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Spare Part</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NLA Product</display>
+                        <value>1</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchRank">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">High</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Medium</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Low</display>
+                        <value>1</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchable">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchableIfUnavailable">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">Yes</display>
+                        <value>Yes</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">No</display>
+                        <value>No</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="shortDescription">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapChangeFrequency">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">always</display>
+                        <value>always</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">hourly</display>
+                        <value>hourly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">daily</display>
+                        <value>daily</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">weekly</display>
+                        <value>weekly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">monthly</display>
+                        <value>monthly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">yearly</display>
+                        <value>yearly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">never</display>
+                        <value>never</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapIncluded">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">YES</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NO</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapPriority">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-value>0.0</min-value>
+                <max-value>1.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="stepQuantity">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeForcePriceEnabled">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeNonDiscountableEnabled">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeNonInventoryEnabled">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeNonRevenueEnabled">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeReceiptName">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeTaxClass">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="taxClassID">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="template">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="unit">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="unitMeasure">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="unitQuantity">
+                <visible-flag>false</visible-flag>
+                <order-required-flag>false</order-required-flag>
+            </attribute-definition>
+        </system-attribute-definitions>
         <custom-attribute-definitions>
             <attribute-definition attribute-id="yshAvailableForInStorePickup">
                 <display-name xml:lang="x-default">Available for In Store Pickup</display-name>
@@ -1342,7 +3410,57 @@
                 <min-length>0</min-length>
             </attribute-definition>
         </custom-attribute-definitions>
-        <group-definitions> 
+        <group-definitions>
+            <attribute-group group-id="ExternalSearch">
+                <display-name xml:lang="x-default">Search Engine Optimization Support</display-name>
+                <attribute attribute-id="pageTitle" system="true"/>
+                <attribute attribute-id="pageDescription" system="true"/>
+                <attribute attribute-id="pageKeywords" system="true"/>
+                <attribute attribute-id="pageURL" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="SiteMap">
+                <display-name xml:lang="x-default">Sitemap Attributes</display-name>
+                <attribute attribute-id="siteMapIncluded" system="true"/>
+                <attribute attribute-id="siteMapChangeFrequency" system="true"/>
+                <attribute attribute-id="siteMapPriority" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Presentation">
+                <display-name xml:lang="x-default">Presentation Attributes</display-name>
+                <attribute attribute-id="thumbnail" system="true"/>
+                <attribute attribute-id="image" system="true"/>
+                <attribute attribute-id="template" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="SearchRanking">
+                <display-name xml:lang="x-default">Search Ranking</display-name>
+                <attribute attribute-id="searchPlacement" system="true"/>
+                <attribute attribute-id="searchRank" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Order">
+                <display-name xml:lang="x-default">Order Attributes</display-name>
+                <attribute attribute-id="unit" system="true"/>
+                <attribute attribute-id="minOrderQuantity" system="true"/>
+                <attribute attribute-id="stepQuantity" system="true"/>
+                <attribute attribute-id="taxClassID" system="true"/>
+                <attribute attribute-id="EAN" system="true"/>
+                <attribute attribute-id="UPC" system="true"/>
+                <attribute attribute-id="localizedTaxClassID" system="true"/>
+                <attribute attribute-id="unitQuantity" system="true"/>
+                <attribute attribute-id="unitMeasure" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Store">
+                <display-name xml:lang="x-default">Store Attributes</display-name>
+                <attribute attribute-id="storeNonDiscountableEnabled" system="true"/>
+                <attribute attribute-id="storeTaxClass" system="true"/>
+                <attribute attribute-id="storeNonRevenueEnabled" system="true"/>
+                <attribute attribute-id="storeNonInventoryEnabled" system="true"/>
+                <attribute attribute-id="storeReceiptName" system="true"/>
+                <attribute attribute-id="storeForcePriceEnabled" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="ChannelIntegration">
+                <display-name xml:lang="x-default">Channel Integration Attributes</display-name>
+                <attribute attribute-id="pinterestEnabled" system="true"/>
+                <attribute attribute-id="facebookEnabled" system="true"/>
+            </attribute-group>
             <attribute-group group-id="YourShopHere">
                 <display-name xml:lang="x-default">Your Shop Here Attributes</display-name>
                 <attribute attribute-id="yshDimWidth"/>
@@ -1406,54 +3524,1143 @@
         </group-definitions>
     </type-extension>
 
-    <type-extension type-id="Category">
+    <type-extension type-id="ProductActiveData">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="availableDate"/>
+            <attribute-definition attribute-id="avgGrossMarginPercentDay"/>
+            <attribute-definition attribute-id="avgGrossMarginPercentMonth"/>
+            <attribute-definition attribute-id="avgGrossMarginPercentWeek"/>
+            <attribute-definition attribute-id="avgGrossMarginPercentYear"/>
+            <attribute-definition attribute-id="avgGrossMarginValueDay"/>
+            <attribute-definition attribute-id="avgGrossMarginValueMonth"/>
+            <attribute-definition attribute-id="avgGrossMarginValueWeek"/>
+            <attribute-definition attribute-id="avgGrossMarginValueYear"/>
+            <attribute-definition attribute-id="avgSalesPriceDay"/>
+            <attribute-definition attribute-id="avgSalesPriceMonth"/>
+            <attribute-definition attribute-id="avgSalesPriceWeek"/>
+            <attribute-definition attribute-id="avgSalesPriceYear"/>
+            <attribute-definition attribute-id="conversionDay"/>
+            <attribute-definition attribute-id="conversionMonth"/>
+            <attribute-definition attribute-id="conversionWeek"/>
+            <attribute-definition attribute-id="conversionYear"/>
+            <attribute-definition attribute-id="costPrice"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="daysAvailable"/>
+            <attribute-definition attribute-id="impressionsDay"/>
+            <attribute-definition attribute-id="impressionsMonth"/>
+            <attribute-definition attribute-id="impressionsWeek"/>
+            <attribute-definition attribute-id="impressionsYear"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="lookToBookRatioDay"/>
+            <attribute-definition attribute-id="lookToBookRatioMonth"/>
+            <attribute-definition attribute-id="lookToBookRatioWeek"/>
+            <attribute-definition attribute-id="lookToBookRatioYear"/>
+            <attribute-definition attribute-id="ordersDay"/>
+            <attribute-definition attribute-id="ordersMonth"/>
+            <attribute-definition attribute-id="ordersWeek"/>
+            <attribute-definition attribute-id="ordersYear"/>
+            <attribute-definition attribute-id="returnRate"/>
+            <attribute-definition attribute-id="revenueDay"/>
+            <attribute-definition attribute-id="revenueMonth"/>
+            <attribute-definition attribute-id="revenueWeek"/>
+            <attribute-definition attribute-id="revenueYear"/>
+            <attribute-definition attribute-id="salesVelocityDay"/>
+            <attribute-definition attribute-id="salesVelocityMonth"/>
+            <attribute-definition attribute-id="salesVelocityWeek"/>
+            <attribute-definition attribute-id="salesVelocityYear"/>
+            <attribute-definition attribute-id="unitsDay"/>
+            <attribute-definition attribute-id="unitsMonth"/>
+            <attribute-definition attribute-id="unitsWeek"/>
+            <attribute-definition attribute-id="unitsYear"/>
+            <attribute-definition attribute-id="viewsDay"/>
+            <attribute-definition attribute-id="viewsMonth"/>
+            <attribute-definition attribute-id="viewsWeek"/>
+            <attribute-definition attribute-id="viewsYear"/>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Traffic">
+                <display-name xml:lang="x-default">Traffic</display-name>
+                <attribute attribute-id="impressionsDay" system="true"/>
+                <attribute attribute-id="impressionsWeek" system="true"/>
+                <attribute attribute-id="impressionsMonth" system="true"/>
+                <attribute attribute-id="impressionsYear" system="true"/>
+                <attribute attribute-id="viewsDay" system="true"/>
+                <attribute attribute-id="viewsWeek" system="true"/>
+                <attribute attribute-id="viewsMonth" system="true"/>
+                <attribute attribute-id="viewsYear" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Conversion">
+                <display-name xml:lang="x-default">Conversion</display-name>
+                <attribute attribute-id="conversionDay" system="true"/>
+                <attribute attribute-id="conversionWeek" system="true"/>
+                <attribute attribute-id="conversionMonth" system="true"/>
+                <attribute attribute-id="conversionYear" system="true"/>
+                <attribute attribute-id="ordersDay" system="true"/>
+                <attribute attribute-id="ordersWeek" system="true"/>
+                <attribute attribute-id="ordersMonth" system="true"/>
+                <attribute attribute-id="ordersYear" system="true"/>
+                <attribute attribute-id="unitsDay" system="true"/>
+                <attribute attribute-id="unitsWeek" system="true"/>
+                <attribute attribute-id="unitsMonth" system="true"/>
+                <attribute attribute-id="unitsYear" system="true"/>
+                <attribute attribute-id="revenueDay" system="true"/>
+                <attribute attribute-id="revenueWeek" system="true"/>
+                <attribute attribute-id="revenueMonth" system="true"/>
+                <attribute attribute-id="revenueYear" system="true"/>
+                <attribute attribute-id="lookToBookRatioDay" system="true"/>
+                <attribute attribute-id="lookToBookRatioWeek" system="true"/>
+                <attribute attribute-id="lookToBookRatioMonth" system="true"/>
+                <attribute attribute-id="lookToBookRatioYear" system="true"/>
+                <attribute attribute-id="salesVelocityDay" system="true"/>
+                <attribute attribute-id="salesVelocityWeek" system="true"/>
+                <attribute attribute-id="salesVelocityMonth" system="true"/>
+                <attribute attribute-id="salesVelocityYear" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="PricesAndRates">
+                <display-name xml:lang="x-default">Prices &amp; Rates</display-name>
+                <attribute attribute-id="costPrice" system="true"/>
+                <attribute attribute-id="avgSalesPriceDay" system="true"/>
+                <attribute attribute-id="avgSalesPriceWeek" system="true"/>
+                <attribute attribute-id="avgSalesPriceMonth" system="true"/>
+                <attribute attribute-id="avgSalesPriceYear" system="true"/>
+                <attribute attribute-id="avgGrossMarginValueDay" system="true"/>
+                <attribute attribute-id="avgGrossMarginValueWeek" system="true"/>
+                <attribute attribute-id="avgGrossMarginValueMonth" system="true"/>
+                <attribute attribute-id="avgGrossMarginValueYear" system="true"/>
+                <attribute attribute-id="avgGrossMarginPercentDay" system="true"/>
+                <attribute attribute-id="avgGrossMarginPercentWeek" system="true"/>
+                <attribute attribute-id="avgGrossMarginPercentMonth" system="true"/>
+                <attribute attribute-id="avgGrossMarginPercentYear" system="true"/>
+                <attribute attribute-id="returnRate" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Freshness">
+                <display-name xml:lang="x-default">Freshness</display-name>
+                <attribute attribute-id="availableDate" system="true"/>
+                <attribute attribute-id="daysAvailable" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="ProductInventoryList">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ProductInventoryRecord">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ProductLineItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="externalLineItemStatus">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="externalLineItemText">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="gift"/>
+            <attribute-definition attribute-id="giftMessage">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
         <custom-attribute-definitions>
-            <attribute-definition attribute-id="yshAlternativeUrl">
-                <display-name xml:lang="x-default">Alternative URL</display-name>
-                <description xml:lang="x-default">Renders an alternative URL in main navigation. Uses Salesforce Commerce Cloud content url notation. For example: $url('Account-Show')$ or normal URL http://xchange.demandware.com</description>
-                <type>html</type>
-                <localizable-flag>false</localizable-flag>
+            <attribute-definition attribute-id="lineStatus">
+                <display-name xml:lang="x-default">Line Status</display-name>
+                <type>enum-of-string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
-                <field-length>0</field-length>
-                <field-height>2</field-height>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Open</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Shipped</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Cancelled</display>
+                        <value>3</value>
+                    </value-definition>
+                </value-definitions>
             </attribute-definition>
-            <attribute-definition attribute-id="yshEnableCompare">
-                <display-name xml:lang="x-default">Enable Compare</display-name>
-                <description xml:lang="x-default">Used to define if/when the Compare feature is to be visualized in the storefront based on navigation. If enableCompare = FALSE, no Compare checkboxes will be displayed in the grid view. If enableCompare = TRUE, the category (and its children) will support the Compare feature.</description>
-                <type>boolean</type>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="OCAPI_TEST">
+                <display-name xml:lang="x-default">OCAPI_TEST</display-name>
+                <attribute attribute-id="lineStatus"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="ProductList">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="anonymous"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eventCity">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eventCountry">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eventDate"/>
+            <attribute-definition attribute-id="eventState">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eventType">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="exportStatus">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NOTEXPORTED</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">EXPORTED</display>
+                        <value>1</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastExportTime"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="public"/>
+            <attribute-definition attribute-id="type"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ProductListItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="priority"/>
+            <attribute-definition attribute-id="productID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="public"/>
+            <attribute-definition attribute-id="type"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ProductListItemPurchase">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ProductListRegistrant">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Profile">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="birthday"/>
+            <attribute-definition attribute-id="companyName">
+                <min-length>0</min-length>
+                <field-length>10</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="customerNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="email">
+                <field-length>75</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fax">
+                <min-length>0</min-length>
+                <field-length>32</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="firstName">
+                <min-length>0</min-length>
+                <field-length>25</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="gender">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Male</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Female</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="jobTitle">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastLoginTime"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="lastName">
+                <min-length>0</min-length>
+                <field-length>25</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastVisitTime"/>
+            <attribute-definition attribute-id="nextBirthday"/>
+            <attribute-definition attribute-id="phoneBusiness">
+                <min-length>0</min-length>
+                <field-length>32</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phoneHome">
+                <min-length>0</min-length>
+                <field-length>32</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phoneMobile">
+                <min-length>0</min-length>
+                <field-length>32</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="preferredLocale">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="salutation">
+                <min-length>0</min-length>
+                <field-length>5</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="secondName">
+                <min-length>0</min-length>
+                <field-length>25</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="suffix">
+                <min-length>0</min-length>
+                <field-length>5</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="taxID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="taxIDType">
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Arbitrary</display>
+                        <value>Arbitrary</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CPF</display>
+                        <value>CPF</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="title">
+                <min-length>0</min-length>
+                <field-length>10</field-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Profile Attributes</display-name>
+                <attribute attribute-id="salutation" system="true"/>
+                <attribute attribute-id="title" system="true"/>
+                <attribute attribute-id="companyName" system="true"/>
+                <attribute attribute-id="secondName" system="true"/>
+                <attribute attribute-id="jobTitle" system="true"/>
+                <attribute attribute-id="firstName" system="true"/>
+                <attribute attribute-id="lastName" system="true"/>
+                <attribute attribute-id="suffix" system="true"/>
+                <attribute attribute-id="gender" system="true"/>
+                <attribute attribute-id="birthday" system="true"/>
+                <attribute attribute-id="email" system="true"/>
+                <attribute attribute-id="nextBirthday" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Phone">
+                <display-name xml:lang="x-default">Phone Numbers</display-name>
+                <attribute attribute-id="phoneHome" system="true"/>
+                <attribute attribute-id="phoneBusiness" system="true"/>
+                <attribute attribute-id="phoneMobile" system="true"/>
+                <attribute attribute-id="fax" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="Promotion">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+                <field-length>50</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="calloutMsg">
+                <field-height>3</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="combinablePromotions"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="details">
+                <field-height>3</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="exclusivity">
+                <value-definitions immutable="true">
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Can be combined with any promotion.</display>
+                        <value>NO</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Can't be combined with promotions of the same class.</display>
+                        <value>CLASS</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Can't be combined with any promotion.</display>
+                        <value>GLOBAL</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="mutuallyExclusivePromotions"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="rank">
+                <value-definitions>
+                    <value-definition>
+                        <value>10</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>20</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>30</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>40</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <value>50</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>60</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>70</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>80</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>90</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>100</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="tags"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Recommendation">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="calloutMsg"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="longDescription"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="recommendationType">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Cross-Sell</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Up-Sell</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Other</display>
+                        <value>3</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="shortDescription"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Return">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="createdBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="invoiceNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="modifiedBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="note">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="returnNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NEW</display>
+                        <value>NEW</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">COMPLETED</display>
+                        <value>COMPLETED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ReturnCase">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="RMA"/>
+            <attribute-definition attribute-id="createdBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="invoiceNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="modifiedBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="returnCaseNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NEW</display>
+                        <value>NEW</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CONFIRMED</display>
+                        <value>CONFIRMED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">PARTIAL_RETURNED</display>
+                        <value>PARTIAL_RETURNED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">RETURNED</display>
+                        <value>RETURNED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CANCELLED</display>
+                        <value>CANCELLED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ReturnCaseItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="authorizedQuantity"/>
+            <attribute-definition attribute-id="basePrice"/>
+            <attribute-definition attribute-id="grossPrice"/>
+            <attribute-definition attribute-id="itemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="netPrice"/>
+            <attribute-definition attribute-id="note">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="orderItemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="reasonCode">
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">None Specified</display>
+                        <value>NONE_SPECIFIED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Size</display>
+                        <value>WRONG_SIZE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Color</display>
+                        <value>WRONG_COLOR</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="returnCaseNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NEW</display>
+                        <value>NEW</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CONFIRMED</display>
+                        <value>CONFIRMED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">PARTIAL_RETURNED</display>
+                        <value>PARTIAL_RETURNED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">RETURNED</display>
+                        <value>RETURNED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CANCELLED</display>
+                        <value>CANCELLED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="tax"/>
+            <attribute-definition attribute-id="taxBasis"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ReturnItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="basePrice"/>
+            <attribute-definition attribute-id="grossPrice"/>
+            <attribute-definition attribute-id="itemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="netPrice"/>
+            <attribute-definition attribute-id="note">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="orderItemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="reasonCode">
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">None Specified</display>
+                        <value>NONE_SPECIFIED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Size</display>
+                        <value>WRONG_SIZE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrong Color</display>
+                        <value>WRONG_COLOR</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="returnNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="returnedQuantity"/>
+            <attribute-definition attribute-id="tax"/>
+            <attribute-definition attribute-id="taxBasis"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ServiceConfig">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="serviceType">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ServiceCredential">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="URL">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="password">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="user">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="bmAuthAccessKey">
+                <display-name xml:lang="x-default">BM Auth Access Key</display-name>
+                <type>password</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="yshShowInMenu">
-                <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
-                <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
-                <type>boolean</type>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-            </attribute-definition>
-            <attribute-definition attribute-id="yshSizeChartID">
-                <display-name xml:lang="x-default">Size Chart</display-name>
-                <description xml:lang="x-default">Used to define the content asset ID of the Size Chart that is appropriate for products whose PRIMARY category is the associated category (and its children). Whenever a product detail page (or quick view) is rendered, the Size Chart link is populated based on the value of this attribute for the products primary categorization. If not defined, NO size chart link is displayed.</description>
+            <attribute-definition attribute-id="bmAuthUser">
+                <display-name xml:lang="x-default">BM Auth User</display-name>
                 <type>string</type>
-                <localizable-flag>false</localizable-flag>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
-            <attribute-group group-id="customAttributes">
-                <display-name xml:lang="x-default">Custom</display-name>
-                <attribute attribute-id="sizeChartID"/>
-                <attribute attribute-id="showInMenu"/>
-                <attribute attribute-id="enableCompare"/>
-                <attribute attribute-id="catBannerID"/>
-                <attribute attribute-id="headerMenuOrientation"/>
-                <attribute attribute-id="headerMenuBanner"/>
-                <attribute attribute-id="alternativeUrl"/>
+            <attribute-group group-id="Additional">
+                <display-name xml:lang="x-default">Additional</display-name>
+                <attribute attribute-id="bmAuthAccessKey"/>
+                <attribute attribute-id="bmAuthUser"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
+
+    <type-extension type-id="ServiceProfile">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="cbCalls"/>
+            <attribute-definition attribute-id="cbMillis"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="rateLimitCalls"/>
+            <attribute-definition attribute-id="rateLimitMillis"/>
+            <attribute-definition attribute-id="timeoutMillis"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Shipment">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="gift"/>
+            <attribute-definition attribute-id="giftMessage">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="shipmentNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shippingStatus">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">NOTSHIPPED</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">SHIPPED</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ShippingLineItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ShippingMethod">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="taxClassID">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ShippingOrder">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="createdBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="invoiceNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="modifiedBy">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shippingOrderNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">CONFIRMED</display>
+                        <value>CONFIRMED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WAREHOUSE</display>
+                        <value>WAREHOUSE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">SHIPPED</display>
+                        <value>SHIPPED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CANCELLED</display>
+                        <value>CANCELLED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="ShippingOrderItem">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="basePrice"/>
+            <attribute-definition attribute-id="grossPrice"/>
+            <attribute-definition attribute-id="itemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="netPrice"/>
+            <attribute-definition attribute-id="orderItemID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="quantity"/>
+            <attribute-definition attribute-id="shippingOrderNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">CONFIRMED</display>
+                        <value>CONFIRMED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">WAREHOUSE</display>
+                        <value>WAREHOUSE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">SHIPPED</display>
+                        <value>SHIPPED</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">CANCELLED</display>
+                        <value>CANCELLED</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="tax"/>
+            <attribute-definition attribute-id="taxBasis"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="SitePreferences"/>
+
+    <type-extension type-id="SlotConfiguration">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="body"/>
+            <attribute-definition attribute-id="callout"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="rank">
+                <value-definitions>
+                    <value-definition>
+                        <value>10</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>20</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>30</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>40</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <value>50</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>60</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>70</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>80</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>90</value>
+                    </value-definition>
+                    <value-definition>
+                        <value>100</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="SourceCodeGroup">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Store">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address1">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address2">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="city">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="countryCode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">United States</display>
+                        <value>US</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Canada</display>
+                        <value>CA</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Germany</display>
+                        <value>DE</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="email">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fax">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="inventoryListID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="latitude">
+                <scale>6</scale>
+                <min-value>-90.0</min-value>
+                <max-value>90.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="longitude">
+                <scale>6</scale>
+                <min-value>-180.0</min-value>
+                <max-value>180.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phone">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="posEnabled"/>
+            <attribute-definition attribute-id="postalCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="stateCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeEvents"/>
+            <attribute-definition attribute-id="storeHours"/>
+            <attribute-definition attribute-id="storeLocatorEnabled"/>
+        </system-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Basic">
+                <display-name xml:lang="x-default">Basic Attributes</display-name>
+                <attribute attribute-id="ID" system="true"/>
+                <attribute attribute-id="name" system="true"/>
+                <attribute attribute-id="inventoryListID" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Address">
+                <display-name xml:lang="x-default">Address</display-name>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="longitude" system="true"/>
+                <attribute attribute-id="latitude" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Contact">
+                <display-name xml:lang="x-default">Contact Details</display-name>
+                <attribute attribute-id="phone" system="true"/>
+                <attribute attribute-id="fax" system="true"/>
+                <attribute attribute-id="email" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Details">
+                <display-name xml:lang="x-default">Store Details</display-name>
+                <attribute attribute-id="storeHours" system="true"/>
+                <attribute attribute-id="storeEvents" system="true"/>
+                <attribute attribute-id="image" system="true"/>
+                <attribute attribute-id="posEnabled" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="StoreGroup">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="TrackingInfo">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="carrier">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="carrierService">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="trackingNumber">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="warehouseID">
+                <min-length>0</min-length>
+            </attribute-definition>
+        </system-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="TrackingRef"/>
 
 </metadata>

@@ -48,7 +48,6 @@ function SearchHit(hit) {
                         attrNumber = attrValue.value;
                     }
                     colorHash += parseInt(attrNumber, 10);
-
                 }
             }
             url.append('colorHash', colorHash.toString());
