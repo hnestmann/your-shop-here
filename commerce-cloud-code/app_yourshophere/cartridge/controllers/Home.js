@@ -31,6 +31,7 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
     var page = PageMgr.getPage('homepage');
 
     if (page && page.isVisible()) {
+        pageMetaData.setPageMetaTags(req.pageMetaData, page);
         res.page('homepage');
     } else {
         Logger.error('page "homepage" not found')

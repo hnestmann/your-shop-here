@@ -449,7 +449,7 @@
 }</config>
         <data xml:lang="x-default">{
   "inParagraph" : "No",
-  "richText" : "&lt;p&gt;&lt;a href=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\" target=\"_self\" data-link-type=\"external\" data-link-label=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\"&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\" alt=\"YourShopHere\"&gt;YourShopHere&lt;/a&gt;&lt;/p&gt;",
+  "richText" : "&lt;p&gt;&lt;a href=\"/" target=\"_self\" data-link-type=\"external\" data-link-label=\"/"&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\" alt=\"YourShopHere\"&gt;YourShopHere&lt;/a&gt;&lt;/p&gt;",
   "align" : "left"
 }</data>
         <online-flag>true</online-flag>

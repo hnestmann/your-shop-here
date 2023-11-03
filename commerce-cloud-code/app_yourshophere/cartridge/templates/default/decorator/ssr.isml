@@ -2,7 +2,6 @@
 <html lang="${pdict.lang}" data-theme="light">
 
 <head>
-    <title>${pdict.CurrentPageMetaData.title}</title>
     <isactivedatahead/>
     <isinclude template="components/layout/htmlhead" />
     <isprint value="${require('*/cartridge/experience/skin.js').renderSkin()}" encoding="off" />
