@@ -11,5 +11,5 @@ exports.render = function render() {
 
     model = request.custom.model; // eslint-disable-line no-undef
 
-    return new Template('experience/components/more_pd/pdp/productName').render(model).text;
+    return new Template('experience/components/pdp/productname').render(model).text;
 };

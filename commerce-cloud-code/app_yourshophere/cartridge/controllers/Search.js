@@ -18,10 +18,10 @@ const pageMetaData = require('*/cartridge/middleware/pageMetaData');
 
 server.get('Show', cache.applyDefaultCache, (req, res, next) => {
     pageMetaData.setPageMetaTags(req.pageMetaData, Site.current);
-    const categoryID = request.httpParameterMap.cgid.submitted ? request.httpParameterMap.cgid.stringValue : 'root';
-    const category = CatalogMgr.getCategory(categoryID);
+    const categoryId = request.httpParameterMap.cgid.submitted ? request.httpParameterMap.cgid.stringValue : 'root';
+    const category = CatalogMgr.getCategory(categoryId);
     if (!category) {
-        let error = `no category ${categoryID} not found`;
+        let error = `no category ${categoryId} not found`;
         Logger.error(error);
         res.render('pages/notfound', {reason: error});
         return next();
@@ -33,12 +33,13 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
         const aspectAttributes = new HashMap();
         aspectAttributes.category = category;
 
+        /* @todo put back into render - add allow list of proxied params */
         response.writer.print(PageMgr.renderPage(page.ID, aspectAttributes, JSON.stringify({queryString: request.httpQueryString})));
         return;
 
         //res.page(page,{}, aspectAttributes);
     } else {
-        let error = `no page for category ${categoryID} not found`;
+        let error = `no page for category ${categoryId} not found`;
         Logger.error(error);
         res.render('pages/notfound', {reason: error});
     }
@@ -46,9 +47,12 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
 }, pageMetaData.computedPageMetaData);
 
 
-server.get('Grid', server.middleware.include, (req, res, next) => {
-    
-    var search = models.get('search').init(request.httpParameterMap);
+server.get('Grid', cache.applyInventorySensitiveCache, (req, res, next) => {
+    let searchRequest = {}
+    if (request.httpParameterMap.cgid.submitted) {
+        searchRequest.cgid = request.httpParameterMap.cgid.stringValue;
+    }
+    const search = models.get('search').init(searchRequest);
     search.search();
     res.render('/components/plp/grid', {showPagination: request.httpParameterMap.pagination.booleanValue, search: search});
     next();

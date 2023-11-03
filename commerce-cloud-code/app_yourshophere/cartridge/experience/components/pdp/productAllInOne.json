@@ -1,7 +1,7 @@
 {
     "name": "Product All In One",
     "description": "This is the all in one product detail page component.",
-    "group": "more_pd_pdp",
+    "group": "pdp",
     "attribute_definition_groups": [
         {
             "id": "productPageSettings",

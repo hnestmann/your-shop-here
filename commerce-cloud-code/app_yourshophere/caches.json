@@ -7,6 +7,10 @@
         {
             "id": "QueryStrings",
             "expireAfterSeconds": 86400
+        },
+        {
+            "id": "Models",
+            "expireAfterSeconds": 86400
         }
     ]
 }

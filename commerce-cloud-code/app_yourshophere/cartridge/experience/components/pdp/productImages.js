@@ -4,12 +4,13 @@
  * @param {dw.experience.ComponentScriptContext} context The component context
  * @returns {string} The template to be displayed
  */
-exports.render = function render() {
+exports.render = function render(context) {
     var Template = require('dw/util/Template');
     var HashMap = require('dw/util/HashMap');
     var model = new HashMap();
 
     model = request.custom.model; // eslint-disable-line no-undef
-
-    return new Template('experience/components/more_pd/pdp/productImages').render(model).text;
+    model.viewType = context.content.viewType;
+    model.imageCount = context.content.imageCount;
+    return new Template('experience/components/pdp/productimages').render(model).text;
 };

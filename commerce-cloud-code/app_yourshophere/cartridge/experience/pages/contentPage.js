@@ -38,7 +38,11 @@ module.exports.render = function (context) {
 
     if (context.renderParameters) {
         var queryString = JSON.parse(context.renderParameters).queryString; 
-        model.httpParameter = JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+        if (queryString) {
+            model.httpParameter = JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+        } else {
+            model.httpParameter = {};
+        }
     }
 
     // render the page

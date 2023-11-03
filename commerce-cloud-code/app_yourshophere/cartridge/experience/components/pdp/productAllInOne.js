@@ -19,5 +19,5 @@ exports.render = function render(context) {
         contentOnlyNoCommerce: contentOnlyNoCommerce
     };
 
-    return new Template('experience/components/more_pd/pdp/productAllInOne').render(model).text;
+    return new Template('experience/components/pdp/productallinone').render(model).text;
 };

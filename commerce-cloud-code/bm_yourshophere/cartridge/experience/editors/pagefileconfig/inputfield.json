@@ -1,0 +1,12 @@
+{
+    "name": "File input field",
+    "description": "Writes its value in a config field, so it can be read in e.g a remote include",
+    "resources": {
+        "scripts": [
+            "commerce-cloud-code/bm_yourshophere/cartridge/experience/editors/pagefileconfig/inputfield.js"
+        ],
+        "styles": [
+            "https://cdnjs.cloudflare.com/ajax/libs/design-system/2.8.3/styles/salesforce-lightning-design-system.min.css"
+        ]
+    }
+}

@@ -15,8 +15,8 @@
     <figcaption>
         <isif condition="${!empty(pdict.heading)}">
             <span class="image-on ${pdict.overlayTextClass} ${pdict.verticalAlign} ${pdict.containerHAlign}">
-                <a href="${pdict.link}"
-                    aria-label="${Resource.msgf('pd.ITC.image.link', 'pageDesigner', null, pdict.alt ? pdict.alt : imageName)}">
+                <a href="${pdict.link}" hx-push-url="${pdict.link}"
+                    aria-label="${pdict.alt}" hx-get="${pdict.hxlink}" hx-target="main" hx-indicator=".progress">
                     <isprint value="${pdict.heading ? pdict.heading : ''}" encoding="off" />
                 </a>
             </span>

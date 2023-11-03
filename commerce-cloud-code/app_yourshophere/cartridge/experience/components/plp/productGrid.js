@@ -10,6 +10,6 @@ exports.render = function render(context) {
     var model = new HashMap();
 
     model = request.custom.model; // eslint-disable-line no-undef
-    
-    return new Template('experience/components/plp/grid').render(model).text;
+
+    return new Template('experience/components/plp/expgrid').render(model).text;
 };

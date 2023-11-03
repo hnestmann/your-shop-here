@@ -1,11 +1,22 @@
 const ProductSearchModel = require('dw/catalog/ProductSearchModel');
 const PagingModel = require('dw/web/PagingModel');
+const ArrayList = require('dw/util/ArrayList')
 const models = require('model');
 
-function ProductSearch(parameterMap) {
+function ProductSearch(searchRequest) {
     const wrapper = require('*/cartridge/models/wrapper.js');
     const apiProductSearch = new ProductSearchModel();
-    wrapper(this, apiProductSearch);
+    wrapper('ProductSearchModel' ,this, apiProductSearch);
+    if (searchRequest.cgid) {
+        apiProductSearch.setCategoryID(searchRequest.cgid);
+    }
+    if (searchRequest.productId) {
+        var productIDs = new ArrayList();
+        productIDs.add1(searchRequest.productId);
+        apiProductSearch.setProductIDs(productIDs);
+    }
+    // @todo add refinements etc
+    
 
     this.search = function () {
         this.object.search();
@@ -22,10 +33,6 @@ function ProductSearch(parameterMap) {
         }
         this.paging = productPagingModel;
     };
-
-    apiProductSearch.setCategoryID(parameterMap.cgid.stringValue);
-    // @todo add refinements
-
 
     Object.defineProperty(this, 'foundProducts', {
         get: function () {

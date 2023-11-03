@@ -1,0 +1,16 @@
+{
+    "name": "Product page",
+    "description": "A Product page.",
+    "attribute_definitions": [
+        {
+            "id": "product",
+            "name": "Product",
+            "description": "The product to show the product page for.",
+            "type": "product",
+            "required": true
+        }
+    ],
+    "supported_object_types": [
+        "category", "product"
+    ]
+}

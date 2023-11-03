@@ -9,20 +9,18 @@
 </head>
 
 <body>
-    <div class="progress" style="height: 3px; background-color: white;">
-        <div class="indeterminate" style="background-color: var(--skin-primary-color-1);"></div>
-    </div>
-    
+    <div class="progress">&nbsp;</div>
+
     <div class="container">
-        
+
         <isprint value="${require('*/cartridge/experience/skin.js').renderHeader()}" encoding="off">
-        
-        <main>
-            <isreplace/>
-        </main>
-        <footer>
-            <isprint value="${require('*/cartridge/experience/skin.js').renderFooter()}" encoding="off">
-        </footer>
+
+            <main>
+                <isreplace/>
+            </main>
+            <footer>
+                <isprint value="${require('*/cartridge/experience/skin.js').renderFooter()}" encoding="off">
+            </footer>
     </div>
 </body>
 

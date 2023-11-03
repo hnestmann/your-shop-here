@@ -1,71 +1,50 @@
 'use strict';
-
-var ISML = require('dw/template/ISML');
+var Template = require('dw/util/Template');
+var HashMap = require('dw/util/HashMap');
 var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
 var RegionModelRegistry = require('*/cartridge/experience/utilities/RegionModelRegistry.js');
-var HashMap = require('dw/util/HashMap');
+
 /**
- * Render logic for the pdp page.
+ * Render logic for the storepage.
  *
  * @param {dw.experience.PageScriptContext} context The page script context object.
  *
+ * @returns {string} The template text
  */
 module.exports.render = function (context) {
-
-    var model = {};
-
-    var productHelper = require('*/cartridge/scripts/helpers/productHelpers.js');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-
+    var model = new HashMap();
     var page = context.page;
+    model.page = page;
 
-    var content = context.content;
+    model.product = context.content.product;
 
-    if (content.product) {
-        var params = { pid: content.product.ID };
-        
-        var product = context.content.product;
 
-        var params = { pid: product.ID };
-        var showProductPageHelperResult = productHelper.showProductPage(params, request.pageMetaData);
+    // automatically register configured regions
+    var metaDefinition = require('*/cartridge/experience/pages/productPage.json');
+    model.regions = new RegionModelRegistry(page, metaDefinition);
 
-        pageMetaHelper.setPageMetaData(request.pageMetaData, product);
-        pageMetaHelper.setPageMetaTags(request.pageMetaData, product);
-
-        var metaDefinition = require('*/cartridge/experience/pages/productPage.json');
-    
-        // this is exactly the SFRA model plus the regions
-        model = {
-            page: page,
-            product: showProductPageHelperResult.product,
-            addToCartUrl: showProductPageHelperResult.addToCartUrl,
-            resources: showProductPageHelperResult.resources,
-            breadcrumbs: showProductPageHelperResult.breadcrumbs,
-            canonicalUrl: showProductPageHelperResult.canonicalUrl,
-            schemaData: showProductPageHelperResult.schemaData,
-            regions: new RegionModelRegistry(context.page, metaDefinition)
-        };
-    }
-
-    model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(context.page);
-
-    var modelAsHashMap = new HashMap();
-
-    Object.keys(model).forEach(function (key) {
-        modelAsHashMap[key] = model[key];
-    });
-
-    request.custom.model = modelAsHashMap; // eslint-disable-line no-undef
+    // Determine seo meta data.
+    // Used in htmlHead.isml via common/layout/page.isml decorator.
+    model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);
+    model.CurrentPageMetaData = {};
+    model.CurrentPageMetaData.title = page.pageTitle;
+    model.CurrentPageMetaData.description = page.pageDescription;
+    model.CurrentPageMetaData.keywords = page.pageKeywords;
 
     if (PageRenderHelper.isInEditMode()) {
         var HookManager = require('dw/system/HookMgr');
         HookManager.callHook('app.experience.editmode', 'editmode');
         model.resetEditPDMode = true;
     }
+    
+    model.httpParameter = {};
 
-    response.setExpires(new Date().getTime() + (24 * 60 * 60 * 1000)); // eslint-disable-line no-undef
-    response.setVaryBy('price_promotion'); // eslint-disable-line no-undef
-
+    if (context.renderParameters) {
+        var queryString = JSON.parse(context.renderParameters).queryString; 
+        model.httpParameter = JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+    }
+    request.custom.model = model;
     // render the page
-    ISML.renderTemplate('experience/pages/productPage', model);
+
+    return new Template('experience/pages/pdpage').render(model).text;
 };

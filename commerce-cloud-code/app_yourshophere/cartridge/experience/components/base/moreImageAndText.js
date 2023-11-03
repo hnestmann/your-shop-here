@@ -18,7 +18,9 @@ module.exports.render = function (context) {
     var tmpModel = Object.create(null);
     imageContainerDecorator(tmpModel, content);
     model = tmpModel.imageContainer;
-    model.heading = model.heading.replace('<p>','')
-    model.heading = model.heading.replace(new RegExp('</p>$'),'')
+    model.heading = model.heading.replace('<p>','');
+    model.heading = model.heading.replace(new RegExp('</p>$'),'');
+    var hxdebug = model.link.includes('?');
+    model.hxlink = `${model.link}${(model.link.includes('?') ? '&' : '?')}hx=main`;
     return new Template('experience/components/base/moreImageAndText').render(model).text;
 };
