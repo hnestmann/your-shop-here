@@ -1,27 +1,21 @@
-    <meta charset=UTF-8 />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset=UTF-8 />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<iscomment>The page meta data will be replaced by rule based content if it's available</iscomment>
-<isif condition="${dw.system.System.getInstanceType() != dw.system.System.PRODUCTION_SYSTEM}">
-    <title>${pdict.CurrentPageMetaData.title} | ${Resource.msg('global.site.name', 'version', null)} | ${Resource.msg('global.version.number', 'version', null)}</title>
-<iselse/>
-    <title><isprint value="${pdict.CurrentPageMetaData.title}" encoding="htmlcontent" /></title>
-</isif>
-
-<meta name="description" content="${pdict.CurrentPageMetaData.description ? pdict.CurrentPageMetaData.description : Resource.msg('global.storename','common',null)}"/>
-<meta name="keywords" content="${pdict.CurrentPageMetaData.keywords ? pdict.CurrentPageMetaData.keywords : Resource.msg('global.storename','common',null)}"/>
+<title>${pdict.CurrentPageMetaData.title}</title>
+<meta name="description" content="${pdict.CurrentPageMetaData.description}"/>
+<meta name="keywords" content="${pdict.CurrentPageMetaData.keywords}"/>
 
 <iscomment>Additional Rule based page meta tags</iscomment>
 <isloop items="${pdict.CurrentPageMetaData.pageMetaTags}" var="pageMetaTag">
     <isif condition="${pageMetaTag.name}">
-        <meta name="<isprint value="${pageMetaTag.ID}">" content="<isprint value="${pageMetaTag.content}">" />
+        <meta name="${pageMetaTag.ID}" content="${pageMetaTag.content}" />
     <iselseif condition="${pageMetaTag.property}">
-        <meta property="<isprint value="${pageMetaTag.ID}">" content="<isprint value="${pageMetaTag.content}">" />
+        <meta property="${pageMetaTag.ID}" content="${pageMetaTag.content}" />
     </isif>
 </isloop>
 
-    <link rel="manifest" href="${URLUtils.staticURL('manifest.json')}" />
-    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
-    <link rel="stylesheet" href="${URLUtils.staticURL('style.css')}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+<link rel="manifest" href="${URLUtils.staticURL('manifest.json')}" />
+<script src="https://unpkg.com/htmx.org@1.9.6"></script>
+<link rel="stylesheet" href="${URLUtils.staticURL('style.css')}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
