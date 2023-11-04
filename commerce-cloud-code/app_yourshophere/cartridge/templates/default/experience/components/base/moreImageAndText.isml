@@ -1,29 +1,26 @@
-<figure class="image-component
- ${pdict.mainClass}">
-    <picture>
-        <source srcset="${pdict.image.src.tablet}" media="(min-width: 768px)" />
-        <source srcset="${pdict.image.src.desktop}" media="(min-width: 1024px)" />
-        <isset name="imageName" value="${Resource.msg('pd.ITC.image.alt', 'pageDesigner', null)}" scope="page" />
-        <a href="${pdict.link}"
-            aria-label="${Resource.msgf('pd.ITC.image.link', 'pageDesigner', null, pdict.alt ? pdict.alt : imageName)}">
-            <img class="ITC-image image-fluid common-image-component ${'common-image-filter-' + pdict.brightness}"
-                src="${pdict.image.src.mobile}"
-                style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
-                alt="${pdict.alt ? pdict.alt : imageName}" title="${pdict.alt ? pdict.alt : imageName}" />
-        </a>
-    </picture>
+<figure class="image-component ${pdict.mainClass}">
+    <a href="${pdict.link}" aria-label="${pdict.alt}">
+        <!-- @todo double check how and if we like to support focal points -->
+        <img loading="lazy" class="common-image-component" style="filter: brightness(${pdict.brightness}%);"
+            src="${pdict.image.defaultsize}"
+            srcset="${pdict.image.srcset}"
+            data-focal-point-x="{pdict.image.focalPointX}" data-focal-point-y="${pdict.image.focalPointY}"
+            alt="${pdict.alt}" title="${pdict.alt}" />
+    </a>
     <figcaption>
         <isif condition="${!empty(pdict.heading)}">
             <span class="image-on ${pdict.overlayTextClass} ${pdict.verticalAlign} ${pdict.containerHAlign}">
                 <a href="${pdict.link}" hx-push-url="${pdict.link}"
                     aria-label="${pdict.alt}" hx-get="${pdict.hxlink}" hx-target="main" hx-indicator=".progress">
-                    <isprint value="${pdict.heading ? pdict.heading : ''}" encoding="off" />
+                    <isprint value="${pdict.heading}" encoding="off" />
                 </a>
             </span>
         </isif>
-        <span class="image-below">
-            <isprint value="${pdict.ITCText ? pdict.ITCText : ''}" encoding="off" />
-        </span>
+        <isif condition="${!empty(pdict.ITCText)}">
+            <span class="image-below">
+                <isprint value="${pdict.ITCText}" encoding="off" />
+            </span>
+        </isif>
     
     </figcaption>
 </figure>

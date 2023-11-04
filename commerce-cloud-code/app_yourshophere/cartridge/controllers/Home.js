@@ -9,9 +9,6 @@ var cache = require('*/cartridge/middleware/cache');
 var pageMetaData = require('*/cartridge/middleware/pageMetaData');
 
 /**
- * Any customization on this endpoint, also requires update for Default-Start endpoint
- */
-/**
  * Home-Show : This endpoint is called when a shopper navigates to the home page
  * @name Base/Home-Show
  * @function
