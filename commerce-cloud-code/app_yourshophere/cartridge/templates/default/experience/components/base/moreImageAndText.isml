@@ -1,9 +1,14 @@
 <figure class="image-component ${pdict.mainClass}">
     <a href="${pdict.link}" aria-label="${pdict.alt}">
         <!-- @todo double check how and if we like to support focal points -->
-        <img loading="lazy" class="common-image-component" style="filter: brightness(${pdict.brightness}%);"
-            src="${pdict.image.defaultsize}"
+        <img class="common-image-component" style="filter: brightness(${pdict.brightness}%); aspect-ratio: ${pdict.image.aspectRatio}"
             srcset="${pdict.image.srcset}"
+            sizes="(max-width: 540px) 100vw, 
+			    (max-width:720px) 90vw, 
+                (max-width:960px) 80vw, 
+                (max-width:1140px) 70vw, 
+			    60vw"
+            src="${pdict.image.defaultsize}"
             data-focal-point-x="{pdict.image.focalPointX}" data-focal-point-y="${pdict.image.focalPointY}"
             alt="${pdict.alt}" title="${pdict.alt}" />
     </a>
