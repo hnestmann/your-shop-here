@@ -6,4 +6,4 @@ exports.createModel = (tileProduct) => {
     };
 }
 
-exports.template = (model) => `<img alt="${model.name}" src="${model.largeUrl}?sw=${model.width}" />`;
+exports.template = (model) => `<img loading="lazy" alt="${model.name}" src="${model.largeUrl}?sw=${model.width}" />`;
