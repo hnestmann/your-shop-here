@@ -21,7 +21,7 @@
     </content>
 
     <content content-id="20de19be882502737f9cc2e96c">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -42,7 +42,6 @@
   },
   "textVAlign" : "middle",
   "heading" : "&lt;p&gt;Spring Collection&lt;/p&gt;",
-  "Brightness" : null,
   "textContrast" : "Drop Shadow",
   "alt" : null,
   "textBackground" : null,
@@ -63,13 +62,13 @@
         <online-flag>true</online-flag>
         <page-attributes/>
         <content-links>
+            <content-link content-id="c7cb3f037da85f19ba8c55d8cf" type="component.commerce_layouts.3column.column3">
+                <position>0.0</position>
+            </content-link>
             <content-link content-id="e3dd2cf80196a79104636d8b9a" type="component.commerce_layouts.3column.column1">
                 <position>0.0</position>
             </content-link>
             <content-link content-id="ff17812b4051fc249cb7965304" type="component.commerce_layouts.3column.column2">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="c7cb3f037da85f19ba8c55d8cf" type="component.commerce_layouts.3column.column3">
                 <position>0.0</position>
             </content-link>
         </content-links>
@@ -267,7 +266,7 @@
     </content>
 
     <content content-id="c7cb3f037da85f19ba8c55d8cf">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -288,7 +287,6 @@
   },
   "textVAlign" : "bottom",
   "heading" : "&lt;p&gt;Electronics&lt;/p&gt;",
-  "Brightness" : null,
   "textContrast" : "Drop Shadow",
   "alt" : null,
   "textBackground" : null,
@@ -313,11 +311,11 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <content-links>
-            <content-link content-id="65c0b76c4f9c8573646462a936" type="page.productPage.main">
-                <position>0.0</position>
-            </content-link>
             <content-link content-id="6c3f034f7343642c0419ac8000" type="page.productPage.main">
                 <position>1.0</position>
+            </content-link>
+            <content-link content-id="65c0b76c4f9c8573646462a936" type="page.productPage.main">
+                <position>0.0</position>
             </content-link>
         </content-links>
         <content-object-assignments>
@@ -352,7 +350,7 @@
     </content>
 
     <content content-id="d9d3c232223993c10093ad34c7">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -373,7 +371,6 @@
   },
   "textVAlign" : "middle",
   "heading" : "&lt;p&gt;Customer Service&lt;/p&gt;",
-  "Brightness" : null,
   "textContrast" : "Drop Shadow",
   "alt" : null,
   "textBackground" : null,
@@ -384,7 +381,7 @@
     </content>
 
     <content content-id="e3dd2cf80196a79104636d8b9a">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -395,17 +392,16 @@
   "image" : {
     "path" : "Bigstock_Happy-smiling-young-man-standi-20517029.jpg",
     "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
+      "x" : 0.52,
+      "y" : 0.17
     },
     "meta_data" : {
-      "height" : 1600,
-      "width" : 1063
+      "height" : 1532,
+      "width" : 1060
     }
   },
   "textVAlign" : "bottom",
   "heading" : "&lt;p&gt;Mens&lt;/p&gt;",
-  "Brightness" : null,
   "textContrast" : "Drop Shadow",
   "alt" : null,
   "textBackground" : null,
@@ -424,19 +420,19 @@
         <online-flag>true</online-flag>
         <page-attributes/>
         <content-links>
+            <content-link content-id="bed0ddc5e0fc1ed0b45afdee71" type="component.theme.yshHeader.menu">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="83ace80416deaa3dc3b90872c8" type="component.theme.yshHeader.left">
+                <position>1.0</position>
+            </content-link>
             <content-link content-id="f52f16dcfe37bb6f921ab74631" type="component.theme.yshHeader.branding">
                 <position>0.0</position>
             </content-link>
             <content-link content-id="f6ff9d26a14d5a7d12c00895fd" type="component.theme.yshHeader.left">
                 <position>0.0</position>
             </content-link>
-            <content-link content-id="83ace80416deaa3dc3b90872c8" type="component.theme.yshHeader.left">
-                <position>1.0</position>
-            </content-link>
             <content-link content-id="8b56cc5495cabf1dfe3c6f58b6" type="component.theme.yshHeader.right">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="bed0ddc5e0fc1ed0b45afdee71" type="component.theme.yshHeader.menu">
                 <position>0.0</position>
             </content-link>
         </content-links>
@@ -449,7 +445,7 @@
 }</config>
         <data xml:lang="x-default">{
   "inParagraph" : "No",
-  "richText" : "&lt;p&gt;&lt;a href=\"/" target=\"_self\" data-link-type=\"external\" data-link-label=\"/"&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\" alt=\"YourShopHere\"&gt;YourShopHere&lt;/a&gt;&lt;/p&gt;",
+  "richText" : "&lt;p&gt;&lt;a href=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\" target=\"_self\" data-link-type=\"external\" data-link-label=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\"&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\" alt=\"YourShopHere\"&gt;YourShopHere&lt;/a&gt;&lt;/p&gt;",
   "align" : "left"
 }</data>
         <online-flag>true</online-flag>
@@ -483,7 +479,7 @@
     </content>
 
     <content content-id="ff17812b4051fc249cb7965304">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -504,7 +500,6 @@
   },
   "textVAlign" : "bottom",
   "heading" : "&lt;p&gt;Kids &amp;amp; Family&lt;/p&gt;",
-  "Brightness" : null,
   "textContrast" : "Drop Shadow",
   "alt" : null,
   "textBackground" : null,
@@ -526,11 +521,11 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <content-links>
-            <content-link content-id="d9d3c232223993c10093ad34c7" type="page.contentPage.main">
-                <position>2.0</position>
-            </content-link>
             <content-link content-id="20de19be882502737f9cc2e96c" type="page.contentPage.main">
                 <position>0.0</position>
+            </content-link>
+            <content-link content-id="d9d3c232223993c10093ad34c7" type="page.contentPage.main">
+                <position>2.0</position>
             </content-link>
             <content-link content-id="3f11e590490d2da0efb4764779" type="page.contentPage.main">
                 <position>1.0</position>
