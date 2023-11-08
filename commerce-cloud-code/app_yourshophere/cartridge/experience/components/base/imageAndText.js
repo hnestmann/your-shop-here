@@ -4,27 +4,35 @@
 
 const Template = require('dw/util/Template');
 const HashMap = require('dw/util/HashMap');
-const imageContainerDecorator = require('*/cartridge/experience/utilities/decorator/imageContainer.js');
-
+let imageContainerDecorator;
 
 /**
  * Render logic for storefront.imageAndText component.
  * @param {dw.experience.ComponentScriptContext} context The Component script context object.
  * @returns {string} The template to be displayed
- */
+*/
 module.exports.render = function (context) {
-    const content = context.content;
-    const tmpModel = Object.create(null);
-    imageContainerDecorator(tmpModel, content);
-    const model = tmpModel.imageContainer;
-    model.heading = model.heading.replace('<p>','');
-    model.heading = model.heading.replace(new RegExp('</p>$'),'');
-    const hxdebug = model.link.includes('?');
-    model.hxlink = `${model.link}${(model.link.includes('?') ? '&' : '?')}hx=main`;
-    return print(model);
+    const model = createViewModel(context);
+    return template(model);
 };
 
-function print(model) {
+function createViewModel(context) {
+    const content = context.content;
+    const tmpModel = Object.create(null);
+    imageContainerDecorator = imageContainerDecorator || require('*/cartridge/experience/utilities/decorator/imageContainer.js');
+    imageContainerDecorator(tmpModel, content);
+    const model = tmpModel.imageContainer;
+    require('*/cartridge/experience/utilities/decorator/imageContainer.js');
+    // @tothink the wysiwyg editor spits out a paragraph, should we make this configurable?
+    model.heading = model.heading.replace('<p>','');
+    model.heading = model.heading.replace(new RegExp('</p>$'),'');
+
+    // @todo utility class
+    model.hxlink = `${model.link}${(model.link.includes('?') ? '&' : '?')}hx=main`;
+    return model;
+}
+
+function template(model) {
     return `
         <figure class="image-component ${model.mainClass}">
             <a href="${model.link}" aria-label="${model.alt}">

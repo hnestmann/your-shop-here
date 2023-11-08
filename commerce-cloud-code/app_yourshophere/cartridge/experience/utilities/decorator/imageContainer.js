@@ -1,13 +1,14 @@
 const HashMap = require('dw/util/HashMap');
-const imageSourceSet = require('*/cartridge/experience/utilities/imageSourceSet.js');
+let imageSourceSet;
 
 module.exports = function (object, content) {
     Object.defineProperty(object, 'imageContainer', {
         enumerable: true,
         value: (function () {
+            // this should be the fastest way to require at B2C / once per 
+            imageSourceSet = imageSourceSet || require('*/cartridge/experience/utilities/imageSourceSet.js');
             const overlayTextClasses = [];
             const model = new HashMap();
-            const ImageTransformation = require('*/cartridge/experience/utilities/ImageTransformation.js');
             const colorMap = {
                 Primary: '-primary',
                 'Page Background': '-bgcolor',
@@ -23,6 +24,7 @@ module.exports = function (object, content) {
             model.ITCText = content.ITCText ? content.ITCText : '';
             model.link = content.ITCLink ? content.ITCLink : '#';
             model.alt = content.alt ? content.alt : '';
+
             if (content.textContrast === 'Drop Shadow') {
                 overlayTextClasses.push('drop-shadow-contrast');
             }

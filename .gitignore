@@ -134,8 +134,7 @@ dist
 .pnp.*
 
 .DS_Store
-commerce-cloud-code/.DS_Store
+**/.DS_Store
 
 .vscode
 dw.json
-commerce-cloud-code/.DS_Store

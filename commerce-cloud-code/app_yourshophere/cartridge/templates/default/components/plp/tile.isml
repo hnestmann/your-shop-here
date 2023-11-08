@@ -8,6 +8,6 @@
         hx-push-url="${URLUtils.url('Product-Show', 'pid', pdict.tileProduct.productID)}" hx-get="${URLUtils.url('Product-Show', 'pid', pdict.tileProduct.productID).append('hx', 'main')}"
             hx-target="main" hx-indicator=".progress"
         >${pdict.tileProduct.product.name}</a>
-    <img loading="lazy" src="${pdict.tileProduct.product.getImages('large')[0].url}?sw=300" />
+    <img src="${pdict.tileProduct.product.getImages('large')[0].url}?sw=300" />
     <isprint value="${new dw.value.Money(request.httpParameterMap.minPrice, 'EUR')}" />
 </article>
