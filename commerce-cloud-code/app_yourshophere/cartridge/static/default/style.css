@@ -9,6 +9,16 @@ body {
     color: var(--skin-main-text-color-1);
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
