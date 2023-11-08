@@ -57,6 +57,18 @@ Response.prototype = {
      * @param {Object} data - Data to be passed to the template
      * @returns {void}
      */
+    renderComponent: function renderComponent(name, data) {
+        this.view = name;
+        this.viewData = assign(this.viewData, data);
+
+        appendRenderings(this.renderings, { type: 'render', subType: 'component', view: name });
+    },
+    /**
+     * Stores template name and data for rendering at the later time
+     * @param {string} name - Path to a template
+     * @param {Object} data - Data to be passed to the template
+     * @returns {void}
+     */
     render: function render(name, data) {
         this.view = name;
         this.viewData = assign(this.viewData, data);

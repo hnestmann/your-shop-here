@@ -1,7 +1,7 @@
-exports.createModel = (tileProduct) => {
+exports.createModel = (product) => {
     return {
-        largeUrl: tileProduct.product.getImages('large')[0].url,
-        name: tileProduct.product.name,
+        largeUrl: product.getImages('large')[0].url,
+        name: product.name,
         width: '300'
     };
 }
