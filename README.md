@@ -8,10 +8,18 @@ an experimental reference storefront for b2c commerce
 - No Build Steps
 - Have Fun
 
+# Stretch Goals
+- Remove ISML for template strings 
+
 # Frameworks
 - HTMX
 - Pico CSS
 - CSG Best of Breed 
+
+# Concessions
+- No regard for legacy browser compatibility
+- Inline CSS is OK, if its really for the element
+- Template localization
 
 # todo
 - remove querystring module

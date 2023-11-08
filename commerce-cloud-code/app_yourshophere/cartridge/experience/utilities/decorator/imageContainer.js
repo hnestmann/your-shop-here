@@ -1,27 +1,30 @@
-var HashMap = require('dw/util/HashMap');
+const HashMap = require('dw/util/HashMap');
+let imageSourceSet;
 
 module.exports = function (object, content) {
     Object.defineProperty(object, 'imageContainer', {
         enumerable: true,
         value: (function () {
-            var overlayTextClasses = [];
-            var model = new HashMap();
-            var ImageTransformation = require('*/cartridge/experience/utilities/ImageTransformation.js');
-            var colorMap = {
+            // this should be the fastest way to require at B2C / once per 
+            imageSourceSet = imageSourceSet || require('*/cartridge/experience/utilities/imageSourceSet.js');
+            const overlayTextClasses = [];
+            const model = new HashMap();
+            const colorMap = {
                 Primary: '-primary',
                 'Page Background': '-bgcolor',
                 'Link Color': '-interation ',
                 'Menu Background': '-menucolor'
             };
-            model.heading = content.heading ? content.heading : null;
-            model.ITCText = content.ITCText ? content.ITCText : null;
-            model.image = content.image.file;
+            model.heading = content.heading ? content.heading : '';
+            model.ITCText = content.ITCText ? content.ITCText : '';
+            
+            model.image = imageSourceSet(content.image, 'content-images');
+            
             model.link = content.link;
-            model.ITCText = content.ITCText ? content.ITCText : null;
-            model.image = ImageTransformation.getScaledImage(content.image);
+            model.ITCText = content.ITCText ? content.ITCText : '';
             model.link = content.ITCLink ? content.ITCLink : '#';
-            model.alt = content.alt ? content.alt : null;
-            model.brightness = content.Brightness ? content.Brightness : 100;
+            model.alt = content.alt ? content.alt : '';
+
             if (content.textContrast === 'Drop Shadow') {
                 overlayTextClasses.push('drop-shadow-contrast');
             }
@@ -47,6 +50,7 @@ module.exports = function (object, content) {
 
             model.overlayTextClass = overlayTextClasses.join(' ');
             model.mainClass = (content.textContrast === 'Gradient') ? 'gradient-contrast' : '';
+
             return model;
         }())
     });
