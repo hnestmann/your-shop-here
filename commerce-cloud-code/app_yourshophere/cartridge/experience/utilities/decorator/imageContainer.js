@@ -14,16 +14,15 @@ module.exports = function (object, content) {
                 'Link Color': '-interation ',
                 'Menu Background': '-menucolor'
             };
-            model.heading = content.heading ? content.heading : null;
-            model.ITCText = content.ITCText ? content.ITCText : null;
+            model.heading = content.heading ? content.heading : '';
+            model.ITCText = content.ITCText ? content.ITCText : '';
             
-            model.image = imageSourceSet(content.image);
+            model.image = imageSourceSet(content.image, 'content-images');
             
             model.link = content.link;
-            model.ITCText = content.ITCText ? content.ITCText : null;
+            model.ITCText = content.ITCText ? content.ITCText : '';
             model.link = content.ITCLink ? content.ITCLink : '#';
-            model.alt = content.alt ? content.alt : null;
-            model.brightness = content.Brightness ? content.Brightness : 100;
+            model.alt = content.alt ? content.alt : '';
             if (content.textContrast === 'Drop Shadow') {
                 overlayTextClasses.push('drop-shadow-contrast');
             }

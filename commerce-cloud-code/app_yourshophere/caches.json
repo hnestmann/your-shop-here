@@ -11,6 +11,10 @@
         {
             "id": "Models",
             "expireAfterSeconds": 86400
+        },
+        {
+            "id": "Layout",
+            "expireAfterSeconds": 86400
         }
     ]
 }
