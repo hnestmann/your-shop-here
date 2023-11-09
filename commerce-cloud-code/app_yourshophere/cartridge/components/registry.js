@@ -15,7 +15,17 @@ const COMPONENTS = {
  */
 exports.render = (id) => {return (params) => {
     const cmp = require(`*/cartridge/components/${id}`);
-    response.getWriter().print(cmp.template(cmp.createModel(params)));
+    var model;
+    try{
+        model = cmp.createModel(params)
+    }catch(e){
+        require('dw/system/Logger').error(`Model creation for component '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+    }
+    try{
+        response.getWriter().print(cmp.template(model));
+    }catch(e){
+        require('dw/system/Logger').error(`Rendering for component '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+    }
     return '';
 }};
 
