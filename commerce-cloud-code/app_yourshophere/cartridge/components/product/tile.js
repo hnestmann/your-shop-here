@@ -1,9 +1,11 @@
 const name = require('./name');
 const image = require('./image');
 const price = require('./price');
+const swatches = require('./swatches');
 
 exports.createModel = (productHit) => {
-    const product = productHit.product;
+    const product /** @type dw.catalog.Product */ = productHit.product;
+    const variationModel = product.variationModel;
 
     const model = {};
 
@@ -11,6 +13,7 @@ exports.createModel = (productHit) => {
         model.name = name.createModel(product);
         model.image = image.createModel(product);
         model.price = price.createModel(product);
+        model.swatches = swatches.createModel(product,variationModel);
     }
 
     return model;
@@ -19,10 +22,14 @@ exports.createModel = (productHit) => {
 exports.template = (model) => `<article data-include-url="${request.httpQueryString}">
 
 <!-- @todo promotions, real prices based on search including list prices 
-var-groups, markup should be generated as template string in searchHit (or whatever);
+var-groups;
 maybe store image type and swatchable var attribute in a JSON filled by PD
 -->
-${name.template(model.name)}
-${image.template(model.image)}
-${price.template(model.price)}   
+    <header>${name.template(model.name)}</header>
+    <body>
+        ${image.template(model.image)}
+        ${swatches.template(model.swatches)}
+        ${price.template(model.price)}
+    </body>
+    <footer><button>Add to cart</button></footer>
 </article>`;
