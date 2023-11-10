@@ -1,12 +1,8 @@
-@import "progress.css";
-@import "header.css";
-@import "experience/layouts.css";
-@import "experience/components/base/moreImageAndText.css";
-
 /* @todo map all skin colors - maybe overload from pico */
 body {
-    font-family: var(--skin-body-font);
+    font-family: var(--skin-body-font), Sans-Serif;
     color: var(--skin-main-text-color-1);
+    font-display: optional;
 }
 
 img {

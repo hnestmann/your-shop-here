@@ -21,6 +21,7 @@
                 <isprint value="${require('*/cartridge/experience/skin.js').renderFooter()}" encoding="off">
             </footer>
     </div>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
 </body>
 
 </html>
