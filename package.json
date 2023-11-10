@@ -44,7 +44,7 @@
     "data:main-zip": "cd commerce-cloud-data/ && cross-zip -r -q your-shop-here-data.zip your-shop-here-data && shx mv your-shop-here-data.zip ../your-shop-here-data.zip",
     "data:main-upload": "sfcc-ci instance:upload your-shop-here-data.zip",
     "data:main-import": "sfcc-ci instance:import your-shop-here-data.zip -s",
-    "data:testdata-rebuilddata": "sfcc-ci job:run AfterDeploy -s",
+    "data:testdata-rebuilddata": "sfcc-ci job:run AfterDeploy",
     "code:zip": "shx mkdir -p version1 && shx cp -R commerce-cloud-code/* version1 && cross-zip -r -q version1.zip version1 && shx rm -r version1",
     "code:upload": "sfcc-ci code:deploy ./version1.zip ",
     "code:activate": "sfcc-ci code:activate version1",
