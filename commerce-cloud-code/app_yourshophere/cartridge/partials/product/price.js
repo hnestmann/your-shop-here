@@ -1,3 +1,10 @@
+/**
+ * Create view model for a product price
+ * 
+ * @todo Add proper price calculation and strike price
+ * @param {dw.catalog.Product} product 
+ * @returns the view model
+ */
 exports.createModel = (product) => {
     var StringUtils = require('dw/util/StringUtils');
     return {

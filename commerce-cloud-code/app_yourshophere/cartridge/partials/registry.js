@@ -14,7 +14,7 @@ const COMPONENTS = {
  * @returns 
  */
 exports.render = (id) => {return (params) => {
-    const cmp = require(`*/cartridge/components/${id}`);
+    const cmp = require(`*/cartridge/partials/${id}`);
     var model;
     try{
         model = cmp.createModel(params)
