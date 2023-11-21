@@ -1,6 +1,7 @@
 /**
  * Render tile swatches
  * 
+ * @todo Refactor to leverage search to get fast stock filter
  * @param {dw.catalog.Product} product 
  * @param {dw.catalog.ProductVariationModel} variationModel 
  * @returns 

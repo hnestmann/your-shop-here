@@ -10,7 +10,7 @@ const cache = require('*/cartridge/middleware/cache');
 server.get('Show', cache.applyPromotionSensitiveCache, (req, res, next) => {
     var tileSearch = models.get('search').init({productId: request.httpParameterMap.pid.stringValue, mergeResult: true});
     tileSearch.search();
-    res.renderComponent('product/tile', tileSearch.foundProducts.pop());
+    res.renderPartial('product/tile', tileSearch.foundProducts.pop());
     next();
 });
 

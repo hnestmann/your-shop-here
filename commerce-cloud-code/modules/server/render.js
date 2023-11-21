@@ -107,8 +107,8 @@ function applyRenderings(res) {
         res.renderings.forEach(function (element) {
             if (element.type === 'render') {
                 switch (element.subType) {
-                    case 'component':
-                        require('*/cartridge/components/registry').render(element.view)(res.viewData.object);
+                    case 'partial':
+                        require('*/cartridge/partials/registry').render(element.view)(res.viewData.object);
                         break;
                     case 'isml':
                         template(element.view, res.viewData);
