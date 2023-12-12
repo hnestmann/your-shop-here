@@ -38,8 +38,9 @@ module.exports.render = function (context) {
 
     if (context.renderParameters) {
         var queryString = JSON.parse(context.renderParameters).queryString; 
-        model.httpParameter = JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+        model.httpParameter = queryString ? JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) }) : [];
     }
+    
     request.custom.model = model;
     // render the page
     return new Template('experience/pages/pdpage').render(model).text;

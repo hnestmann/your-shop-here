@@ -1,19 +1,13 @@
 /**
- * Renders a Product Description Component
+ * Renders Product Search Refinement Component
  *
  * @param {dw.experience.ComponentScriptContext} context The component context
  * @returns {string} The template to be displayed
  */
 exports.render = function render(context) {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
-
-    model = request.custom.model; // eslint-disable-line no-undef
-
-    // @todo move into method/module
     const URLUtils = require('dw/web/URLUtils');
-    const url = URLUtils.url('Search-Grid');
+    const url = URLUtils.url('Refinements-Show');
+    // @todo move into method/module
     const queryParameters = request.custom.model.httpParameter;
     Object.keys(queryParameters)
         .filter((key) => (key.indexOf('cgid') > -1 || key.indexOf('pref') > -1 
@@ -21,7 +15,6 @@ exports.render = function render(context) {
         .forEach((key) => {
         url.append(key,queryParameters[key])      
     });
-    model.gridUrl = url;
 
-    return new Template('experience/components/plp/expgrid').render(model).text;
+    return `<wainclude url="${url.toString()}">`;
 };

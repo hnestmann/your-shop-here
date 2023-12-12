@@ -5,6 +5,16 @@
         <page-attributes/>
     </folder>
 
+    <content content-id="1a1d17c27eafbf4080c837ee13">
+        <type>component.plp.refinements</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="1a9bf4dc23c654ae4de50bc071">
         <type>component.plp.productGrid</type>
         <config>{
@@ -21,7 +31,7 @@
     </content>
 
     <content content-id="20de19be882502737f9cc2e96c">
-        <type>component.base.imageAndText</type>
+        <type>component.base.moreImageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -51,6 +61,16 @@
         <page-attributes/>
     </content>
 
+    <content content-id="29028524366cd390a02bca8ea4">
+        <type>component.plp.refinements</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="3f11e590490d2da0efb4764779">
         <type>component.commerce_layouts.3column</type>
         <config>{
@@ -62,13 +82,13 @@
         <online-flag>true</online-flag>
         <page-attributes/>
         <content-links>
-            <content-link content-id="c7cb3f037da85f19ba8c55d8cf" type="component.commerce_layouts.3column.column3">
-                <position>0.0</position>
-            </content-link>
             <content-link content-id="e3dd2cf80196a79104636d8b9a" type="component.commerce_layouts.3column.column1">
                 <position>0.0</position>
             </content-link>
             <content-link content-id="ff17812b4051fc249cb7965304" type="component.commerce_layouts.3column.column2">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="c7cb3f037da85f19ba8c55d8cf" type="component.commerce_layouts.3column.column3">
                 <position>0.0</position>
             </content-link>
         </content-links>
@@ -80,20 +100,6 @@
   "visibility" : [ ]
 }</config>
         <data xml:lang="x-default">{ }</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="69abdbcea5dfb120fdef9c3ccc">
-        <type>component.base.richText</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "inParagraph" : "Yes",
-  "richText" : "&lt;p&gt;Refinements go here&lt;/p&gt;",
-  "align" : "left"
-}</data>
         <online-flag>true</online-flag>
         <page-attributes/>
     </content>
@@ -259,14 +265,14 @@
             <content-link content-id="1a9bf4dc23c654ae4de50bc071" type="component.commerce_layouts.onefourth.column2">
                 <position>0.0</position>
             </content-link>
-            <content-link content-id="69abdbcea5dfb120fdef9c3ccc" type="component.commerce_layouts.onefourth.column1">
+            <content-link content-id="1a1d17c27eafbf4080c837ee13" type="component.commerce_layouts.onefourth.column1">
                 <position>0.0</position>
             </content-link>
         </content-links>
     </content>
 
     <content content-id="c7cb3f037da85f19ba8c55d8cf">
-        <type>component.base.imageAndText</type>
+        <type>component.base.moreImageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -311,11 +317,11 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <content-links>
-            <content-link content-id="6c3f034f7343642c0419ac8000" type="page.productPage.main">
-                <position>1.0</position>
-            </content-link>
             <content-link content-id="65c0b76c4f9c8573646462a936" type="page.productPage.main">
                 <position>0.0</position>
+            </content-link>
+            <content-link content-id="6c3f034f7343642c0419ac8000" type="page.productPage.main">
+                <position>1.0</position>
             </content-link>
         </content-links>
         <content-object-assignments>
@@ -350,7 +356,7 @@
     </content>
 
     <content content-id="d9d3c232223993c10093ad34c7">
-        <type>component.base.imageAndText</type>
+        <type>component.base.moreImageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -381,7 +387,7 @@
     </content>
 
     <content content-id="e3dd2cf80196a79104636d8b9a">
-        <type>component.base.imageAndText</type>
+        <type>component.base.moreImageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -420,19 +426,19 @@
         <online-flag>true</online-flag>
         <page-attributes/>
         <content-links>
-            <content-link content-id="bed0ddc5e0fc1ed0b45afdee71" type="component.theme.yshHeader.menu">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="83ace80416deaa3dc3b90872c8" type="component.theme.yshHeader.left">
-                <position>1.0</position>
-            </content-link>
             <content-link content-id="f52f16dcfe37bb6f921ab74631" type="component.theme.yshHeader.branding">
                 <position>0.0</position>
             </content-link>
             <content-link content-id="f6ff9d26a14d5a7d12c00895fd" type="component.theme.yshHeader.left">
                 <position>0.0</position>
             </content-link>
+            <content-link content-id="83ace80416deaa3dc3b90872c8" type="component.theme.yshHeader.left">
+                <position>1.0</position>
+            </content-link>
             <content-link content-id="8b56cc5495cabf1dfe3c6f58b6" type="component.theme.yshHeader.right">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="bed0ddc5e0fc1ed0b45afdee71" type="component.theme.yshHeader.menu">
                 <position>0.0</position>
             </content-link>
         </content-links>
@@ -479,7 +485,7 @@
     </content>
 
     <content content-id="ff17812b4051fc249cb7965304">
-        <type>component.base.imageAndText</type>
+        <type>component.base.moreImageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -521,11 +527,11 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <content-links>
-            <content-link content-id="20de19be882502737f9cc2e96c" type="page.contentPage.main">
-                <position>0.0</position>
-            </content-link>
             <content-link content-id="d9d3c232223993c10093ad34c7" type="page.contentPage.main">
                 <position>2.0</position>
+            </content-link>
+            <content-link content-id="20de19be882502737f9cc2e96c" type="page.contentPage.main">
+                <position>0.0</position>
             </content-link>
             <content-link content-id="3f11e590490d2da0efb4764779" type="page.contentPage.main">
                 <position>1.0</position>
