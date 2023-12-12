@@ -10,7 +10,7 @@ exports.createModel = (product, variationModel) => {
     // var ProductVariationModel = require('dw/catalog/ProductVariationModel');
     const variationAttributes = variationModel.getProductVariationAttributes();
     const colorAttribute = variationAttributes.toArray().filter((attribute) => attribute.attributeID == 'yshColor').pop();
-    const colorValues = variationModel.getAllValues(colorAttribute).toArray();
+    const colorValues = colorAttribute ? variationModel.getAllValues(colorAttribute).toArray() : [];
 
     return {
         swatches: colorValues.map((color) => { return {

@@ -1,0 +1,15 @@
+{
+    "name": "Search Refinements",
+    "description": "The refinements for a search.",
+    "group": "PLP",
+    "attribute_definition_groups": [
+        {
+            "id": "productList",
+            "name": "Settings",
+            "description": "Product List Settings",
+            "attribute_definitions": [
+            ]
+        }
+    ],
+    "region_definitions": []
+}
