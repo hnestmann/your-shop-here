@@ -81,6 +81,7 @@ exports.createModel = () => {
                             name: refinementValue.getDisplayValue(),
                             hitCount: refinementValue.getHitCount(),
                             url: url.toString(),
+                            hxUrl: url.append('hx','main').toString(),
                             cssClasses: cssClasses.join(' ')
                         };
                     })
@@ -96,7 +97,10 @@ exports.template = (model) => `<div class="refinements">
         <h3>${refinement.name}</h3>
         <ul role="navigation">
         ${refinement.values.map((value) => 
-            `<li><a href="${value.url}"${(value.cssClasses?` class="${value.cssClasses}"`:'')}>
+            `<li><a href="${value.url}"${(value.cssClasses?` class="${value.cssClasses}"`:'')}
+                    hx-push-url="${value.url}"
+                    hx-get="${value.hxUrl}"
+                    hx-target="main" hx-indicator=".progress">
                 ${value.name}
             </a></li>`).join('')}
         </ul>
