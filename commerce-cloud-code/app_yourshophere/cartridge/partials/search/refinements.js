@@ -4,6 +4,7 @@
  * @returns 
  */
 exports.createModel = () => {
+    const Resource = require('dw/web/Resource');
     const ProductSearchModel = require('dw/catalog/ProductSearchModel');
     const searchModel = new ProductSearchModel();
     const parameterMap = request.httpParameterMap;
@@ -22,6 +23,7 @@ exports.createModel = () => {
         searchModel.addRefinementValues(parameterMap[`prefn${index}`].stringValue,parameterMap[`prefv${index}`].stringValue);
     }))
     searchModel.search();
+    const category = searchModel.getCategory();
     const refinements = searchModel.getRefinements()
 
     // [
@@ -39,17 +41,23 @@ exports.createModel = () => {
     //     }
     // ]
 
-    // @TODO Implement cutoff
+    // @TODO Implement cutoff, implement color swatches
     return {
-        title: "Refinements",
         refinements: refinements.getRefinementDefinitions().toArray().map((refinement) => {
+            var refinementValues = [];
+            if (refinement.categoryRefinement) {
+                refinementValues = refinements.getNextLevelCategoryRefinementValues(category).toArray();
+            } else {
+                refinementValues = refinements.getRefinementValues(refinement).toArray()
+            }
+
             return {
                 id: refinement.getAttributeID(),
                 name: refinement.getDisplayName(),
                 category: refinement.categoryRefinement,
                 price: refinement.priceRefinement,
                 promotions: refinement.promotionRefinement,
-                values: refinements.getRefinementValues(refinement).toArray().map(refinementValue => {
+                values: refinementValues.map(refinementValue => {
                         var url = '';
                         const cssClasses = [];
                         if(refinement.categoryRefinement) {
@@ -86,12 +94,26 @@ exports.createModel = () => {
                         };
                     })
             }
+        }).map((refinement) => {
+            // prepend "back to <parent>" to category refinements
+            if(refinement.category && category && category.getParent() && category.getParent().ID != 'root') {
+                const parentCategory = category.getParent();
+                const url = searchModel.urlRefineCategory('Search-Show',parentCategory.ID);
+                refinement.values.unshift({
+                    id: "backtoparent",
+                    name: Resource.msgf('back_to','translations','Back to {0}',parentCategory.displayName),
+                    hitCount: 0,
+                    url: url.toString(),
+                    hxUrl: url.append('hx','main').toString(),
+                    cssClasses: 'backtoparent'
+                });
+            }
+            return refinement;
         })
     };
 }
 
 exports.template = (model) => `<div class="refinements">
-    <h2>${model.title}</h2>
     ${model.refinements.map((refinement) => 
     `<div>
         <h3>${refinement.name}</h3>
