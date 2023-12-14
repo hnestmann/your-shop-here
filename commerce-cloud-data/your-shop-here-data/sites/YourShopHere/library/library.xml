@@ -162,6 +162,16 @@
         <page-attributes/>
     </content>
 
+    <content content-id="99d5f1b4d46dfc0ec2b7e34a05">
+        <type>component.theme.searchBox</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="9a8037c36b690794b0e70d9428">
         <type>component.theme.skin</type>
         <config>{
@@ -436,9 +446,12 @@
                 <position>1.0</position>
             </content-link>
             <content-link content-id="8b56cc5495cabf1dfe3c6f58b6" type="component.theme.yshHeader.right">
-                <position>0.0</position>
+                <position>1.0</position>
             </content-link>
             <content-link content-id="bed0ddc5e0fc1ed0b45afdee71" type="component.theme.yshHeader.menu">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="99d5f1b4d46dfc0ec2b7e34a05" type="component.theme.yshHeader.right">
                 <position>0.0</position>
             </content-link>
         </content-links>
@@ -451,7 +464,7 @@
 }</config>
         <data xml:lang="x-default">{
   "inParagraph" : "No",
-  "richText" : "&lt;p&gt;&lt;a href=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\" target=\"_self\" data-link-type=\"external\" data-link-label=\"https://bbsv-409.dx.commercecloud.salesforce.com/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\"&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\" alt=\"YourShopHere\"&gt;YourShopHere&lt;/a&gt;&lt;/p&gt;",
+  "richText" : "&lt;p&gt;&lt;a href=\"/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\" target=\"_self\" data-link-type=\"external\" data-link-label=\"/on/demandware.store/Sites-YourShopHere-Site/default/Home-Show\"&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\" alt=\"YourShopHere\"&gt;YourShopHere&lt;/a&gt;&lt;/p&gt;",
   "align" : "left"
 }</data>
         <online-flag>true</online-flag>
