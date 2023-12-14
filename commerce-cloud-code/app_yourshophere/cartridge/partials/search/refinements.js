@@ -19,6 +19,9 @@ exports.createModel = () => {
     if (parameterMap.pmax.submitted){
         searchModel.setPriceMax(parameterMap.pmax.doubleValue)
     }
+    if (parameterMap.q.submitted){
+        searchModel.setSearchPhrase(parameterMap.q.stringValue)
+    }
     parameterMap.getParameterMap('prefn').getParameterNames().toArray().forEach((index => {
         searchModel.addRefinementValues(parameterMap[`prefn${index}`].stringValue,parameterMap[`prefv${index}`].stringValue);
     }))
