@@ -22,6 +22,9 @@ function ProductSearch(searchRequest) {
     if (params.pmax.submitted) {
         apiProductSearch.setPriceMax(params.pmax.doubleValue);
     }
+    if (params.q.submitted) {
+        apiProductSearch.setSearchPhrase(params.q.stringValue);
+    }
     params.getParameterMap('prefn').getParameterNames().toArray().forEach((index => {
         apiProductSearch.addRefinementValues(params[`prefn${index}`].stringValue,params[`prefv${index}`].stringValue);
     }))
