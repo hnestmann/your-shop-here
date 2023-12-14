@@ -1,3 +1,19 @@
-<div class="search hidden-xs-down">
-    <isinclude template="components/header/search" />
-</div>
+<form role="search"
+       action="${URLUtils.url('Search-Show')}"
+       method="get"
+       name="simpleSearch">
+       <input class="form-control search-field"
+              type="search"
+              name="q"
+              value=""
+              placeholder="${Resource.msg('header_search', 'translations', 'Search')}"
+              role="combobox"
+              aria-describedby="search-assistive-text"
+              aria-haspopup="listbox"
+              aria-owns="search-results"
+              aria-expanded="false"
+              aria-autocomplete="list"
+              aria-activedescendant=""
+              aria-controls="search-results"
+              aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" />
+</form>

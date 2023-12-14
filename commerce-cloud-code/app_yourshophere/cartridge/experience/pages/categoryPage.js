@@ -28,13 +28,17 @@ module.exports.render = function (context) {
     model.CurrentPageMetaData.description = page.pageDescription;
     model.CurrentPageMetaData.keywords = page.pageKeywords;
 
+    model.httpParameter = {};
+
     if (PageRenderHelper.isInEditMode()) {
         var HookManager = require('dw/system/HookMgr');
         HookManager.callHook('app.experience.editmode', 'editmode');
+        model.httpParameter = {
+            cgid: context.content && context.content.category && context.content.category.ID
+        }
         model.resetEditPDMode = true;
     }
     
-    model.httpParameter = {};
 
     if (context.renderParameters) {
         var queryString = JSON.parse(context.renderParameters).queryString; 
