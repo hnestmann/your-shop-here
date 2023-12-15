@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-meta-tags xmlns="http://www.demandware.com/xml/impex/pagemetatag/2016-08-22">
+    <page-meta-tag-definitions>
+        <page-meta-tag-definition meta-tag-id="description" type="name"/>
+        <page-meta-tag-definition meta-tag-id="title" type="title"/>
+    </page-meta-tag-definitions>
+    <page-meta-tag-rules>
+        <product-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="PDP Title" meta-tag-id="title">
+                <rule xml:lang="x-default">${Product.pageTitle} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PDP Description" meta-tag-id="description">
+                <rule xml:lang="x-default">Product.pageDescription</rule>
+            </page-meta-tag-rule>
+        </product-detail-page-meta-tag-rules>
+        <product-listing-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="PLP Title" meta-tag-id="title">
+                <rule xml:lang="x-default">${Category.pageTitle} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP Description" meta-tag-id="description">
+                <rule xml:lang="x-default">${Category.pageDescription}</rule>
+            </page-meta-tag-rule>
+        </product-listing-page-meta-tag-rules>
+        <content-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="Content Title" meta-tag-id="title">
+                <rule xml:lang="x-default">${Content.pageTitle} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="Content Description" meta-tag-id="description">
+                <rule xml:lang="x-default">${Content.pageDescription}</rule>
+            </page-meta-tag-rule>
+        </content-detail-page-meta-tag-rules>
+    </page-meta-tag-rules>
+</page-meta-tags>
+
