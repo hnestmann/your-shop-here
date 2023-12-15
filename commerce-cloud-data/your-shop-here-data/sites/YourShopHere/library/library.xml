@@ -3,6 +3,10 @@
     <folder folder-id="root">
         <online-flag>true</online-flag>
         <page-attributes/>
+        <content-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="Page Title"/>
+            <page-meta-tag-rule rule-id="Page Description"/>
+        </content-detail-page-meta-tag-rules>
     </folder>
 
     <content content-id="1a1d17c27eafbf4080c837ee13">
