@@ -16,6 +16,10 @@
 </isloop>
 
 <link rel="manifest" href="${URLUtils.staticURL('manifest.json')}" />
-<script src="https://unpkg.com/htmx.org@1.9.6"></script>
 <link rel="stylesheet" href="${URLUtils.staticURL('style.css')}" />
+<link rel="stylesheet" href="${URLUtils.staticURL('header.css')}" />
+<link rel="stylesheet" href="${URLUtils.staticURL('experience/layouts.css')}" />
+<link rel="stylesheet" href="${URLUtils.staticURL('experience/components/base/moreImageAndText.css')}" />
+<link rel="stylesheet" href="${URLUtils.staticURL('progress.css')}" />
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />

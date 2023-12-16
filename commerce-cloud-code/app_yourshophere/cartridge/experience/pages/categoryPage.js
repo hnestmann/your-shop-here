@@ -20,26 +20,31 @@ module.exports.render = function (context) {
     var metaDefinition = require('*/cartridge/experience/pages/categoryPage.json');
     model.regions = new RegionModelRegistry(page, metaDefinition);
 
-    // Determine seo meta data.
-    // Used in htmlHead.isml via common/layout/page.isml decorator.
-    model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);
-    model.CurrentPageMetaData = {};
-    model.CurrentPageMetaData.title = page.pageTitle;
-    model.CurrentPageMetaData.description = page.pageDescription;
-    model.CurrentPageMetaData.keywords = page.pageKeywords;
+    model.httpParameter = {};
 
     if (PageRenderHelper.isInEditMode()) {
         var HookManager = require('dw/system/HookMgr');
         HookManager.callHook('app.experience.editmode', 'editmode');
+        model.httpParameter = {
+            cgid: context.content && context.content.category && context.content.category.ID
+        }
         model.resetEditPDMode = true;
     }
     
-    model.httpParameter = {};
-
     if (context.renderParameters) {
         var queryString = JSON.parse(context.renderParameters).queryString; 
-        model.httpParameter = JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+        model.httpParameter = queryString ? JSON.parse('{"' + queryString.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) }) : [];
     }
+
+    const ProductSearchModel = require('dw/catalog/ProductSearchModel');
+    const searchModel = new ProductSearchModel();
+    searchModel.setCategoryID(model.httpParameter.cgid)
+    request.pageMetaData.addPageMetaTags(searchModel.pageMetaTags);
+
+    // Determine seo meta data.
+    // Used in htmlHead.isml via common/layout/page.isml decorator.
+    model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);
+
     request.custom.model = model;
     // render the page
     return new Template('experience/pages/pdpage').render(model).text;
