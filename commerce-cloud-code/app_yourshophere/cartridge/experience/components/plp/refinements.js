@@ -5,6 +5,15 @@
  * @returns {string} The template to be displayed
  */
 exports.render = function render(context) {
+    try {
+        return renderComponent(context)
+    } catch (e) {
+        const Logger = require('model').get('logger');
+        Logger.error('Exception on rendering page designer component: ' + e);
+    }
+}
+
+function renderComponent(context) {
     const URLUtils = require('dw/web/URLUtils');
     const url = URLUtils.url('Refinements-Show');
     // @todo move into method/module

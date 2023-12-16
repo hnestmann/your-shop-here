@@ -9,7 +9,16 @@ var HashMap = require('dw/util/HashMap');
  *
  * @returns {string} The template text
  */
-module.exports.render = function (context) {
+exports.render = function render (context) {
+    try {
+        return renderComponent (context)
+    } catch (e) {
+        const Logger = require('model').get('logger');
+        Logger.error('Exception on rendering page designer component: ' + e);
+    }
+}
+
+function renderComponent (context) {
     const model = new HashMap();
     const content = context.content;
 

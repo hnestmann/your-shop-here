@@ -11,7 +11,16 @@ let imageContainerDecorator;
  * @param {dw.experience.ComponentScriptContext} context The Component script context object.
  * @returns {string} The template to be displayed
 */
-module.exports.render = function (context) {
+exports.render = function render (context) {
+    try {
+        return renderComponent (context)
+    } catch (e) {
+        const Logger = require('model').get('logger');
+        Logger.error('Exception on rendering page designer component: ' + e);
+    }
+}
+
+function renderComponent (context) {
     const model = createViewModel(context);
     return template(model);
 };
@@ -25,7 +34,6 @@ function createViewModel(context) {
     // @tothink the wysiwyg editor spits out a paragraph, should we make this configurable?
     model.heading = model.heading.replace('<p>','');
     model.heading = model.heading.replace(new RegExp('</p>$'),'');
-
     // @todo utility class
     model.hxlink = `${model.link}${(model.link.includes('?') ? '&' : '?')}hx=main`;
     return model;

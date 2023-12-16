@@ -14,7 +14,16 @@ var imageContainerDecorator = require('*/cartridge/experience/utilities/decorato
  * @param {dw.experience.ComponentScriptContext} context The Component script context object.
  * @returns {string} The template to be displayed
  */
-module.exports.render = function (context) {
+exports.render = function render (context) {
+    try {
+        return renderComponent (context)
+    } catch (e) {
+        const Logger = require('model').get('logger');
+        Logger.error('Exception on rendering page designer component: ' + e);
+    }
+}
+
+function renderComponent (context) {
     var model = new HashMap();
     var content = context.content;
     var cgid = CategoryRenderHelper.getCategoryFromPageId(request.httpParameterMap);

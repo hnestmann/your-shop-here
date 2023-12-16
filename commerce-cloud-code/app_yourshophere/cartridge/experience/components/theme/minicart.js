@@ -10,7 +10,16 @@ var SVG = require('*/cartridge/experience/utilities/svg.js');
  *
  * @returns {string} The template text
  */
-module.exports.render = function (context) {
+exports.render = function render (context) {
+    try {
+        return renderComponent (context)
+    } catch (e) {
+        const Logger = require('model').get('logger');
+        Logger.error('Exception on rendering page designer component: ' + e);
+    }
+}
+
+function renderComponent (context) {
     var model = new HashMap();
     var content = context.content;
     model.width = content.width || '100%';
