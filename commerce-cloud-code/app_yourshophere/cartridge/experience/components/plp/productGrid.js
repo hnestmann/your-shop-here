@@ -11,22 +11,25 @@ exports.render = function render(context) {
     return template(model);
 };
 
+function addGridParameters(url, queryParameters) {
+    // @todo add pagination
+    Object.keys(queryParameters)
+        .filter((key) => (key.indexOf('cgid') > -1 || key.indexOf('pref') > -1
+            || key.indexOf('q') > -1 || key.indexOf('pm') > -1))
+        .forEach((key) => {
+            url.append(key, queryParameters[key])
+        });
+    return url;
+}
+
 function createViewModel() {
     var model = new HashMap();
     model = request.custom.model; // eslint-disable-line no-undef
 
-     // @todo move into method/module
-     const URLUtils = require('dw/web/URLUtils');
-     const url = URLUtils.url('Search-Grid');
-     const queryParameters = request.custom.model.httpParameter;
- 
-     // @todo move into named function for readability
-     Object.keys(queryParameters)
-         .filter((key) => (key.indexOf('cgid') > -1 || key.indexOf('pref') > -1 
-             || key.indexOf('q') > -1 || key.indexOf('pm') > -1))
-         .forEach((key) => {
-         url.append(key,queryParameters[key])      
-     });
+    // @todo move into method/module
+    const URLUtils = require('dw/web/URLUtils');
+
+    const url = addGridParameters(URLUtils.url('Search-Grid'), request.custom.model.httpParameter)
 
     model.gridUrl = url;
     return model;
