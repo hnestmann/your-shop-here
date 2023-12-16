@@ -1,31 +1,22 @@
-'use strict';
-/* global XML */
-
-var isml = require('dw/template/ISML');
-var PageMgr = require('dw/experience/PageMgr');
 
 /**
  * Render an ISML template
  * @param {string} view - Path to an ISML template
  * @param {Object} viewData - Data to be passed as pdict
- * @param {Object} response - Response object
  * @returns {void}
- */
+*/
 function template(view, viewData) {
+    var ISML = require('dw/template/ISML');
     // create a shallow copy of the data
-    var data = {};
-    Object.keys(viewData).forEach(function (key) {
-        data[key] = viewData[key];
-    });
-
+    var data = viewData;
     data.translate = function(key) {
         return dw.web.Resource.msg(key, 'translations', 'Translation missing: ' + key);
     }
     data.lang = require('dw/util/Locale').getLocale(request.getLocale()).getLanguage();
     try {
-        isml.renderTemplate(view, data);
+        ISML.renderTemplate(view, data);
     } catch (e) {
-        throw new Error(e.javaMessage + '\n\r' + e.stack, e.fileName, e.lineNumber);
+        throw new Error(`${e.javaMessage} \n ${e.stack} ${e.fileName} ${e.lineNumber}`);
     }
 }
 
@@ -41,59 +32,18 @@ function json(data, response) {
 }
 
 /**
- * Render XML as an output
- * @param {Object} viewData - Object to be turned into XML
- * @param {Object} response - Response object
- * @returns {void}
- */
-function xml(viewData, response) {
-    var XML_CHAR_MAP = {
-        '<': '&lt;',
-        '>': '&gt;',
-        '&': '&amp;',
-        '"': '&quot;',
-        "'": '&apos;'
-    };
-
-    // Valid XML needs a single root.
-    var xmlData = '<response>';
-
-    Object.keys(viewData).forEach(function (key) {
-        if (key === 'xml') {
-            xmlData += viewData[key];
-        } else {
-            xmlData +=
-                '<' + key + '>' + viewData[key].replace(/[<>&"']/g, function (ch) {
-                    return XML_CHAR_MAP[ch];
-                }) + '</' + key + '>';
-        }
-    });
-
-    // Close the root
-    xmlData += '</response>';
-
-    response.setContentType('application/xml');
-
-    try {
-        response.base.writer.print(new XML(xmlData));
-    } catch (e) {
-        throw new Error(e.message + '\n\r' + e.stack, e.fileName, e.lineNumber);
-    }
-}
-
-/**
  * Render a page designer page
  * @param {string} pageID - Path to an ISML template
  * @param {dw.util.HashMap} aspectAttributes - aspectAttributes to be passed to the PageMgr
  * @param {Object} data - Data to be passed
- * @param {Object} response - Response object
  * @returns {void}
  */
-function page(pageID, aspectAttributes, data, response) {
+function page(pageID, aspectAttributes, data) {
+    const PageMgr = require('dw/experience/PageMgr');
     if (aspectAttributes && !aspectAttributes.isEmpty()) {
-        response.base.writer.print(PageMgr.renderPage(pageID, aspectAttributes, JSON.stringify(data)));
+        response.writer.print(PageMgr.renderPage(pageID, aspectAttributes, JSON.stringify(data)));
     } else {
-        response.base.writer.print(PageMgr.renderPage(pageID, JSON.stringify(data)));
+        response.writer.print(PageMgr.renderPage(pageID, JSON.stringify(data)));
     }
 }
 

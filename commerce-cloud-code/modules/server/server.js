@@ -1,13 +1,10 @@
-/* globals request:false, response:false, customer:false, session:false */
-
-'use strict';
-
-var HookMgr = require('dw/system/HookMgr');
-var middleware = require('./middleware');
-var Request = require('./request');
-var Response = require('./response');
-var Route = require('./route');
-var render = require('./render');
+const HookMgr = require('dw/system/HookMgr');
+const middleware = require('./middleware');
+const Request = require('./request');
+const Response = require('./response');
+const Route = require('./route');
+const render = require('./render');
+const arrayPrototype = Array.prototype;
 
 //--------------------------------------------------
 // Private helpers
@@ -37,21 +34,15 @@ function checkParams(name, middlewareChain) {
  *  @returns {string} skip if the route to check doesn't match the incoming request
  */
 function checkRequest(name) {
-    var httpPath = request.httpPath;
-    // last part of the request path is based on the httpPath
-    // i.e. /on/demandware.store/Sites-RefArch-Site/en_US/Checkout-Begin
-    // We check if we can execute the 'Begin' route
-    // Whitlisting the endpoints from the Error controller to have those allowed as part of the request chain
-
-    var endpointWhitelist = ['Start', 'Forbidden'];
-
-    if (endpointWhitelist.indexOf(name) === -1 && httpPath.indexOf('/') > -1 && httpPath.lastIndexOf('/') < httpPath.lastIndexOf('-') && httpPath.split('/').length === 6) {
-        var currentController = httpPath.split('-').pop();
+    var endpointAllowlist = ['Start', 'Forbidden'];
+    if (endpointAllowlist.indexOf(name) === -1) {
+        var url = request.httpURL.relative().toString().split('?')[0];
+        var currentController = url.split('-').pop();
         if (currentController !== name) {
-            return 'skip';
+            return false;
         }
     }
-    return 'continue';
+    return true;
 }
 
 //--------------------------------------------------
@@ -74,19 +65,15 @@ Server.prototype = {
      * @returns {void}
      */
     use: function use(name) {
-        if (checkRequest(name) === 'skip') {
+        if (!checkRequest(name)) {
             return null;
         }
-        var args = Array.isArray(arguments) ? arguments : Array.prototype.slice.call(arguments);
-        var middlewareChain = args.slice(1);
-        var rq = new Request(
-            typeof request !== 'undefined' ? request : {},
-            typeof customer !== 'undefined' ? customer : {},
-            typeof session !== 'undefined' ? session : {}
-        );
-        checkParams(args[0], middlewareChain);
 
-        var rs = new Response(typeof response !== 'undefined' ? response : {});
+        var rq = new Request(request, customer, session);
+        var middlewareChain = arrayPrototype.slice.call(arguments, 1);
+        checkParams(arguments[0], middlewareChain);
+
+        var rs = new Response(response);
 
         if (this.routes[name]) {
             throw new Error('Route with this name already exists');
@@ -141,7 +128,7 @@ Server.prototype = {
      * @returns {void}
      */
     get: function get() {
-        var args = Array.prototype.slice.call(arguments);
+        var args = arrayPrototype.slice.call(arguments);
         args.splice(1, 0, middleware.get);
         return this.use.apply(this, args);
     },
@@ -152,7 +139,7 @@ Server.prototype = {
      * @returns {void}
      */
     post: function post() {
-        var args = Array.prototype.slice.call(arguments);
+        var args = arrayPrototype.slice.call(arguments);
         args.splice(1, 0, middleware.post);
         return this.use.apply(this, args);
     },
@@ -188,17 +175,15 @@ Server.prototype = {
     /**
      * Modify a given route by prepending additional middleware to it
      * @param {string} name - Name of the route to modify
-     * @param {Function[]} arguments - List of functions to be appended
+     * @param {Function[]} arguments - List of functions to be prepended
      * @returns {void}
      */
     prepend: function prepend(name) {
-        if (checkRequest(name) === 'skip') {
+        if (!checkRequest(name)) {
             return;
         }
-        var args = Array.prototype.slice.call(arguments);
-        var middlewareChain = Array.prototype.slice.call(arguments, 1);
-
-        checkParams(args[0], middlewareChain);
+        var middlewareChain = arrayPrototype.slice.call(arguments, 1);
+        checkParams(arguments[0], middlewareChain);
 
         if (!this.routes[name]) {
             throw new Error('Route with this name does not exist');
@@ -212,13 +197,11 @@ Server.prototype = {
     * @returns {void}
     */
     append: function append(name) {
-        if (checkRequest(name) === 'skip') {
+        if (!checkRequest(name)) {
             return;
         }
-        var args = Array.prototype.slice.call(arguments);
-        var middlewareChain = Array.prototype.slice.call(arguments, 1);
-
-        checkParams(args[0], middlewareChain);
+        var middlewareChain = arrayPrototype.slice.call(arguments, 1);
+        checkParams(arguments[0], middlewareChain);
 
         if (!this.routes[name]) {
             throw new Error('Route with this name does not exist');
@@ -234,12 +217,11 @@ Server.prototype = {
      * @returns {void}
      */
     replace: function replace(name) {
-        if (checkRequest(name) === 'skip') {
+        if (!checkRequest(name)) {
             return;
         }
-        var args = Array.prototype.slice.call(arguments);
-        var middlewareChain = Array.prototype.slice.call(arguments, 1);
-        checkParams(args[0], middlewareChain);
+        var middlewareChain = arrayPrototype.slice.call(arguments, 1);
+        checkParams(arguments[0], middlewareChain);
 
         if (!this.routes[name]) {
             throw new Error('Route with this name does not exist');

@@ -8,10 +8,10 @@ var EventEmitter = require('./EventEmitter');
  */
 function getPageMetadata(req) {
     var pageMetadata = {};
-    var action = req.path.split('/');
+    var action = request.httpPath.split('/');
 
     pageMetadata.action = action[action.length - 1];
-    pageMetadata.queryString = req.querystring.toString();
+    pageMetadata.queryString = request.httpQueryString;
     pageMetadata.locale = req.locale.id;
 
     return pageMetadata;

@@ -8,9 +8,9 @@
  * @returns {void}
  */
 function get(req, res, next) {
-    if (req.httpMethod === 'GET') {
+    if (request.httpMethod === 'GET') {
         next();
-    } else if (req.httpMethod === 'OPTIONS') {
+    } else if (request.httpMethod === 'OPTIONS') {
         var Response = require('dw/system/Response');
 
         res.setStatusCode(204);
@@ -56,7 +56,7 @@ function post(req, res, next) {
  * @returns {void}
  */
 function https(req, res, next) {
-    if (req.https) {
+    if (request.isHttpSecure()) {
         next();
     } else {
         next(new Error('Params do not match route'));
@@ -71,7 +71,7 @@ function https(req, res, next) {
  * @returns {void}
  */
 function http(req, res, next) {
-    if (!req.https) {
+    if (!request.isHttpSecure()) {
         next();
     } else {
         next(new Error('Params do not match route'));
@@ -86,7 +86,7 @@ function http(req, res, next) {
  * @returns {void}
  */
 function include(req, res, next) {
-    if (req.includeRequest) {
+    if (request.includeRequest) {
         next();
     } else {
         next(new Error('Params do not match route'));
