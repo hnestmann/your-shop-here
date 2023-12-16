@@ -21,6 +21,15 @@ a.pill[role="button"] svg {
     align-items: center;
 }
 
+.take-row div{
+    display: flex;
+    flex-direction: row;
+    padding: 0 .3em;
+}
+
+.take-row form, .take-row input:not([type=checkbox],[type=radio]) {
+    margin: 0;
+}
 
 nav.mainmenu ul {
     margin: 0;

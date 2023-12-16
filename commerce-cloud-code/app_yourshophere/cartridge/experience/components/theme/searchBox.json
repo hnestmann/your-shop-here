@@ -2,6 +2,26 @@
     "name": "Search Box (SFRA Header)",
     "description": "Search Box",
     "group": "theming",
-    "attribute_definition_groups": [],
+    "attribute_definition_groups": [
+        {
+            "id": "translations",
+            "name": "Translations",
+            "description": "The translations of this component",
+            "attribute_definitions": [
+                {
+                    "id": "placeholderText",
+                    "name": "Placeholder Text",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "accesssibilityLabel",
+                    "name": "Accesssibility Label",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
     "region_definitions": []
 }

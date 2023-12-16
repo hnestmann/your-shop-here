@@ -6,6 +6,8 @@ const models = require('model');
 function ProductSearch(searchRequest) {
     const wrapper = require('*/cartridge/models/wrapper.js');
     const apiProductSearch = new ProductSearchModel();
+    // @todo decide for parameter map or json config
+    const params = request.httpParameterMap;
     wrapper('ProductSearchModel' ,this, apiProductSearch);
     if (searchRequest.cgid) {
         apiProductSearch.setCategoryID(searchRequest.cgid);
@@ -15,12 +17,24 @@ function ProductSearch(searchRequest) {
         productIDs.add1(searchRequest.productId);
         apiProductSearch.setProductIDs(productIDs);
     }
-    // @todo add refinements etc
+    if (params.pmin.submitted) {
+        apiProductSearch.setPriceMin(params.pmin.doubleValue);
+    }
+    if (params.pmax.submitted) {
+        apiProductSearch.setPriceMax(params.pmax.doubleValue);
+    }
+    if (params.q.submitted) {
+        apiProductSearch.setSearchPhrase(params.q.stringValue);
+    }
+    params.getParameterMap('prefn').getParameterNames().toArray().forEach((index => {
+        apiProductSearch.addRefinementValues(params[`prefn${index}`].stringValue,params[`prefv${index}`].stringValue);
+    }))
+
+    // @todo add promotion refinements
     
 
     this.search = function () {
         this.object.search();
-        const params = request.httpParameterMap;
         var productPagingModel = new PagingModel(this.object.productSearchHits, this.object.count);
         if (params.start.submitted) {
             productPagingModel.setStart(params.start.intValue);

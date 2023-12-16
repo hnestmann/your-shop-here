@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "noLib": true,
+        "target": "es5",
+        "baseUrl": "./",
+        "paths": {
+            "" : ["./*", "modules/*", "/Users/dgehl/Repositories/CommunitySuite/dw-api-types/*"]
+        }
+    },
+    "typeAcquisition": {
+        "enable": true
+    },
+    "include": [
+        "/Users/dgehl/Repositories/CommunitySuite/dw-api-types/*.d.ts",
+        "/Users/dgehl/Repositories/CommunitySuite/dw-api-types/**/*.d.ts",
+        "./*/cartridge/scripts/**/*.js",
+        "./*/cartridge/controllers/*.js",
+        "./*/cartridge/experience/**/*.js",
+        "./*/modules/**/*.js"
+    ]
+}

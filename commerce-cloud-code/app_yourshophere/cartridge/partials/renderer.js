@@ -1,12 +1,3 @@
-const COMPONENTS = {
-    product: {
-        image:{},
-        name:{},
-        price:{},
-        tile:{}
-    }
-}
-
 /**
  * Renders the given component
  * 
