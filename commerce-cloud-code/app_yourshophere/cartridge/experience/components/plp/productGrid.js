@@ -13,6 +13,7 @@ exports.render = function render(context) {
 
 function addGridParameters(url, queryParameters) {
     // @todo add pagination
+    // @todo find alternative for indexOf > -1 / either it should start with these or we use includes, which misses the point if we have a single character parameter
     Object.keys(queryParameters)
         .filter((key) => (key.indexOf('cgid') > -1 || key.indexOf('pref') > -1
             || key.indexOf('q') > -1 || key.indexOf('pm') > -1))

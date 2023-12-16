@@ -8,8 +8,7 @@ var cache = require('*/cartridge/middleware/cache');
 
 server.get('CategoryMenu', cache.applyDefaultCache, (req, res, next) => {
     var rootCategory = dw.catalog.CatalogMgr.getCategory('root');
-    require('*/cartridge/partials/global/header/categorymenu').render(rootCategory);
-    res.render('empty');
+    res.renderPartial('global/header/categorymenu', {object: rootCategory});
     next();
 });
 

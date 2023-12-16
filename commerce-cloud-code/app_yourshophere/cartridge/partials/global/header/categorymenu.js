@@ -1,19 +1,13 @@
 const lazyload = require('*/cartridge/utils/lazyload.js')
 
-exports.render = function (rootCategory) {
-    const model = createViewModel(rootCategory);
-    const output = template(model);
-    // @todo put in modules & call from controller, when correct granularity is identified with taem
-    response.writer.print(output)
-}
-function createViewModel(apiCategory) {
+function createModel(apiCategory) {
     let model = {
         apiCategory: apiCategory
     };
 
     lazyload(model, 'hidden', () => !apiCategory.custom.yshShowInMenu);
     lazyload(model, 'children', () =>
-        apiCategory.onlineSubCategories.toArray(0, 50).map(subCategory => createViewModel(subCategory))
+        apiCategory.onlineSubCategories.toArray(0, 50).map(subCategory => createModel(subCategory))
     );
     lazyload(model, 'url', () =>
         dw.web.URLUtils.url('Search-Show', 'cgid', apiCategory.ID)
@@ -58,3 +52,5 @@ function subMenuTemplate(currentCategory, level) {
         </li>      
     `
 }
+exports.createModel = createModel;
+exports.template = template;
