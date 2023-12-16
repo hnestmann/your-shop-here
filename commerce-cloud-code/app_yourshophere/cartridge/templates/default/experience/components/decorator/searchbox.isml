@@ -1,3 +1,5 @@
+<!-- @todo convert Resource.msg into page designer attributes --> 
+
 <form role="search"
        action="${URLUtils.url('Search-Show')}"
        method="get"
@@ -15,6 +17,5 @@
               aria-autocomplete="list"
               aria-activedescendant=""
               aria-controls="search-results"
-              <!-- @todo add ressource --> 
               aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" />
 </form>
