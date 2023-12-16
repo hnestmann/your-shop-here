@@ -9,8 +9,11 @@ var HashMap = require('dw/util/HashMap');
  *
  * @returns {string} The template text
  */
-module.exports.render = function () {
-    var model = new HashMap();
+module.exports.render = function (context) {
+    const model = new HashMap();
+    const content = context.content;
 
+    model.placeholderText = content.placeholderText || 'Search';
+    model.accesssibilityLabel = content.accesssibilityLabel || 'Enter keyword or Item No';
     return new Template('experience/components/decorator/searchbox').render(model).text;
 };

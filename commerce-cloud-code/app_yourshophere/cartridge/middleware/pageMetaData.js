@@ -67,7 +67,7 @@ function computedPageMetaData(req, res, next) {
 
     req.pageMetaData.pageMetaTags.forEach(function (item) {
         if (item.title) {
-            computedMetaData.title = item.content;
+            computedMetaData.title = item.title;
         } else if (item.name && item.ID === 'description') {
             computedMetaData.description = item.content;
         } else if (item.name && item.ID === 'keywords') {

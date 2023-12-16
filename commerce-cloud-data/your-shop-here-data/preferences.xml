@@ -3,6 +3,7 @@
     <standard-preferences>
         <all-instances>
             <preference preference-id="ActiveLocales">default:en:en_IE:de_DE</preference>
+            <preference preference-id="CustomCartridges">bm_yourshophere</preference>
         </all-instances>
     </standard-preferences>
 </preferences>

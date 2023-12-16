@@ -242,6 +242,14 @@
                 <cutoff-threshold>5</cutoff-threshold>
             </refinement-definition>
         </refinement-definitions>
+        <product-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="PDP Title"/>
+            <page-meta-tag-rule rule-id="PDP Description"/>
+        </product-detail-page-meta-tag-rules>
+        <product-listing-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="PLP Title"/>
+            <page-meta-tag-rule rule-id="PLP Description"/>
+        </product-listing-page-meta-tag-rules>
     </category>
 
     <category category-id="newarrivals">
