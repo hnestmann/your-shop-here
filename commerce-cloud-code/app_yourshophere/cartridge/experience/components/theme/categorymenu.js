@@ -1,7 +1,6 @@
 'use strict';
-
-var Template = require('dw/util/Template');
-var HashMap = require('dw/util/HashMap');
+const HashMap = require('dw/util/HashMap');
+const URLUtils = require('dw/web/URLUtils');
 
 /**
  * Component which renders the classic SFRA menu
@@ -10,16 +9,28 @@ var HashMap = require('dw/util/HashMap');
  * @returns {string} The template text
  */
 module.exports.render = function (context) {
-    var model = new HashMap();
-    var content = context.content;
+    var model = createViewModel(context);
+    return template(model)
+};
+
+function createViewModel(context) {
+    const model = new HashMap();
+    const content = context.content;
+    let align;
     if (content.align) {
-        model.align = content.align;
+        align = content.align;
     }
+    let applyFilter = false;
     if (content.applyFilter) {
-        model.applyFilter = content.applyFilter;
+        applyFilter = content.applyFilter;
     } else {
-        model.applyFilter = false;
+        applyFilter = false;
     }
 
-    return new Template('experience/components/decorator/categorymenu').render(model).text;
-};
+    model.menuUrl = URLUtils.url('Components-CategoryMenu', 'align', align, 'applyFilter', applyFilter)
+    return model;
+}
+
+function template(model) {
+    return `<wainclude url="${model.menuUrl}"/>`
+}
