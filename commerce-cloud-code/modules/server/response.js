@@ -1,7 +1,5 @@
 'use strict';
 
-var assign = require('./assign');
-
 /**
  * @constructor
  * @classdesc Creates writtable response object
@@ -59,7 +57,7 @@ Response.prototype = {
      */
     renderPartial: function renderPartial(name, data) {
         this.view = name;
-        this.viewData = assign(this.viewData, data);
+        this.viewData = Object.assign(this.viewData, data);
 
         appendRenderings(this.renderings, { type: 'render', subType: 'partial', view: name });
     },
@@ -71,7 +69,7 @@ Response.prototype = {
      */
     render: function render(name, data) {
         this.view = name;
-        this.viewData = assign(this.viewData, data);
+        this.viewData = Object.assign(this.viewData, data);
 
         appendRenderings(this.renderings, { type: 'render', subType: 'isml', view: name });
     },
@@ -82,7 +80,7 @@ Response.prototype = {
      */
     json: function json(data) {
         this.isJson = true;
-        this.viewData = assign(this.viewData, data);
+        this.viewData = Object.assign(this.viewData, data);
 
         appendRenderings(this.renderings, { type: 'render', subType: 'json' });
     },
@@ -93,7 +91,7 @@ Response.prototype = {
      */
     xml: function xml(xmlString) {
         this.isXml = true;
-        this.viewData = assign(this.viewData, { xml: xmlString });
+        this.viewData = Object.assign(this.viewData, { xml: xmlString });
 
         appendRenderings(this.renderings, { type: 'render', subType: 'xml' });
     },
@@ -105,7 +103,7 @@ Response.prototype = {
      * @returns {void}
      */
     page: function (page, data, aspectAttributes) {
-        this.viewData = assign(this.viewData, data);
+        this.viewData = Object.assign(this.viewData, data);
         appendRenderings(this.renderings, { type: 'render', subType: 'page', page: page, aspectAttributes: aspectAttributes });
     },
     /**
@@ -137,7 +135,7 @@ Response.prototype = {
      * @returns {void}
      */
     setViewData: function (data) {
-        this.viewData = assign(this.viewData, data);
+        this.viewData = Object.assign(this.viewData, data);
     },
     /**
      * Logs information for output on the error page
