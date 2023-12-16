@@ -11,7 +11,16 @@ var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelpe
  *
  * @returns {string} The markup to be displayed
  */
-module.exports.render = function (context, modelIn) {
+exports.render = function render (context, modelIn) {
+    try {
+        return renderComponent (context, modelIn)
+    } catch (e) {
+        const Logger = require('model').get('logger');
+        Logger.error('Exception on rendering page designer component: ' + e);
+    }
+}
+
+function renderComponent (context, modelIn) {
     var model = modelIn || new HashMap();
     var component = context.component;
     var content = context.content;

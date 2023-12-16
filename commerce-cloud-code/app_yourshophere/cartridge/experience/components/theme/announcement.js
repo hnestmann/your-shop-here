@@ -8,7 +8,16 @@ var Template = require('dw/util/Template');
  *
  * @returns {string} The template text
  */
-module.exports.render = function (context) {
+exports.render = function render (context) {
+    try {
+        return renderComponent (context)
+    } catch (e) {
+        const Logger = require('model').get('logger');
+        Logger.error('Exception on rendering page designer component: ' + e);
+    }
+}
+
+function renderComponent (context) {
     var content = context.content;
     return new Template('experience/components/decorator/announcement').render(content).text;
 };
