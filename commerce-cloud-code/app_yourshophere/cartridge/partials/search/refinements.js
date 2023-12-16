@@ -84,7 +84,7 @@ exports.createModel = () => {
                                 url = searchModel.urlRelaxAttributeValue('Search-Show',refinementValue.getID(),refinementValue.getValue())
                                 cssClasses.push('selected');
                             } else {
-                                url = searchModel.urlRefineAttributeValue('Search-Show',refinementValue.getID(),refinementValue.getValue())
+                                throw new Error('Unexpected Refinement Type detected');
                             }
                         }
                         return {
