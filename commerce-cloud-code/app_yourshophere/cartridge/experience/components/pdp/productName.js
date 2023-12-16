@@ -8,7 +8,7 @@ exports.render = function render() {
     try {
         return renderComponent()
     } catch (e) {
-        const Logger = require('model').get('logger');
+        const Logger = require('api/logger');
         Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
     }
 }

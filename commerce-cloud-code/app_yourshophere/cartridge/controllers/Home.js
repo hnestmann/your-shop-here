@@ -22,7 +22,7 @@ var pageMetaData = require('*/cartridge/middleware/pageMetaData');
 server.get('Show', cache.applyDefaultCache, (req, res, next) => {
     const Site = require('dw/system/Site');
     const PageMgr = require('dw/experience/PageMgr');
-    const Logger = require('model').get('logger');
+    const Logger = require('api/logger');
     pageMetaData.setPageMetaTags(req.pageMetaData, Site.current);
 
     var page = PageMgr.getPage('homepage');
