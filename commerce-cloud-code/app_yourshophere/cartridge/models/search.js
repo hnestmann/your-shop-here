@@ -29,7 +29,7 @@ function ProductSearch(searchRequest) {
         apiProductSearch.addRefinementValues(params[`prefn${index}`].stringValue,params[`prefv${index}`].stringValue);
     }))
 
-    // @todo add price refinements etc
+    // @todo add promotion refinements
     
 
     this.search = function () {
