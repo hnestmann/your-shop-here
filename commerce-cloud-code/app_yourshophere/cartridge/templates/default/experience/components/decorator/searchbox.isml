@@ -8,7 +8,7 @@
               type="search"
               name="q"
               value=""
-              placeholder="${Resource.msg('header_search', 'translations', 'Search')}"
+              placeholder="${pdict.placeholderText}"
               role="combobox"
               aria-describedby="search-assistive-text"
               aria-haspopup="listbox"
@@ -17,5 +17,5 @@
               aria-autocomplete="list"
               aria-activedescendant=""
               aria-controls="search-results"
-              aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" />
+              aria-label="${pdict.accesssibilityLabel}" />
 </form>

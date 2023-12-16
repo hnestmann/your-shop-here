@@ -6,6 +6,7 @@ const models = require('model');
 function ProductSearch(searchRequest) {
     const wrapper = require('*/cartridge/models/wrapper.js');
     const apiProductSearch = new ProductSearchModel();
+    // @todo decide for parameter map or json config
     const params = request.httpParameterMap;
     wrapper('ProductSearchModel' ,this, apiProductSearch);
     if (searchRequest.cgid) {
