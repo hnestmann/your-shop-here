@@ -4,7 +4,7 @@
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var CatalogMgr = require('dw/catalog/CatalogMgr');
-var Logger = require('dw/system/Logger');
+var Logger = require('model').get('logger');
 var CategoryRenderHelper = require('*/cartridge/experience/utilities/CategoryRenderHelper.js');
 var imageContainerDecorator = require('*/cartridge/experience/utilities/decorator/imageContainer.js');
 

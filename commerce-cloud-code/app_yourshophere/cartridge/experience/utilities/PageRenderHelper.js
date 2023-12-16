@@ -90,7 +90,7 @@ module.exports = {
             try {
                 previewParams = JSON.parse(jsonString);
             } catch (error) {
-                var Logger = require('dw/system/Logger');
+                var Logger = require('model').get('logger');
                 Logger.warn('Found JSON in page description, but failed to parse it');
             }
         }
