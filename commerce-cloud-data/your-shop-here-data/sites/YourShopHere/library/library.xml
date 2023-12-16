@@ -35,7 +35,7 @@
     </content>
 
     <content content-id="20de19be882502737f9cc2e96c">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -286,7 +286,7 @@
     </content>
 
     <content content-id="c7cb3f037da85f19ba8c55d8cf">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -370,7 +370,7 @@
     </content>
 
     <content content-id="d9d3c232223993c10093ad34c7">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -401,7 +401,7 @@
     </content>
 
     <content content-id="e3dd2cf80196a79104636d8b9a">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
@@ -502,7 +502,7 @@
     </content>
 
     <content content-id="ff17812b4051fc249cb7965304">
-        <type>component.base.moreImageAndText</type>
+        <type>component.base.imageAndText</type>
         <config>{
   "visibility" : [ ]
 }</config>
