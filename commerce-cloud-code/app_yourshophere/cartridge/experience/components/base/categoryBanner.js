@@ -4,7 +4,7 @@
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var CatalogMgr = require('dw/catalog/CatalogMgr');
-var Logger = require('model').get('logger');
+var Logger = require('api/logger');
 var CategoryRenderHelper = require('*/cartridge/experience/utilities/CategoryRenderHelper.js');
 var imageContainerDecorator = require('*/cartridge/experience/utilities/decorator/imageContainer.js');
 
@@ -18,7 +18,7 @@ exports.render = function render (context) {
     try {
         return renderComponent (context)
     } catch (e) {
-        const Logger = require('model').get('logger');
+        const Logger = require('api/logger');
         Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
     }
 }

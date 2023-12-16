@@ -90,7 +90,7 @@ module.exports = {
             try {
                 previewParams = JSON.parse(jsonString);
             } catch (error) {
-                var Logger = require('model').get('logger');
+                var Logger = require('api/logger');
                 Logger.warn('Found JSON in page description, but failed to parse it');
             }
         }
