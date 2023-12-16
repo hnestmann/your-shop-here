@@ -22,7 +22,6 @@ function createViewModel(context) {
     imageContainerDecorator = imageContainerDecorator || require('*/cartridge/experience/utilities/decorator/imageContainer.js');
     imageContainerDecorator(tmpModel, content);
     const model = tmpModel.imageContainer;
-    require('*/cartridge/experience/utilities/decorator/imageContainer.js');
     // @tothink the wysiwyg editor spits out a paragraph, should we make this configurable?
     model.heading = model.heading.replace('<p>','');
     model.heading = model.heading.replace(new RegExp('</p>$'),'');

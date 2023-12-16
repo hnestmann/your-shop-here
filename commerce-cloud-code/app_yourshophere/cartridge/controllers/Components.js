@@ -6,9 +6,9 @@ var models = require('model');
 
 var cache = require('*/cartridge/middleware/cache');
 
-server.get('HeaderMenu', cache.applyDefaultCache, server.middleware.include, (req, res, next) => {
-    var rootCategory = models.get('category').init('root');
-    res.render('/components/header/menu', {root: rootCategory});
+server.get('CategoryMenu', cache.applyDefaultCache, (req, res, next) => {
+    var rootCategory = dw.catalog.CatalogMgr.getCategory('root');
+    res.renderPartial('global/header/categorymenu', {object: rootCategory});
     next();
 });
 
