@@ -1,2 +1,2 @@
-<!-- @todo add refinements / sort -->
-<isinclude url="${URLUtils.url('Search-Grid','cgid', pdict.httpParameter.cgid, 'pagination', true, 'viewType', )}"/> 
+<!-- @todo add refinements / sort / paging -->
+<isinclude url="${pdict.gridUrl}"/> 
