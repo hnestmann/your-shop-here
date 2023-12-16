@@ -15,6 +15,8 @@ exports.render = function render(context) {
     const URLUtils = require('dw/web/URLUtils');
     const url = URLUtils.url('Search-Grid');
     const queryParameters = request.custom.model.httpParameter;
+
+    // @todo move into named function for readability
     Object.keys(queryParameters)
         .filter((key) => (key.indexOf('cgid') > -1 || key.indexOf('pref') > -1 
             || key.indexOf('q') > -1 || key.indexOf('pm') > -1))
