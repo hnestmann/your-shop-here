@@ -15,5 +15,6 @@
               aria-autocomplete="list"
               aria-activedescendant=""
               aria-controls="search-results"
+              <!-- @todo add ressource --> 
               aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" />
 </form>
