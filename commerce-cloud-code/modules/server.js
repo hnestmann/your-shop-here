@@ -638,16 +638,16 @@ function applyRenderings(res) {
                         break;
                     default:
                         break;
-                        //throw new Error('Cannot render template without name or data');
+                        throw new Error('Cannot render template without name or data');
                 }
             } else if (element.type === 'print') {
                 res.base.writer.print(element.message);
             } else {
-               // throw new Error('Cannot render template without name or data');
+               throw new Error('Cannot render template without name or data');
             }
         });
     } else {
-        //throw new Error('Cannot render template without name or data');
+        throw new Error('Cannot render template without name or data');
     }
 }
 
