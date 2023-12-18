@@ -87,10 +87,9 @@
         <page-attributes/>
         <content-links>
             <content-link content-id="e3dd2cf80196a79104636d8b9a" type="component.commerce_layouts.3column.column1">
-            <content-link content-id="ff17812b4051fc249cb7965304" type="component.commerce_layouts.3column.column2">
                 <position>0.0</position>
             </content-link>
-            <content-link content-id="e3dd2cf80196a79104636d8b9a" type="component.commerce_layouts.3column.column1">
+            <content-link content-id="ff17812b4051fc249cb7965304" type="component.commerce_layouts.3column.column2">
                 <position>0.0</position>
             </content-link>
             <content-link content-id="c7cb3f037da85f19ba8c55d8cf" type="component.commerce_layouts.3column.column3">
