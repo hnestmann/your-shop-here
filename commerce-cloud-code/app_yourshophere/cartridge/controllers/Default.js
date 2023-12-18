@@ -1,5 +1,6 @@
 // The Default controller doesn't use server.js (express, sfra-style)
-// As it would require special handling there 
+// because it does not show up in the internal url
+// So it would require special handling there to catch it in a performant way
 
 exports.Start = (args) => {
     var URLUtils = require('dw/web/URLUtils');
