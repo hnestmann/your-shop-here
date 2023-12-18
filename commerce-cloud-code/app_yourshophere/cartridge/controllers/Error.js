@@ -31,6 +31,7 @@ exports.Start = (args) => {
             message: Resource.msg('subheading.error.general', 'error', null)
         }));
     } else {
+        // @todo remove isml
         ISML.renderTemplate('error/error', {
             error: exposedError,
             showError: true,
@@ -44,7 +45,7 @@ exports.Start.public = true;
 exports.ErrorCode = () => {
     response.setStatus(500);
     var errorMessage = 'message.error.' + req.querystring.err;
-
+    // @todo remove isml
     ISML.renderTemplate('error/error', {
         error: {msg: errorMessage},
         message: Resource.msg(errorMessage, 'error', null)
