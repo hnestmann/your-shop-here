@@ -9,7 +9,7 @@ const models = require('model');
 const Site = require('dw/system/Site');
 const PageMgr = require('dw/experience/PageMgr');
 const ProductMgr = require('dw/catalog/ProductMgr');
-const Logger = require('dw/system/Logger');
+const Logger = require('api/logger');
 const HashMap = require('dw/util/HashMap');
 
 const cache = require('*/cartridge/middleware/cache');

@@ -1,46 +1,63 @@
-'use strict';
+// The Error controller doesn't use server.js (express, sfra-style)
+// As it would require special handling there 
+// and it should work even if we have a problem there
 
-var server = require('server');
-var system = require('dw/system/System');
-var Resource = require('dw/web/Resource');
+const system = require('dw/system/System');
+const Resource = require('dw/web/Resource');
+const ISML = require('dw/template/ISML');
+const Logger = require('api/logger');
 
-server.use('Start', function (req, res, next) {
-    res.setStatusCode(500);
-    var showError = system.getInstanceType() !== system.PRODUCTION_SYSTEM
-        && system.getInstanceType() !== system.STAGING_SYSTEM;
-    if (req.httpHeaders.get('x-requested-with') === 'XMLHttpRequest') {
-        res.json({
-            error: req.error || {},
-            message: Resource.msg('subheading.error.general', 'error', null)
-        });
+exports.Start = (args) => {
+    response.setStatus(500);
+    const errorReference = require('dw/util/UUIDUtils').createUUID();
+    let exposedError;
+    const errorText = `Error controller called with ${args.ErrorText} (${errorReference})`;
+    Logger.error(errorText);
+
+    if (system.getInstanceType() !== system.PRODUCTION_SYSTEM) {
+        exposedError = {
+            msg: errorText, 
+            reference: errorReference, 
+            controllerName: args.ControllerName,
+            startNodeName: args.CurrentStartNodeName
+        };
     } else {
-        res.render('error/error', {
-            error: req.error || {},
-            showError: showError,
+        exposedError = {msg: `Error Reference ${errorReference}`, reference: errorReference};
+    };
+    if (request.httpHeaders.get('x-requested-with') === 'XMLHttpRequest') {
+        response.setContentType('application/json');
+        response.writer.print(JSON.stringify({
+            error: exposedError,
             message: Resource.msg('subheading.error.general', 'error', null)
+        }));
+    } else {
+        // @todo remove isml
+        ISML.renderTemplate('error/error', {
+            error: exposedError,
+            showError: true,
+            message: Resource.msg('subheading.error.general', 'error', null),
+            lang : require('dw/util/Locale').getLocale(request.getLocale()).getLanguage()
         });
     }
-    next();
-});
+};
+exports.Start.public = true;
 
-server.use('ErrorCode', function (req, res, next) {
-    res.setStatusCode(500);
+exports.ErrorCode = () => {
+    response.setStatus(500);
     var errorMessage = 'message.error.' + req.querystring.err;
-
-    res.render('error/error', {
-        error: req.error || {},
+    // @todo remove isml
+    ISML.renderTemplate('error/error', {
+        error: {msg: errorMessage},
         message: Resource.msg(errorMessage, 'error', null)
     });
-    next();
-});
+};
+exports.ErrorCode.public = true;
 
-server.get('Forbidden', function (req, res, next) {
+exports.Forbidden = () => {
     var URLUtils = require('dw/web/URLUtils');
     var CustomerMgr = require('dw/customer/CustomerMgr');
-
+    Logger.error(`Error forbidden called sid ${session.sessionID} cid ${customer.customerID}`);
     CustomerMgr.logoutCustomer(true);
-    res.redirect(URLUtils.url('Home-Show'));
-    next();
-});
-
-module.exports = server.exports();
+    response.redirect(URLUtils.url('Home-Show'));
+};
+exports.Forbidden.public = true;
