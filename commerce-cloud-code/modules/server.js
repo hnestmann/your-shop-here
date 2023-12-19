@@ -621,7 +621,6 @@ function applyRenderings(res) {
             if (element.type === 'render') {
                 switch (element.subType) {
                     case 'partial':
-                        var resp = res;
                         require('*/cartridge/partials/renderer').render(element.view)(res.viewData.object);
                         break;
                     case 'isml':

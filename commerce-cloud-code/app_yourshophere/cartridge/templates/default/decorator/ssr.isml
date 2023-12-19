@@ -22,6 +22,7 @@
             </footer>
     </div>
     <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <!-- @todo rethink this approach - maybe offer pd component instead -->
     <isinclude template="components/layout/footer-include"/>
 </body>
 
