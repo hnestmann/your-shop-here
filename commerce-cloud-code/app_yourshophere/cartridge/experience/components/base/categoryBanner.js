@@ -4,7 +4,7 @@
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var CatalogMgr = require('dw/catalog/CatalogMgr');
-var Logger = require('dw/system/Logger');
+var Logger = require('api/logger');
 var CategoryRenderHelper = require('*/cartridge/experience/utilities/CategoryRenderHelper.js');
 var imageContainerDecorator = require('*/cartridge/experience/utilities/decorator/imageContainer.js');
 
@@ -14,7 +14,16 @@ var imageContainerDecorator = require('*/cartridge/experience/utilities/decorato
  * @param {dw.experience.ComponentScriptContext} context The Component script context object.
  * @returns {string} The template to be displayed
  */
-module.exports.render = function (context) {
+exports.render = function render (context) {
+    try {
+        return renderComponent (context)
+    } catch (e) {
+        const Logger = require('api/logger');
+        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+    }
+}
+
+function renderComponent (context) {
     var model = new HashMap();
     var content = context.content;
     var cgid = CategoryRenderHelper.getCategoryFromPageId(request.httpParameterMap);

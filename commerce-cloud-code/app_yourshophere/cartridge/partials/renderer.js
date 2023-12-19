@@ -4,32 +4,22 @@
  * @param {String} id ID of the component (i.e. 'product/name')
  * @returns 
  */
-exports.render = (id) => {return (params) => {
-    const cmp = require(`*/cartridge/partials/${id}`);
-    var model;
-    try{
-        model = cmp.createModel(params)
-    }catch(e){
-        require('dw/system/Logger').error(`Model creation for component '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
-    }
-    try{
-        response.getWriter().print(cmp.template(model));
-    }catch(e){
-        require('dw/system/Logger').error(`Rendering for component '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
-    }
-    return '';
-}};
+exports.render = (id) => {
+    return (params) => {
+        const partial = require(`*/cartridge/partials/${id}`);
+        let model;
+        const Logger = require('api/logger');
+        try {
+            model = partial.createModel(params)
+        } catch (e) {
+            Logger.error(`Model creation for partial '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+        }
 
-/**
- * Returns the render methods for all components in a group
- * 
- * @param {String} componentGroup the component group, i.e. 'product'
- * @returns {Object} the render functions for each component
- */
-exports.get = (componentGroup) => {
-    var components = {};
-    if(COMPONENTS[componentGroup]){
-        Object.keys(COMPONENTS[componentGroup]).forEach((key => components[key] = exports.render(`${componentGroup}/${key}`)));
+        try {
+            response.getWriter().print(partial.template(model));
+        } catch (e) {
+            Logger.error(`Rendering for partial '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+        }
+        return '';
     }
-    return components;
-}
+};
