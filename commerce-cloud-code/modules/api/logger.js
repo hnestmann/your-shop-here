@@ -1,1 +1,1 @@
-module.exports = require('*/cartridge/api/logger');
+module.exports = require('*/cartridge/api/Logger');

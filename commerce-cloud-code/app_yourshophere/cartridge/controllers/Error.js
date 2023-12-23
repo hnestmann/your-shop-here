@@ -5,7 +5,7 @@
 const system = require('dw/system/System');
 const Resource = require('dw/web/Resource');
 const ISML = require('dw/template/ISML');
-const Logger = require('api/logger');
+const Logger = require('api/Logger');
 
 exports.Start = (args) => {
     response.setStatus(500);

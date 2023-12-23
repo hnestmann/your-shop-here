@@ -1,5 +1,5 @@
-const Logger = require('dw/system/Logger');
-const MyLogger = {};
+const apiLogger = require('dw/system/Logger');
+const LoggerFacade = {};
 const logCache = require('dw/system/CacheMgr').getCache('LogCache');
 
 function unseal(object) {
@@ -16,8 +16,17 @@ MyLogger.__noSuchMethod__ = function (methodName, methodArgs) {
     } catch (e) {
         stack = e.stack;
     }
-    var mainRequestID = request.requestID.match(/(.*)-([0-9]-[0-9]{2})$/)
-    var existingMessages = unseal(logCache.get('entry') || []);
+    
+    return stack;
+}
+
+LoggerFacade.__noSuchMethod__ = function (methodName, methodArgs) {
+    if (methodName === 'getLogger') {
+        return new LoggerFacade(methodArgs[0], methodArgs[1])
+    }
+    
+    const mainRequestID = request.requestID.match(/(.*)-([0-9]-[0-9]{2})$/)
+    const existingMessages = unseal(logCache.get('entry') || []);
     existingMessages.push({ 
         requestId: mainRequestID[1],
         nesting: mainRequestID[2],
@@ -27,6 +36,6 @@ MyLogger.__noSuchMethod__ = function (methodName, methodArgs) {
         stack: stack.split('\n').map(entry => entry.replace('\tat ','')).splice(1)
     });
     logCache.put('entry', existingMessages)
-    return Logger[methodName].apply(Logger, methodArgs);
+    return apiLogger[methodName].apply(apiLogger, methodArgs);
 }
-module.exports = MyLogger;
+module.exports = LoggerFacade;
