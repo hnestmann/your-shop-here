@@ -5,7 +5,7 @@
             "expireAfterSeconds": 86400
         },
         {
-            "id": "QueryStrings",
+            "id": "URLSearchParams",
             "expireAfterSeconds": 86400
         },
         {
