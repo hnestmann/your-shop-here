@@ -8,7 +8,7 @@ exports.render = (id) => {
     return (params) => {
         const partial = require(`*/cartridge/partials/${id}`);
         let model;
-        const Logger = require('api/logger');
+        const Logger = require('api/Logger');
         try {
             model = partial.createModel(params)
         } catch (e) {
