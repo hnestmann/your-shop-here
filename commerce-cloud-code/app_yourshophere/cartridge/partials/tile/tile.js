@@ -3,8 +3,17 @@ const image = require('./image');
 const price = require('./price');
 const swatches = require('./swatches');
 
-exports.createModel = (productHit) => {
-    const product /** @type dw.catalog.Product */ = productHit.product;
+exports.createModel = () => {
+
+    const HttpSearchParams = require('api/URLSearchParams')
+    const httpParams = new HttpSearchParams(request.httpParameterMap)
+
+    const tileSearch = require('api/ProductSearchModel');
+    tileSearch.init(httpParams);
+    tileSearch.search();
+
+    /** @type dw.catalog.Product */
+    const product = tileSearch.foundProducts.pop().product;
     const variationModel = product.variationModel;
 
     const model = {};

@@ -6,11 +6,9 @@
 const server = require('server');
 const models = require('model');
 const cache = require('*/cartridge/middleware/cache');
-/* @todo include only? */
-server.get('Show', cache.applyPromotionSensitiveCache, (req, res, next) => {
-    var tileSearch = models.get('search').init({productId: request.httpParameterMap.pid.stringValue, mergeResult: true});
-    tileSearch.search();
-    res.renderPartial('product/tile', tileSearch.foundProducts.pop());
+
+server.get('Show', cache.applyPromotionSensitiveCache, server.middleware.include, (req, res, next) => {
+    res.renderPartial('tile/tile');
     next();
 });
 
