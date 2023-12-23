@@ -9,7 +9,7 @@ const models = require('model');
 const Site = require('dw/system/Site');
 const PageMgr = require('dw/experience/PageMgr');
 const CatalogMgr = require('dw/catalog/CatalogMgr');
-const Logger = require('api/logger');
+const Logger = require('api/Logger');
 const HashMap = require('dw/util/HashMap');
 
 const cache = require('*/cartridge/middleware/cache');
@@ -48,9 +48,22 @@ server.get('Grid', cache.applyInventorySensitiveCache, (req, res, next) => {
     if (request.httpParameterMap.cgid.submitted) {
         searchRequest.cgid = request.httpParameterMap.cgid.stringValue;
     }
+
+    const HttpSearchParams = require('api/URLSearchParams')
+    const httpParams = new HttpSearchParams(request.httpParameterMap)
+
+    var cat = httpParams.get('cgid');
     const search = models.get('search').init(searchRequest);
     search.search();
-    res.render('/components/plp/grid', {showPagination: request.httpParameterMap.pagination.booleanValue, search: search});
+    res.render('/plp/grid', {showPagination: request.httpParameterMap.pagination.booleanValue, search: search});
+    next();
+});
+
+
+server.get('Refinements', cache.applyDefaultCache, (req, res, next) => {
+
+    res.renderPartial('plp/refinements');
+    
     next();
 });
 
