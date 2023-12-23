@@ -44,18 +44,7 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
 
 
 server.get('Grid', cache.applyInventorySensitiveCache, (req, res, next) => {
-    let searchRequest = {}
-    if (request.httpParameterMap.cgid.submitted) {
-        searchRequest.cgid = request.httpParameterMap.cgid.stringValue;
-    }
-
-    const HttpSearchParams = require('api/URLSearchParams')
-    const httpParams = new HttpSearchParams(request.httpParameterMap)
-
-    var cat = httpParams.get('cgid');
-    const search = models.get('search').init(searchRequest);
-    search.search();
-    res.render('/plp/grid', {showPagination: request.httpParameterMap.pagination.booleanValue, search: search});
+    res.renderPartial('plp/grid');
     next();
 });
 
