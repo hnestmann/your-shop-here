@@ -1,0 +1,15 @@
+<isdecorate template="decorator/main">
+    <div class="container">
+       <isif condition="${pdict.wishlist.items.length > 0}">
+            <!---product cards--->
+            <div class="wishlistItemCards">
+                <isloop items="${pdict.wishlist.items}" var="item">
+                    <isinclude template="wishlist/wishlistProductCard" />
+                </isloop>
+            </div>
+        <iselse>
+            <p>${Resource.msg('wishlist.empty.text','wishlist',null)}</p>
+        </isif>
+    </div>
+    <isprint value="${require('*/cartridge/utils/hookMgr').callHook('wishlist.template', 'refreshState') || ''}" encoding="off" />
+</isdecorate>

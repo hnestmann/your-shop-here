@@ -24,3 +24,35 @@ img {
 .selected {
     font-weight: bold;
 }
+
+.wishlist-icon {
+    >svg {
+        .icon-path-outter {
+            fill: var(--skin-primary-color-1);
+        }
+    }
+
+    &.added {
+        >svg {
+            .icon-path-inner {
+                fill: var(--skin-primary-color-1);
+            }
+        }
+    }
+}
+
+.wishlist-header-icon {
+    >svg {
+        .icon-path-outter {
+                fill: var(--skin-primary-color-1);
+            }
+    }
+
+    &.not-empty {
+        >svg {
+            .icon-path-inner {
+                fill: var(--skin-primary-color-1);
+            }
+        }
+    }
+}

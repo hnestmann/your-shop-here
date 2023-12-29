@@ -1,0 +1,8 @@
+{
+    "hooks": [
+        {
+            "name": "wishlist.template",
+            "script": "~/cartridge/hooks/templatePartials"
+        }
+    ]
+}

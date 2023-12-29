@@ -492,9 +492,9 @@ function get(req, res, next) {
  * @returns {void}
  */
 function post(req, res, next) {
-    if (req.httpMethod === 'POST') {
+    if (request.httpMethod === 'POST') {
         next();
-    } else if (req.httpMethod === 'OPTIONS') {
+    } else if (request.httpMethod === 'OPTIONS') {
         var Response = require('dw/system/Response');
 
         res.setStatusCode(204);
