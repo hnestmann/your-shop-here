@@ -66,10 +66,6 @@ exports.init = function init(httpParams) {
 exports.search = function search() {
 
     const searchStatus = instance.search();
-    var productPagingModel = new PagingModel(instance.productSearchHits, instance.count);
-    productPagingModel.setStart(pageStart);
-    productPagingModel.setPageSize(pageSize);
-    paging = productPagingModel;
 
     return searchStatus;
 }
@@ -131,6 +127,11 @@ let _viewResults;
 Object.defineProperty(exports, 'foundProducts', {
     get: function () {
         if (!_viewResults) {
+            var productPagingModel = new PagingModel(instance.productSearchHits, instance.count);
+            productPagingModel.setStart(pageStart);
+            productPagingModel.setPageSize(pageSize);
+            paging = productPagingModel;
+            
             _viewResults = paging.pageElements.asList().toArray().map(hit => models.get('searchHit').init(hit));
         }
         var myResult = _viewResults;
