@@ -40,11 +40,11 @@ function Wishlist(wishlist) {
 
 exports.modelClass = Wishlist;
 exports.init = function (customer, type) {
-    const productLists = ProductListMgr.getProductLists(customer, ProductList.TYPE_WISH_LIST);
+    const productLists = ProductListMgr.getProductLists(customer, type);
     Transaction.wrap(function () {
         wishlist = productLists.length > 0
             ? productLists[0]
-            : ProductListMgr.createProductList(customer, ProductList.TYPE_WISH_LIST);
+            : ProductListMgr.createProductList(customer, type);
     });
     return new Wishlist(wishlist);
 };
