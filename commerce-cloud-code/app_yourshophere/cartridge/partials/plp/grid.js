@@ -17,10 +17,10 @@ exports.createModel = () => {
 
 exports.template = (model) => `
     <div class="product-grid">
-        ${model.map(hit => subTemplate(hit)).join('')}
+        ${model.map(hit => templateIncludeHit(hit)).join('')}
     </div>
 `;
 
-function subTemplate(hit) {
+function templateIncludeHit(hit) {
     return `<wainclude url="${hit.url}"/>`;
 }

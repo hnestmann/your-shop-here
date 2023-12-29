@@ -558,7 +558,9 @@
         <display-name xml:lang="it-IT">Camicie e camicette</display-name>
         <display-name xml:lang="ja-JP">トップス</display-name>
         <display-name xml:lang="zh-CN">热门</display-name>
+        <description xml:lang="x-default">Test category with merged variation group display</description>
         <online-flag>true</online-flag>
+        <variation-groups-display-mode>merged</variation-groups-display-mode>
         <parent>womens-clothing</parent>
         <position>11.0</position>
         <image>images/slot/sub_banners/cat-banner-womens-tops.jpg</image>
@@ -2011,7 +2013,9 @@
         <display-name xml:lang="it-IT">Cravatte</display-name>
         <display-name xml:lang="ja-JP">ネクタイ</display-name>
         <display-name xml:lang="zh-CN">领带</display-name>
+        <description xml:lang="x-default">Test category with individual variation group display</description>
         <online-flag>true</online-flag>
+        <variation-groups-display-mode>individual</variation-groups-display-mode>
         <parent>mens-accessories</parent>
         <position>1.0</position>
         <image>images/slot/sub_banners/cat-banner-mens-ties.jpg</image>
@@ -3677,19 +3681,51 @@
         <primary-flag>true</primary-flag>
     </category-assignment>
 
-    <category-assignment category-id="mens-accessories-ties" product-id="25752218">
+    <category-assignment category-id="mens-accessories-ties" product-id="25752218_NAVYSI">
         <primary-flag>true</primary-flag>
     </category-assignment>
 
-    <category-assignment category-id="mens-accessories-ties" product-id="25752235">
+    <category-assignment category-id="mens-accessories-ties" product-id="25752218_REDSI">
         <primary-flag>true</primary-flag>
     </category-assignment>
 
-    <category-assignment category-id="mens-accessories-ties" product-id="25752981">
+    <category-assignment category-id="mens-accessories-ties" product-id="25752218_SKYBLSI">
         <primary-flag>true</primary-flag>
     </category-assignment>
 
-    <category-assignment category-id="mens-accessories-ties" product-id="25752986">
+    <category-assignment category-id="mens-accessories-ties" product-id="25752218_YELLOSI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752235_COBATSI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752235_NAVYSI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752235_SILVESI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752235_YELLOSI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752981_TAUPESI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752986_REDSI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752986_SPEARSI">
+        <primary-flag>true</primary-flag>
+    </category-assignment>
+
+    <category-assignment category-id="mens-accessories-ties" product-id="25752986_TURQUSI">
         <primary-flag>true</primary-flag>
     </category-assignment>
 
