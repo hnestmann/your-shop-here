@@ -1,0 +1,8 @@
+{
+    "name": "Wishlist Header Component (Plugin Wishlist Header)",
+    "description": "Wishlist",
+    "group": "wishlist",
+    "attribute_definition_groups": [
+    ],
+    "region_definitions": []
+}

@@ -3,7 +3,6 @@
     <name>Your Shop Here</name>
     <currency>EUR</currency>
     <taxation>gross</taxation>
-    <custom-cartridges>app_yourshophere:bc_job_components</custom-cartridges>
+    <custom-cartridges>plugin_wishlist:app_yourshophere:bc_job_components</custom-cartridges>
     <storefront-status>online</storefront-status>
 </site>
-

@@ -3,3 +3,4 @@
         <isinclude url="${hit.url}"/>
     </isloop>
 </div>
+<isprint value="${require('*/cartridge/utils/hookMgr').callHook('wishlist.template', 'refreshState') || ''}" encoding="off" />
