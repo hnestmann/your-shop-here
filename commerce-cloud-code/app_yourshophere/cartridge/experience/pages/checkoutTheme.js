@@ -1,6 +1,6 @@
 'use strict';
-var Template = require('/dw/util/Template');
-var HashMap = require('/dw/util/HashMap');
+var Template = require('dw/util/Template');
+var HashMap = require('dw/util/HashMap');
 var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
 var RegionModelRegistry = require('*/cartridge/experience/utilities/RegionModelRegistry.js');
 

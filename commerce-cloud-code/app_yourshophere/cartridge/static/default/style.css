@@ -21,6 +21,11 @@ img {
     gap: 10px;
 }
 
+.strike {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
 .selected {
     font-weight: bold;
 }

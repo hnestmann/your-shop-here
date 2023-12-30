@@ -6,10 +6,24 @@
  * @returns the view model
  */
 
-exports.createModel = (product) => {
+exports.createModel = function createImageModel (hit, search, imageFilter, config) {
+    let url;
+    if (imageFilter) {
+        url = function getFilteredImages() {
+            var imagebleValue = search.getRepresentedVariationValues(imageFilter.key).filter((color) => color.value === imageFilter.value).pop();
+            if (imagebleValue) {
+                return imagebleValue.getImage(config.remoteImageViewType || 'large', 0).url;
+            }
+        }();
+    }
+    
+    if (!url) {
+       url = hit.product.getImages(config.remoteImageViewType || 'large')[0].url;
+    }
+
     return {
-        largeUrl: product.getImages('large')[0].url,
-        name: product.name,
+        largeUrl: url,
+        name: hit.name,
         width: '300'
     };
 }

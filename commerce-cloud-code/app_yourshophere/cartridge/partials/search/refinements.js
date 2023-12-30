@@ -1,5 +1,3 @@
-const models = require('model');
-
 /**
  * Render search refinements
  * 

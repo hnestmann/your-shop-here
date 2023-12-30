@@ -3,10 +3,6 @@
     <folder folder-id="root">
         <online-flag>true</online-flag>
         <page-attributes/>
-        <content-detail-page-meta-tag-rules>
-            <page-meta-tag-rule rule-id="Page Title"/>
-            <page-meta-tag-rule rule-id="Page Description"/>
-        </content-detail-page-meta-tag-rules>
     </folder>
 
     <content content-id="1a1d17c27eafbf4080c837ee13">
@@ -25,10 +21,10 @@
   "visibility" : [ ]
 }</config>
         <data xml:lang="x-default">{
-  "imageDimensions" : null,
+  "remoteImageDimensions" : "sw=300",
+  "remoteImageViewType" : "large",
   "category" : null,
-  "imageViewType" : "kjguafshilcsahkj",
-  "swatchableAttribute" : null
+  "remoteSwatchableAttribute" : "yshColor"
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
