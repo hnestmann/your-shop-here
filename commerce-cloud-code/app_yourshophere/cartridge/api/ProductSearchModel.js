@@ -74,7 +74,7 @@ function ProductSearchModel(httpParams, config) {
                 productPagingModel.setPageSize(this.pageSize);
                 paging = productPagingModel;
 
-                this._viewResults = paging.pageElements.asList().toArray().map(hit => ProductSearchHit.get(hit, {swatchAttribute: swatchAttribute}));
+                this._viewResults = paging.pageElements.asList().toArray().map(hit => ProductSearchHit.get(hit, {swatchAttribute: this.swatchAttribute}));
             }
             return this._viewResults;
         }
