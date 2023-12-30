@@ -1,26 +1,30 @@
-const models = require('model');
-
 /**
  * Render search refinements
  * 
  * @returns 
  */
 exports.createModel = () => {
-    const HttpSearchParams = require('api/URLSearchParams')
+    const HttpSearchParams = require('api/URLSearchParams');
+    const model = {};
     const httpParams = new HttpSearchParams(request.httpParameterMap)
-
-    const search = require('api/ProductSearchModel');
-    search.init(httpParams);
+    const componentSettings = require('*/cartridge/utils/ComponentSettings').get(httpParams.get('component'));
+    const search = require('api/ProductSearchModel').get(httpParams, {swatchAttribute: componentSettings.remoteSwatchableAttribute});
     search.search();
-    return search.foundProducts;
+    
+    model.componentId = httpParams.get('component');
+    model.products = search.foundProducts;
+
+    return model;
 }
 
 exports.template = (model) => `
     <div class="product-grid">
-        ${model.map(hit => templateIncludeHit(hit)).join('')}
+        ${model.products.map(hit => templateIncludeHit(hit, model.componentId)).join('')}
     </div>
 `;
 
-function templateIncludeHit(hit) {
-    return `<wainclude url="${hit.url}"/>`;
+function templateIncludeHit(hit, componentId) {
+    const url = hit.tileUrl;
+    url.append('component', componentId)
+    return `<wainclude url="${url}"/>`;
 }

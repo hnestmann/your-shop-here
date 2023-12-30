@@ -1,5 +1,3 @@
-const models = require('model');
-
 /**
  * Render search refinements
  * 
@@ -11,8 +9,7 @@ exports.createModel = () => {
     const HttpSearchParams = require('api/URLSearchParams')
     const httpParams = new HttpSearchParams(request.httpParameterMap)
 
-    const refinementSearch = require('api/ProductSearchModel');
-    refinementSearch.init(httpParams);
+    const refinementSearch = require('api/ProductSearchModel').get(httpParams);
     refinementSearch.search();
 
     const category = refinementSearch.getCategory();

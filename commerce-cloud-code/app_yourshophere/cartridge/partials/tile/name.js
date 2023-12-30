@@ -1,9 +1,9 @@
-exports.createModel = (product) => {
+exports.createModel = (hit) => {
     const URLUtils = require('dw/web/URLUtils');
     return {
-        pdpUrl: URLUtils.url('Product-Show', 'pid', product.ID),
-        pdpUrlHx: URLUtils.url('Product-Show', 'pid', product.ID).append('hx', 'main'),
-        name: product.name
+        pdpUrl: URLUtils.url('Product-Show', 'pid', hit.productId),
+        pdpUrlHx: URLUtils.url('Product-Show', 'pid', hit.productId).append('hx', 'main'),
+        name: hit.name
     };
 }
 
