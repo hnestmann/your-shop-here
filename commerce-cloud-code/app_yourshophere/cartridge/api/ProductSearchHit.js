@@ -4,66 +4,9 @@ const productCache = CacheMgr.getCache('Product');
 exports.get = function get(hit, config) {
     const swatchAttribute = config.swatchAttribute;
     let instance = new ProductSearchHit(hit);
-    let productGroup;
-    
-    Object.defineProperty(instance, 'tileUrl', {
-        get: function () {
-            const URLUtils = require('dw/web/URLUtils');
-            const url = URLUtils.url('Tile-Show');
-            let colorValue;
-            let colorIterator;
-            let maxPrice;
-            let minPrice;
-
-            const firstRepresentedProduct = this.object.firstRepresentedProduct;
-            let productGroup = this.object.product;
-
-            colorValue = firstRepresentedProduct.custom[swatchAttribute] ? firstRepresentedProduct.custom[swatchAttribute] : '';
-            colorIterator = this.object.getRepresentedVariationValues(swatchAttribute).iterator();
-
-            url.append('pid', this.mainProductId);
-            url.append('color', colorValue);
-            url.append('lastModified', productGroup.lastModified.getTime());
-
-            maxPrice = this.object.getMaxPrice();
-            minPrice = this.object.getMinPrice();
-
-            if (maxPrice && maxPrice.isAvailable()) {
-                url.append('maxPrice', maxPrice.getValue());
-            }
-            if (minPrice && minPrice.isAvailable()) {
-                url.append('minPrice', minPrice.getValue());
-            }
-
-            // the colorHash is a means to inform the product tile about of stock colors
-            // the hitTile knows which colors are in stock hence we "hash" them
-            // and add them to the tile url to force a new tile vs the cached tile
-            var colorHash = 0;
-
-            if (colorIterator) {
-                var attrValue;
-
-                while (colorIterator.hasNext()) {
-                    attrValue = colorIterator.next();
-                    // eslint-disable-next-line no-restricted-globals
-                    let attrNumber = '';
-                    if (isNaN(attrValue.value)) {
-                        attrNumber = attrValue.value.split('').map(char => char.charCodeAt(0)).join(0)
-                    } else {
-                        attrNumber = attrValue.value;
-                    }
-                    colorHash += parseInt(attrNumber, 10);
-                }
-            }
-            url.append('colorHash', colorHash.toString());
-
-            return url;
-        }, 
-        configurable: true
-    });
 
     Object.defineProperty(instance, 'tileUrl', {
-        get: function () {
+        get: function getTileUrl() {
             const hit = this.object;
             const URLUtils = require('dw/web/URLUtils');
             const url = URLUtils.url('Tile-Show');
@@ -91,29 +34,34 @@ exports.get = function get(hit, config) {
             // the colorHash is a means to inform the product tile about of stock colors
             // the hitTile knows which colors are in stock hence we "hash" them
             // and add them to the tile url to force a new tile vs the cached tile
-            var colorHash = 0;
-
-            if (colorIterator) {
-                var attrValue;
-
-                while (colorIterator.hasNext()) {
-                    attrValue = colorIterator.next();
-                    colorValue = colorValue || attrValue.value;
-                    // eslint-disable-next-line no-restricted-globals
-                    let attrNumber = '';
-                    if (isNaN(attrValue.value)) {
-                        attrNumber = attrValue.value.split('').map(char => char.charCodeAt(0)).join(0)
-                    } else {
-                        attrNumber = attrValue.value;
+            var calculateColorHash = function calculateColorHash() {
+                if (colorIterator) {
+                    var attrValue;
+    
+                    while (colorIterator.hasNext()) {
+                        attrValue = colorIterator.next();
+                        colorValue = colorValue || attrValue.value;
+                        // eslint-disable-next-line no-restricted-globals
+                        let attrNumber = '';
+                        if (isNaN(attrValue.value)) {
+                            attrNumber = attrValue.value.split('').map(char => char.charCodeAt(0)).join(0)
+                        } else {
+                            attrNumber = attrValue.value;
+                        }
+                        colorHash += parseInt(attrNumber, 10);
                     }
-                    colorHash += parseInt(attrNumber, 10);
                 }
             }
+            calculateColorHash();
+            var colorHash = 0;
+
+            
             url.append('colorHash', colorHash.toString());
             url.append('color', colorValue);
 
             return url;
-        }
+        }, 
+        configurable: true
     });
 
     Object.defineProperty(instance, 'name', {

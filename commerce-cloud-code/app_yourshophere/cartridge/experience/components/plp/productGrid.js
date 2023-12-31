@@ -30,6 +30,9 @@ function makeSettingsAvailableInRemoteInclude(context) {
     }
 }
 
+var server = require('server')
+var cache = require('*/cartridge/middleware/cache');
+
 /**
  * Renders a Product Description Component
  *
@@ -39,6 +42,9 @@ function makeSettingsAvailableInRemoteInclude(context) {
 exports.render = function render(context) {
     try {
         makeSettingsAvailableInRemoteInclude(context);
+        var applyCache = server.applyCache;
+        var res = {base: response};
+        cache.applyDefaultCache({}, res, (() => applyCache({}, res)))
         return renderComponent(context);
     } catch (e) {
         const Logger = require('api/Logger');

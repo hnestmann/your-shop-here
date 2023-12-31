@@ -29,9 +29,7 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
     if (page && page.isVisible()) {
         const aspectAttributes = new HashMap();
         aspectAttributes.category = category;
-
         /* @todo add allow list of proxied params */
-
         res.page(page.ID,JSON.stringify({queryString: request.httpQueryString}), aspectAttributes);
     } else {
         let error = `no page for category ${categoryId} not found`;
@@ -49,9 +47,7 @@ server.get('Grid', cache.applyInventorySensitiveCache, (req, res, next) => {
 
 
 server.get('Refinements', cache.applyDefaultCache, (req, res, next) => {
-
     res.renderPartial('plp/refinements');
-    
     next();
 });
 
