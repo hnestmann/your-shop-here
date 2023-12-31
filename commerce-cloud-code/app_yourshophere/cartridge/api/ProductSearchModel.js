@@ -8,7 +8,7 @@ exports.get = function initProductSearchModel(httpParams, config) {
 
 function ProductSearchModel(httpParams, config) {
     const instance = new ApiProductSearchModel();
-    this.pageStart = 0;
+    this.pagePosition = 0;
     this.pageSize = 24;
     this.swatchAttribute = 'yshColor';
     this.representedVariationValuesAccessCache = {};
@@ -49,7 +49,7 @@ function ProductSearchModel(httpParams, config) {
 
     const startParam = httpParams.get('start')
     if (startParam) {
-        this.pageStart = new Number(startParam);
+        this.pagePosition = new Number(startParam);
     }
 
     const sizeParam = httpParams.get('sz')
@@ -69,12 +69,11 @@ function ProductSearchModel(httpParams, config) {
         get: function initSearchHits () {
             if (!this._viewResults) {
                 const ProductSearchHit = require('api/ProductSearchHit');
-                var productPagingModel = new PagingModel(this.object.productSearchHits, this.object.count);
-                productPagingModel.setStart(this.pageStart);
-                productPagingModel.setPageSize(this.pageSize);
-                paging = productPagingModel;
+                this.pagingModel = new PagingModel(this.object.productSearchHits, this.object.count);
+                this.pagingModel.setStart(this.pagePosition);
+                this.pagingModel.setPageSize(this.pageSize);
 
-                this._viewResults = paging.pageElements.asList().toArray().map(hit => ProductSearchHit.get(hit, {swatchAttribute: this.swatchAttribute}));
+                this._viewResults = this.pagingModel.pageElements.asList().toArray().map(hit => ProductSearchHit.get(hit, {swatchAttribute: this.swatchAttribute}));
             }
             return this._viewResults;
         }
@@ -108,7 +107,19 @@ function ProductSearchModel(httpParams, config) {
         }
     });
 
+    Object.defineProperty(this, 'resultCount', {
+        get: function getMaxPrice () {
+            return this.object.count;
+        }
+    });
+    
     this.object = instance;
+}
+
+ProductSearchModel.prototype.nextPageUrl = function nextPageUrl(action) {
+    var url = this.object.url(action);
+    url = this.pagingModel.appendPaging( url, this.pagePosition + this.pageSize)
+    return url;
 }
 
 ProductSearchModel.prototype.search = function search() {
@@ -184,14 +195,4 @@ ProductSearchModel.prototype.getRepresentedVariationValues = function getReprese
 
     }
     return this.representedVariationValuesAccessCache[argKey]
-}
-
-function removeDuplicates(arr) {
-    let unique = [];
-    arr.forEach(element => {
-        if (!unique.includes(element)) {
-            unique.push(element);
-        }
-    });
-    return unique;
 }
