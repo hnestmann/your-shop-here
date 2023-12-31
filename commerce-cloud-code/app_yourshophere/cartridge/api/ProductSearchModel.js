@@ -173,22 +173,10 @@ ProductSearchModel.prototype.getRepresentedVariationValues = function getReprese
     if (!this.representedVariationValuesAccessCache[argKey]) {
         this.representedVariationValuesAccessCache[argKey] = [];
         if (this.object.count <= this.pageSize) {
-            let colors = [];
-            let colorValues = [];
-
-            var foundProducts = this.foundProducts;
-            for (var i = 0; i < foundProducts.length; i++) {
-                var hit = foundProducts[i];
-                var representedVariationValues = hit.getRepresentedVariationValues(arg);
-                for (var j = 0; j < representedVariationValues.length; j++) {
-                    var color = representedVariationValues[j]
-                    if (colorValues.indexOf(color.value) === -1) {
-                        colorValues.push(color.value);
-                        colors.push(color);
-                    }
-                }
-            }
-            this.representedVariationValuesAccessCache[argKey] = colors;
+            const HashSet = require('dw/util/HashSet')
+            const colors = new HashSet;
+            this.foundProducts.forEach(hit => colors.add(hit.getRepresentedVariationValues(arg)));
+            this.representedVariationValuesAccessCache[argKey] = colors.toArray();
 
         } else {
             throw new Error('too many colors');
