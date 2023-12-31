@@ -29,3 +29,8 @@ img {
 .selected {
     font-weight: bold;
 }
+
+#search-more {
+    display: flex;
+    justify-content: center;
+}

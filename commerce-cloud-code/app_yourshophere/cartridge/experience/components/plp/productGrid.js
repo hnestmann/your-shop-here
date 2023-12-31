@@ -60,6 +60,7 @@ function addGridParameters(url, queryParameters) {
             || key.indexOf('pref') > -1
             || key.indexOf('q') > -1
             || key.indexOf('sz') > -1 
+            || key.indexOf('start') > -1 
             || key.indexOf('pm') > -1))
         .forEach((key) => {
             url.append(key, queryParameters[key]);
