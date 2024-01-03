@@ -121,6 +121,16 @@
         <page-attributes/>
     </content>
 
+    <content content-id="8294d88e4047b28c7963d49a3b">
+        <type>component.pdp.wishlistIcon</type>
+        <config>{
+  "visibility" : [ ]
+  }</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="83ace80416deaa3dc3b90872c8">
         <type>component.theme.miniaccount</type>
         <config>{
@@ -162,6 +172,16 @@
   },
   "width" : "35px"
 }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="fd3e324b48586405915e52b964">
+        <type>component.wishlistHeaderComponent</type>
+        <config>{
+  "visibility" : [ ]
+  }</config>
+        <data xml:lang="x-default">{ }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
     </content>
@@ -335,9 +355,12 @@
         <page-attributes/>
         <content-links>
             <content-link content-id="6c3f034f7343642c0419ac8000" type="page.productPage.main">
-                <position>1.0</position>
+                <position>2.0</position>
             </content-link>
             <content-link content-id="65c0b76c4f9c8573646462a936" type="page.productPage.main">
+                <position>1.0</position>
+            </content-link>
+            <content-link content-id="8294d88e4047b28c7963d49a3b" type="page.productPage.main">
                 <position>0.0</position>
             </content-link>
         </content-links>
@@ -460,6 +483,9 @@
             </content-link>
             <content-link content-id="f52f16dcfe37bb6f921ab74631" type="component.theme.yshHeader.branding">
                 <position>0.0</position>
+            </content-link>
+            <content-link content-id="fd3e324b48586405915e52b964" type="component.theme.yshHeader.right">
+              <position>2.0</position>
             </content-link>
         </content-links>
     </content>

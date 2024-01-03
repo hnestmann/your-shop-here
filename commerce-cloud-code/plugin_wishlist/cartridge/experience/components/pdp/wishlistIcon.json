@@ -1,0 +1,8 @@
+{
+    "name": "Product Wishlist Icon PDP",
+    "description": "This is the product wishlist icon pdp component.",
+    "group": "wishlist",
+    "attribute_definition_groups": [
+    ],
+    "region_definitions": []
+}

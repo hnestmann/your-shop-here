@@ -9,7 +9,7 @@ const models = require('model');
 const Site = require('dw/system/Site');
 const PageMgr = require('dw/experience/PageMgr');
 const CatalogMgr = require('dw/catalog/CatalogMgr');
-const Logger = require('api/logger');
+const Logger = require('api/Logger');
 const HashMap = require('dw/util/HashMap');
 
 const cache = require('*/cartridge/middleware/cache');
@@ -51,6 +51,11 @@ server.get('Grid', cache.applyInventorySensitiveCache, (req, res, next) => {
     const search = models.get('search').init(searchRequest);
     search.search();
     res.render('/components/plp/grid', {showPagination: request.httpParameterMap.pagination.booleanValue, search: search});
+    next();
+});
+
+server.get('Refinements', cache.applyInventorySensitiveCache, (req, res, next) => {
+    res.render('/empty');
     next();
 });
 
