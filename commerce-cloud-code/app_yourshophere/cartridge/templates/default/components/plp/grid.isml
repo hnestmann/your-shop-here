@@ -1,5 +1,0 @@
-<div class="product-grid">
-    <isloop items="${pdict.search.foundProducts}" var="hit">
-        <isinclude url="${hit.url}"/>
-    </isloop>
-</div>

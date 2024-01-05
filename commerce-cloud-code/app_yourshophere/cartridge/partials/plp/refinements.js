@@ -8,15 +8,18 @@ const models = require('model');
 exports.createModel = () => {
     const Resource = require('dw/web/Resource');
 
-    var searchModel = models.get('search').init({ cgid: request.httpParameterMap.cgid.stringValue });
-    searchModel.search();
+    const HttpSearchParams = require('api/URLSearchParams')
+    const httpParams = new HttpSearchParams(request.httpParameterMap)
 
-    const category = searchModel.getCategory();
-    const refinements = searchModel.getRefinements()
-    const parameterMap = request.httpParameterMap;
+    const refinementSearch = require('api/ProductSearchModel');
+    refinementSearch.init(httpParams);
+    refinementSearch.search();
+
+    const category = refinementSearch.getCategory();
+    const refinements = refinementSearch.getRefinements()
 
     // @TODO Implement cutoff, implement color swatches
-    return {
+    const result = {
         refinements: refinements.getRefinementDefinitions().toArray().map((refinement) => {
             var refinementValues = [];
             if (refinement.categoryRefinement) {
@@ -24,7 +27,6 @@ exports.createModel = () => {
             } else {
                 refinementValues = refinements.getRefinementValues(refinement).toArray()
             }
-
             return {
                 id: refinement.getAttributeID(),
                 name: refinement.getDisplayName(),
@@ -32,30 +34,31 @@ exports.createModel = () => {
                 price: refinement.priceRefinement,
                 promotions: refinement.promotionRefinement,
                 values: refinementValues.map(refinementValue => {
+                    // @todo provide nice api for the different types and relaxability
                     var url = '';
                     const cssClasses = [];
                     if (refinement.categoryRefinement) {
-                        if (searchModel.isRefinedByCategory() && searchModel.canRelax() && parameterMap.cgid.value === refinementValue.getValue()) {
-                            url = searchModel.urlRelaxCategory('Search-Show');
+                        if (refinementSearch.isRefinedByCategory() && refinementSearch.canRelax() && httpParams.get('cgid').value === refinementValue.getValue()) {
+                            url = refinementSearch.urlRelaxCategory('Search-Show');
                             cssClasses.push('selected');
                         } else {
-                            url = searchModel.urlRefineCategory('Search-Show', refinementValue.getValue())
+                            url = refinementSearch.urlRefineCategory('Search-Show', refinementValue.getValue())
                         }
                     } else if (refinement.priceRefinement) {
-                        if (searchModel.isRefinedByPriceRange(refinementValue.getValueFrom(), refinementValue.getValueTo())) {
-                            url = searchModel.urlRelaxPrice('Search-Show');
+                        if (refinementSearch.isRefinedByPriceRange(refinementValue.getValueFrom(), refinementValue.getValueTo())) {
+                            url = refinementSearch.urlRelaxPrice('Search-Show');
                             cssClasses.push('selected');
                         } else {
-                            url = searchModel.urlRefinePrice('Search-Show', refinementValue.getValueFrom(), refinementValue.getValueTo());
+                            url = refinementSearch.urlRefinePrice('Search-Show', refinementValue.getValueFrom(), refinementValue.getValueTo());
                         }
                     } else if (refinement.promotionRefinement) {
-                        // url = searchModel.urlRefinePrice('Search-Show',refinementValue.getValueFrom(),refinementValue.getValueTo());
+                        url = refinementSearch.urlRefinePromotion('Search-Show',refinementValue.getValue());
                     } else if (refinement.attributeRefinement) {
-                        if (searchModel.isRefinedByAttributeValue(refinementValue.getID(), refinementValue.getValue())) {
-                            url = searchModel.urlRelaxAttributeValue('Search-Show', refinementValue.getID(), refinementValue.getValue())
+                        if (refinementSearch.isRefinedByAttributeValue(refinementValue.getID(), refinementValue.getValue())) {
+                            url = refinementSearch.urlRelaxAttributeValue('Search-Show', refinementValue.getID(), refinementValue.getValue())
                             cssClasses.push('selected');
                         }
-                        url = searchModel.urlRefineAttributeValue('Search-Show', refinementValue.getID(), refinementValue.getValue())
+                        url = refinementSearch.urlRefineAttributeValue('Search-Show', refinementValue.getID(), refinementValue.getValue())
                     } else {
                         throw new Error('Unexpected Refinement Type');
                     }
@@ -73,7 +76,7 @@ exports.createModel = () => {
             // prepend "back to <parent>" to category refinements
             if (refinement.category && category && category.getParent() && category.getParent().ID != 'root') {
                 const parentCategory = category.getParent();
-                const url = searchModel.urlRefineCategory('Search-Show', parentCategory.ID);
+                const url = refinementSearch.urlRefineCategory('Search-Show', parentCategory.ID);
                 // @todo move Resource.msg to page designer / translate wrapper
                 refinement.values.unshift({
                     id: "backtoparent",
@@ -87,6 +90,7 @@ exports.createModel = () => {
             return refinement;
         })
     };
+    return result;
 }
 
 exports.template = (model) => `<div class="refinements">
