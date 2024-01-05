@@ -3,7 +3,7 @@
     <pricebook>
         <header pricebook-id="eur-list-prices">
             <currency>EUR</currency>
-            <display-name xml:lang="x-default">List Prices</display-name>
+            <display-name xml:lang="x-default">Euro List Prices</display-name>
             <online-flag>true</online-flag>
         </header>
 
@@ -15523,27 +15523,623 @@
             </price-table>
 
             <price-table product-id="S2510211">
-                <amount quantity="1">0.00</amount>
+                <amount quantity="1">336.29</amount>
             </price-table>
 
             <price-table product-id="apple-ipod-classic-black-120g">
-                <amount quantity="1">0.00</amount>
+                <amount quantity="1">443.79</amount>
             </price-table>
 
             <price-table product-id="apple-ipod-classic-silver-120g">
-                <amount quantity="1">0.00</amount>
+                <amount quantity="1">487.07</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-black-16g">
+                <amount quantity="1">105.14</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-black-8g">
+                <amount quantity="1">489.13</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-blue-16g">
+                <amount quantity="1">406.81</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-blue-8g">
+                <amount quantity="1">397.76</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-fuscia-16g">
+                <amount quantity="1">388.77</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-fuscia-8g">
+                <amount quantity="1">241.02</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-green-16g">
+                <amount quantity="1">419.56</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-green-8g">
+                <amount quantity="1">434.11</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-orange-16g">
+                <amount quantity="1">356.46</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-orange-8g">
+                <amount quantity="1">175.92</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-purple-16g">
+                <amount quantity="1">170.83</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-purple-8g">
+                <amount quantity="1">215.68</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-red-16g">
+                <amount quantity="1">231.30</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-red-8g">
+                <amount quantity="1">423.22</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-silver-16g">
+                <amount quantity="1">259.61</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-silver-8g">
+                <amount quantity="1">261.02</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-yellow-16g">
+                <amount quantity="1">246.04</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-nano-yellow-8g">
+                <amount quantity="1">455.67</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-blue-1g">
+                <amount quantity="1">103.58</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-fuscia-1g">
+                <amount quantity="1">231.07</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-fuscia-2g">
+                <amount quantity="1">242.35</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-green-1g">
+                <amount quantity="1">106.84</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-green-2g">
+                <amount quantity="1">166.88</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-red-1g">
+                <amount quantity="1">472.75</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-red-2g">
+                <amount quantity="1">190.99</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-silver-1g">
+                <amount quantity="1">166.16</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-shuffle-silver-2g">
+                <amount quantity="1">295.90</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-touch-16gb">
+                <amount quantity="1">303.24</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-touch-8gb">
+                <amount quantity="1">159.98</amount>
+            </price-table>
+
+            <price-table product-id="apple-ipod-touch32gb">
+                <amount quantity="1">145.11</amount>
+            </price-table>
+
+            <price-table product-id="atari-pipe-mania-psp">
+                <amount quantity="1">390.83</amount>
+            </price-table>
+
+            <price-table product-id="canon-eos-50d-body">
+                <amount quantity="1">335.00</amount>
+            </price-table>
+
+            <price-table product-id="canon-eos-5d-mark2-body">
+                <amount quantity="1">275.11</amount>
+            </price-table>
+
+            <price-table product-id="canon-eos-rebel-xs-wlens">
+                <amount quantity="1">390.69</amount>
+            </price-table>
+
+            <price-table product-id="canon-powershot-a580">
+                <amount quantity="1">378.39</amount>
+            </price-table>
+
+            <price-table product-id="canon-powershot-e1">
+                <amount quantity="1">333.53</amount>
+            </price-table>
+
+            <price-table product-id="canon-powershot-g10">
+                <amount quantity="1">125.89</amount>
+            </price-table>
+
+            <price-table product-id="canon-powershot-s5-is">
+                <amount quantity="1">235.68</amount>
             </price-table>
 
             <price-table product-id="canon-powershot-sd1100-is">
-                <amount quantity="1">0.00</amount>
+                <amount quantity="1">295.78</amount>
+            </price-table>
+
+            <price-table product-id="canon-powershot-sd990-is">
+                <amount quantity="1">368.52</amount>
+            </price-table>
+
+            <price-table product-id="creative-zen-v">
+                <amount quantity="1">113.06</amount>
+            </price-table>
+
+            <price-table product-id="creative-zen-x-fi">
+                <amount quantity="1">142.51</amount>
+            </price-table>
+
+            <price-table product-id="easports-fight-night-round-3-xbox360">
+                <amount quantity="1">216.48</amount>
+            </price-table>
+
+            <price-table product-id="easports-madden-nfl-09-wii">
+                <amount quantity="1">124.96</amount>
+            </price-table>
+
+            <price-table product-id="easports-monopoly-ps3">
+                <amount quantity="1">480.01</amount>
+            </price-table>
+
+            <price-table product-id="easports-nascar-09-ps3">
+                <amount quantity="1">281.82</amount>
+            </price-table>
+
+            <price-table product-id="garmin--gpsmap-296">
+                <amount quantity="1">203.22</amount>
+            </price-table>
+
+            <price-table product-id="garmin--gpsmap-496">
+                <amount quantity="1">136.72</amount>
+            </price-table>
+
+            <price-table product-id="garmin--gpsmap-696">
+                <amount quantity="1">378.46</amount>
+            </price-table>
+
+            <price-table product-id="garmin-etrex-h">
+                <amount quantity="1">295.10</amount>
+            </price-table>
+
+            <price-table product-id="garmin-foretrex-101">
+                <amount quantity="1">273.41</amount>
+            </price-table>
+
+            <price-table product-id="garmin-geko-301">
+                <amount quantity="1">302.18</amount>
+            </price-table>
+
+            <price-table product-id="garmin-gps-60">
+                <amount quantity="1">203.15</amount>
+            </price-table>
+
+            <price-table product-id="garmin-gpsmap-96c">
+                <amount quantity="1">412.79</amount>
+            </price-table>
+
+            <price-table product-id="garmin-nuvi-200">
+                <amount quantity="1">427.24</amount>
+            </price-table>
+
+            <price-table product-id="garmin-nuvi-255">
+                <amount quantity="1">108.42</amount>
+            </price-table>
+
+            <price-table product-id="garmin-nuvi-5000">
+                <amount quantity="1">271.66</amount>
+            </price-table>
+
+            <price-table product-id="garmin-nuvi-750">
+                <amount quantity="1">363.56</amount>
+            </price-table>
+
+            <price-table product-id="garmin-nuvi-880">
+                <amount quantity="1">168.34</amount>
+            </price-table>
+
+            <price-table product-id="garmin-streetpilot-2820">
+                <amount quantity="1">351.82</amount>
+            </price-table>
+
+            <price-table product-id="garmin-streetpilot-7200">
+                <amount quantity="1">146.12</amount>
+            </price-table>
+
+            <price-table product-id="garmin-zumo-450">
+                <amount quantity="1">338.86</amount>
+            </price-table>
+
+            <price-table product-id="gpx-ml638b">
+                <amount quantity="1">300.70</amount>
+            </price-table>
+
+            <price-table product-id="gpx-ml838b">
+                <amount quantity="1">236.70</amount>
+            </price-table>
+
+            <price-table product-id="kodak-c1013">
+                <amount quantity="1">445.92</amount>
+            </price-table>
+
+            <price-table product-id="kodak-v1273">
+                <amount quantity="1">133.91</amount>
+            </price-table>
+
+            <price-table product-id="kodak-z1015">
+                <amount quantity="1">173.08</amount>
+            </price-table>
+
+            <price-table product-id="kodak-z712">
+                <amount quantity="1">192.45</amount>
+            </price-table>
+
+            <price-table product-id="kodak-z8612">
+                <amount quantity="1">399.61</amount>
+            </price-table>
+
+            <price-table product-id="lucasarts-lego-indiana-jones-original-adventure-wii">
+                <amount quantity="1">166.40</amount>
+            </price-table>
+
+            <price-table product-id="lucasarts-star-wars-the-force-unleashed-psp">
+                <amount quantity="1">308.21</amount>
+            </price-table>
+
+            <price-table product-id="microsoft-xbox360-bundle">
+                <amount quantity="1">310.54</amount>
+            </price-table>
+
+            <price-table product-id="microsoft-xbox360-console">
+                <amount quantity="1">188.71</amount>
+            </price-table>
+
+            <price-table product-id="microsoft-zune120">
+                <amount quantity="1">370.79</amount>
+            </price-table>
+
+            <price-table product-id="microsoft-zune16">
+                <amount quantity="1">209.72</amount>
+            </price-table>
+
+            <price-table product-id="midway-cruisn-wii">
+                <amount quantity="1">464.41</amount>
+            </price-table>
+
+            <price-table product-id="mitsubishi-l65-a90">
+                <amount quantity="1">270.66</amount>
+            </price-table>
+
+            <price-table product-id="mitsubishi-lt-40148">
+                <amount quantity="1">490.57</amount>
+            </price-table>
+
+            <price-table product-id="mitsubishi-lt-46149">
+                <amount quantity="1">487.76</amount>
+            </price-table>
+
+            <price-table product-id="mitsubishi-lt-52246">
+                <amount quantity="1">456.23</amount>
+            </price-table>
+
+            <price-table product-id="mitsubishi-wd-60C8">
+                <amount quantity="1">431.04</amount>
+            </price-table>
+
+            <price-table product-id="mitsubishi-wd-73736">
+                <amount quantity="1">378.30</amount>
+            </price-table>
+
+            <price-table product-id="mitsubishi-wd-73C8">
+                <amount quantity="1">485.71</amount>
+            </price-table>
+
+            <price-table product-id="namco-eternal-sonata-ps3">
+                <amount quantity="1">334.15</amount>
+            </price-table>
+
+            <price-table product-id="namco-we-ski-wii">
+                <amount quantity="1">329.40</amount>
+            </price-table>
+
+            <price-table product-id="nikon-d40-wlens">
+                <amount quantity="1">372.61</amount>
+            </price-table>
+
+            <price-table product-id="nikon-d60-wlens">
+                <amount quantity="1">448.33</amount>
+            </price-table>
+
+            <price-table product-id="nikon-d90-wlens">
+                <amount quantity="1">257.33</amount>
+            </price-table>
+
+            <price-table product-id="nikon-f700-body">
+                <amount quantity="1">155.05</amount>
+            </price-table>
+
+            <price-table product-id="nikon-p6000">
+                <amount quantity="1">120.34</amount>
+            </price-table>
+
+            <price-table product-id="nikon-s60">
+                <amount quantity="1">484.73</amount>
+            </price-table>
+
+            <price-table product-id="nikon-sl16">
+                <amount quantity="1">201.68</amount>
+            </price-table>
+
+            <price-table product-id="nintendo-big-brain-academy-nintendods">
+                <amount quantity="1">367.29</amount>
+            </price-table>
+
+            <price-table product-id="nintendo-ds-console">
+                <amount quantity="1">333.37</amount>
+            </price-table>
+
+            <price-table product-id="nintendo-mario-kart-nintendods">
+                <amount quantity="1">368.66</amount>
+            </price-table>
+
+            <price-table product-id="nintendo-wii-console">
+                <amount quantity="1">126.49</amount>
+            </price-table>
+
+            <price-table product-id="pioneer-pdp-6010fd">
+                <amount quantity="1">271.04</amount>
+            </price-table>
+
+            <price-table product-id="pioneer-pro-111fd">
+                <amount quantity="1">446.77</amount>
+            </price-table>
+
+            <price-table product-id="rockstar-games-grand-theft-auto-iv-xbox360">
+                <amount quantity="1">269.94</amount>
+            </price-table>
+
+            <price-table product-id="samsung-hl61a650">
+                <amount quantity="1">182.55</amount>
+            </price-table>
+
+            <price-table product-id="samsung-hl67a510">
+                <amount quantity="1">169.50</amount>
+            </price-table>
+
+            <price-table product-id="samsung-hl67a750">
+                <amount quantity="1">147.19</amount>
+            </price-table>
+
+            <price-table product-id="samsung-hl72a650">
+                <amount quantity="1">113.12</amount>
+            </price-table>
+
+            <price-table product-id="samsung-ln22a650">
+                <amount quantity="1">348.96</amount>
+            </price-table>
+
+            <price-table product-id="samsung-ln37a330">
+                <amount quantity="1">203.88</amount>
+            </price-table>
+
+            <price-table product-id="samsung-ln46a950">
+                <amount quantity="1">475.89</amount>
+            </price-table>
+
+            <price-table product-id="samsung-ln52a750">
+                <amount quantity="1">177.68</amount>
+            </price-table>
+
+            <price-table product-id="samsung-ln55a950">
+                <amount quantity="1">228.46</amount>
+            </price-table>
+
+            <price-table product-id="samsung-ypk3">
+                <amount quantity="1">349.78</amount>
+            </price-table>
+
+            <price-table product-id="sanyo-dp19648">
+                <amount quantity="1">410.45</amount>
+            </price-table>
+
+            <price-table product-id="sanyo-dp50747">
+                <amount quantity="1">396.40</amount>
+            </price-table>
+
+            <price-table product-id="scandisk-sansa-4gb-mp3">
+                <amount quantity="1">401.19</amount>
+            </price-table>
+
+            <price-table product-id="sega-bass-fishing-wii">
+                <amount quantity="1">458.73</amount>
+            </price-table>
+
+            <price-table product-id="sega-mario-sonic-olympics-2008-wii">
+                <amount quantity="1">494.99</amount>
+            </price-table>
+
+            <price-table product-id="sierra-the-bourne-conspiracy-xbox360">
+                <amount quantity="1">273.35</amount>
+            </price-table>
+
+            <price-table product-id="sony-alpha350-wlen">
+                <amount quantity="1">493.15</amount>
+            </price-table>
+
+            <price-table product-id="sony-alpha900-body">
+                <amount quantity="1">205.84</amount>
+            </price-table>
+
+            <price-table product-id="sony-cybershot-dsc-h50">
+                <amount quantity="1">291.21</amount>
+            </price-table>
+
+            <price-table product-id="sony-cybershot-t77">
+                <amount quantity="1">393.80</amount>
+            </price-table>
+
+            <price-table product-id="sony-cybershot-w120">
+                <amount quantity="1">481.53</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-19m4000">
+                <amount quantity="1">434.41</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-26n4000">
+                <amount quantity="1">112.16</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-32m4000">
+                <amount quantity="1">474.89</amount>
             </price-table>
 
             <price-table product-id="sony-kdl-40w4100">
-                <amount quantity="1">0.00</amount>
+                <amount quantity="1">362.78</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-42v4100">
+                <amount quantity="1">102.09</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-46xbr8">
+                <amount quantity="1">246.82</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-52s4100">
+                <amount quantity="1">455.64</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-55xbr8">
+                <amount quantity="1">475.69</amount>
+            </price-table>
+
+            <price-table product-id="sony-kdl-70xbr7">
+                <amount quantity="1">431.94</amount>
+            </price-table>
+
+            <price-table product-id="sony-nwz-s616f">
+                <amount quantity="1">120.96</amount>
+            </price-table>
+
+            <price-table product-id="sony-nwz-s738fbn">
+                <amount quantity="1">287.07</amount>
             </price-table>
 
             <price-table product-id="sony-ps3-bundle">
-                <amount quantity="1">0.00</amount>
+                <amount quantity="1">485.94</amount>
+            </price-table>
+
+            <price-table product-id="sony-ps3-console">
+                <amount quantity="1">331.79</amount>
+            </price-table>
+
+            <price-table product-id="sony-psp-console">
+                <amount quantity="1">147.76</amount>
+            </price-table>
+
+            <price-table product-id="sony-warhawk-ps3">
+                <amount quantity="1">493.81</amount>
+            </price-table>
+
+            <price-table product-id="sony-xel-1">
+                <amount quantity="1">405.93</amount>
+            </price-table>
+
+            <price-table product-id="tomtom-go-720">
+                <amount quantity="1">192.69</amount>
+            </price-table>
+
+            <price-table product-id="tomtom-go-930">
+                <amount quantity="1">311.84</amount>
+            </price-table>
+
+            <price-table product-id="tomtom-one-130">
+                <amount quantity="1">267.30</amount>
+            </price-table>
+
+            <price-table product-id="tomtom-xl-s">
+                <amount quantity="1">449.24</amount>
+            </price-table>
+
+            <price-table product-id="toshiba-meu202-bk">
+                <amount quantity="1">331.72</amount>
+            </price-table>
+
+            <price-table product-id="ubi-soft-my-spanish-coach-psp">
+                <amount quantity="1">112.03</amount>
+            </price-table>
+
+            <price-table product-id="ubi-soft-quick-yoga-training-nintendods">
+                <amount quantity="1">409.08</amount>
+            </price-table>
+
+            <price-table product-id="vizio-gv47lf">
+                <amount quantity="1">175.71</amount>
+            </price-table>
+
+            <price-table product-id="vizio-sv420xvt">
+                <amount quantity="1">397.18</amount>
+            </price-table>
+
+            <price-table product-id="vizio-vo22lf">
+                <amount quantity="1">344.99</amount>
+            </price-table>
+
+            <price-table product-id="vizio-vo32lf">
+                <amount quantity="1">276.59</amount>
+            </price-table>
+
+            <price-table product-id="vizio-vo37l">
+                <amount quantity="1">272.34</amount>
+            </price-table>
+
+            <price-table product-id="vizio-vp422">
+                <amount quantity="1">485.79</amount>
+            </price-table>
+
+            <price-table product-id="vizio-vp503">
+                <amount quantity="1">284.78</amount>
+            </price-table>
+
+            <price-table product-id="vizio-vp504f">
+                <amount quantity="1">200.45</amount>
+            </price-table>
+
+            <price-table product-id="vizio-vw46lf">
+                <amount quantity="1">171.70</amount>
             </price-table>
 
             <price-table product-id="womens-jewelry-bundle">

@@ -1040,23 +1040,11 @@ Server.prototype = {
         }
 
         var route = new Route(name, middlewareChain, rq, rs);
+        var server = this;
         // Add event handler for rendering out view on completion of the request chain
         route.on('route:Complete', function onRouteCompleteHandler(req, res) {
             // compute cache value and set on response when we have a non-zero number
-            if (res.cachePeriod) {
-                var currentTime = new Date();
-                if (res.cachePeriodUnit && res.cachePeriodUnit === 'minutes') {
-                    currentTime.setMinutes(currentTime.getMinutes() + res.cachePeriod);
-                } else {
-                    // default to hours
-                    currentTime.setHours(currentTime.getHours() + res.cachePeriod);
-                }
-                res.base.setExpires(currentTime);
-            }
-            // add vary by
-            if (res.personalized) {
-                res.base.setVaryBy('price_promotion');
-            }
+            server.applyCache(req, res);
 
             if (res.redirectUrl) {
                 // if there's a pending redirect, break the chain
@@ -1194,6 +1182,23 @@ Server.prototype = {
      */
     getRoute: function getRoute(name) {
         return this.routes[name];
+    },
+
+    applyCache: function applyCache(req, res) {
+        if (res.cachePeriod) {
+            var currentTime = new Date();
+            if (res.cachePeriodUnit && res.cachePeriodUnit === 'minutes') {
+                currentTime.setMinutes(currentTime.getMinutes() + res.cachePeriod);
+            } else {
+                // default to hours
+                currentTime.setHours(currentTime.getHours() + res.cachePeriod);
+            }
+            res.base.setExpires(currentTime);
+        }
+        // add vary by
+        if (res.personalized) {
+            res.base.setVaryBy('price_promotion');
+        }
     }
 };
 

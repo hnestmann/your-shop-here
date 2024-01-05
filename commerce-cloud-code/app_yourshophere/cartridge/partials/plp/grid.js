@@ -1,20 +1,15 @@
-const models = require('model');
-
 /**
  * Render search refinements
  * 
  * @returns 
  */
 exports.createModel = () => {
-    const HttpSearchParams = require('api/URLSearchParams')
-    const httpParams = new HttpSearchParams(request.httpParameterMap)
-
-    const search = require('api/ProductSearchModel');
-    search.init(httpParams);
+    const HttpSearchParams = require('api/URLSearchParams');
+    const model = {};
+    const httpParams = new HttpSearchParams(request.httpParameterMap);
+    const componentSettings = require('*/cartridge/utils/ComponentSettings').get(httpParams.get('component'));
+    const search = require('api/ProductSearchModel').get(httpParams, { swatchAttribute: componentSettings.remoteSwatchableAttribute} );
     search.search();
-<<<<<<< Updated upstream
-    return search.foundProducts;
-=======
 
     const componentId = httpParams.get('component');
     model.products = search.foundProducts.map((hit) => ({ tileUrl: hit.tileUrl.append('component', componentId) }));
@@ -37,15 +32,12 @@ function templateIncludeMore(model) {
             More
         </a>
     </div>`;
->>>>>>> Stashed changes
 }
 
 exports.template = (model) => `
     <div class="product-grid">
-        ${model.map(hit => subTemplate(hit)).join('')}
+        ${model.products.map((hit) => templateIncludeHit(hit, model.componentId)).join('')}
     </div>
+    ${model.showMoreButton ? templateIncludeMore(model) : ''}
 `;
 
-function subTemplate(hit) {
-    return `<wainclude url="${hit.url}"/>`;
-}

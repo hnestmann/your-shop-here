@@ -1,17 +1,31 @@
 /**
  * Create view model for a product image
- * 
+ *
  * @todo Add responsive images
- * @param {dw.catalog.Product} product 
+ * @param {dw.catalog.Product} product
  * @returns the view model
  */
+exports.createModel = function createImageModel(hit, search, imageFilter, config) {
+    let url;
+    if (imageFilter) {
+        url = (function getFilteredImages() {
+            const foundColor = search.getRepresentedVariationValues(imageFilter.key).filter((color) => color.value === imageFilter.value).pop();
+            if (foundColor) {
+                return foundColor.getImage(config.remoteImageViewType || 'large', 0).url;
+            }
+            return undefined;
+        }());
+    }
 
-exports.createModel = (product) => {
+    if (!url) {
+        url = hit.product.getImages(config.remoteImageViewType || 'large')[0].url;
+    }
+
     return {
-        largeUrl: product.getImages('large')[0].url,
-        name: product.name,
-        width: '300'
+        largeUrl: url,
+        name: hit.name,
+        width: '300',
     };
-}
+};
 
 exports.template = (model) => `<img loading="lazy" alt="${model.name}" src="${model.largeUrl}?sw=${model.width}" />`;
