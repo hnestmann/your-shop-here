@@ -1,28 +1,30 @@
+
 const name = require('./name');
 const image = require('./image');
 const price = require('./price');
 const swatches = require('./swatches');
 
 exports.createModel = () => {
+    const HttpSearchParams = require('api/URLSearchParams');
+    const httpParams = new HttpSearchParams(request.httpParameterMap);
+    const componentSettings = require('*/cartridge/utils/ComponentSettings').get(httpParams.get('component'));
 
-    const HttpSearchParams = require('api/URLSearchParams')
-    const httpParams = new HttpSearchParams(request.httpParameterMap)
-
-    const tileSearch = require('api/ProductSearchModel');
-    tileSearch.init(httpParams);
+    const tileSearch = require('api/ProductSearchModel').get(httpParams, { swatchAttribute: componentSettings.remoteSwatchableAttribute });
     tileSearch.search();
 
-    /** @type dw.catalog.Product */
-    const product = tileSearch.foundProducts.pop().product;
-    const variationModel = product.variationModel;
+    const imageFilter = {
+        key: componentSettings.remoteSwatchableAttribute,
+        value: httpParams.get('color')
+    };
 
+    const hit = tileSearch.foundProducts[0];
     const model = {};
 
-    if(product) {
-        model.name = name.createModel(product);
-        model.image = image.createModel(product);
-        model.price = price.createModel(product);
-        model.swatches = swatches.createModel(product,variationModel);
+    if (hit) {
+        model.name = name.createModel(hit);
+        model.image = image.createModel(hit, tileSearch, imageFilter, { imageViewType: componentSettings.remoteImageViewType });
+        model.price = price.createModel(hit, tileSearch, httpParams);
+        model.swatches = swatches.createModel(hit, tileSearch, {swatchAttribute: componentSettings.remoteSwatchableAttribute});
     }
 
     return model;
@@ -33,8 +35,8 @@ exports.template = (model) => `
     <header>${name.template(model.name)}</header>
     <body>
         ${image.template(model.image)}
-        ${swatches.template(model.swatches)}
         ${price.template(model.price)}
+        ${swatches.template(model.swatches)}
     </body>
     <footer><button>Add to cart</button></footer>
 </article>`;

@@ -18,8 +18,7 @@
                     }
                 },
                 {
-                
-                    "id": "imageViewType",
+                    "id": "remoteImageViewType",
                     "name": "Image View Type",
                     "description": "",
                     "type": "string",
@@ -27,15 +26,15 @@
                 },
                 {
                 
-                    "id": "imageDimensions",
+                    "id": "remoteImageDimensions",
                     "name": "Image Dimensions",
-                    "description": "",
+                    "description": "DIS parameters i.e. sw=300&sh=400",
                     "type": "string",
                     "required": false
                 },
                 {
                 
-                    "id": "swatchableAttribute",
+                    "id": "remoteSwatchableAttribute",
                     "name": "Swatch Atttribute",
                     "description": "",
                     "type": "string",

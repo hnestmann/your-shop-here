@@ -18,7 +18,7 @@ exports.render = (id) => {
         try {
             response.getWriter().print(partial.template(model));
         } catch (e) {
-            Logger.error(`Rendering for partial '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+            Logger.error(`Template rendering for partial '${id}' failed. Reason: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
         }
         return '';
     }
