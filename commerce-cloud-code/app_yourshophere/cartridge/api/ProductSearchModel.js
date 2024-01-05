@@ -1,17 +1,15 @@
-const ProductSearchModel = require('dw/catalog/ProductSearchModel');
-const ArrayList = require('dw/util/ArrayList');
-const PagingModel = require('dw/web/PagingModel');
-const models = require('model');
+function ProductSearchModel(httpParams, config) {
+    const ApiProductSearchModel = require('dw/catalog/ProductSearchModel');
 
-let paging;
-let instance;
+    const instance = new ApiProductSearchModel();
+    this.pagePosition = 0;
+    this.pageSize = 24;
+    this.swatchAttribute = 'yshColor';
+    if (config && config.swatchAttribute) {
+        this.swatchAttribute = config.swatchAttribute;
+    }
 
-let pageStart = 0;
-let pageSize = 12;
-
-exports.init = function init(httpParams) {
-    const wrapper = require('*/cartridge/models/wrapper.js');
-    instance = new ProductSearchModel();
+    this.representedVariationValuesAccessCache = {};
 
     const cgid = httpParams.get('cgid');
     if (cgid) {
@@ -20,19 +18,17 @@ exports.init = function init(httpParams) {
 
     const productId = httpParams.get('pid');
     if (productId) {
-        var productIds = new ArrayList();
-        productIds.add1(productId);
-        instance.setProductIDs(productIds);
+        instance.addRefinementValues('ID', productId);
     }
 
     const minPrice = httpParams.get('pmin');
     if (minPrice) {
-        instance.setPriceMin(new Number(minPrice));
+        instance.setPriceMin(Number(minPrice));
     }
 
     const maxPrice = httpParams.get('pmax');
     if (maxPrice) {
-        instance.setPriceMax(new Number(maxPrice));
+        instance.setPriceMax(Number(maxPrice));
     }
 
     const promotionId = httpParams.get('pmid');
@@ -45,95 +41,155 @@ exports.init = function init(httpParams) {
         instance.setSearchPhrase(query);
     }
 
-    const startParam = httpParams.get('start')
+    const startParam = httpParams.get('start');
     if (startParam) {
-        pageStart = new Number(startParam);
+        this.pagePosition = Number(startParam);
     }
 
-    const sizeParam = httpParams.get('sz')
+    const sizeParam = httpParams.get('sz');
     if (sizeParam) {
-        pageSize = new Number(sizeParam);
+        this.pageSize = Number(sizeParam);
     }
 
+    if (request.httpQueryString.includes('pref')) {
+        httpParams.forEach((value, key) => {
+            if (key.includes('prefn')) {
+                instance.addRefinementValues(key, httpParams.get(key.replace('prefn', 'prefv')));
+            }
+        });
+    }
 
-    httpParams.forEach((value, key) => {
-        if (key.includes('prefn')) {
-            instance.addRefinementValues(key, httpParams.get(key.replace('prefn', 'prefv')));
-        }
+    Object.defineProperty(this, 'foundProducts', {
+        get: function initSearchHits() {
+            if (!this._viewResults) {
+                const ProductSearchHit = require('api/ProductSearchHit');
+                const PagingModel = require('dw/web/PagingModel');
+
+                this.pagingModel = new PagingModel(this.object.productSearchHits, this.object.count);
+                this.pagingModel.setStart(this.pagePosition);
+                this.pagingModel.setPageSize(this.pageSize);
+
+                this._viewResults = this.pagingModel.pageElements.asList().toArray().map((hit) => ProductSearchHit.get(hit, { swatchAttribute: this.swatchAttribute }));
+            }
+            return this._viewResults;
+        },
     });
+
+    Object.defineProperty(this, 'minPrice', {
+        get: function getMinPrice() {
+            if (!this._minPrice) {
+                if (this.object.count <= this.pageSize) {
+                    const minPrices = this.foundProducts.map((hit) => hit.minPrice.value);
+                    this._minPrice = Math.min.apply(Math, minPrices);
+                } else {
+                    throw new Error('too many colors');
+                }
+            }
+            return this._minPrice;
+        },
+    });
+
+    Object.defineProperty(this, 'maxPrice', {
+        get: function getMaxPrice() {
+            if (!this._maxPrice) {
+                if (this.object.count <= this.pageSize) {
+                    const maxPrices = this.foundProducts.map((hit) => hit.maxPrice.value);
+                    this._maxPrice = Math.max.apply(Math, maxPrices);
+                } else {
+                    throw new Error('too many colors');
+                }
+            }
+            return this._maxPrice;
+        },
+    });
+
+    Object.defineProperty(this, 'resultCount', {
+        get: function getMaxPrice() {
+            return this.object.count;
+        },
+    });
+
+    this.object = instance;
 }
 
-exports.search = function search() {
+ProductSearchModel.prototype.nextPageUrl = function nextPageUrl(action) {
+    let url = this.object.url(action);
+    url = this.pagingModel.appendPaging(url, this.pagePosition + this.pageSize);
+    return url;
+};
 
-    const searchStatus = instance.search();
-    var productPagingModel = new PagingModel(instance.productSearchHits, instance.count);
-    productPagingModel.setStart(pageStart);
-    productPagingModel.setPageSize(pageSize);
-    paging = productPagingModel;
+ProductSearchModel.prototype.search = function search() {
+    return this.object.search();
+};
 
-    return searchStatus;
-}
+ProductSearchModel.prototype.getCategory = function getCategory() {
+    return this.object.getCategory();
+};
 
-exports.getCategory = function getCategory() {
-    return instance.getCategory();
-}
+ProductSearchModel.prototype.getRefinements = function getRefinements() {
+    return this.object.getRefinements();
+};
 
-exports.getRefinements = function getRefinements() {
-    return instance.getRefinements();
-}
+ProductSearchModel.prototype.isRefinedByCategory = function isRefinedByCategory() {
+    return this.object.isRefinedByCategory();
+};
 
-exports.isRefinedByCategory = function isRefinedByCategory() {
-    return instance.isRefinedByCategory();
-}
+ProductSearchModel.prototype.canRelax = function canRelax() {
+    return this.object.canRelax();
+};
 
-exports.canRelax = function canRelax() {
-    return instance.canRelax();
-}
+ProductSearchModel.prototype.urlRelaxCategory = function urlRelaxCategory() {
+    return this.object.urlRelaxCategory();
+};
 
-exports.urlRelaxCategory = function urlRelaxCategory() {
-    return instance.urlRelaxCategory();
-}
+ProductSearchModel.prototype.urlRefineCategory = function urlRefineCategory() {
+    return this.object.urlRefineCategory.apply(this.object, arguments);
+};
 
-exports.urlRefineCategory = function urlRefineCategory() {
-    return instance.urlRefineCategory.apply(instance, arguments);
-}
+ProductSearchModel.prototype.isRefinedByPriceRange = function isRefinedByPriceRange() {
+    return this.object.isRefinedByPriceRange.apply(this.object, arguments);
+};
 
-exports.isRefinedByPriceRange = function isRefinedByPriceRange() {
-    return instance.isRefinedByPriceRange.apply(instance, arguments);
-}
+ProductSearchModel.prototype.urlRelaxPrice = function urlRelaxPrice() {
+    return this.object.urlRelaxPrice.apply(this.object, arguments);
+};
 
-exports.urlRelaxPrice = function urlRelaxPrice() {
-    return instance.urlRelaxPrice.apply(instance, arguments);
-}
+ProductSearchModel.prototype.urlRefinePrice = function urlRefinePrice() {
+    return this.object.urlRefinePrice.apply(this.object, arguments);
+};
 
-exports.urlRefinePrice = function urlRefinePrice() {
-    return instance.urlRefinePrice.apply(instance, arguments);
-}
+ProductSearchModel.prototype.urlRefinePromotion = function urlRefinePromotion() {
+    return this.object.urlRefinePromotion.apply(this.object, arguments);
+};
 
-exports.urlRefinePromotion = function urlRefinePromotion() {
-    return instance.urlRefinePromotion.apply(instance, arguments);
-}
+ProductSearchModel.prototype.isRefinedByAttributeValue = function isRefinedByAttributeValue() {
+    return this.object.isRefinedByAttributeValue.apply(this.object, arguments);
+};
 
-exports.isRefinedByAttributeValue = function isRefinedByAttributeValue() {
-    return instance.isRefinedByAttributeValue.apply(instance, arguments);
-}
+ProductSearchModel.prototype.urlRelaxAttributeValue = function urlRelaxAttributeValue() {
+    return this.object.urlRelaxAttributeValue.apply(this.object, arguments);
+};
 
-exports.urlRelaxAttributeValue = function urlRelaxAttributeValue() {
-    return instance.urlRelaxAttributeValue.apply(instance, arguments);
-}
+ProductSearchModel.prototype.urlRefineAttributeValue = function urlRefineAttributeValue() {
+    return this.object.urlRefineAttributeValue.apply(this.object, arguments);
+};
 
-exports.urlRefineAttributeValue = function urlRefineAttributeValue() {
-    return instance.urlRefineAttributeValue.apply(instance, arguments);
-}
-
-
-let _viewResults;
-Object.defineProperty(exports, 'foundProducts', {
-    get: function () {
-        if (!_viewResults) {
-            _viewResults = paging.pageElements.asList().toArray().map(hit => models.get('searchHit').init(hit));
+ProductSearchModel.prototype.getRepresentedVariationValues = function getRepresentedVariationValues(arg) {
+    const argKey = arg.toString();
+    if (!this.representedVariationValuesAccessCache[argKey]) {
+        this.representedVariationValuesAccessCache[argKey] = [];
+        if (this.object.count <= this.pageSize) {
+            const HashSet = require('dw/util/HashSet');
+            const colors = new HashSet();
+            this.foundProducts.forEach((hit) => colors.add(hit.getRepresentedVariationValues(arg)));
+            this.representedVariationValuesAccessCache[argKey] = colors.toArray();
+        } else {
+            throw new Error('too many colors');
         }
-        var myResult = _viewResults;
-        return _viewResults;
     }
-});
+    return this.representedVariationValuesAccessCache[argKey];
+};
+
+exports.get = function initProductSearchModel(httpParams, config) {
+    return new ProductSearchModel(httpParams, config);
+};

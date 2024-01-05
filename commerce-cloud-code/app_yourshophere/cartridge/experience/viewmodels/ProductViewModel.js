@@ -30,7 +30,7 @@ module.exports.get = function get(product) {
     model.productId = product.ID;
 
     var priceFactory = require('*/cartridge/scripts/factories/price');
-    model.price = priceFactory.getPrice(product, null);
+    model.price = priceFactory.getPrice(product, null);O
 
 
     var id = product.ID;
