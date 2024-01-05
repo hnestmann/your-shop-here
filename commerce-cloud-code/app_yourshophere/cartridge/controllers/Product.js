@@ -4,7 +4,6 @@
  * @namespace Home
  */
 const server = require('server');
-const models = require('model');
 
 const Site = require('dw/system/Site');
 const PageMgr = require('dw/experience/PageMgr');

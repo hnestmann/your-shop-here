@@ -22,7 +22,7 @@
     "chai": "^4.2.0",
     "chai-subset": "^1.5.0",
     "cross-zip-cli": "^1.0.0",
-    "mocha": "^8.2.1",
+    "mocha": "^10.2.0",
     "mocha-junit-reporter": "^2.0.0",
     "node-fetch": "^2.6.1",
     "npm-run-all": "^4.1.5",
@@ -34,9 +34,9 @@
     "shx": "^0.3.3"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb-base": "12.0.0",
-    "eslint-plugin-import": "^1.12.0"
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1"
   },
   "scripts": {
     "auth": "sfcc-ci auth:login -D",
