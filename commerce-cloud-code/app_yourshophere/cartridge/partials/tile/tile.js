@@ -1,27 +1,28 @@
+
 const name = require('./name');
 const image = require('./image');
 const price = require('./price');
 const swatches = require('./swatches');
 
 exports.createModel = () => {
-    const HttpSearchParams = require('api/URLSearchParams')
-    const httpParams = new HttpSearchParams(request.httpParameterMap)
+    const HttpSearchParams = require('api/URLSearchParams');
+    const httpParams = new HttpSearchParams(request.httpParameterMap);
     const componentSettings = require('*/cartridge/utils/ComponentSettings').get(httpParams.get('component'));
 
-    const tileSearch = require('api/ProductSearchModel').get(httpParams, {swatchAttribute: componentSettings.remoteSwatchableAttribute});
+    const tileSearch = require('api/ProductSearchModel').get(httpParams, { swatchAttribute: componentSettings.remoteSwatchableAttribute });
     tileSearch.search();
 
     const imageFilter = {
-        key: componentSettings.remoteSwatchableAttribute, 
+        key: componentSettings.remoteSwatchableAttribute,
         value: httpParams.get('color')
     };
 
     const hit = tileSearch.foundProducts[0];
     const model = {};
 
-    if(hit) {
+    if (hit) {
         model.name = name.createModel(hit);
-        model.image = image.createModel(hit, tileSearch, imageFilter,{imageViewType: componentSettings.remoteImageViewType});
+        model.image = image.createModel(hit, tileSearch, imageFilter, { imageViewType: componentSettings.remoteImageViewType });
         model.price = price.createModel(hit, tileSearch, httpParams);
         model.swatches = swatches.createModel(hit, tileSearch, {swatchAttribute: componentSettings.remoteSwatchableAttribute});
     }

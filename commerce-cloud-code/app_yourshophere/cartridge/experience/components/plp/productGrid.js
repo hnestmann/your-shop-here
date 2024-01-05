@@ -10,6 +10,7 @@ function makeSettingsAvailableInRemoteInclude(context) {
         const cache = require('dw/system/CacheMgr').getCache('ComponentSettings');
         const remoteIncludeAccessibleSettings = {};
         context.content.keySet().toArray().forEach((key) => {
+            // @todo remove this prefix. harddisk space is cheap according to danny
             if (key.indexOf('remote') === 0) {
                 remoteIncludeAccessibleSettings[key] = context.content.get(key);
             }
@@ -40,6 +41,7 @@ exports.render = function render(context) {
     try {
         makeSettingsAvailableInRemoteInclude(context);
         require('api/ResponseCache').apply('DefaultCache');
+
         return renderComponent(context);
     } catch (e) {
         const Logger = require('api/Logger');

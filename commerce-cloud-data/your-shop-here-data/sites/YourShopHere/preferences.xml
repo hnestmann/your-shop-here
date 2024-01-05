@@ -23,17 +23,17 @@
             <preference preference-id="AvailabilityFiltering">Enabled</preference>
             <preference preference-id="AvailabilityLowRankingThreshold">0.0</preference>
             <preference preference-id="ExternallyPublishProductIndex">false</preference>
-            <preference preference-id="IncludePromotionIDInProductIndex">false</preference>
-            <preference preference-id="MergedVariationGroupsDisplayMode">false</preference>
-            <preference preference-id="PersonalizedSearchRecommendations">Disabled</preference>
+            <preference preference-id="IncludePromotionIDInProductIndex">true</preference>
+            <preference preference-id="MergedVariationGroupsDisplayMode">true</preference>
+            <preference preference-id="PersonalizedSearchRecommendations">Enabled</preference>
             <preference preference-id="RobotsTxtContent"/>
             <preference preference-id="RobotsTxtMode">Cartridge</preference>
-            <preference preference-id="SearchAutoCorrection">Disabled</preference>
-            <preference preference-id="SearchDictionaryLocaleFallback">Disabled</preference>
+            <preference preference-id="SearchAutoCorrection">Enabled</preference>
+            <preference preference-id="SearchDictionaryLocaleFallback">Language</preference>
             <preference preference-id="SearchFriendlyURLsEnabled">true</preference>
             <preference preference-id="SearchIgnoreLeadingZeros">Disabled</preference>
-            <preference preference-id="SearchRedirectKeywordRuleEnabled">Disabled</preference>
-            <preference preference-id="SearchSuggestions">Disabled</preference>
+            <preference preference-id="SearchRedirectKeywordRuleEnabled">Enabled</preference>
+            <preference preference-id="SearchSuggestions">Enabled</preference>
         </development>
         <staging>
             <preference preference-id="AvailabilityFiltering">Disabled</preference>
@@ -44,12 +44,12 @@
             <preference preference-id="PersonalizedSearchRecommendations">Disabled</preference>
             <preference preference-id="RobotsTxtContent"/>
             <preference preference-id="RobotsTxtMode">Cartridge</preference>
-            <preference preference-id="SearchAutoCorrection">Disabled</preference>
-            <preference preference-id="SearchDictionaryLocaleFallback">Disabled</preference>
+            <preference preference-id="SearchAutoCorrection">Enabled</preference>
+            <preference preference-id="SearchDictionaryLocaleFallback">Language</preference>
             <preference preference-id="SearchFriendlyURLsEnabled">true</preference>
             <preference preference-id="SearchIgnoreLeadingZeros">Disabled</preference>
-            <preference preference-id="SearchRedirectKeywordRuleEnabled">Disabled</preference>
-            <preference preference-id="SearchSuggestions">Disabled</preference>
+            <preference preference-id="SearchRedirectKeywordRuleEnabled">Enabled</preference>
+            <preference preference-id="SearchSuggestions">Enabled</preference>
         </staging>
         <production>
             <preference preference-id="AvailabilityFiltering">Disabled</preference>
@@ -60,12 +60,12 @@
             <preference preference-id="PersonalizedSearchRecommendations">Disabled</preference>
             <preference preference-id="RobotsTxtContent"/>
             <preference preference-id="RobotsTxtMode">Cartridge</preference>
-            <preference preference-id="SearchAutoCorrection">Disabled</preference>
-            <preference preference-id="SearchDictionaryLocaleFallback">Disabled</preference>
+            <preference preference-id="SearchAutoCorrection">Enabled</preference>
+            <preference preference-id="SearchDictionaryLocaleFallback">Language</preference>
             <preference preference-id="SearchFriendlyURLsEnabled">true</preference>
             <preference preference-id="SearchIgnoreLeadingZeros">Disabled</preference>
-            <preference preference-id="SearchRedirectKeywordRuleEnabled">Disabled</preference>
-            <preference preference-id="SearchSuggestions">Disabled</preference>
+            <preference preference-id="SearchRedirectKeywordRuleEnabled">Enabled</preference>
+            <preference preference-id="SearchSuggestions">Enabled</preference>
         </production>
     </standard-preferences>
     <custom-preferences>
@@ -75,4 +75,3 @@
         <production/>
     </custom-preferences>
 </preferences>
-
