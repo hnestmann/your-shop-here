@@ -20,7 +20,10 @@
         "no-param-reassign": ["error", { "props": false }],
         "no-multiple-empty-lines": ["error", {"max": 1, "maxEOF": 1, "maxBOF": 1 } ],
         "prefer-destructuring": "off",
-        "no-dynamic-require": "off"
+        "no-dynamic-require": "off",
+        "prefer-spread": "off",
+        "prefer-rest-params": "off",
+        "no-underscore-dangle": "off"
     },
     "globals" : {
       "session": true,

@@ -2426,6 +2426,15 @@
             <custom-attribute attribute-id="yshEnableCompare">false</custom-attribute>
             <custom-attribute attribute-id="yshShowInMenu">false</custom-attribute>
         </custom-attributes>
+        <refinement-definitions>
+            <refinement-definition type="attribute" bucket-type="none" attribute-id="ID" system="true">
+                <display-name xml:lang="x-default">ID</display-name>
+                <value-set>search-result</value-set>
+                <sort-mode>value-name</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <cutoff-threshold>5</cutoff-threshold>
+            </refinement-definition>
+        </refinement-definitions>
     </category>
 
     <category category-id="sale">

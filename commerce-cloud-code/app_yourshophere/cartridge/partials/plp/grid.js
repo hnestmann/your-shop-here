@@ -10,28 +10,19 @@ exports.createModel = () => {
     const componentSettings = require('*/cartridge/utils/ComponentSettings').get(httpParams.get('component'));
     const search = require('api/ProductSearchModel').get(httpParams, {swatchAttribute: componentSettings.remoteSwatchableAttribute});
     search.search();
-    
-    model.componentId = httpParams.get('component');
-    model.products = search.foundProducts;
+
+    const componentId = httpParams.get('component');
+    model.products = search.foundProducts.map((hit) => ({ tileUrl: hit.tileUrl.append('component', componentId) }));
     model.showMoreButton = (search.pagePosition + search.pageSize) < search.resultCount;
     // @todo makes only sense with proper page controls
     model.moreUrlFull = search.nextPageUrl('Search-Show').toString();
     model.moreUrlHx = search.nextPageUrl('Search-Grid');
     model.moreUrlHx = model.moreUrlHx.append('component', model.componentId);
     return model;
-}
+};
 
-exports.template = (model) => `
-    <div class="product-grid">
-        ${model.products.map(hit => templateIncludeHit(hit, model.componentId)).join('')}
-    </div>
-    ${model.showMoreButton ? templateIncludeMore(model) : ''}
-`;
-
-function templateIncludeHit(hit, componentId) {
-    const url = hit.tileUrl;
-    url.append('component', componentId)
-    return `<wainclude url="${url}"/>`;
+function templateIncludeHit(hit) {
+    return `<wainclude url="${hit.tileUrl}"/>`;
 }
 
 function templateIncludeMore(model) {
@@ -42,3 +33,11 @@ function templateIncludeMore(model) {
         </a>
     </div>`;
 }
+
+exports.template = (model) => `
+    <div class="product-grid">
+        ${model.products.map((hit) => templateIncludeHit(hit, model.componentId)).join('')}
+    </div>
+    ${model.showMoreButton ? templateIncludeMore(model) : ''}
+`;
+

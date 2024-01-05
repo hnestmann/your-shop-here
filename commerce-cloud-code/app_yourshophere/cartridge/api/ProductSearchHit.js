@@ -1,28 +1,34 @@
-const CacheMgr = require('dw/system/CacheMgr');
-const productCache = CacheMgr.getCache('Product');
+function ProductSearchHit(hit) {
+    const CacheMgr = require('dw/system/CacheMgr');
+    this.productCache = CacheMgr.getCache('Product');
+    this.object = hit;
+    this.representedVariationValuesAccessCache = {};
+}
 
-exports.get = function get(hit, config) {
+ProductSearchHit.prototype.getRepresentedVariationValues = function getRepresentedVariationValues(object) {
+    if (!this.representedVariationValuesAccessCache[object.toString()]) {
+        this.representedVariationValuesAccessCache[object.toString()] = this.object.getRepresentedVariationValues(object).toArray();
+    }
+    return this.representedVariationValuesAccessCache[object.toString()];
+};
+
+exports.get = function get(apiHit, config) {
     const swatchAttribute = config.swatchAttribute;
-    let instance = new ProductSearchHit(hit);
+    const instance = new ProductSearchHit(apiHit);
 
     Object.defineProperty(instance, 'tileUrl', {
         get: function getTileUrl() {
-            const hit = this.object;
             const URLUtils = require('dw/web/URLUtils');
             const url = URLUtils.url('Tile-Show');
-            let colorValue;
-            let colorIterator;
-            let maxPrice;
-            let minPrice;
 
-            let productGroup = this.object.product;
-            colorIterator = this.object.getRepresentedVariationValues(swatchAttribute).iterator();
+            const productGroup = this.object.product;
+            const colors = this.object.getRepresentedVariationValues(swatchAttribute).iterator().asList().toArray(0, 10);
 
             url.append('pid', this.mainProductId);
             url.append('lastModified', productGroup.lastModified.getTime());
 
-            maxPrice = this.object.getMaxPrice();
-            minPrice = this.object.getMinPrice();
+            const maxPrice = this.object.getMaxPrice();
+            const minPrice = this.object.getMinPrice();
 
             if (maxPrice && maxPrice.isAvailable()) {
                 url.append('maxPrice', maxPrice.getValue());
@@ -31,103 +37,74 @@ exports.get = function get(hit, config) {
                 url.append('minPrice', minPrice.getValue());
             }
 
-            // the colorHash is a means to inform the product tile about of stock colors
+            // the colorHash is a means to inform the product tile about out-of-stock colors
             // the hitTile knows which colors are in stock hence we "hash" them
             // and add them to the tile url to force a new tile vs the cached tile
-            var calculateColorHash = function calculateColorHash() {
-                if (colorIterator) {
-                    var attrValue;
-    
-                    while (colorIterator.hasNext()) {
-                        attrValue = colorIterator.next();
-                        colorValue = colorValue || attrValue.value;
-                        // eslint-disable-next-line no-restricted-globals
-                        let attrNumber = '';
-                        if (isNaN(attrValue.value)) {
-                            attrNumber = attrValue.value.split('').map(char => char.charCodeAt(0)).join(0)
-                        } else {
-                            attrNumber = attrValue.value;
-                        }
-                        colorHash += parseInt(attrNumber, 10);
-                    }
+            const colorHash = colors.reduce((accumulator, attrValue) => {
+                let attrNumber = attrValue.value;
+                if (isNaN(attrNumber)) {
+                    attrNumber = attrNumber.split('').map((char) => char.charCodeAt(0)).join(0);
                 }
-            }
-            calculateColorHash();
-            var colorHash = 0;
+                return accumulator + parseInt(attrNumber, 10);
+            }, 0);
 
-            
             url.append('colorHash', colorHash.toString());
-            url.append('color', colorValue);
+            url.append('color', colors && colors[0].value);
 
             return url;
-        }, 
-        configurable: true
+        },
+        configurable: true,
     });
 
     Object.defineProperty(instance, 'name', {
-        get: function () {
-            return productCache.get(`name_${this.mainProductId}_${request.locale}`, () => {
-                return this.mainProduct.name;
-            }); 
-        }
+        get() {
+            return this.productCache.get(`name_${this.mainProductId}_${request.locale}`, () => this.mainProduct.name);
+        },
     });
 
     Object.defineProperty(instance, 'productId', {
-        get: function () {
+        get() {
             return this.object.productID;
-        }
+        },
     });
 
     Object.defineProperty(instance, 'product', {
-        get: function () {
+        get() {
             return this.object.product;
-        }
+        },
     });
 
     Object.defineProperty(instance, 'minPrice', {
-        get: function () {
+        get() {
             return this.object.minPrice;
-        }
+        },
     });
 
     Object.defineProperty(instance, 'maxPrice', {
-        get: function () {
+        get() {
             return this.object.maxPrice;
-        }
+        },
     });
 
     Object.defineProperty(instance, 'mainProduct', {
-        get: function () {
-            var ProductMgr = require('dw/catalog/ProductMgr');
+        get() {
+            const ProductMgr = require('dw/catalog/ProductMgr');
             return ProductMgr.getProduct(this.mainProductId);
-        }
+        },
     });
 
     // @todo make sure name fits with products sets etc
     Object.defineProperty(instance, 'mainProductId', {
-        get: function () {
-            var hit = this.object;
-            if (this.object.hitType === 'variation_group' || (this.object.hitType === 'product' && this.object.productID === this.object.firstRepresentedProductID)) {
-                return productCache.get(`relation_to_main_${this.object.productID}`, () => {
-                    return (this.object.product.variant || this.object.product.variationGroup) ? this.object.product.masterProduct.ID : this.object.product.ID;
-                }); 
+        get() {
+            const isSimpleProduct = (this.object.hitType === 'product' && this.object.productID === this.object.firstRepresentedProductID);
+            if (this.object.hitType === 'variation_group' || isSimpleProduct) {
+                // @todo introduce dedicated product lookup cache
+                return this.productCache.get(`relation_to_main_${this.object.productID}`, () => ((this.object.product.variant || this.object.product.variationGroup) ? this.object.product.masterProduct.ID : this.object.product.ID));
             }
 
             return this.object.productID;
-        }
+        },
     });
 
     return instance;
-}
-
-function ProductSearchHit(hit) {
-    this.object = hit;
-    this.representedVariationValuesAccessCache = {}
-}
-
-ProductSearchHit.prototype.getRepresentedVariationValues = function getRepresentedVariationValues(object) {
-    if (!this.representedVariationValuesAccessCache[object.toString()]) {
-        this.representedVariationValuesAccessCache[object.toString()] = this.object.getRepresentedVariationValues(object).toArray()
-    }
-    return this.representedVariationValuesAccessCache[object.toString()];
-}
+};
