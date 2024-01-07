@@ -6,30 +6,26 @@ function hashmapToObject(hashMap) {
     }, {});
 }
 
-function makeSettingsAvailableInRemoteInclude(context) {
-    const PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
+function storeComponentToFileSystemUrl(context) {
+    const URLUtils = require('dw/web/URLUtils');
+    const Site = require('dw/system/Site');
+    const URLAction = require('dw/web/URLAction');
+    const ContentMgr = require('dw/content/ContentMgr');
 
-    const CustomObjectMgr = require('dw/object/CustomObjectMgr');
-    let co = CustomObjectMgr.getCustomObject('ComponentSettings', context.component.ID);
+    const componentSettingsJson = JSON.stringify(hashmapToObject(context.content));
 
-    
-    if (!co || PageRenderHelper.isInEditMode()) {
-        const cache = require('dw/system/CacheMgr').getCache('ComponentSettings');
-        const componentSettings = hashmapToObject(context.content);
-        try {
-            const Transaction = require('dw/system/Transaction');
-            Transaction.wrap(() => {
-                if (!co) {
-                    co = CustomObjectMgr.createCustomObject('ComponentSettings', context.component.ID);
-                }
-                co.custom.settingsJSON = JSON.stringify(componentSettings);
-            });
-        } catch (e) {
-            const Logger = require('api/Logger');
-            Logger.warn(`Unable to create settings custom object: ${e.message} at '${e.fileName}:${e.lineNumber}'`);
-        }
-        cache.put(context.component.ID, componentSettings);
-    }
+    const urlAction = new URLAction('PDUtils-Store', 'ReplaceMe');
+    let url = URLUtils.url(urlAction);
+    url.append('settings', componentSettingsJson);
+    url.append('componentId', context.component.ID);
+    url.append('siteId', Site.current.ID);
+    url.append('libId', ContentMgr.getSiteLibrary().ID);
+    url = url.toString().replace('-ReplaceMe-', '-');
+
+    const cache = require('dw/system/CacheMgr').getCache('ComponentSettings');
+    cache.put(context.component.ID, JSON.parse(componentSettingsJson));
+
+    return url;
 }
 
 /**
@@ -40,10 +36,14 @@ function makeSettingsAvailableInRemoteInclude(context) {
  */
 exports.render = function render(context) {
     try {
-        makeSettingsAvailableInRemoteInclude(context);
+        const PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
+        // makeSettingsAvailableInRemoteInclude(context);
         require('api/ResponseCache').apply('DefaultCache');
-
-        return renderComponent(context);
+        let result = renderComponent(context);
+        if (PageRenderHelper.isInEditMode()) {
+            result = `<wainclude url="${storeComponentToFileSystemUrl(context)}"/>${result}`;
+        }
+        return result;
     } catch (e) {
         const Logger = require('api/Logger');
         Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`);
