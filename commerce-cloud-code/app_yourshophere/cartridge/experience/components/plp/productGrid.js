@@ -37,7 +37,6 @@ function storeComponentToFileSystemUrl(context) {
 exports.render = function render(context) {
     try {
         const PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
-        // makeSettingsAvailableInRemoteInclude(context);
         require('api/ResponseCache').apply('DefaultCache');
         let result = renderComponent(context);
         if (PageRenderHelper.isInEditMode()) {
