@@ -8,7 +8,7 @@ exports.createModel = () => {
     const model = {};
     const httpParams = new HttpSearchParams(request.httpParameterMap);
     const componentSettings = require('*/cartridge/utils/ComponentSettings').get(httpParams.get('component'));
-    const search = require('api/ProductSearchModel').get(httpParams, { swatchAttribute: componentSettings.remoteSwatchableAttribute} );
+    const search = require('api/ProductSearchModel').get(httpParams, { swatchAttribute: componentSettings.swatchDimension} );
     search.search();
 
     const componentId = httpParams.get('component');
@@ -20,6 +20,13 @@ exports.createModel = () => {
     model.moreUrlHx = model.moreUrlHx.append('component', componentId);
     return model;
 };
+
+exports.template = (model) => `
+    <div class="product-grid">
+        ${model.products.map((hit) => templateIncludeHit(hit, model.componentId)).join('')}
+    </div>
+    ${model.showMoreButton ? templateIncludeMore(model) : ''}
+`;
 
 function templateIncludeHit(hit) {
     return `<wainclude url="${hit.tileUrl}"/>`;
@@ -34,10 +41,4 @@ function templateIncludeMore(model) {
     </div>`;
 }
 
-exports.template = (model) => `
-    <div class="product-grid">
-        ${model.products.map((hit) => templateIncludeHit(hit, model.componentId)).join('')}
-    </div>
-    ${model.showMoreButton ? templateIncludeMore(model) : ''}
-`;
 

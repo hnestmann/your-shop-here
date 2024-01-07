@@ -25,10 +25,10 @@
   "visibility" : [ ]
 }</config>
         <data xml:lang="x-default">{
-  "remoteImageDimensions" : "sw=300",
-  "remoteImageViewType" : "large",
+  "imageDISConfig" : "sw=300",
+  "imageViewType" : "large",
   "category" : null,
-  "remoteSwatchableAttribute" : "yshColor"
+  "swatchDimension" : "yshColor"
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
