@@ -23,7 +23,9 @@
         "no-dynamic-require": "off",
         "prefer-spread": "off",
         "prefer-rest-params": "off",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "import/extensions": "off",
+        "no-use-before-define": "off"
     },
     "globals" : {
       "session": true,

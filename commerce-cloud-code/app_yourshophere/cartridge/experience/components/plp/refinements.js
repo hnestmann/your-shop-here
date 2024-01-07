@@ -16,14 +16,13 @@ exports.render = function render(context) {
 function renderComponent(context) {
     const URLUtils = require('dw/web/URLUtils');
     const url = URLUtils.url('Search-Refinements');
-    // @todo move into method/module
-    const queryParameters = request.custom.model.httpParameter;
-    Object.keys(queryParameters)
-        .filter((key) => (key.indexOf('cgid') > -1 || key.indexOf('pref') > -1 
-            || key.indexOf('q') > -1 || key.indexOf('pm') > -1))
-        .forEach((key) => {
-        url.append(key,queryParameters[key])      
-    });
 
-    return `<wainclude url="${url.toString()}">`;
+    const HttpSearchParams = require('api/URLSearchParams');
+    const searchParams = (new HttpSearchParams(request.custom.model.httpParameter)).allowList(require('api/ProductSearchModel').constants.urlAllowListBase);
+    searchParams.sort();
+    const queryString = searchParams.toString();
+
+    const urlString = `${url.toString()}?${queryString}`;
+
+    return `<wainclude url="${urlString}">`;
 };

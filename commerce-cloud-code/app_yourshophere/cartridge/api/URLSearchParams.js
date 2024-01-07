@@ -32,6 +32,25 @@ prototype.append = function (name, value) {
   appendTo(this[internalParameterList], name, value);
 };
 
+prototype.allowList = function (allowList) {
+  let newSearchParams = [];
+  const parameters = this;
+  this.forEach((value, param) => {
+    if (value) {
+      if (allowList.filter(item => (typeof(item) === 'string')).indexOf(param) !== -1) {
+        newSearchParams.push(`${param}=${this.get(param)}`);
+      } else {
+        allowList.filter(item => (item instanceof RegExp)).forEach((rule) => {
+          if (rule.test(param)) {
+            newSearchParams.push(`${param}=${this.get(param)}`);
+          }
+        });
+      }
+    }
+  });
+  return new URLSearchParams(newSearchParams.join('&'))
+};
+
 /**
  * Deletes the given search parameter, and its associated value,
  * from the list of all search parameters.

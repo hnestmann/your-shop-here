@@ -51,13 +51,13 @@ function ProductSearchModel(httpParams, config) {
         this.pageSize = Number(sizeParam);
     }
 
-    if (request.httpQueryString.includes('pref')) {
-        httpParams.forEach((value, key) => {
-            if (key.includes('prefn')) {
-                instance.addRefinementValues(key, httpParams.get(key.replace('prefn', 'prefv')));
-            }
-        });
-    }
+    const productRefinements = httpParams.allowList([/^prefn/]);
+    productRefinements.sort();
+
+    productRefinements.forEach((refinementAttribute, key) => {
+        const refinementValue = httpParams.get(key.replace('prefn', 'prefv'));
+        instance.addRefinementValues(refinementAttribute, refinementValue);
+    });
 
     Object.defineProperty(this, 'foundProducts', {
         get: function initSearchHits() {
@@ -188,6 +188,28 @@ ProductSearchModel.prototype.getRepresentedVariationValues = function getReprese
         }
     }
     return this.representedVariationValuesAccessCache[argKey];
+};
+
+const urlAllowListBase = [
+    'cgid',
+    'q',
+    // product refinement names and values, i.e. prefn1, prefv4
+    /^pref/,
+    // pmin, pmax, pmid
+    /^pm/,
+];
+
+const urlAllowListPagination = urlAllowListBase.concat([
+    'start',
+    'sz'
+]);
+
+const urlAllowListAll = urlAllowListPagination.concat(['sort']);
+
+exports.constants = {
+    urlAllowListBase,
+    urlAllowListPagination,
+    urlAllowListAll,
 };
 
 exports.get = function initProductSearchModel(httpParams, config) {
