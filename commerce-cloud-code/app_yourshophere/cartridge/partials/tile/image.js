@@ -11,14 +11,14 @@ exports.createModel = function createImageModel(hit, search, imageFilter, config
         url = (function getFilteredImages() {
             const foundColor = search.getRepresentedVariationValues(imageFilter.key).filter((color) => color.value === imageFilter.value).pop();
             if (foundColor) {
-                return foundColor.getImage(config.remoteImageViewType || 'large', 0).url;
+                return foundColor.getImage(config.imageViewType || 'large', 0).url;
             }
             return undefined;
         }());
     }
 
     if (!url) {
-        url = hit.product.getImages(config.remoteImageViewType || 'large')[0].url;
+        url = hit.product.getImages(config.imageViewType || 'large')[0].url;
     }
 
     return {
