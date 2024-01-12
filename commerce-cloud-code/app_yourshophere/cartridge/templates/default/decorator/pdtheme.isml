@@ -3,7 +3,6 @@
     <!-- creates a wireframe like site, which can be used to configure the decorating pieces -->
     <!DOCTYPE html>
     <html lang="${pdict.lang}" data-theme="light">
-
     <head>
         <isif condition="${pdict.canonicalUrl}">
             <link rel="canonical" href="${pdict.canonicalUrl}" />
