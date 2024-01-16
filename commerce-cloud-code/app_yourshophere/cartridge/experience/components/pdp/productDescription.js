@@ -1,3 +1,16 @@
+function renderComponent(context) {
+    const product = request.custom.model.product;
+    const model = {
+        descriptionTitle: context.content.descriptionTitle,
+        description: (context.content.shortOrLongDescription === 'Short_Description') ? product.shortDescription : product.longDescription,
+        divExpandedOrCompress: context.content.divExpandedOrCompress,
+
+    };
+
+    return `${model.descriptionTitle?`<h2>${model.descriptionTitle}</h2>`:''}
+            <div class="description">${model.description}</div>`;
+}
+
 /**
  * Renders a Product Description Component
  *
@@ -6,26 +19,11 @@
  */
 exports.render = function render(context) {
     try {
-        return renderComponent(context)
+        return renderComponent(context);
     } catch (e) {
         const Logger = require('api/Logger');
-        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+
+        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`);
     }
-}
-
-function renderComponent(context) {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
-
-    model = request.custom.model; // eslint-disable-line no-undef
-
-    model.display = {
-        descriptionTitle: context.content.descriptionTitle,
-        shortOrLongDescription: context.content.shortOrLongDescription,
-        divExpandedOrCompress: context.content.divExpandedOrCompress
-
-    };
-
-    return new Template('experience/components/more_pd/pdp/productDescription').render(model).text;
+    return '';
 };

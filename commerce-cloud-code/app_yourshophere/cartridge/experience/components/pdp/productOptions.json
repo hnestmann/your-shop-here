@@ -1,0 +1,15 @@
+{
+    "name": "Product Options",
+    "description": "This is the product options component.",
+    "group": "pdp",
+    "attribute_definition_groups": [
+        {
+            "id": "productOptionSettings",
+            "name": "Settings",
+            "description": "Display settings",
+            "attribute_definitions": []
+         
+        }
+    ],
+    "region_definitions": []
+}

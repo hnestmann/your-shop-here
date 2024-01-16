@@ -1,18 +1,22 @@
 function renderComponent() {
     const product = request.custom.model.product;
 
-    return `<h1 class="product-name">${product.name}</h1>`;
+    // @TODO implement options
+    const model = {
+        hasOptions: product.optionProduct,
+    };
+    return model.hasOptions ? 'Wow, this product has options' : '';
 }
 
 /**
- * Renders a Product productName Component
+ * Renders a Product Quantity And Optionts Component
  *
  * @param {dw.experience.ComponentScriptContext} context The component context
  * @returns {string} The template to be displayed
  */
 exports.render = function render() {
     try {
-        return renderComponent()
+        return renderComponent();
     } catch (e) {
         const Logger = require('api/Logger');
 

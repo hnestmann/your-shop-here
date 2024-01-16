@@ -11,7 +11,7 @@ server.get('Start', function (req, res, next) {
 
     if (!location) {
         res.setStatusCode(404);
-        res.render('error/notFound');
+        res.render('pages/notFound');
     } else {
         if (redirectStatus) {
             res.setRedirectStatus(redirectStatus);
