@@ -1,3 +1,10 @@
+function renderComponent() {
+    // const model = request.custom.model;
+
+    // @TODO implement promotion messaging
+    return 'Get 20% off';
+}
+
 /**
  * Renders a Product productPromo Component
  *
@@ -11,14 +18,4 @@ exports.render = function render() {
         const Logger = require('api/Logger');
         Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
     }
-}
-
-function renderComponent() {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
-
-    model = request.custom.model; // eslint-disable-line no-undef
-
-    return new Template('experience/components/more_pd/pdp/productPromotions').render(model).text;
 };

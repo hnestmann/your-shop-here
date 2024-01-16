@@ -4,21 +4,19 @@
  * @param {dw.experience.ComponentScriptContext} context The component context
  * @returns {string} The template to be displayed
  */
-exports.render = function render() {
-    try {
-        return renderComponent()
-    } catch (e) {
-        const Logger = require('api/Logger');
-        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
-    }
-}
 
 function renderComponent() {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
+    const model = request.custom.model; // eslint-disable-line no-undef
 
-    model = request.custom.model; // eslint-disable-line no-undef
+    return `<a href="">Home</a> > <a href="">Category</a> > <a href="">${model.product.name}</a>`;
+}
 
-    return new Template('experience/components/more_pd/pdp/productBreadcrumbs').render(model).text;
+exports.render = function render() {
+    try {
+        return renderComponent();
+    } catch (e) {
+        const Logger = require('api/Logger');
+
+        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+    }
 };

@@ -1,6 +1,0 @@
-<!-- Applicable Promotions -->
-<div class="row">
-    <div class="col-12 promotions">
-        <isinclude template="product/components/promotions" />
-    </div>
-</div>

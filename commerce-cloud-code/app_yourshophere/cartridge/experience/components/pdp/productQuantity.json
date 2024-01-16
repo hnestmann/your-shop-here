@@ -1,10 +1,10 @@
 {
-    "name": "Product Quantity and Options",
-    "description": "This is the product quantity and option component.",
+    "name": "Product Quantity",
+    "description": "This is the product quantity component.",
     "group": "pdp",
     "attribute_definition_groups": [
         {
-            "id": "productQuantityAndOptionsSettings",
+            "id": "productQuantitySettings",
             "name": "Settings",
             "description": "Display settings",
             "attribute_definitions": []

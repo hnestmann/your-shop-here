@@ -20,5 +20,5 @@ function renderComponent() {
 
     model = request.custom.model; // eslint-disable-line no-undef
 
-    return new Template('experience/components/more_pd/pdp/productSocials').render(model).text;
+    return new Template('experience/components/pdp/productSocials').render(model).text;
 };

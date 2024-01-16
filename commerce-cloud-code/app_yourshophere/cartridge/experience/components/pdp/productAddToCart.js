@@ -1,3 +1,18 @@
+function renderComponent() {
+    const product = request.custom.model.product;
+    const model = {
+        id: product.ID,
+        disabled: false,
+        title: dw.web.Resource.msg('add_to_bag', 'translations', null)
+    }; // eslint-disable-line no-undef
+
+    return `<button class="add-to-cart btn btn-primary"
+                data-pid="${model.id}"
+                ${model.disabled ? 'disabled' : ''}>
+                ${model.title}
+            </button>`;
+}
+
 /**
  * Renders a Product productName Component
  *
@@ -6,19 +21,12 @@
  */
 exports.render = function render() {
     try {
-        return renderComponent()
+        return renderComponent();
     } catch (e) {
         const Logger = require('api/Logger');
-        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+
+        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`);
     }
-}
 
-function renderComponent() {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
-
-    model = request.custom.model; // eslint-disable-line no-undef
-
-    return new Template('experience/components/more_pd/pdp/productAddToCart').render(model).text;
+    return '';
 };

@@ -1,3 +1,13 @@
+function renderComponent() {
+    const product = request.custom.model.product;
+    const model = {
+        quantity: product.minOrderQuantity,
+        stepQuantity: product.stepQuantity,
+    };
+
+    return `Quantity: <input type="number" value="${model.quantity}" />`;
+}
+
 /**
  * Renders a Product Quantity And Optionts Component
  *
@@ -6,19 +16,12 @@
  */
 exports.render = function render() {
     try {
-        return renderComponent()
+        return renderComponent();
     } catch (e) {
         const Logger = require('api/Logger');
+
         Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
     }
-}
-
-function renderComponent() {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
-
-    model = request.custom.model; // eslint-disable-line no-undef
-
-    return new Template('experience/components/more_pd/pdp/productQuantityAndOptions').render(model).text;
+    return '';
 };
+

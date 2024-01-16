@@ -1,3 +1,33 @@
+function renderComponent() {
+    const product = request.custom.model.product;
+    const variationModel = product.variationModel;
+
+    const model = {
+        variationAttributes: variationModel.productVariationAttributes.toArray().map((attribute =>
+            ({
+                id: attribute.ID,
+                name: attribute.displayName,
+                values: variationModel.getAllValues(attribute).toArray().map(value => ({
+                    id: value.ID,
+                    value: value.value,
+                    displayValue: value.displayValue,
+                })),
+            }))),
+    };
+
+    return `<ul>
+                ${model.variationAttributes.map(attribute => `
+                <li>${attribute.name}
+                    <ul>
+                        ${attribute.values.map(value => `
+                        <li>${value.displayValue}</li>
+                        `).join('')}
+                    </ul>
+                </li>
+                `).join('')}
+            </ul>`;
+}
+
 /**
  * Renders a Product productMainAttributes Component
  *
@@ -6,19 +36,12 @@
  */
 exports.render = function render() {
     try {
-        return renderComponent()
+        return renderComponent();
     } catch (e) {
         const Logger = require('api/Logger');
-        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
+
+        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`);
     }
-}
 
-function renderComponent() {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
-
-    model = request.custom.model; // eslint-disable-line no-undef
-
-    return new Template('experience/components/more_pd/pdp/productMainAttributes').render(model).text;
+    return '';
 };

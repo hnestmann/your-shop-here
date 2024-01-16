@@ -26,5 +26,5 @@ function renderComponent(context) {
         divExpandedOrCompress: context.content.divExpandedOrCompress
     };
 
-    return new Template('experience/components/more_pd/pdp/productAttribute').render(model).text;
+    return new Template('experience/components/pdp/productAttribute').render(model).text;
 };

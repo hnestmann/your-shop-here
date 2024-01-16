@@ -1,0 +1,54 @@
+{
+    "name": "Column Layout",
+    "description": "n Column layout by pico.css, supports up to 4 columns",
+    "group": "commerce_layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "additionalStyling",
+            "name": "Additional Styling",
+            "attribute_definitions": [
+                {
+                    "id": "columns",
+                    "name": "Columns",
+                    "description": "the number of columns (up to 4)",
+                    "type": "enum",
+                    "values": [
+                      2,
+                      3,
+                      4
+                    ],
+                    "required": true
+                },
+                {
+                    "id": "style",
+                    "name": "Style",
+                    "description": "An additional style Class Name",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id":"column1",
+            "name":"Column 1",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"column2",
+            "name":"Column 2",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"column3",
+            "name":"Column 3",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"column4",
+            "name":"Column 4",
+            "component_type_exclusions": []
+        }
+    ]
+}

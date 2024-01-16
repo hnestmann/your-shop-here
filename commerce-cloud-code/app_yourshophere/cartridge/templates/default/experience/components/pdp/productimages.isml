@@ -1,3 +1,0 @@
-<isloop items="${pdict.product.getImages(pdict.viewType)}" var="image" end="${pdict.imageCount}">
-    <img src="${image.url}">
-</isloop>
