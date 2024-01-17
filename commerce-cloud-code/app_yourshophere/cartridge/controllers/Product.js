@@ -42,7 +42,7 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
         const aspectAttributes = new HashMap();
         aspectAttributes.product = product;
 
-        /* @todo put back into render - add allow list of proxied params */
+        /* @todo change request.httpQueryString to allow list of proxied params */
         res.page(page.ID, JSON.stringify({ queryString: request.httpQueryString }), aspectAttributes);
     } else {
         let error = `No page for product ${productId} found`;
