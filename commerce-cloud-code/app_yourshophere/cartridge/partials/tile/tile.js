@@ -9,12 +9,12 @@ exports.createModel = () => {
     const httpParams = new HttpSearchParams(request.httpParameterMap);
     const componentSettings = require('*/cartridge/utils/ComponentSettings').get(httpParams.get('component'));
 
-    const tileSearch = require('api/ProductSearchModel').get(httpParams, { swatchAttribute: componentSettings.remoteSwatchableAttribute });
+    const tileSearch = require('api/ProductSearchModel').get(httpParams, { swatchAttribute: componentSettings.swatchDimension });
     tileSearch.search();
 
     const imageFilter = {
-        key: componentSettings.remoteSwatchableAttribute,
-        value: httpParams.get('color')
+        key: componentSettings.swatchDimension,
+        value: httpParams.get('color'),
     };
 
     const hit = tileSearch.foundProducts[0];
@@ -22,9 +22,9 @@ exports.createModel = () => {
 
     if (hit) {
         model.name = name.createModel(hit);
-        model.image = image.createModel(hit, tileSearch, imageFilter, { imageViewType: componentSettings.remoteImageViewType });
+        model.image = image.createModel(hit, tileSearch, imageFilter, { imageViewType: componentSettings.imageViewType });
         model.price = price.createModel(hit, tileSearch, httpParams);
-        model.swatches = swatches.createModel(hit, tileSearch, {swatchAttribute: componentSettings.remoteSwatchableAttribute});
+        model.swatches = swatches.createModel(hit, tileSearch, {swatchAttribute: componentSettings.swatchDimension});
     }
 
     return model;

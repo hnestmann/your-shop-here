@@ -5,6 +5,10 @@
             "expireAfterSeconds": 10000000
         },
         {
+            "id": "ProductRelations",
+            "expireAfterSeconds": 10000000
+        },
+        {
             "id": "URLSearchParams",
             "expireAfterSeconds": 10000000
         },

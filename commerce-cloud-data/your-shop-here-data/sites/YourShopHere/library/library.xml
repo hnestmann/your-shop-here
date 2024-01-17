@@ -74,10 +74,11 @@
   "visibility" : [ ]
 }</config>
         <data xml:lang="x-default">{
-  "imageDimensions" : null,
+
+  "imageDISConfig" : "sw=300",
+  "imageViewType" : "large",
   "category" : null,
-  "imageViewType" : "kjguafshilcsahkj",
-  "swatchableAttribute" : null
+  "swatchDimension" : "yshColor"
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
