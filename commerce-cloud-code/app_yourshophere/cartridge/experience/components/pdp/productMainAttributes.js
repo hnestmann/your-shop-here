@@ -5,20 +5,5 @@
  * @returns {string} The template to be displayed
  */
 exports.render = function render() {
-    try {
-        return renderComponent()
-    } catch (e) {
-        const Logger = require('api/Logger');
-        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
-    }
-}
-
-function renderComponent() {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
-    var model = new HashMap();
-
-    model = request.custom.model; // eslint-disable-line no-undef
-
-    return new Template('experience/components/more_pd/pdp/productMainAttributes').render(model).text;
+    return require('*/cartridge/partials/renderer').html('pdp/variationAttributes')(request.custom.model.product);
 };

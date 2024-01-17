@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @namespace Home
  */
@@ -14,12 +12,10 @@ const HashMap = require('dw/util/HashMap');
 const cache = require('*/cartridge/middleware/cache');
 const pageMetaData = require('*/cartridge/middleware/pageMetaData');
 
-
 server.get('Show', cache.applyDefaultCache, (req, res, next) => {
     pageMetaData.setPageMetaTags(req.pageMetaData, Site.current);
-    const productId = request.httpParameterMap.pid.submitted ? request.httpParameterMap.pid.stringValue : '';
-    const product = ProductMgr.getProduct(productId);
-
+    const productId = request.httpParameterMap.pid.submitted ? request.httpParameterMap.pid.stringValue : null;
+    const product = productId && ProductMgr.getProduct(productId);
 
     if (!product || !product.online) {
         let error = `no category ${productId} not found`;
@@ -42,22 +38,19 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
         }
     }
 
-
     if (page && page.isVisible()) {
         const aspectAttributes = new HashMap();
         aspectAttributes.product = product;
 
-        /* @todo put back into render - add allow list of proxied params */
-        response.writer.print(PageMgr.renderPage(page.ID, aspectAttributes, JSON.stringify({ queryString: request.httpQueryString })));
-        return;
-
+        /* @todo change request.httpQueryString to allow list of proxied params */
+        res.page(page.ID, JSON.stringify({ queryString: request.httpQueryString }), aspectAttributes);
     } else {
-        let error = `no page for product ${productId} not found`;
+        let error = `No page for product ${productId} found`;
         Logger.error(error);
         res.render('pages/notfound', { reason: error });
     }
+
     next();
 }, pageMetaData.computedPageMetaData);
-
 
 module.exports = server.exports();
