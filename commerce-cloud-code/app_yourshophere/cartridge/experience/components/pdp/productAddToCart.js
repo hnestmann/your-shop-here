@@ -8,6 +8,7 @@ function renderComponent() {
         title: Resource.msg('add_to_bag', 'translations', null)
     }; // eslint-disable-line no-undef
 
+    // @todo use template function
     return `<button class="add-to-cart btn btn-primary"
                 data-pid="${model.id}"
                 ${model.disabled ? 'disabled' : ''}>
@@ -26,7 +27,6 @@ exports.render = function render() {
         return renderComponent();
     } catch (e) {
         const Logger = require('api/Logger');
-
         Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`);
     }
 
