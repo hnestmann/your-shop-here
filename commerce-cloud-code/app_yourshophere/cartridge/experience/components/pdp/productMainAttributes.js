@@ -15,17 +15,16 @@ function renderComponent() {
             }))),
     };
 
-    return `<ul>
-                ${model.variationAttributes.map(attribute => `
-                <li>${attribute.name}
-                    <ul>
-                        ${attribute.values.map(value => `
-                        <li>${value.displayValue}</li>
-                        `).join('')}
-                    </ul>
-                </li>
-                `).join('')}
-            </ul>`;
+    return `${model.variationAttributes.map(attribute => `
+            <div>
+                <label for="va-${attribute.id}">Select ${attribute.name}</label>
+                <select name="va-${attribute.id}" id="va-${attribute.id}">
+                    ${attribute.values.map(value => `
+                    <option value="${value.value}">${value.displayValue}</option>
+                    `).join('')}
+                </select>
+            </div>
+            `).join('')}`;
 }
 
 /**

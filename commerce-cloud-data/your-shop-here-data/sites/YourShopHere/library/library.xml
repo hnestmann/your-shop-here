@@ -4,10 +4,59 @@
         <online-flag>true</online-flag>
         <page-attributes/>
         <content-detail-page-meta-tag-rules>
-          <page-meta-tag-rule rule-id="Page Title"/>
-          <page-meta-tag-rule rule-id="Page Description"/>
-      </content-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="Page Title"/>
+            <page-meta-tag-rule rule-id="Page Description"/>
+        </content-detail-page-meta-tag-rules>
     </folder>
+
+    <content content-id="05367af9feea913e81b7ea36ea">
+        <type>component.commerce_layouts.column</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "columns" : 2,
+  "style" : null
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="65c0b76c4f9c8573646462a936" type="component.commerce_layouts.column.column2">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="a050fc64bf1fa69c0eb8d0126c" type="component.commerce_layouts.column.column2">
+                <position>2.0</position>
+            </content-link>
+            <content-link content-id="6c3f034f7343642c0419ac8000" type="component.commerce_layouts.column.column1">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="b1e0a866deb2644859e291f340" type="component.commerce_layouts.column.column2">
+                <position>3.0</position>
+            </content-link>
+            <content-link content-id="cbfbe6940cf3ef911b2044e7d7" type="component.commerce_layouts.column.column2">
+                <position>6.0</position>
+            </content-link>
+            <content-link content-id="c24523f968e01c47d3f7599a03" type="component.commerce_layouts.column.column2">
+                <position>4.0</position>
+            </content-link>
+            <content-link content-id="947a195a00af6dff22a672e911" type="component.commerce_layouts.column.column2">
+                <position>1.0</position>
+            </content-link>
+            <content-link content-id="151ffc86dd433fd8570b9c4d73" type="component.commerce_layouts.column.column2">
+                <position>5.0</position>
+            </content-link>
+        </content-links>
+    </content>
+
+    <content content-id="151ffc86dd433fd8570b9c4d73">
+        <type>component.pdp.productQuantity</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
 
     <content content-id="1a1d17c27eafbf4080c837ee13">
         <type>component.plp.refinements</type>
@@ -25,10 +74,10 @@
   "visibility" : [ ]
 }</config>
         <data xml:lang="x-default">{
-  "remoteImageDimensions" : "sw=300",
-  "remoteImageViewType" : "large",
+  "imageDimensions" : null,
   "category" : null,
-  "remoteSwatchableAttribute" : "yshColor"
+  "imageViewType" : "kjguafshilcsahkj",
+  "swatchableAttribute" : null
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
@@ -98,6 +147,20 @@
         </content-links>
     </content>
 
+    <content content-id="5cb38775b22e2d739fb66bd111">
+        <type>component.pdp.productDescription</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "shortOrLongDescription" : "Long_Description",
+  "divExpandedOrCompress" : false,
+  "descriptionTitle" : null
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="65c0b76c4f9c8573646462a936">
         <type>component.pdp.productName</type>
         <config>{
@@ -162,6 +225,26 @@
   },
   "width" : "35px"
 }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="947a195a00af6dff22a672e911">
+        <type>component.pdp.productMainAttributes</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="99572ffea20492a86cc2cb1b04">
+        <type>component.pdp.productBreadcrumbs</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
     </content>
@@ -255,6 +338,26 @@
         <sitemap-included-flag>false</sitemap-included-flag>
     </content>
 
+    <content content-id="a050fc64bf1fa69c0eb8d0126c">
+        <type>component.pdp.productPrices</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="b1e0a866deb2644859e291f340">
+        <type>component.pdp.productPromotions</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="bed0ddc5e0fc1ed0b45afdee71">
         <type>component.theme.categorymenu</type>
         <config>{
@@ -264,6 +367,16 @@
   "align" : "left",
   "applyFilter" : "true"
 }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="c24523f968e01c47d3f7599a03">
+        <type>component.pdp.productOptions</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
     </content>
@@ -334,11 +447,14 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <content-links>
-            <content-link content-id="6c3f034f7343642c0419ac8000" type="page.productPage.main">
-                <position>1.0</position>
-            </content-link>
-            <content-link content-id="65c0b76c4f9c8573646462a936" type="page.productPage.main">
+            <content-link content-id="99572ffea20492a86cc2cb1b04" type="page.productPage.main">
                 <position>0.0</position>
+            </content-link>
+            <content-link content-id="5cb38775b22e2d739fb66bd111" type="page.productPage.main">
+                <position>2.0</position>
+            </content-link>
+            <content-link content-id="05367af9feea913e81b7ea36ea" type="page.productPage.main">
+                <position>1.0</position>
             </content-link>
         </content-links>
         <content-object-assignments>
@@ -370,6 +486,16 @@
             <content-object-assignment object-id="root" lookup-mode="category-implicit" object-type="category"/>
         </content-object-assignments>
         <sitemap-included-flag>false</sitemap-included-flag>
+    </content>
+
+    <content content-id="cbfbe6940cf3ef911b2044e7d7">
+        <type>component.pdp.productAddToCart</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
     </content>
 
     <content content-id="d9d3c232223993c10093ad34c7">
