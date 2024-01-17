@@ -1,7 +1,7 @@
 function renderComponent() {
     // const model = request.custom.model;
 
-    // @TODO implement promotion messaging
+    // @TODO implement performant promotion messaging
     return 'Get 20% off';
 }
 
