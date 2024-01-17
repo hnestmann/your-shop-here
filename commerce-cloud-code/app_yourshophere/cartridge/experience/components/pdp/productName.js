@@ -1,9 +1,3 @@
-function renderComponent() {
-    const product = request.custom.model.product;
-
-    return `<h1 class="product-name">${product.name}</h1>`;
-}
-
 /**
  * Renders a Product productName Component
  *
@@ -11,12 +5,6 @@ function renderComponent() {
  * @returns {string} The template to be displayed
  */
 exports.render = function render() {
-    try {
-        return renderComponent()
-    } catch (e) {
-        const Logger = require('api/Logger');
-
-        Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`);
-    }
+    return require('*/cartridge/partials/renderer').html('pdp/name')(request.custom.model.product);
 };
 
