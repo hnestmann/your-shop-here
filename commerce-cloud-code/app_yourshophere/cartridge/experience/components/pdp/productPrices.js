@@ -5,7 +5,7 @@
  * @returns {string} The template to be displayed
  */
 exports.render = function render(context) {
-    return require('*/cartridge/partials/renderer').html('pdp/prices')({
+    return require('partials').html('pdp/prices')({
         product: request.custom.model.product,
         settings: context.content,
     });
