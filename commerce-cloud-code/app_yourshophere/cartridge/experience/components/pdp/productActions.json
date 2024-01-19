@@ -1,0 +1,19 @@
+{
+    "name": "Product Actions",
+    "description": "This is a required wrapper for the interactive elements on the PDP (variant selection, quantity, add to cart).",
+    "group": "pdp",
+    "attribute_definition_groups": [
+        {
+            "id": "productActionSettings",
+            "name": "Settings",
+            "description": "Display settings",
+            "attribute_definitions": []
+         
+        }
+    ],
+    "region_definitions": [{
+        "id":"actions",
+        "name":"Product Actions",
+        "component_type_exclusions": []
+    }]
+}
