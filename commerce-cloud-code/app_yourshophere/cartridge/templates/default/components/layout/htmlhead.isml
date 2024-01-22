@@ -16,10 +16,12 @@
 </isloop>
 
 <link rel="manifest" href="${URLUtils.staticURL('manifest.json')}" />
-<link rel="stylesheet" href="${URLUtils.staticURL('style.css')}" />
-<link rel="stylesheet" href="${URLUtils.staticURL('header.css')}" />
-<link rel="stylesheet" href="${URLUtils.staticURL('experience/layouts.css')}" />
-<link rel="stylesheet" href="${URLUtils.staticURL('experience/components/base/moreImageAndText.css')}" />
-<link rel="stylesheet" href="${URLUtils.staticURL('progress.css')}" />
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+<!-- it's should be fine to load css inline, we only load it once and then keep using it -->
+<style>
+    <isinclude url="${URLUtils.staticURL('style.css')}"/>
+    <isinclude url="${URLUtils.staticURL('header.css')}" />
+    <isinclude url="${URLUtils.staticURL('experience/layouts.css')}" />
+    <isinclude url="${URLUtils.staticURL('experience/components/base/moreImageAndText.css')}" />
+    <isinclude url="${URLUtils.staticURL('progress.css')}" />
+    <isinclude url="${URLUtils.staticURL('pico.min.css')}" />
+</style>

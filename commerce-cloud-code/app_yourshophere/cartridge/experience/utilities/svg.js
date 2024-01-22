@@ -12,7 +12,9 @@ function getContentsByFile(file) {
         throw new Error('Exceeded File Size Limit of 4kB ' + file + ' ' + file.length);
     }
     var reader = new FileReader(file, 'UTF-8');
-    return reader.readLines().join('\n');
+    const contents = reader.readLines().join('\n');
+    reader.close();
+    return contents;
 }
 /**
  * Parses media file url into file object and returns it file contents

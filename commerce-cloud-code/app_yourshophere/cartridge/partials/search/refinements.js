@@ -1,5 +1,3 @@
-const models = require('model');
-
 /**
  * Render search refinements
  * 
@@ -13,7 +11,7 @@ exports.createModel = () => {
 
     const category = searchModel.getCategory();
     const refinements = searchModel.getRefinements()
-
+    const parameterMap = request.httpParameterMap;
 
     // @TODO Implement cutoff, implement color swatches
     return {

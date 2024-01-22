@@ -1,0 +1,28 @@
+<script>
+    function onlyUnique(value, index, array) {
+       return array.indexOf(value) === index;
+    }
+
+    async function consoleServerLog() {
+        const response = await fetch('${URLUtils.url('Logger-Last')}');
+        const logs = await response.json();
+        var alreadyLogged = (localStorage.sfccalreadylogged || '').split(',') ;
+        var newAlreadyLogged = [];
+        logs.entries.forEach(element => {
+            if (!alreadyLogged.includes(element.requestId)) {
+                console[element.level]('SFCC-Server', element.message, element.url, element.nesting, element.stack);
+            }
+            newAlreadyLogged.push(element.requestId);
+        }); 
+        newAlreadyLogged = newAlreadyLogged.filter(onlyUnique);
+        if (newAlreadyLogged.length > 0) {
+            var sfccalreadylogged = newAlreadyLogged.join(',');
+            localStorage.sfccalreadylogged = sfccalreadylogged;
+        }
+    }
+    // if something at body changes we call the logger
+    const targetNode = document.getElementsByTagName('body')[0];
+    const config = { attributes: true, childList: true, subtree: true };
+    const observer = new MutationObserver(consoleServerLog);
+    observer.observe(targetNode, config);
+</script>
