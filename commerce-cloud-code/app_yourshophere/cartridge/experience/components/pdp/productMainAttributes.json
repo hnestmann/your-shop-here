@@ -7,7 +7,16 @@
             "id": "productMainAttributesSettings",
             "name": "Settings",
             "description": "Display settings",
-            "attribute_definitions": []
+            "attribute_definitions": [
+                {
+                
+                    "id": "swatchDimension",
+                    "name": "Swatch Atttribute",
+                    "description": "A comma-separated list of attribute IDs to be displayed as swatches",
+                    "type": "string",
+                    "required": false
+                }
+            ]
          
         }
     ],
