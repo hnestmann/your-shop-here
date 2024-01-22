@@ -1,6 +1,7 @@
 function ProductSearchHit(hit) {
     const CacheMgr = require('dw/system/CacheMgr');
     this.productCache = CacheMgr.getCache('Product');
+    this.relationCache = CacheMgr.getCache('ProductRelations');
     this.object = hit;
     this.representedVariationValuesAccessCache = {};
 }
@@ -49,7 +50,7 @@ exports.get = function get(apiHit, config) {
             }, 0);
 
             url.append('colorHash', colorHash.toString());
-            url.append('color', colors && colors[0].value);
+            url.append('color', colors && colors.length && colors[0].value);
 
             return url;
         },
@@ -98,8 +99,7 @@ exports.get = function get(apiHit, config) {
         get() {
             const isSimpleProduct = (this.object.hitType === 'product' && this.object.productID === this.object.firstRepresentedProductID);
             if (this.object.hitType === 'variation_group' || isSimpleProduct) {
-                // @todo introduce dedicated product lookup cache
-                return this.productCache.get(`relation_to_main_${this.object.productID}`, () => ((this.object.product.variant || this.object.product.variationGroup) ? this.object.product.masterProduct.ID : this.object.product.ID));
+                return this.relationCache.get(this.object.productID, () => ((this.object.product.variant || this.object.product.variationGroup) ? this.object.product.masterProduct.ID : this.object.product.ID));
             }
 
             return this.object.productID;

@@ -44,7 +44,7 @@ ${model.items.map(item => `<tr>
         <td>${item.text}</td>
         <td>${item.price}</td>
         <td><a href="${item.deleteUrl}">Delete</a></td>
-    ´</tr>`).join('\n')}
+    </tr>`).join('\n')}
 </tbody>
 <tfoot>
     <tr>

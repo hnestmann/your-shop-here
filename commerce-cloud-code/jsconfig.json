@@ -16,6 +16,10 @@
         "./*/cartridge/scripts/**/*.js",
         "./*/cartridge/controllers/*.js",
         "./*/cartridge/experience/**/*.js",
-        "./*/modules/**/*.js"
+        "./*/cartridge/api/*.js",
+        "./*/cartridge/middleware/*.js",
+        "./*/cartridge/partials/*.js",
+        "./*/cartridge/utils/*.js",
+        "./modules/**/*.js"
     ]
 }

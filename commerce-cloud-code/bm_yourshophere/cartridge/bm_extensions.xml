@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+    <menuaction id="ysh" menupath="global-prefs" position="5000" site="false">
+      <name xml:lang="x-default">Your Shop Here Settings</name>
+      <short_description xml:lang="x-default">
+          A placeholder for some Backoffice calls we need
+      </short_description>
+      <description xml:lang="x-default">
+		A placeholder for some Backoffice calls we need
+	</description>
+      <exec pipeline="YSHBackOffice" node="Start"/>
+      <sub-pipelines>
+         <pipeline name="PDUtils-Store" />
+      </sub-pipelines>
+      <parameters>
+        <parameter name="menuname" value="Your Shop Here Settings"/>
+        <parameter name="mainmenuname" value="global-prefs"/>
+      </parameters>
+      <permissions />
+      <icon>icons/ysh_settings_ico.gif</icon>
+    </menuaction>
+</extensions>

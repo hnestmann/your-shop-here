@@ -34,3 +34,8 @@ img {
     display: flex;
     justify-content: center;
 }
+
+.experience-pdp-productPromotions li {
+    color: #eb4646;
+    list-style-type: none;
+}
