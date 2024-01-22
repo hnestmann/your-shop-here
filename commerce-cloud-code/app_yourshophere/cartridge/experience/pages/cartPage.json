@@ -1,0 +1,22 @@
+{
+    "name":"Cart Page",
+    "description":"Creates a Cart Page with 1 region with page designer",
+    "attribute_definition_groups": [
+      {
+          "id": "cartPage",
+          "name": "Cart Settings",
+          "description": "Cart Settings",
+          "attribute_definitions": [
+          ]
+        }
+    ],
+    "region_definitions":[
+      {
+        "id":"main",
+        "name":"Main Cart region",
+        "component_type_exclusions": [
+        ]
+      }
+    ],
+    "supported_aspect_types": ["cart"]
+}
