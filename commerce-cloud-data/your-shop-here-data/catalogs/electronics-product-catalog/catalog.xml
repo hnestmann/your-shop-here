@@ -13,7 +13,7 @@
                 <view-type>swatch</view-type>
                 <view-type>hi-res</view-type>
             </view-types>
-            <variation-attribute-id>color</variation-attribute-id>
+            <variation-attribute-id>yshColor</variation-attribute-id>
             <alt-pattern>${productname}, ${variationvalue}, ${viewtype}</alt-pattern>
             <title-pattern>${productname}, ${variationvalue}</title-pattern>
         </image-settings>

@@ -2,19 +2,27 @@
     "caches": [
         {
             "id": "Product",
-            "expireAfterSeconds": 86400
+            "expireAfterSeconds": 10000000
         },
         {
-            "id": "QueryStrings",
-            "expireAfterSeconds": 86400
+            "id": "URLSearchParams",
+            "expireAfterSeconds": 10000000
+        },
+        {
+            "id": "ComponentSettings",
+            "expireAfterSeconds": 10000000
         },
         {
             "id": "Models",
-            "expireAfterSeconds": 86400
+            "expireAfterSeconds": 10000000
+        },
+        {
+            "id": "UsedPriceBooks",
+            "expireAfterSeconds": 10000000
         },
         {
             "id": "Layout",
-            "expireAfterSeconds": 86400
+            "expireAfterSeconds": 10000000
         }
     ]
 }

@@ -21,6 +21,11 @@ img {
     gap: 10px;
 }
 
+.strike {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
 .selected {
     font-weight: bold;
 }
@@ -28,9 +33,4 @@ img {
 #search-more {
     display: flex;
     justify-content: center;
-}
-
-.experience-pdp-productPromotions li {
-    color: #eb4646;
-    list-style-type: none;
 }

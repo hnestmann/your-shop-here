@@ -1,18 +1,20 @@
-'use strict';
+// The Default controller doesn't use server.js (express, sfra-style)
+// because it does not show up in the internal url
+// So it would require special handling there to catch it in a performant way
 
-var server = require('server');
-var cache = require('*/cartridge/middleware/cache');
-
-server.get('Start', cache.applyDefaultCache, function (req, res, next) {
+exports.Start = (args) => {
     var URLUtils = require('dw/web/URLUtils');
-    res.redirect(URLUtils.url('Home-Show'));
-    next();
-});
+    const cacheTime = new Date();
+    cacheTime.setHours(cacheTime.getHours() + 24);
+    response.setExpires(cacheTime);
+    response.redirect(URLUtils.url('Home-Show'));
+};
+exports.Start.public = true;
 
-/** Renders the maintenance page when a site has been set to "Maintenance mode" */
-server.get('Offline', cache.applyDefaultCache, function (req, res, next) {
-    res.render('error/siteoffline');
-    next();
-});
-
-module.exports = server.exports();
+exports.Offline = () => {
+    const cacheTime = new Date();
+    cacheTime.setHours(cacheTime.getHours() + 24);
+    response.setExpires(cacheTime);
+    ISML.renderTemplate('error/siteoffline');
+};
+exports.Offline.public = true;

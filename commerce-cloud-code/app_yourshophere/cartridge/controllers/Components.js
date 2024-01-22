@@ -2,7 +2,6 @@
 var CatalogMgr = require('dw/catalog/CatalogMgr');
 
 var server = require('server');
-var models = require('model');
 
 var cache = require('*/cartridge/middleware/cache');
 
