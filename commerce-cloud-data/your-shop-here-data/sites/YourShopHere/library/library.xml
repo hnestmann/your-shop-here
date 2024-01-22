@@ -24,26 +24,14 @@
             <content-link content-id="65c0b76c4f9c8573646462a936" type="component.commerce_layouts.column.column2">
                 <position>0.0</position>
             </content-link>
-            <content-link content-id="a050fc64bf1fa69c0eb8d0126c" type="component.commerce_layouts.column.column2">
-                <position>2.0</position>
-            </content-link>
             <content-link content-id="6c3f034f7343642c0419ac8000" type="component.commerce_layouts.column.column1">
                 <position>0.0</position>
             </content-link>
-            <content-link content-id="b1e0a866deb2644859e291f340" type="component.commerce_layouts.column.column2">
-                <position>3.0</position>
-            </content-link>
-            <content-link content-id="cbfbe6940cf3ef911b2044e7d7" type="component.commerce_layouts.column.column2">
-                <position>6.0</position>
-            </content-link>
             <content-link content-id="c24523f968e01c47d3f7599a03" type="component.commerce_layouts.column.column2">
-                <position>4.0</position>
+                <position>2.0</position>
             </content-link>
-            <content-link content-id="947a195a00af6dff22a672e911" type="component.commerce_layouts.column.column2">
+            <content-link content-id="7819c7b5a557c0c08dc6324eb7" type="component.commerce_layouts.column.column2">
                 <position>1.0</position>
-            </content-link>
-            <content-link content-id="151ffc86dd433fd8570b9c4d73" type="component.commerce_layouts.column.column2">
-                <position>5.0</position>
             </content-link>
         </content-links>
     </content>
@@ -183,6 +171,33 @@
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
+    </content>
+
+    <content content-id="7819c7b5a557c0c08dc6324eb7">
+        <type>component.pdp.productActions</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="947a195a00af6dff22a672e911" type="component.pdp.productActions.actions">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="a050fc64bf1fa69c0eb8d0126c" type="component.pdp.productActions.actions">
+                <position>1.0</position>
+            </content-link>
+            <content-link content-id="b1e0a866deb2644859e291f340" type="component.pdp.productActions.actions">
+                <position>2.0</position>
+            </content-link>
+            <content-link content-id="151ffc86dd433fd8570b9c4d73" type="component.pdp.productActions.actions">
+                <position>3.0</position>
+            </content-link>
+            <content-link content-id="cbfbe6940cf3ef911b2044e7d7" type="component.pdp.productActions.actions">
+                <position>4.0</position>
+            </content-link>
+        </content-links>
     </content>
 
     <content content-id="83ace80416deaa3dc3b90872c8">

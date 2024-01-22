@@ -18,20 +18,21 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
     const product = productId && ProductMgr.getProduct(productId);
 
     if (!product || !product.online) {
-        let error = `no category ${productId} not found`;
+        let error = `no product ${productId} not found`;
         Logger.error(error);
         res.render('pages/notfound', { reason: error });
         return next();
     }
 
     let page = PageMgr.getPageByProduct(product, true, 'product');
+    const master = product.variant ? product.masterProduct : product;
     if (!(page && page.isVisible())) {
-        let category = product.primaryCategory;
+        let category = master.primaryCategory;
         if (!category) {
-            category = product.classificationCategory;
+            category = master.classificationCategory;
         }
-        if (!category && product.categories) {
-            category = product.categories[0];
+        if (!category && master.categories && master.categories.length) {
+            category = master.categories[0];
         }
         if (category) {
             page = PageMgr.getPageByCategory(category, true, 'product');
