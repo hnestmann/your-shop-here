@@ -9,6 +9,43 @@
         </content-detail-page-meta-tag-rules>
     </folder>
 
+    <content content-id="05367af9feea913e81b7ea36ea">
+        <type>component.commerce_layouts.column</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "columns" : 2,
+  "style" : null
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="65c0b76c4f9c8573646462a936" type="component.commerce_layouts.column.column2">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="6c3f034f7343642c0419ac8000" type="component.commerce_layouts.column.column1">
+                <position>0.0</position>
+            </content-link>
+            <content-link content-id="c24523f968e01c47d3f7599a03" type="component.commerce_layouts.column.column2">
+                <position>2.0</position>
+            </content-link>
+            <content-link content-id="7819c7b5a557c0c08dc6324eb7" type="component.commerce_layouts.column.column2">
+                <position>1.0</position>
+            </content-link>
+        </content-links>
+    </content>
+
+    <content content-id="151ffc86dd433fd8570b9c4d73">
+        <type>component.pdp.productQuantity</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="1a1d17c27eafbf4080c837ee13">
         <type>component.plp.refinements</type>
         <config>{
@@ -104,6 +141,19 @@
   "visibility" : [ ]
 }</config>
         <data xml:lang="x-default">{ }</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
+    <content content-id="69a12813f070e0cdc4d97b6e60">
+        <type>component.cart.cartitems</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "imageViewType" : null,
+  "imageDISConfig" : null
+}</data>
         <online-flag>true</online-flag>
         <page-attributes/>
     </content>
@@ -317,6 +367,25 @@
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
+    </content>
+
+    <content content-id="cart">
+        <display-name xml:lang="x-default">Cart</display-name>
+        <type>page.cartPage</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <visibility-mode xml:lang="x-default">visible</visibility-mode>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>false</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="69a12813f070e0cdc4d97b6e60" type="page.cartPage.main">
+                <position>0.0</position>
+            </content-link>
+        </content-links>
+        <sitemap-included-flag>false</sitemap-included-flag>
     </content>
 
     <content content-id="cat-root-pdp">
