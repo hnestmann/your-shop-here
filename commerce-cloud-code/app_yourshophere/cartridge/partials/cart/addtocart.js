@@ -14,6 +14,7 @@ exports.createModel = function createModel(options) {
     return model;
 };
 
+// @todo implement dialog close. Maybe via checkbox trick. Investigate vanilla browser functions
 exports.template = model => `<dialog open>
 <article>
     <a href="#close"
