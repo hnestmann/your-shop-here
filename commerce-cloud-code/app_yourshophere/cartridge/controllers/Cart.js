@@ -35,7 +35,7 @@ server.use('Add', (req, res, next) => {
             HookMgr.callHook('dw.order.calculate', 'calculate', basket);
         });
     } else {
-        // error handling
+        // @todo error handling
     }
 
     if (req.httpParameterMap.hx.stringValue === 'main') {
