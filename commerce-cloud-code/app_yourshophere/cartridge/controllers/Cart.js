@@ -38,7 +38,7 @@ server.use('Add', (req, res, next) => {
         // @todo error handling
     }
 
-    if (req.httpParameterMap.hx.stringValue === 'main') {
+    if (req.httpParameterMap.hx.stringValue === 'cart-modal') {
         res.renderPartial('cart/addtocart', { object: { lineitem } });
     } else {
         res.redirect('Cart-Show');

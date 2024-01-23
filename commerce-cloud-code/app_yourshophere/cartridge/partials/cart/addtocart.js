@@ -21,14 +21,14 @@ exports.template = model => `<dialog open>
         aria-label="Close"
         class="close"
         data-target="modal-example"
-        onClick="toggleModal(event)">
+        onClick="">
     </a>
   <h3>Your product has been added to cart</h3>
   <p>
     ${model.quantity}x - ${model.text} - ${model.price}
   </p>
   <footer>
-    <a href="#continue" role="button" class="secondary">Continue Shopping</a>
+    <a href="" role="button" class="secondary">Continue Shopping</a>
     <a href="${model.cartUrl}" role="button">Go to cart</a>
   </footer>
 </article>

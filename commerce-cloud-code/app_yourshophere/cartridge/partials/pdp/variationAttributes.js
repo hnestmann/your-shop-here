@@ -2,10 +2,7 @@ exports.getVariationModel = function getVariationModel(product) {
     const HttpSearchParams = require('api/URLSearchParams');
 
     const variationModel = product.variationModel;
-    const params = request.custom.model ? request.custom.model.httpParameter : request.httpParameterMap.parameterNames.toArray().reduce((result, name) => {
-        result[name] = request.httpParameterMap[name].stringValue;
-        return result;
-    }, {});
+    const params = request.custom.model ? request.custom.model.httpParameter : request.httpParameterMap;
     const variationParameterMap = (new HttpSearchParams(params)).allowList([/dwvar_[^_]*_/]);
     variationParameterMap.forEach((value, name) => variationModel.setSelectedAttributeValue(name.split('_').pop(), value));
 
