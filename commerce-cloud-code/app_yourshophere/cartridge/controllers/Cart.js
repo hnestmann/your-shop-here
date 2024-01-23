@@ -31,6 +31,7 @@ server.use('Add', (req, res, next) => {
             } else {
                 lineitem.quantityValue += qty;
             }
+            // @todo fill mini cart session.privacy.cartItemCount; session.privacy.cartItemValue
             HookMgr.callHook('dw.order.calculate', 'calculate', basket);
         });
     } else {
