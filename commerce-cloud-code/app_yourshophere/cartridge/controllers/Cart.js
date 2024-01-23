@@ -46,6 +46,7 @@ server.use('Add', (req, res, next) => {
 });
 
 server.use('Delete', (req, res, next) => {
+    // @todo confirm with a dialog
     const BasketMgr = require('dw/order/BasketMgr');
     const Transaction = require('dw/system/Transaction');
     const HookMgr = require('dw/system/HookMgr');
