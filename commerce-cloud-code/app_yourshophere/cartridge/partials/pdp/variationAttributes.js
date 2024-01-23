@@ -17,7 +17,8 @@ exports.createModel = function createModel(product) {
     const model = {
         variationAttributes: variationModel.productVariationAttributes.toArray().map(((attribute, index) => {
             const selectedValue = variationModel.getSelectedValue(attribute);
-            // select first value if nothing has been selected yet
+            // select first value if nothing has been selected yet / make sure this code is not shared with cart
+            // @todo only infer this for color 
             if (!selectedValue && index === 0) {
                 variationModel.setSelectedAttributeValue(attribute.ID, variationModel.variants[0].custom[attribute.ID]);
             }
