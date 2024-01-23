@@ -64,7 +64,7 @@ server.use('Delete', (req, res, next) => {
             HookMgr.callHook('dw.order.calculate', 'calculate', basket);
         });
     } else {
-        // error handling
+        // @todo error handling
     }
 
     res.redirect('Cart-Show');
