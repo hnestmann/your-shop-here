@@ -1,0 +1,30 @@
+{
+    "name": "Cart Product items",
+    "description": "This component shows the items in cart.",
+    "group": "Cart",
+    "attribute_definition_groups": [
+        {
+            "id": "cartItems",
+            "name": "Settings",
+            "description": "Cart Items Settings",
+            "attribute_definitions": [
+                {
+                    "id": "imageViewType",
+                    "name": "Image View Type",
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                
+                    "id": "imageDISConfig",
+                    "name": "Image Dimensions",
+                    "description": "DIS parameters i.e. sw=300&sh=400",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

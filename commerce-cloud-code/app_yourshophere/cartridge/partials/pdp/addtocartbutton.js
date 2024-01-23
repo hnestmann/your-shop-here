@@ -1,10 +1,12 @@
 exports.createModel = function createModel(product) {
     const Resource = require('dw/web/Resource');
+    const URLUtils = require('dw/web/URLUtils');
 
     const model = {
         id: product.ID,
         disabled: false,
         title: Resource.msg('add_to_bag', 'translations', null),
+        url: URLUtils.url('Cart-Add', 'pid', product.ID, 'hx', 'cart-modal'),
     }; // eslint-disable-line no-undef
 
     // @todo use template function
@@ -12,12 +14,18 @@ exports.createModel = function createModel(product) {
 };
 
 /**
- * Renders a Product productName Component
+ * Renders a Product add to cart modal
  *
  */
 exports.template = model => `
+    <div id="cart-modal" />
     <button class="add-to-cart btn btn-primary"
         data-pid="${model.id}"
-        ${model.disabled ? 'disabled' : ''}>
+        ${model.disabled ? 'disabled' : ''}
+        hx-get="${model.url}"
+        hx-target="#cart-modal"
+        hx-include="form[name=pdp-actions]"
+        hx-trigger="click"
+        hx-indicator=".progress">
         ${model.title}
     </button>`;

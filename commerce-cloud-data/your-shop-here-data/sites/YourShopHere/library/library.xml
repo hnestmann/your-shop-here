@@ -160,6 +160,19 @@
         <page-attributes/>
     </content>
 
+    <content content-id="69a12813f070e0cdc4d97b6e60">
+        <type>component.cart.cartitems</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <data xml:lang="x-default">{
+  "imageViewType" : null,
+  "imageDISConfig" : null
+}</data>
+        <online-flag>true</online-flag>
+        <page-attributes/>
+    </content>
+
     <content content-id="6c3f034f7343642c0419ac8000">
         <type>component.pdp.productImages</type>
         <config>{
@@ -446,6 +459,25 @@
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
+    </content>
+
+    <content content-id="cart">
+        <display-name xml:lang="x-default">Cart</display-name>
+        <type>page.cartPage</type>
+        <config>{
+  "visibility" : [ ]
+}</config>
+        <visibility-mode xml:lang="x-default">visible</visibility-mode>
+        <data xml:lang="x-default">{ }</data>
+        <online-flag>false</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <content-links>
+            <content-link content-id="69a12813f070e0cdc4d97b6e60" type="page.cartPage.main">
+                <position>0.0</position>
+            </content-link>
+        </content-links>
+        <sitemap-included-flag>false</sitemap-included-flag>
     </content>
 
     <content content-id="cat-root-pdp">
