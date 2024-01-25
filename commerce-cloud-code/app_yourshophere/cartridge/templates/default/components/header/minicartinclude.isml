@@ -1,1 +1,1 @@
-${pdict.cartInfo.itemCount}
+<span id="minicart-items">${pdict.cartInfo.itemCount}</span>
