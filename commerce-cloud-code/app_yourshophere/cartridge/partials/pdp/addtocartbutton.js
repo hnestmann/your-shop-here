@@ -18,12 +18,12 @@ exports.createModel = function createModel(product) {
  *
  */
 exports.template = model => `
-    <div id="cart-modal" /></div>
     <button class="add-to-cart btn btn-primary"
         data-pid="${model.id}"
         ${model.disabled ? 'disabled' : ''}
         hx-get="${model.url}"
-        hx-target="#cart-modal"
+        hx-target="this"
+        hx-swap="afterend"
         hx-include="form[name=pdp-actions]"
         hx-trigger="click"
         hx-indicator=".progress">
