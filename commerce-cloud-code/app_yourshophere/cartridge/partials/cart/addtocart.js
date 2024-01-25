@@ -15,7 +15,7 @@ exports.createModel = function createModel(options) {
     return model;
 };
 
-// @todo implement dialog close. Maybe via checkbox trick. Investigate vanilla browser functions
+// @todo get icon from skin PD page, instead hard coding here
 exports.template = model => `<dialog open>
 <article>
     <a href="#close"
