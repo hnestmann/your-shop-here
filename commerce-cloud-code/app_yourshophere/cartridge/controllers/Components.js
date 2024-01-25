@@ -12,7 +12,14 @@ server.get('CategoryMenu', cache.applyDefaultCache, (req, res, next) => {
 });
 
 server.get('MiniCart', server.middleware.include, (req, res, next) => {
-    res.render('/components/header/minicartinclude', {cartInfo: {itemCount: session.privacy.cartItemCount || 0, itemValue:session.privacy.cartItemValue || 0 }});
+    const StringUtils = require('dw/util/StringUtils');
+
+    res.render('/components/header/minicartinclude', {
+        cartInfo: {
+            itemCount: StringUtils.formatNumber(session.privacy.cartItemCount || 0, '0.#'),
+            itemValue: session.privacy.cartItemValue || 0,
+        },
+    });
     next();
 });
 

@@ -18,7 +18,7 @@ exports.createModel = function createModel(product) {
  *
  */
 exports.template = model => `
-    <div id="cart-modal" />
+    <div id="cart-modal" /></div>
     <button class="add-to-cart btn btn-primary"
         data-pid="${model.id}"
         ${model.disabled ? 'disabled' : ''}

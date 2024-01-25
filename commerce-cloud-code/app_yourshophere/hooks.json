@@ -2,7 +2,7 @@
     "hooks": [
         {
             "name": "dw.order.calculate",
-            "script": "./cartridge/hooks/calculate.js"
+            "script": "./cartridge/hooks/cart/calculate.js"
         },
         {
             "name": "dw.order.calculateShipping",
@@ -10,7 +10,7 @@
         },
         {
             "name": "dw.order.calculateTax",
-            "script": "./cartridge/hooks/calculate.js"
+            "script": "./cartridge/hooks/cart/calculate.js"
         },
         {
             "name": "app.payment.processor.default",
