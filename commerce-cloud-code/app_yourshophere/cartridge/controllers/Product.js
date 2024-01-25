@@ -43,8 +43,14 @@ server.get('Show', cache.applyDefaultCache, (req, res, next) => {
         const aspectAttributes = new HashMap();
         aspectAttributes.product = product;
 
-        /* @todo change request.httpQueryString to allow list of proxied params */
-        res.page(page.ID, JSON.stringify({ queryString: request.httpQueryString }), aspectAttributes);
+        const HttpSearchParams = require('api/URLSearchParams');
+
+        // @TODO add PDP allowlist (variation attributes, options, pid)
+        const productParams = new HttpSearchParams(request.httpParameterMap);
+        productParams.sort();
+        const queryString = productParams.toString();
+
+        res.page(page.ID, JSON.stringify({ queryString }), aspectAttributes);
     } else {
         let error = `No page for product ${productId} found`;
         Logger.error(error);

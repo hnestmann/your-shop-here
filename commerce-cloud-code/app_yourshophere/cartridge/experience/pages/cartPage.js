@@ -1,8 +1,7 @@
-'use strict';
-var Template = require('dw/util/Template');
-var HashMap = require('dw/util/HashMap');
-var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
-var RegionModelRegistry = require('*/cartridge/experience/utilities/RegionModelRegistry.js');
+const Template = require('dw/util/Template');
+const HashMap = require('dw/util/HashMap');
+const PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
+const RegionModelRegistry = require('*/cartridge/experience/utilities/RegionModelRegistry.js');
 
 /**
  * Render logic for the storepage.
@@ -23,15 +22,15 @@ exports.render = function render (context) {
 function renderComponent (context) {
     const BasketMgr = require('dw/order/BasketMgr');
 
-    var model = new HashMap();
-    var page = context.page;
+    const model = new HashMap();
+    const page = context.page;
     model.page = page;
 
-    const basket = BasketMgr.getCurrentBasket();
     model.basket = context.content.basket;
 
     // automatically register configured regions
-    var metaDefinition = require('*/cartridge/experience/pages/cartPage.json');
+    const metaDefinition = require('*/cartridge/experience/pages/cartPage.json');
+
     model.regions = new RegionModelRegistry(page, metaDefinition);
 
     // Determine seo meta data.
@@ -58,4 +57,4 @@ function renderComponent (context) {
     // render the page
 
     return new Template('experience/pages/cartpage').render(model).text;
-};
+}

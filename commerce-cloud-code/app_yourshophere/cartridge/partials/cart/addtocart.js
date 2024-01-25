@@ -22,14 +22,14 @@ exports.template = model => `<dialog open>
         aria-label="Close"
         class="close"
         data-target="modal-example"
-        onClick="document.getElementById('cart-modal').innerHTML=''">
+        onClick="this.closest('dialog').outerHTML=''">
     </a>
   <h3>Your product has been added to cart</h3>
   <p>
     ${model.quantity}x - ${model.text} - ${model.price}
   </p>
   <footer>
-    <a href="" role="button" class="secondary" onClick="document.getElementById('cart-modal').innerHTML=''">Continue Shopping</a>
+    <a href="" role="button" class="secondary" onClick="this.closest('dialog').outerHTML=''">Continue Shopping</a>
     <a href="${model.cartUrl}" role="button">Go to cart</a>
   </footer>
 </article>
