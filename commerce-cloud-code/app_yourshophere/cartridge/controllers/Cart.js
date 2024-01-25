@@ -39,7 +39,7 @@ server.use('Add', (req, res, next) => {
     }
 
     if (req.httpParameterMap.hx.stringValue === 'cart-modal') {
-        res.renderPartial('cart/addtocart', { object: { lineitem } });
+        res.renderPartial('cart/addtocart', { object: { lineitem, basket } });
     } else {
         res.redirect('Cart-Show');
     }

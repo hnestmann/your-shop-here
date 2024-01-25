@@ -16,7 +16,6 @@ var TaxMgr = require('dw/order/TaxMgr');
 var Logger = require('dw/system/Logger');
 var Status = require('dw/system/Status');
 var HookMgr = require('dw/system/HookMgr');
-var collections = require('*/cartridge/scripts/util/collections');
 
 /**
  * @function calculate
@@ -92,6 +91,8 @@ exports.calculate = function (basket) {
 
     basket.updateTotals();
 
+    session.privacy.cartItemCount = basket.productQuantityTotal;
+    session.privacy.cartItemValue = basket.totalGrossPrice;
     // ===================================================
     // =====            DONE                         =====
     // ===================================================
@@ -219,9 +220,9 @@ exports.calculateShipping = function(basket) {
  * @param {dw.order.Basket} basket The basket containing the elements for which taxes need to be calculated
  */
 exports.calculateTax = function(basket) {
-    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+    var taxCalculation = require('./taxes');
 
-    var taxes = basketCalculationHelpers.calculateTaxes(basket);
+    var taxes = taxCalculation.calculateTaxes(basket);
 
     // convert taxes into hashmap for performance.
     var taxesMap = {};
@@ -238,7 +239,7 @@ exports.calculateTax = function(basket) {
     var containsGlobalPriceAdjustments = false;
 
     // update taxes for all line items
-    collections.forEach(lineItems, function (lineItem) {
+    lineItems.toArray().forEach(function (lineItem) {
         var tax = taxesMap[lineItem.UUID];
 
         if (tax) {
@@ -265,26 +266,25 @@ exports.calculateTax = function(basket) {
     // besides shipment line items, we need to calculate tax for possible order-level price adjustments
     // this includes order-level shipping price adjustments
     if (!basket.getPriceAdjustments().empty || !basket.getShippingPriceAdjustments().empty) {
-        if (collections.first(basket.getPriceAdjustments(), function (priceAdjustment) {
-            return taxesMap[priceAdjustment.UUID] === null;
-        }) || collections.first(basket.getShippingPriceAdjustments(), function (shippingPriceAdjustment) {
-            return taxesMap[shippingPriceAdjustment.UUID] === null;
-        })) {
-            // tax hook didn't provide taxes for global price adjustment, we need to calculate them ourselves.
-            // calculate a mix tax rate from
+        if (basket.getPriceAdjustments().toArray()
+            .some(priceAdjustment => taxesMap[priceAdjustment.UUID] === null) 
+            || basket.getShippingPriceAdjustments().toArray()
+            .some(shippingPriceAdjustment => taxesMap[shippingPriceAdjustment.UUID] === null)) {
+            // tax hook didn't provide taxes for some (likely global) price adjustment, we need to 
+            // calculate them ourselves. Let's calculate a blended tax rate from the products in cart
             var basketPriceAdjustmentsTaxRate = ((basket.getMerchandizeTotalGrossPrice().value + basket.getShippingTotalGrossPrice().value)
                 / (basket.getMerchandizeTotalNetPrice().value + basket.getShippingTotalNetPrice())) - 1;
 
-                var basketPriceAdjustments = basket.getPriceAdjustments();
-                collections.forEach(basketPriceAdjustments, function (basketPriceAdjustment) {
-                    basketPriceAdjustment.updateTax(basketPriceAdjustmentsTaxRate);
-                });
+            var basketPriceAdjustments = basket.getPriceAdjustments();
+            basketPriceAdjustments.toArray().forEach(function (basketPriceAdjustment) {
+                basketPriceAdjustment.updateTax(basketPriceAdjustmentsTaxRate);
+            });
 
-                var basketShippingPriceAdjustments = basket.getShippingPriceAdjustments();
-                collections.forEach(basketShippingPriceAdjustments, function(basketShippingPriceAdjustment) {
-                    basketShippingPriceAdjustment.updateTax(totalShippingGrossPrice/totalShippingNetPrice - 1);
-                });
-            }
+            var basketShippingPriceAdjustments = basket.getShippingPriceAdjustments();
+            basketShippingPriceAdjustments.toArray().forEach(function(basketShippingPriceAdjustment) {
+                basketShippingPriceAdjustment.updateTax(totalShippingGrossPrice/totalShippingNetPrice - 1);
+            });
+        }
     }
 
     // if hook returned custom properties attach them to the order model
