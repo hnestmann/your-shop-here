@@ -29,7 +29,12 @@ exports.template = model => `<dialog open>
   </p>
   <footer>
     <a href="" role="button" class="secondary" onClick="this.closest('dialog').outerHTML=''">Continue Shopping</a>
-    <a href="${model.cartUrl}" role="button">Go to cart</a>
+    <a href="${model.cartUrl}" role="button"
+        hx-get="${model.cartUrl}?hx=main"
+        hx-target="main"
+        hx-trigger="click"
+        hx-push-url="${model.cartUrl}"
+        hx-indicator=".progress">Go to cart</a>
   </footer>
 </article>
 </dialog>
