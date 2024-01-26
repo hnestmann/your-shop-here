@@ -32,6 +32,7 @@ exports.createModel = function createModel(options) {
     return model;
 };
 
+// @TODO Localise text
 exports.template = model => (model.empty ? 'Your cart is empty' : `<table role="grid">
 <thead>
     <tr>
@@ -44,11 +45,27 @@ exports.template = model => (model.empty ? 'Your cart is empty' : `<table role="
 </thead>
 <tbody>
 ${model.items.map(item => `<tr>
-        <th scope="row">${item.images.map(image => `<img src="${image.url}" alt="${image.alt}"/>`).join('\n')}</th>
+        <th scope="row"><a href="${item.pdpUrl}"
+                hx-get="${item.pdpUrl}?hx=main"
+                hx-target="main"
+                hx-trigger="click"
+                hx-push-url="${item.pdpUrl}"
+                hx-indicator=".progress">
+                    ${item.images.map(image => `<img src="${image.url}" alt="${image.alt}"/>`).join('\n')}
+                </a></th>
         <td>${item.quantity}</td>
-        <td><a href="${item.pdpUrl}">${item.text}</a></td>
+        <td><a href="${item.pdpUrl}"
+                hx-get="${item.pdpUrl}?hx=main"
+                hx-target="main"
+                hx-trigger="click"
+                hx-push-url="${item.pdpUrl}"
+                hx-indicator=".progress">${item.text}</a></td>
         <td>${item.price}</td>
-        <td><a href="${item.deleteUrl}" class="close">Delete</a></td>
+        <td><a href="${item.deleteUrl}" class="close"
+                hx-get="${item.deleteUrl}?hx=main"
+                hx-target="main"
+                hx-trigger="click"
+                hx-indicator=".progress">Delete</a></td>
     </tr>`).join('\n')}
 </tbody>
 <tfoot>
