@@ -166,8 +166,8 @@
   "visibility" : [ ]
 }</config>
         <data xml:lang="x-default">{
-  "imageViewType" : null,
-  "imageDISConfig" : null
+  "imageViewType" : "small",
+  "imageDISConfig" : "sw=90"
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>

@@ -1,17 +1,15 @@
-'use strict';
+const server = require('server');
 
-var server = require('server');
+server.get('Start', (req, res, next) => {
+    const URLRedirectMgr = require('dw/web/URLRedirectMgr');
 
-server.get('Start', function (req, res, next) {
-    var URLRedirectMgr = require('dw/web/URLRedirectMgr');
-
-    var redirect = URLRedirectMgr.redirect;
-    var location = redirect ? redirect.location : null;
-    var redirectStatus = redirect ? redirect.getStatus() : null;
+    const redirect = URLRedirectMgr.redirect;
+    const location = redirect ? redirect.location : null;
+    const redirectStatus = redirect ? redirect.getStatus() : null;
 
     if (!location) {
         res.setStatusCode(404);
-        res.render('pages/notFound');
+        res.render('pages/notfound', { httpParameter: {} });
     } else {
         if (redirectStatus) {
             res.setRedirectStatus(redirectStatus);
@@ -22,12 +20,12 @@ server.get('Start', function (req, res, next) {
     next();
 });
 
-server.get('Hostname', function (req, res, next) {
-    var URLUtils = require('dw/web/URLUtils');
+server.get('Hostname', (req, res, next) => {
+    const URLUtils = require('dw/web/URLUtils');
 
-    var url = req.querystring.Location.stringValue;
-    var hostRegExp = new RegExp('^https?://' + req.httpHost + '(?=/|$)');
-    var location;
+    const url = req.querystring.Location.stringValue;
+    const hostRegExp = new RegExp('^https?://' + req.httpHost + '(?=/|$)');
+    let location;
 
     if (!url || !hostRegExp.test(url)) {
         location = URLUtils.httpHome().toString();

@@ -9,27 +9,35 @@ exports.createModel = function createModel(options) {
         text: lineitem.lineItemText,
         price: StringUtils.formatMoney(lineitem.price),
         cartUrl: URLUtils.url('Cart-Show'),
+        itemCount: options.basket.productQuantityTotal,
     };
 
     return model;
 };
 
-// @todo implement dialog close. Maybe via checkbox trick. Investigate vanilla browser functions
 exports.template = model => `<dialog open>
 <article>
     <a href="#close"
         aria-label="Close"
         class="close"
         data-target="modal-example"
-        onClick="">
+        onClick="this.closest('dialog').outerHTML=''">
     </a>
   <h3>Your product has been added to cart</h3>
   <p>
     ${model.quantity}x - ${model.text} - ${model.price}
   </p>
   <footer>
-    <a href="" role="button" class="secondary">Continue Shopping</a>
-    <a href="${model.cartUrl}" role="button">Go to cart</a>
+    <a href="" role="button" class="secondary" onClick="this.closest('dialog').outerHTML=''">Continue Shopping</a>
+    <a href="${model.cartUrl}" role="button"
+        hx-get="${model.cartUrl}?hx=main"
+        hx-target="main"
+        hx-trigger="click"
+        hx-push-url="${model.cartUrl}"
+        hx-indicator=".progress">Go to cart</a>
   </footer>
 </article>
-</dialog>`;
+</dialog>
+<div hx-swap-oob="innerHTML:#minicart-items">
+    ${model.itemCount}
+</div>`;

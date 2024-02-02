@@ -1,4 +1,4 @@
-exports.createModel = function createModel() {
+exports.createModel = function createModel(options) {
     const BasketMgr = require('dw/order/BasketMgr');
     const StringUtils = require('dw/util/StringUtils');
     const URLUtils = require('dw/web/URLUtils');
@@ -18,6 +18,11 @@ exports.createModel = function createModel() {
             quantity: item.quantityValue,
             text: item.lineItemText,
             price: StringUtils.formatMoney(item.price),
+            images: item.product.getImages(options.settings.imageViewType || 'small').toArray().slice(0, 1).map(image => ({
+                url: `${image.url}?${options.settings.imageDISConfig}`,
+                alt: image.alt,
+            })), // @TODO .push(<placeholderimage>)
+            pdpUrl: URLUtils.url('Product-Show', 'pid', item.productID).toString(),
             deleteUrl: URLUtils.url('Cart-Delete', 'id', item.UUID).toString(),
         })),
         merchandiseTotal: StringUtils.formatMoney(basket.adjustedMerchandizeTotalPrice),
@@ -27,10 +32,11 @@ exports.createModel = function createModel() {
     return model;
 };
 
+// @TODO Localise text
 exports.template = model => (model.empty ? 'Your cart is empty' : `<table role="grid">
 <thead>
     <tr>
-        <th scope="col">#</th>
+        <th scope="col"></th>
         <th scope="col">Quantity</th>
         <th scope="col">Product</th>
         <th scope="col">Price</th>
@@ -39,11 +45,27 @@ exports.template = model => (model.empty ? 'Your cart is empty' : `<table role="
 </thead>
 <tbody>
 ${model.items.map(item => `<tr>
-        <th scope="row">1</th>
+        <th scope="row"><a href="${item.pdpUrl}"
+                hx-get="${item.pdpUrl}?hx=main"
+                hx-target="main"
+                hx-trigger="click"
+                hx-push-url="${item.pdpUrl}"
+                hx-indicator=".progress">
+                    ${item.images.map(image => `<img src="${image.url}" alt="${image.alt}"/>`).join('\n')}
+                </a></th>
         <td>${item.quantity}</td>
-        <td>${item.text}</td>
+        <td><a href="${item.pdpUrl}"
+                hx-get="${item.pdpUrl}?hx=main"
+                hx-target="main"
+                hx-trigger="click"
+                hx-push-url="${item.pdpUrl}"
+                hx-indicator=".progress">${item.text}</a></td>
         <td>${item.price}</td>
-        <td><a href="${item.deleteUrl}">Delete</a></td>
+        <td><a href="${item.deleteUrl}" class="close"
+                hx-get="${item.deleteUrl}?hx=main"
+                hx-target="main"
+                hx-trigger="click"
+                hx-indicator=".progress">Delete</a></td>
     </tr>`).join('\n')}
 </tbody>
 <tfoot>
