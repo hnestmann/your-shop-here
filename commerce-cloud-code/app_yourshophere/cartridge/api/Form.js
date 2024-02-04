@@ -21,19 +21,22 @@ function Form(name) {
 Form.prototype.rows = function () {
     const CacheMgr = require('dw/system/CacheMgr');
     const rowCache = CacheMgr.getCache('Form');
+    const Resource = require('dw/web/Resource');
     const cachedRows = rowCache.get(this.name + JSON.stringify(this.scope), () => {
         const rowMap = {};
         const rowArray = [];
         Object.keys(this.definition).forEach((fieldId) => {
             const field = this.definition[fieldId];
             field.fieldId = fieldId;
-            if (field.rowid) {
-                if (!rowMap[field.rowid]) {
-                    rowMap[field.rowid] = [];
-                    rowArray.push(rowMap[field.rowid]);
+
+            field.label = Resource.msg(`forms.labels.${fieldId}`, 'translations', null);
+            if (field.rowId) {
+                if (!rowMap[field.rowId]) {
+                    rowMap[field.rowId] = [];
+                    rowArray.push(rowMap[field.rowId]);
                 }
 
-                rowMap[field.rowid].push(field);
+                rowMap[field.rowId].push(field);
             } else {
                 rowMap[fieldId] = [field];
                 rowArray.push(rowMap[fieldId]);
@@ -43,6 +46,48 @@ Form.prototype.rows = function () {
     });
 
     return cachedRows;
+};
+
+Form.prototype.validate = function (parameterMap) {
+    const invalidFields = [];
+    Object.keys(this.definition).forEach((fieldId) => {
+        const field = this.definition[fieldId];
+
+        if (field.validation && !field.validation(parameterMap[fieldId].stringValue)) {
+            invalidFields.push(fieldId);
+        }
+    });
+    return { ok: invalidFields.length === 0, invalidFields };
+};
+
+Form.prototype.persist = function (businessObject, parameterMap) {
+    Object.keys(this.definition).forEach((fieldId) => {
+        const field = this.definition[fieldId];
+
+        if (field.mapping && field.mapping.persist) {
+            field.mapping.persist(businessObject, parameterMap[fieldId].stringValue);
+        } else {
+            businessObject[fieldId] = parameterMap[fieldId].stringValue;
+        }
+    });
+};
+
+Form.prototype.rowValues = function (businessObject, parameterMap) {
+    const result = {};
+    Object.keys(this.definition).forEach((fieldId) => {
+        const field = this.definition[fieldId];
+
+        if (field.mapping && field.mapping.load) {
+            result[fieldId] = field.mapping.load(businessObject);
+        } else {
+            result[fieldId] = businessObject[fieldId];
+        }
+    });
+    const rows = JSON.parse(JSON.stringify(this.rows()));
+    rows.forEach((row) => row.forEach((field) => {
+        field.value = result[field.fieldId];
+    }));
+    return rows;
 };
 
 module.exports = Form;

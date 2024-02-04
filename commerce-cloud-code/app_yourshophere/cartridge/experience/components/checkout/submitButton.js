@@ -5,8 +5,9 @@
  * @returns {string} The template to be displayed
  */
 exports.render = function render(context) {
-    const result = require('*/cartridge/partials/renderer').html('checkout/addresses')({
+    const result = require('*/cartridge/partials/renderer').html('checkout/submitButton')({
         forceEdit: request.custom.model.forceEdit,
+        settings: context.content,
     });
     return result;
 };

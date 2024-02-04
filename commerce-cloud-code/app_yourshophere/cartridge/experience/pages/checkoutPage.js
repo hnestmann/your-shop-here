@@ -24,7 +24,8 @@ function renderComponent(context) {
     const model = new HashMap();
     const page = context.page;
     const metaDefinition = require('*/cartridge/experience/pages/checkoutPage.json');
-
+    request.custom.model = new HashMap();
+    request.custom.model.forceEdit = context.renderParameters && JSON.parse(context.renderParameters).forceEdit;
     model.regions = new RegionModelRegistry(page, metaDefinition);
     return template(model);
 }

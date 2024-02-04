@@ -178,7 +178,7 @@ function Response(response) {
 function appendRenderings(renderings, object) {
     let hasRendering = false;
 
-    if (renderings.length) {
+    if (!object.force && renderings.length) {
         for (let i = renderings.length - 1; i >= 0; i--) {
             if (renderings[i].type === 'render') {
                 renderings[i] = object; // eslint-disable-line no-param-reassign
@@ -205,6 +205,21 @@ Response.prototype = {
         this.viewData = Object.assign(this.viewData, data);
 
         appendRenderings(this.renderings, { type: 'render', subType: 'partial', view: name });
+    },
+
+    /**
+     * Stores template name and data for rendering at the later time
+     * @param {string} name - Path to a template
+     * @param {Object} data - Data to be passed to the template
+     * @returns {void}
+     */
+    appendPartial: function renderPartial(name, data) {
+        this.view = name;
+        this.viewData = Object.assign(this.viewData, data);
+
+        appendRenderings(this.renderings, {
+            type: 'render', subType: 'partial', view: name, force: true,
+        });
     },
     /**
      * Stores template name and data for rendering at the later time
@@ -622,7 +637,6 @@ function applyRenderings(res) {
             if (element.type === 'render') {
                 switch (element.subType) {
                     case 'partial':
-                        var resp = res;
                         require('*/cartridge/partials/renderer').render(element.view)(res.viewData.object);
                         break;
                     case 'isml':
