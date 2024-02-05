@@ -1,5 +1,7 @@
 # your-shop-here
 an experimental reference storefront for b2c commerce 
+It's a hobby project with no direct affiliation to Saleforce, Inc.
+
 # Goals
 - 100 Points at Lighthouse
     - Limited Javascript / Small Dom / No JSON ajax 
