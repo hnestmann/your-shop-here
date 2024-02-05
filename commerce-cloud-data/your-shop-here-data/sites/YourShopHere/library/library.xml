@@ -448,7 +448,7 @@
 }</config>
         <data xml:lang="x-default">{
   "inParagraph" : "Yes",
-  "richText" : "&lt;p&gt;&lt;img src=\"sfdc-logo.svg?$staticlink$\"&gt;Your Shop Here Checkout&lt;/p&gt;",
+  "richText" : "&lt;p&gt;&lt;img src=\"unofficial.svg?$staticlink$\"&gt;Your Shop Here Checkout&lt;/p&gt;",
   "align" : "center"
 }</data>
         <online-flag>true</online-flag>
