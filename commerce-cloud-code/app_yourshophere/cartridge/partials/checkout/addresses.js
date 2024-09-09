@@ -11,32 +11,40 @@ exports.createModel = function createModel(input) {
     const Resource = require('dw/web/Resource');
 
     model.rows = form.rows();
-    if (basket.billingAddress) {
+    const address = basket.billingAddress || form.getTemp();
+    if (address) {
         if (input && input.forceEdit && input.forceEdit.includes('address')) {
             model.showForm = true;
             model.showCancel = true;
         } else {
             model.showForm = false;
         }
-        model.address = basket.billingAddress;
-        model.rows = form.rowValues(basket.billingAddress);
+        model.address = address;
+        model.rows = form.rowValues(address);
         model.editUrl = URLUtils.url('Checkout-Show', 'forceEdit', 'address');
         model.hxEditUrl = URLUtils.url('Checkout-Show', 'hxpartial', 'checkout/addresses', 'forceEdit', 'address');
         model.editLabel = Resource.msg('edit', 'translations', null);
     }
     // self-reference, so Checkout Save Addresses comes back here.
     // If you base your own pd components on this, dont copy and paste this without swapping the partial
-    model.hxActionUrl = URLUtils.url('Checkout-SaveAddresses').append('hxpartial', 'checkout/addresses');
+    model.hxActionUrl = URLUtils.url('Checkout-SaveAddresses', 'hxpartial', 'checkout/addresses', 'forceEdit', 'address');
+
     model.actionUrl = URLUtils.url('Checkout-SaveAddresses');
 
     return model;
 };
 
-function input(field) {
+function inputControl(field, model) {
     return `
     <label for="${field.fieldId}">
       ${field.label}
-      <input type="${field.type}" name="${field.fieldId}" id="${field.fieldId}" placeholder="${field.label}" value="${field.value || ''}" />
+      <input type="${field.type}" 
+        name="${field.fieldId}" 
+        id="${field.fieldId}" 
+        placeholder="${field.label}" 
+        value="${field.value || ''}" 
+        hx-post="${model.hxActionUrl}" 
+        hx-trigger="change"/>
     </label>
     `;
 }
@@ -45,9 +53,9 @@ function display(field) {
     return `<span>${field.value || ''} <span>`;
 }
 
-function inputRow(row) {
+function inputRow(row, model) {
     return `<div class="grid" id="row-${row[0].rowId || row[0].fieldId}">
-    ${(row).map((field) => input(field)).join('')}
+    ${(row).map((field) => inputControl(field, model)).join('')}
     </div>`;
 }
 
@@ -58,7 +66,7 @@ function displayRow(row) {
 }
 
 function renderForm(model) {
-    const fields = model.rows.map((row) => inputRow(row)).join('');
+    const fields = model.rows.map((row) => inputRow(row, model)).join('');
     // @todo allow different shipping address
     return `<form hx-post="${model.hxActionUrl}" hx-target="this" hx-swap="outerHTML" method="post" action="${model.actionUrl}">
       ${fields}

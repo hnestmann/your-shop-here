@@ -202,7 +202,7 @@ Response.prototype = {
      */
     renderPartial: function renderPartial(name, data) {
         this.view = name;
-        this.viewData = Object.assign(this.viewData, data);
+        this.viewData[name] = data;
 
         appendRenderings(this.renderings, { type: 'render', subType: 'partial', view: name });
     },
@@ -215,7 +215,7 @@ Response.prototype = {
      */
     appendPartial: function renderPartial(name, data) {
         this.view = name;
-        this.viewData = Object.assign(this.viewData, data);
+        this.viewData[name] = data;
 
         appendRenderings(this.renderings, {
             type: 'render', subType: 'partial', view: name, force: true,
@@ -637,7 +637,7 @@ function applyRenderings(res) {
             if (element.type === 'render') {
                 switch (element.subType) {
                     case 'partial':
-                        require('*/cartridge/partials/renderer').render(element.view)(res.viewData.object);
+                        require('*/cartridge/partials/renderer').render(element.view)(res.viewData[element.view] ? res.viewData[element.view].object : {});
                         break;
                     case 'isml':
                         template(element.view, res.viewData);

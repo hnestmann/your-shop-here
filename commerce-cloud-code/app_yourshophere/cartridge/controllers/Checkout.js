@@ -35,10 +35,14 @@ server.post('SaveAddresses', (req, res, next) => {
 
             HookMgr.callHook('dw.order.calculate', 'calculate', basket);
         });
+    } else {
+        form.temp(request.httpParameterMap);
     }
+    const options = { object: { forceEdit: request.httpParameterMap.forceEdit.stringValue } };
+
     const hxPartial = request.httpParameterMap.hxpartial;
     if (hxPartial.submitted) {
-        res.renderPartial(hxPartial.stringValue);
+        res.renderPartial(hxPartial.stringValue, options);
         if (session.privacy.submitPartialId) {
             res.appendPartial(session.privacy.submitPartialId, { object: { outOfBandSwap: true } });
         }

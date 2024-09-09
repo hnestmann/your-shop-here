@@ -31,7 +31,7 @@ function renderComponent(context) {
 }
 
 function template(model) {
-    return `<html lang="${model.lang}" data-theme="light">
+    return `<!DOCTYPE html><html lang="${model.lang}" data-theme="light">
 
     <head>
         ${require('partials').html('global/htmlhead')()}
