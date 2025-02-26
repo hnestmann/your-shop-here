@@ -4,10 +4,8 @@ exports.createModel = function createModel(options) {
     const model = {
         images: variationModel.getImages(options.settings.viewType).toArray()
             .slice(0, options.settings.imageCount).map((image, index) => ({
-            .slice(0, options.settings.imageCount).map((image, index) => ({
                 url: image.url,
                 alt: image.alt,
-                id: `slide-${index + 1}`, // Add unique ID for each slide
                 id: `slide-${index + 1}`, // Add unique ID for each slide
             })),
     };

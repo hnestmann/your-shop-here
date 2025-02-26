@@ -149,6 +149,8 @@ img {
 .slider-track {
     display: flex;
     transition: transform 0.5s ease-in-out; /* Adjust transition speed as needed */
+    will-change: transform; /* Add this line */
+    transform: translateZ(0); /* Add this line */
 }
 
 .slide {
@@ -161,9 +163,9 @@ img {
     position: absolute;
     bottom: 10px;
     left: 50%;
-    transform: translateX(-50%);
     display: flex;
     gap: 5px;
+    transform: translateX(-50%);
 }
 
 .slider-nav label {
@@ -191,9 +193,7 @@ img {
 
 /* Hide radio buttons visually while keeping them accessible */
 .slide input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none; 
+    display: none;
 }
 
 /* Slide positioning based on checked radio button */
