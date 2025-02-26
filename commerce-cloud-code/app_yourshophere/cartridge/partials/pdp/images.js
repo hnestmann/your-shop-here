@@ -4,8 +4,10 @@ exports.createModel = function createModel(options) {
     const model = {
         images: variationModel.getImages(options.settings.viewType).toArray()
             .slice(0, options.settings.imageCount).map((image, index) => ({
+            .slice(0, options.settings.imageCount).map((image, index) => ({
                 url: image.url,
                 alt: image.alt,
+                id: `slide-${index + 1}`, // Add unique ID for each slide
                 id: `slide-${index + 1}`, // Add unique ID for each slide
             })),
     };
@@ -26,7 +28,7 @@ exports.template = model => `
         </div>
         <div class="slider-nav">
             ${model.images.map(image => `
-                <label for="${image.id}-radio" class="nav-dot ${image.id === 'slide-1' ? 'active' : ''}"></label>
+                <label for="${image.id}-radio" class="nav-dot"></label>
             `).join('\n')}
         </div>
     </div>

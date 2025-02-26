@@ -176,15 +176,15 @@ img {
 }
 
 /* Style the dot when its corresponding radio button is checked */
-.slide #slide-1-radio:checked + .slider-nav .nav-dot:nth-child(1) {
+.image-slider:has( #slide-1-radio:checked) .slider-nav .nav-dot:nth-child(1) {
   background-color: #333;
 }
 
-.slide #slide-2-radio:checked + .slider-nav .nav-dot:nth-child(2) {
+.image-slider:has( #slide-2-radio:checked) .slider-nav .nav-dot:nth-child(2) {
   background-color: #333;
 }
 
-.slide #slide-3-radio:checked + .slider-nav .nav-dot:nth-child(3) {
+.image-slider:has( #slide-3-radio:checked) .slider-nav .nav-dot:nth-child(3) {
   background-color: #333;
 }
 /* Add more rules for additional slides */
