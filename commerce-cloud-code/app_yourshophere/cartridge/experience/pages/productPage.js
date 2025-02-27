@@ -17,7 +17,9 @@ exports.render = function render (context) {
         const Logger = require('api/Logger');
         Logger.error(`Exception on rendering page designer component: ${e.message} at '${e.fileName}:${e.lineNumber}'`)
     }
-}
+
+    return '';
+};
 
 function renderComponent (context) {
     var model = new HashMap();
@@ -60,4 +62,4 @@ function renderComponent (context) {
     // render the page
 
     return new Template('experience/pages/pdpage').render(model).text;
-};
+}

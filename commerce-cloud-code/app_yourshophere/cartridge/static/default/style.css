@@ -15,10 +15,102 @@ img {
     shape-margin: 0.75rem;
 }
 
+/** PLP **/
+
+.refinements ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;       /* Remove default padding */
+  }
+  
+  .refinements li {
+    list-style: none; /* Remove bullet points */
+    font-size: 0.9em; /* Reduce text size slightly */
+    margin-bottom: 5px;  /* Add spacing between items */
+  }
+  
+  .refinements a { /* Style the link directly */
+    display: block;    /* Make it a block-level element */
+    padding: 8px 12px;   /* Add padding for the box */
+    border: 1px solid #eee; /* Add a subtle border */
+    border-radius: 5px;   /* Add rounded corners */
+    margin-right: 10px;  /* Add margin to the right */ 
+  }
+
+  .refinements a:hover { /* Style the link on hover */
+    background-color: #eee; /* Change background color on hover */
+    text-decoration: none;
+  }
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+}
+
+.product-grid article {
+    display: flex;
+    flex-direction: column;
+    /* Use flexbox for easier alignment */
+    padding: 10px; /* Add padding back to the article */
+}
+
+.product-grid article > * {  /* Target direct children of article */
+    width: 100%;                /* Make header, body, footer full width */
+}
+
+.product-grid article header {
+    text-align: center;
+    font-size: 1.1em;
+    /* Make the name a bit larger */
+    margin: 0 0 10px 0;
+    /* Add some space below the header */
+    height: 4.5em;
+}
+
+.product-grid article img {
+    width: 100%;
+    /* Image takes full container width */
+    height: auto;
+}
+
+.product-grid article .price, .product-grid article .strike {
+    margin-top: 10px;
+    /* Add space above the price */
+    text-align: center;
+    /* Center the price horizontally */
+
+}
+
+.product-grid article .swatches {
+    display: flex;                /* Make swatches a flex container */
+    gap: 5px;                    /* Adjust gap between swatches */
+    margin-top: 10px;             /* Space above swatches */
+    justify-content: center;     /* Center the swatches horizontally */
+}
+
+.product-grid article .swatches a {  /* Target swatch links */
+    width: 20px;                 /* Adjust swatch size as needed */
+    height: 20px;
+}
+
+.product-grid article .swatches img { /* Target swatch images */
+    width: 100%;                 /* Ensure swatch images fill the link */
+    height: 100%;
+    display: block;               /* Prevent extra space below image */
+}
+
+.product-grid article footer {
+    margin: 0;
+    padding: 0;
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+.product-grid article button {
+    padding: 8px 16px;
+    /* Adjust padding as needed */
+    align-self: center;
+    /* Center the button horizontally */
+    margin-top: 10px;             /* Space above the button */
 }
 
 .strike {
@@ -39,3 +131,73 @@ img {
     color: #eb4646;
     list-style-type: none;
 }
+
+/** PDP **/
+
+/* Image Slider Styles */
+.image-slider {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.slider-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Adjust transition speed as needed */
+    will-change: transform; /* Add this line */
+    transform: translateZ(0); /* Add this line */
+}
+
+.slide {
+    list-style: none;
+    width: 100%;
+    flex-shrink: 0; /* Prevent slides from shrinking */
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    display: flex;
+    gap: 5px;
+    transform: translateX(-50%);
+}
+
+.slider-nav label {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+/* Style the dot when its corresponding radio button is checked */
+.image-slider:has( #slide-1-radio:checked) .slider-nav .nav-dot:nth-child(1) {
+  background-color: #333;
+}
+
+.image-slider:has( #slide-2-radio:checked) .slider-nav .nav-dot:nth-child(2) {
+  background-color: #333;
+}
+
+.image-slider:has( #slide-3-radio:checked) .slider-nav .nav-dot:nth-child(3) {
+  background-color: #333;
+}
+/* Add more rules for additional slides */
+
+/* Hide radio buttons visually while keeping them accessible */
+.slide input[type="radio"] {
+    display: none;
+}
+
+/* Slide positioning based on checked radio button */
+.slider-track:has( .slide #slide-1-radio:checked ) { transform: translateX(0%); }
+.slider-track:has( .slide #slide-2-radio:checked ) { transform: translateX(-100%); }
+.slider-track:has( .slide #slide-3-radio:checked ) { transform: translateX(-200%); }
+/* Add more rules for additional slides if needed */
