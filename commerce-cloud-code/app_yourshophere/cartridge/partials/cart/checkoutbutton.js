@@ -7,7 +7,7 @@ exports.createModel = function createModel(product) {
     const model = {
         disabled: currentBasket == null || currentBasket.getTotalGrossPrice().value === 0,
         title: Resource.msg('checkout', 'translations', null),
-        url: URLUtils.url('Checkout-Start').toString(),
+        url: URLUtils.url('Checkout-Show').toString(),
     }; // eslint-disable-line no-undef
 
     return model;
@@ -20,7 +20,7 @@ exports.createModel = function createModel(product) {
 exports.template = model => `
 <button class="checkout btn btn-primary"
     ${model.disabled ? 'disabled' : ''}
-    hx-get="${model.url}"
+    hx-post="${model.url}"
     hx-trigger="click"
     hx-indicator=".progress">
     ${model.title}
