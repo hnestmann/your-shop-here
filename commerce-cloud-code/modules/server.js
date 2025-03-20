@@ -512,8 +512,6 @@ function post(req, res, next) {
     if (request.httpMethod === 'POST') {
         next();
     } else if (request.httpMethod === 'OPTIONS') {
-        const Response = require('dw/system/Response');
-
         res.setStatusCode(204);
         res.setHttpHeader(Response.ALLOW, 'OPTIONS,POST');
         res.print('');

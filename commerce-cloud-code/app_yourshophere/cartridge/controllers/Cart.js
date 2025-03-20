@@ -1,23 +1,25 @@
 'use strict';
 
 const server = require('server');
+const Logger = require('dw/system/Logger').getLogger('Cart');
 
 server.use('Show', (req, res, next) => {
     const BasketMgr = require('dw/order/BasketMgr');
     const HookMgr = require('dw/system/HookMgr');
     const Transaction = require('dw/system/Transaction');
     const ShippingMgr = require('dw/order/ShippingMgr');
+    const HttpSearchParams = require('api/URLSearchParams');
     const basket = BasketMgr.getCurrentOrNewBasket();
 
     Transaction.wrap(() => {
-        // set default shipping method
-        if (!basket.defaultShipment.shippingMethod) {
-            basket.defaultShipment.shippingMethod = ShippingMgr.getDefaultShippingMethod();
-        }
         HookMgr.callHook('dw.order.calculate', 'calculate', basket);
     });
 
-    res.page('cart', request.httpQueryString);
+    const productParams = new HttpSearchParams(request.httpParameterMap);
+    productParams.sort();
+    const queryString = productParams.toString();
+
+    res.page('cart', JSON.stringify({ queryString }));
     next();
 });
 
@@ -26,7 +28,9 @@ server.use('Add', (req, res, next) => {
     const Transaction = require('dw/system/Transaction');
     const ProductMgr = require('dw/catalog/ProductMgr');
     const HookMgr = require('dw/system/HookMgr');
+    const URLUtils = require('dw/web/URLUtils');
 
+    const redirectUrl = request.httpParameterMap.hx.submitted ? URLUtils.url('Cart-Show', 'hx', request.httpParameterMap.hx.stringValue || '') : URLUtils.url('Cart-Show');
     const basket = BasketMgr.getCurrentOrNewBasket();
 
     const pid = req.httpParameterMap.pid.stringValue;
@@ -49,7 +53,8 @@ server.use('Add', (req, res, next) => {
             HookMgr.callHook('dw.order.calculate', 'calculate', basket);
         });
     } else {
-        // @todo error handling
+        res.redirect(redirectUrl.append('error', 'error.product.idnotprovided'));
+        return next();
     }
 
     if (req.httpParameterMap.hx.stringValue === 'cart-modal') {
@@ -76,16 +81,20 @@ server.use('Delete', (req, res, next) => {
         Transaction.wrap(() => {
             if (lineitem) {
                 basket.removeProductLineItem(lineitem);
+            } else {
+                Logger.info(`Lineitem with UUID ${uuid} not found`);
+                redirectUrl.append('error', 'error.lineitem.notfound');
             }
             HookMgr.callHook('dw.order.calculate', 'calculate', basket);
         });
     } else {
-        // @todo error handling
+        Logger.info(`Error while attempting to remove lineitem with UUID ${uuid}`);
+        redirectUrl.append('error', 'error.lineitem.notremoved');
     }
 
     res.redirect(redirectUrl);
 
-    next();
+    return next();
 });
 
 /**
@@ -104,20 +113,18 @@ function updateQuantity(req, res, next) {
 
     const basket = BasketMgr.getCurrentBasket();
     const uuid = request.httpParameterMap.uuid.stringValue;
-    const newQuantity =request.httpParameterMap.quantity.doubleValue;
+    const newQuantity = request.httpParameterMap.quantity.doubleValue;
 
     if (!basket) {
-        // @todo error handling
-        res.redirect(redirectUrl);
-
+        res.redirect(redirectUrl.append('error', 'error.basket.missing'));
         return next();
     }
 
     const lineItem = basket.getAllProductLineItems().toArray().filter((lineitem) => (lineitem.UUID === uuid)).pop();
 
     if (!lineItem) {
-        // @todo error handling
-        res.redirect(redirectUrl);
+        Logger.info(`No line item with UUID ${uuid} found`);
+        res.redirect(redirectUrl.append('error', 'error.lineitem.notfound'));
         return next();
     }
 
@@ -144,7 +151,6 @@ server.use('UpdateQuantity', updateQuantity);
 server.use('UpdateShipping', (req, res, next) => {
     const BasketMgr = require('dw/order/BasketMgr');
     const Transaction = require('dw/system/Transaction');
-    const Resource = require('dw/web/Resource');
     const URLUtils = require('dw/web/URLUtils');
     const ShippingMgr = require('dw/order/ShippingMgr');
     const basket = BasketMgr.getCurrentBasket();
@@ -153,7 +159,7 @@ server.use('UpdateShipping', (req, res, next) => {
 
     if (!basket) {
         // Handle the case where there is no basket
-        res.redirect(redirectUrl.append('error', Resource.msg('error.basket.missing', 'cart', null)));
+        res.redirect(redirectUrl.append('error', 'error.basket.missing'));
         return next();
     }
 
@@ -161,13 +167,13 @@ server.use('UpdateShipping', (req, res, next) => {
 
     if (!shipment) {
         // Handle the case where there is no shipment
-        res.redirect(redirectUrl.append('error', Resource.msg('error.shipment.missing', 'cart', null)));
+        res.redirect(redirectUrl.append('error', 'error.shipment.missing'));
         return next();
     }
 
     if (!shippingMethodID) {
         // Handle the case where shippingMethod parameter is missing
-        res.redirect(redirectUrl.append('error', Resource.msg('error.shippingmethodid.missing', 'cart', null)));
+        res.redirect(redirectUrl.append('error', 'error.shippingmethodid.missing'));
         return next();
     }
 
@@ -175,7 +181,7 @@ server.use('UpdateShipping', (req, res, next) => {
 
     if (!shippingMethod) {
         // Handle the case where the shipping method is not found
-        res.redirect(redirectUrl.append('error', Resource.msg('error.shippingmethod.notfound', 'cart', null)));
+        res.redirect(redirectUrl.append('error', 'error.shippingmethod.notfound'));
         return next();
     }
 
@@ -184,7 +190,7 @@ server.use('UpdateShipping', (req, res, next) => {
     });
 
     // Redirect to the cart page with a success message
-    res.redirect(redirectUrl.append('success', Resource.msg('info.shipping.updated', 'cart', null)));
+    res.redirect(redirectUrl.append('success', 'info.shipping.updated'));
     return next();
 });
 
@@ -194,16 +200,20 @@ server.post('AddCoupon', server.middleware.https, (req, res, next) => {
     const Transaction = require('dw/system/Transaction');
 
     const CouponStatusCodes = require('dw/campaign/CouponStatusCodes');
-    const currentBasket = BasketMgr.getCurrentOrNewBasket();
+    const currentBasket = BasketMgr.getCurrentBasket();
     const couponCode = req.httpParameterMap.couponCode.stringValue;
     const redirectUrl = request.httpParameterMap.hx.submitted ? URLUtils.url('Cart-Show', 'hx', request.httpParameterMap.hx.stringValue || '') : URLUtils.url('Cart-Show');
 
     if (!currentBasket) {
-        // Could log this error for monitoring
+        res.redirect(redirectUrl.append('error','error.basket.empty'));
+        Logger.info('No basket found');
+        return next();
     }
 
     if (!couponCode) {
-        // Could log this error
+        res.redirect(redirectUrl.append('error','error.couponcode.missing'));
+        Logger.info('No coupon code provided');
+        return next();
     }
 
     try {
@@ -212,7 +222,9 @@ server.post('AddCoupon', server.middleware.https, (req, res, next) => {
         });
     } catch (e) {
         if (e.errorCode === CouponStatusCodes.COUPON_CODE_ALREADY_IN_BASKET) {
-            // ...
+            res.redirect(redirectUrl.append('error','error.couponcode.alreadyinbasket'));
+            Logger.info('Coupon code already in basket');
+            return next();
         }
     }
 
@@ -227,13 +239,14 @@ server.get('RemoveCoupon', server.middleware.https, (req, res, next) => {
     const URLUtils = require('dw/web/URLUtils');
     const Transaction = require('dw/system/Transaction');
 
-    const CouponStatusCodes = require('dw/campaign/CouponStatusCodes');
     const currentBasket = BasketMgr.getCurrentOrNewBasket();
     const index = req.httpParameterMap.index.intValue || 0;
     const redirectUrl = request.httpParameterMap.hx.submitted ? URLUtils.url('Cart-Show', 'hx', request.httpParameterMap.hx.stringValue || '') : URLUtils.url('Cart-Show');
 
     if (currentBasket.couponLineItems.length <= index) {
-        // Could log this error
+        res.redirect(redirectUrl.append('error','error.coupon.invalidindex'));
+        Logger.info('Invalid coupon index');
+        return next();
     }
 
     try {
@@ -241,9 +254,8 @@ server.get('RemoveCoupon', server.middleware.https, (req, res, next) => {
             currentBasket.removeCouponLineItem(currentBasket.couponLineItems[index]);
         });
     } catch (e) {
-        if (e.errorCode === CouponStatusCodes.COUPON_CODE_ALREADY_IN_BASKET) {
-            // ...
-        }
+        redirectUrl.append('error','error.coupon.removefailed');
+        Logger.info('Failed to remove coupon');
     }
 
     // If successful, redirect to the cart page

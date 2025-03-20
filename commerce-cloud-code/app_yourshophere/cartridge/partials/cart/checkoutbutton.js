@@ -20,8 +20,9 @@ exports.createModel = function createModel(product) {
 exports.template = model => `
 <button class="checkout btn btn-primary"
     ${model.disabled ? 'disabled' : ''}
-    hx-post="${model.url}"
+    hx-get="${model.url}"
     hx-trigger="click"
+    hx-target="main"
     hx-indicator=".progress">
     ${model.title}
 </button>`;
