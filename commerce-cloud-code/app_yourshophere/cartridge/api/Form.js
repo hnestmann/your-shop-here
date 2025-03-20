@@ -70,6 +70,7 @@ Form.prototype.persist = function (businessObject, parameterMap) {
             businessObject[fieldId] = parameterMap[fieldId].stringValue;
         }
     });
+    return businessObject;
 };
 
 Form.prototype.rowValues = function (businessObject, parameterMap) {
@@ -88,6 +89,21 @@ Form.prototype.rowValues = function (businessObject, parameterMap) {
         field.value = result[field.fieldId];
     }));
     return rows;
+};
+
+Form.prototype.temp = function (parameterMap) {
+    const CacheMgr = require('dw/system/CacheMgr');
+    let tempObject = { custom: {} };
+    tempObject = this.persist(tempObject, parameterMap);
+    const tempCache = CacheMgr.getCache('Form');
+    tempCache.put(this.name + session.sessionID, tempObject);
+    return tempObject;
+};
+
+Form.prototype.getTemp = function () {
+    const CacheMgr = require('dw/system/CacheMgr');
+    const tempCache = CacheMgr.getCache('Form');
+    return tempCache.get(this.name + session.sessionID);
 };
 
 module.exports = Form;
