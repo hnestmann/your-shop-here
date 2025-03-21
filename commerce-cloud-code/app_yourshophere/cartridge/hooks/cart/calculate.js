@@ -192,6 +192,11 @@ function calculateGiftCertificatePrices (basket) {
 }
 
 exports.calculateShipping = function(basket) {
+    // set default shipping method if none is set
+    if (basket.defaultShipment && !basket.defaultShipment.shippingMethod) {
+        basket.defaultShipment.shippingMethod = ShippingMgr.getDefaultShippingMethod();
+    }
+
     ShippingMgr.applyShippingCost(basket);
     return new Status(Status.OK);
 }
